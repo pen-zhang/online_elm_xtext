@@ -1,0 +1,30 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: org.xtext.online_elm
+Bundle-ManifestVersion: 2
+Bundle-Name: org.xtext.online_elm
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: org.xtext.online_elm; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.xtext.xbase.lib;bundle-version="2.14.0",
+ org.eclipse.xtext.util,
+ org.eclipse.emf.common,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Export-Package: org.xtext.online_elm.serializer,
+ org.xtext.online_elm.services,
+ org.xtext.online_elm.onlineElm.impl,
+ org.xtext.online_elm.scoping,
+ org.xtext.online_elm.generator,
+ org.xtext.online_elm.validation,
+ org.xtext.online_elm.onlineElm,
+ org.xtext.online_elm.onlineElm.util,
+ org.xtext.online_elm.parser.antlr,
+ org.xtext.online_elm,
+ org.xtext.online_elm.parser.antlr.internal,
+ org.xtext.online_elm.formatting2
+Import-Package: org.apache.log4j

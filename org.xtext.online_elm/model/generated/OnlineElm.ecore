@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="onlineElm" nsURI="http://www.xtext.org/online_elm/OnlineElm"
+    nsPrefix="onlineElm">
+  <eClassifiers xsi:type="ecore:EClass" name="OnlineElm">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entry" eType="#//MainShape"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="shapes" upperBound="-1"
+        eType="#//ShapeDef" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MainShape">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="s1" eType="#//Shape" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="s11" eType="#//BasicShape"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="s2" upperBound="-1" eType="#//Shape"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="s22" unique="false" upperBound="-1"
+        eType="#//BasicShape"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sg" unique="false" upperBound="-1"
+        eType="#//ShapeGroup"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ShapeDef">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ShapeGroup" eSuperTypes="#//ShapeDef">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="s1" eType="#//Shape" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="s11" eType="#//BasicShape"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="s2" upperBound="-1" eType="#//Shape"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="s22" unique="false" upperBound="-1"
+        eType="#//BasicShape"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sg" unique="false" upperBound="-1"
+        eType="#//ShapeGroup"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BasicShape" eSuperTypes="#//ShapeDef">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="shape" eType="#//Shape"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Shape">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="stencil" eType="#//Stencil"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="draw" eType="#//Draw" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Conditional" eSuperTypes="#//Shape"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Bool_exp" eSuperTypes="#//Conditional">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exp1" eType="#//Shape"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exp2" eType="#//Shape"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Terminal_Bool_exp"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" unique="false"
+        upperBound="-1" eType="#//BOOL_OP"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rights" upperBound="-1"
+        eType="#//Terminal_Bool_exp" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="BOOL_OP">
+    <eLiterals name="and" literal="&amp;&amp;"/>
+    <eLiterals name="or" value="1" literal="||"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Terminal_Bool_exp">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="n1" eType="#//Num_value"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="comp" eType="#//COMPARISON"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="n2" eType="#//Num_value"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Num_value">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="num" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Math_exp" eSuperTypes="#//Num_value">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="n1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="op1" eType="#//MATH_OP"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="n2" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="MATH_OP">
+    <eLiterals name="plus" literal="+"/>
+    <eLiterals name="minus" value="1" literal="-"/>
+    <eLiterals name="times" value="2" literal="*"/>
+    <eLiterals name="divide" value="3" literal="/"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="COMPARISON">
+    <eLiterals name="bigger" literal=">"/>
+    <eLiterals name="noLessThan" value="1" literal=">="/>
+    <eLiterals name="smaller" value="2" literal="&lt;"/>
+    <eLiterals name="noBiggerThan" value="3" literal="&lt;="/>
+    <eLiterals name="equal" value="4" literal="=="/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Stencil">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Circle" eSuperTypes="#//Stencil">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="diameter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Rect" eSuperTypes="#//Stencil">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="edgeX" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="edgeY" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Text" eSuperTypes="#//Stencil">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="content" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Draw">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="filledColor" eType="#//Fill"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="position" eType="#//Move"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Fill">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="color" eType="#//Color"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Move">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="x" eType="#//Num_value"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="y" eType="#//Num_value"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Color">
+    <eLiterals name="BLACK" literal="black"/>
+    <eLiterals name="RED" value="1" literal="red"/>
+    <eLiterals name="BLUE" value="2" literal="blue"/>
+  </eClassifiers>
+</ecore:EPackage>

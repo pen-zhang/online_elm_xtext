@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+	<template
+		name="MainShape" 
+		description="Template for a MainShape"
+		id="org.xtext.online_elm.OnlineElm.MainShape"
+		context="org.xtext.online_elm.OnlineElm.MainShape"
+		enabled="true"
+	>MainShape = [ shapes ]</template>
+</templates>

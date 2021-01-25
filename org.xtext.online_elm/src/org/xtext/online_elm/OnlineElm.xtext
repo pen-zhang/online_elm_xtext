@@ -1,0 +1,134 @@
+grammar org.xtext.online_elm.OnlineElm with org.eclipse.xtext.common.Terminals
+
+generate onlineElm "http://www.xtext.org/online_elm/OnlineElm"
+
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+OnlineElm hidden(WS):
+	entry=MainShape
+	& (shapes+=ShapeDef)*
+;
+
+MainShape:
+	name='myShapes' '='
+	'[' 
+		((s1 = Shape)|(s11=[BasicShape]))
+	 (',' (s2+=Shape)|(s22+=[BasicShape]))* 
+	']'
+	('++' sg+=[ShapeGroup])* 
+;
+
+ShapeDef:
+	ShapeGroup | BasicShape
+;
+
+ShapeGroup:
+	name=ID '='
+	'['
+	 ((s1 = Shape)|(s11=[BasicShape]))
+	 (',' (s2+=Shape)|(s22+=[BasicShape]))* 
+	']'
+	('++' sg+=[ShapeGroup])*
+;
+
+BasicShape:
+	name=ID '='  shape = Shape
+;
+
+
+Shape:
+	(stencil = Stencil 
+	'|>' draw = Draw) | Conditional
+;
+
+
+Conditional:
+	"if" Bool_exp "then"
+		exp1 = Shape
+	"else"
+		exp2 = Shape
+;
+
+/*
+Value:
+	basic_shape=[BasicShape] | Num
+;
+*/
+
+Bool_exp:	
+	'not'? left=Terminal_Bool_exp (operator+=BOOL_OP rights+=Terminal_Bool_exp)*
+;
+
+enum BOOL_OP:
+	and='&&' | or='||'
+;
+
+Terminal_Bool_exp:
+	(n1=Num_value comp=COMPARISON n2=Num_value)
+;
+
+
+Num_value:
+	num=FLOAT | Math_exp
+;
+
+Math_exp:
+	'(' n1=FLOAT op1=MATH_OP n2=FLOAT ')'
+;
+
+
+enum MATH_OP:
+	plus='+' | minus='-' | times='*' | divide='/'
+;
+
+enum COMPARISON:
+	bigger='>' |
+	noLessThan='>=' |
+	smaller='<' |
+	noBiggerThan='<=' |
+	equal='==' 
+;
+
+Stencil:
+	Circle | 
+	Rect | 
+	Text
+;
+	
+Circle:
+	name = 'circle' diameter=FLOAT;
+	
+Rect:
+	name = 'rect' edgeX=FLOAT edgeY=FLOAT
+;
+
+
+Text:
+	name = 'text' content=STRING
+;
+
+
+terminal FLOAT returns ecore::EFloat:
+//	'-'?('0'..'9')+('.'('0'..'9')+)?
+	'-'?INT('.'INT)?
+;
+
+
+Draw:
+	filledColor=Fill 
+	('|>' position=Move)?
+;
+
+Fill:
+	name ='filled' color=Color
+;
+
+Move:
+	name ='move' '(' x=Num_value ',' y=Num_value ')'
+;
+
+enum Color:
+	BLACK = 'black' |
+	RED = 'red' |
+	BLUE = 'blue'
+;
