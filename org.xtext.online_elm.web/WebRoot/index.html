@@ -1,66 +1,71 @@
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<meta http-equiv="Content-Language" content="en-us">
-	<title>Example Web Editor</title>
-	<link rel="stylesheet" type="text/css" href="xtext/2.24.0/xtext-codemirror.css"/>
-	<link rel="stylesheet" type="text/css" href="webjars/codemirror/5.59.1/lib/codemirror.css" />
-	<link rel="stylesheet" type="text/css" href="webjars/codemirror/5.59.1/addon/hint/show-hint.css" />
-	<link rel="stylesheet" type="text/css" href="style.css"/>
-	<script src="webjars/requirejs/2.3.6/require.min.js"></script>
-	<script type="text/javascript">
-		var baseUrl = window.location.pathname;
-		var fileIndex = baseUrl.indexOf("index.html");
-		if (fileIndex > 0)
-			baseUrl = baseUrl.slice(0, fileIndex);
-		require.config({
-			baseUrl: baseUrl,
-			paths: {
-				"jquery": "webjars/jquery/3.5.1/jquery.min",
-				//"ace/ext/language_tools": "webjars/ace/1.3.3/src/ext-language_tools",
-				//"xtext/xtext-ace": "xtext/2.24.0/xtext-ace"
-				"xtext/xtext-codemirror": "xtext/2.24.0/xtext-codemirror"
-			},
-			packages: [{
-		        name: "codemirror",
-		        location: "webjars/codemirror/5.59.1",
-		        main: "lib/codemirror"
-		    }]
-		});
-		/*
-		require(["webjars/ace/1.3.3/src/ace"], function() {
-			require(["xtext/xtext-ace"], function(xtext) {
-				xtext.createEditor({
-					baseUrl: baseUrl,
-					syntaxDefinition: "xtext-resources/generated/mode-oe"
-				});
-			});
-		});
-		*/
-		require(["xtext/xtext-codemirror"], function(xtext) {
-		    xtext.createEditor({
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Language" content="en-us">
+<title>Example Web Editor</title>
+<link rel="stylesheet" type="text/css"
+	href="xtext/2.24.0/xtext-codemirror.css" />
+<link rel="stylesheet" type="text/css"
+	href="webjars/codemirror/5.59.1/lib/codemirror.css" />
+<link rel="stylesheet" type="text/css"
+	href="webjars/codemirror/5.59.1/addon/hint/show-hint.css" />
+<link rel="stylesheet" type="text/css" href="style.css" />
+<script src="webjars/requirejs/2.3.6/require.min.js"></script>
+<script type="text/javascript">
+	var baseUrl = window.location.pathname;
+	var fileIndex = baseUrl.indexOf("index.html");
+	if (fileIndex > 0)
+		baseUrl = baseUrl.slice(0, fileIndex);
+	require.config({
+		baseUrl : baseUrl,
+		paths : {
+			"jquery" : "webjars/jquery/3.5.1/jquery.min",
+			//"ace/ext/language_tools": "webjars/ace/1.3.3/src/ext-language_tools",
+			//"xtext/xtext-ace": "xtext/2.24.0/xtext-ace"
+			//"xtext/xtext-codemirror" : "xtext/2.24.0/xtext-codemirror"
+			"xtext/xtext-codemirror" : "xtext-resources/generated/org.eclipse.xtext.web-2.24.0/META-INF/resources/xtext/2.24.0/xtext-codemirror"
+		},
+		packages : [ {
+			name : "codemirror",
+			location : "webjars/codemirror/5.59.1",
+			main : "lib/codemirror"
+		} ]
+	});
+	/*
+	require(["webjars/ace/1.3.3/src/ace"], function() {
+		require(["xtext/xtext-ace"], function(xtext) {
+			xtext.createEditor({
 				baseUrl: baseUrl,
-				syntaxDefinition: "xtext-resources/generated/mode-oe",
-				extraKeys: {"Ctrl-Space": "autocomplete"},
-				lineNumbers:true,
-				tabSize:2,
-				matchBrackets: true,
-				indentWithTabs: false,
+				syntaxDefinition: "xtext-resources/generated/mode-oe"
 			});
 		});
-		
-	</script>
+	});
+	 */
+	require([ "xtext/xtext-codemirror" ], function(xtext) {
+		xtext.createEditor({
+			baseUrl : baseUrl,
+			syntaxDefinition : "xtext-resources/generated/mode-oe",
+			extraKeys : {
+				"Ctrl-Space" : "autocomplete"
+			},
+			lineNumbers : true,
+			tabSize : 2,
+			matchBrackets : true,
+			indentWithTabs : false,
+		});
+	});
+</script>
 </head>
 <body>
 
-<div class="container">
-	<div class="header">
-		<h1>Example OnlineElm Web Editor</h1>
+	<div class="container">
+		<div class="header">
+			<h1>Example OnlineElm Web Editor</h1>
+		</div>
+		<div class="content">
+			<div id="xtext-editor" data-editor-xtext-lang="oe"></div>
+		</div>
 	</div>
-	<div class="content">
-		<div id="xtext-editor" data-editor-xtext-lang="oe"></div>
-	</div>
-</div>
 
 </body>
 </html>

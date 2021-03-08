@@ -4,11 +4,14 @@
 package org.xtext.online_elm.onlineElm.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.xtext.online_elm.onlineElm.Num_value;
 import org.xtext.online_elm.onlineElm.OnlineElmPackage;
 import org.xtext.online_elm.onlineElm.Rect;
 
@@ -20,8 +23,8 @@ import org.xtext.online_elm.onlineElm.Rect;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.online_elm.onlineElm.impl.RectImpl#getEdgeX <em>Edge X</em>}</li>
- *   <li>{@link org.xtext.online_elm.onlineElm.impl.RectImpl#getEdgeY <em>Edge Y</em>}</li>
+ *   <li>{@link org.xtext.online_elm.onlineElm.impl.RectImpl#getWidth <em>Width</em>}</li>
+ *   <li>{@link org.xtext.online_elm.onlineElm.impl.RectImpl#getHeight <em>Height</em>}</li>
  * </ul>
  *
  * @generated
@@ -29,44 +32,24 @@ import org.xtext.online_elm.onlineElm.Rect;
 public class RectImpl extends StencilImpl implements Rect
 {
   /**
-   * The default value of the '{@link #getEdgeX() <em>Edge X</em>}' attribute.
+   * The cached value of the '{@link #getWidth() <em>Width</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getEdgeX()
+   * @see #getWidth()
    * @generated
    * @ordered
    */
-  protected static final float EDGE_X_EDEFAULT = 0.0F;
+  protected Num_value width;
 
   /**
-   * The cached value of the '{@link #getEdgeX() <em>Edge X</em>}' attribute.
+   * The cached value of the '{@link #getHeight() <em>Height</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getEdgeX()
+   * @see #getHeight()
    * @generated
    * @ordered
    */
-  protected float edgeX = EDGE_X_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getEdgeY() <em>Edge Y</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getEdgeY()
-   * @generated
-   * @ordered
-   */
-  protected static final float EDGE_Y_EDEFAULT = 0.0F;
-
-  /**
-   * The cached value of the '{@link #getEdgeY() <em>Edge Y</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getEdgeY()
-   * @generated
-   * @ordered
-   */
-  protected float edgeY = EDGE_Y_EDEFAULT;
+  protected Num_value height;
 
   /**
    * <!-- begin-user-doc -->
@@ -95,9 +78,9 @@ public class RectImpl extends StencilImpl implements Rect
    * @generated
    */
   @Override
-  public float getEdgeX()
+  public Num_value getWidth()
   {
-    return edgeX;
+    return width;
   }
 
   /**
@@ -105,13 +88,16 @@ public class RectImpl extends StencilImpl implements Rect
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public void setEdgeX(float newEdgeX)
+  public NotificationChain basicSetWidth(Num_value newWidth, NotificationChain msgs)
   {
-    float oldEdgeX = edgeX;
-    edgeX = newEdgeX;
+    Num_value oldWidth = width;
+    width = newWidth;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OnlineElmPackage.RECT__EDGE_X, oldEdgeX, edgeX));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OnlineElmPackage.RECT__WIDTH, oldWidth, newWidth);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
   }
 
   /**
@@ -120,9 +106,20 @@ public class RectImpl extends StencilImpl implements Rect
    * @generated
    */
   @Override
-  public float getEdgeY()
+  public void setWidth(Num_value newWidth)
   {
-    return edgeY;
+    if (newWidth != width)
+    {
+      NotificationChain msgs = null;
+      if (width != null)
+        msgs = ((InternalEObject)width).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OnlineElmPackage.RECT__WIDTH, null, msgs);
+      if (newWidth != null)
+        msgs = ((InternalEObject)newWidth).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OnlineElmPackage.RECT__WIDTH, null, msgs);
+      msgs = basicSetWidth(newWidth, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, OnlineElmPackage.RECT__WIDTH, newWidth, newWidth));
   }
 
   /**
@@ -131,12 +128,66 @@ public class RectImpl extends StencilImpl implements Rect
    * @generated
    */
   @Override
-  public void setEdgeY(float newEdgeY)
+  public Num_value getHeight()
   {
-    float oldEdgeY = edgeY;
-    edgeY = newEdgeY;
+    return height;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetHeight(Num_value newHeight, NotificationChain msgs)
+  {
+    Num_value oldHeight = height;
+    height = newHeight;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OnlineElmPackage.RECT__EDGE_Y, oldEdgeY, edgeY));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OnlineElmPackage.RECT__HEIGHT, oldHeight, newHeight);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setHeight(Num_value newHeight)
+  {
+    if (newHeight != height)
+    {
+      NotificationChain msgs = null;
+      if (height != null)
+        msgs = ((InternalEObject)height).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OnlineElmPackage.RECT__HEIGHT, null, msgs);
+      if (newHeight != null)
+        msgs = ((InternalEObject)newHeight).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OnlineElmPackage.RECT__HEIGHT, null, msgs);
+      msgs = basicSetHeight(newHeight, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, OnlineElmPackage.RECT__HEIGHT, newHeight, newHeight));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case OnlineElmPackage.RECT__WIDTH:
+        return basicSetWidth(null, msgs);
+      case OnlineElmPackage.RECT__HEIGHT:
+        return basicSetHeight(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -149,10 +200,10 @@ public class RectImpl extends StencilImpl implements Rect
   {
     switch (featureID)
     {
-      case OnlineElmPackage.RECT__EDGE_X:
-        return getEdgeX();
-      case OnlineElmPackage.RECT__EDGE_Y:
-        return getEdgeY();
+      case OnlineElmPackage.RECT__WIDTH:
+        return getWidth();
+      case OnlineElmPackage.RECT__HEIGHT:
+        return getHeight();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -167,11 +218,11 @@ public class RectImpl extends StencilImpl implements Rect
   {
     switch (featureID)
     {
-      case OnlineElmPackage.RECT__EDGE_X:
-        setEdgeX((Float)newValue);
+      case OnlineElmPackage.RECT__WIDTH:
+        setWidth((Num_value)newValue);
         return;
-      case OnlineElmPackage.RECT__EDGE_Y:
-        setEdgeY((Float)newValue);
+      case OnlineElmPackage.RECT__HEIGHT:
+        setHeight((Num_value)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -187,11 +238,11 @@ public class RectImpl extends StencilImpl implements Rect
   {
     switch (featureID)
     {
-      case OnlineElmPackage.RECT__EDGE_X:
-        setEdgeX(EDGE_X_EDEFAULT);
+      case OnlineElmPackage.RECT__WIDTH:
+        setWidth((Num_value)null);
         return;
-      case OnlineElmPackage.RECT__EDGE_Y:
-        setEdgeY(EDGE_Y_EDEFAULT);
+      case OnlineElmPackage.RECT__HEIGHT:
+        setHeight((Num_value)null);
         return;
     }
     super.eUnset(featureID);
@@ -207,31 +258,12 @@ public class RectImpl extends StencilImpl implements Rect
   {
     switch (featureID)
     {
-      case OnlineElmPackage.RECT__EDGE_X:
-        return edgeX != EDGE_X_EDEFAULT;
-      case OnlineElmPackage.RECT__EDGE_Y:
-        return edgeY != EDGE_Y_EDEFAULT;
+      case OnlineElmPackage.RECT__WIDTH:
+        return width != null;
+      case OnlineElmPackage.RECT__HEIGHT:
+        return height != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (edgeX: ");
-    result.append(edgeX);
-    result.append(", edgeY: ");
-    result.append(edgeY);
-    result.append(')');
-    return result.toString();
   }
 
 } //RectImpl

@@ -21,10 +21,11 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.online_elm.onlineElm.BasicShape;
+import org.xtext.online_elm.onlineElm.Conditional_Shape;
 import org.xtext.online_elm.onlineElm.MainShape;
 import org.xtext.online_elm.onlineElm.OnlineElmPackage;
 import org.xtext.online_elm.onlineElm.Shape;
-import org.xtext.online_elm.onlineElm.ShapeGroup;
+import org.xtext.online_elm.onlineElm.ShapeList;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,11 +36,13 @@ import org.xtext.online_elm.onlineElm.ShapeGroup;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.online_elm.onlineElm.impl.MainShapeImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.xtext.online_elm.onlineElm.impl.MainShapeImpl#getS1 <em>S1</em>}</li>
- *   <li>{@link org.xtext.online_elm.onlineElm.impl.MainShapeImpl#getS11 <em>S11</em>}</li>
- *   <li>{@link org.xtext.online_elm.onlineElm.impl.MainShapeImpl#getS2 <em>S2</em>}</li>
- *   <li>{@link org.xtext.online_elm.onlineElm.impl.MainShapeImpl#getS22 <em>S22</em>}</li>
- *   <li>{@link org.xtext.online_elm.onlineElm.impl.MainShapeImpl#getSg <em>Sg</em>}</li>
+ *   <li>{@link org.xtext.online_elm.onlineElm.impl.MainShapeImpl#getShape <em>Shape</em>}</li>
+ *   <li>{@link org.xtext.online_elm.onlineElm.impl.MainShapeImpl#getConditional <em>Conditional</em>}</li>
+ *   <li>{@link org.xtext.online_elm.onlineElm.impl.MainShapeImpl#getShapeRef <em>Shape Ref</em>}</li>
+ *   <li>{@link org.xtext.online_elm.onlineElm.impl.MainShapeImpl#getMoreShapes <em>More Shapes</em>}</li>
+ *   <li>{@link org.xtext.online_elm.onlineElm.impl.MainShapeImpl#getMoreConditional <em>More Conditional</em>}</li>
+ *   <li>{@link org.xtext.online_elm.onlineElm.impl.MainShapeImpl#getMoreShapeRef <em>More Shape Ref</em>}</li>
+ *   <li>{@link org.xtext.online_elm.onlineElm.impl.MainShapeImpl#getExternal <em>External</em>}</li>
  * </ul>
  *
  * @generated
@@ -67,54 +70,74 @@ public class MainShapeImpl extends MinimalEObjectImpl.Container implements MainS
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getS1() <em>S1</em>}' containment reference.
+   * The cached value of the '{@link #getShape() <em>Shape</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getS1()
+   * @see #getShape()
    * @generated
    * @ordered
    */
-  protected Shape s1;
+  protected Shape shape;
 
   /**
-   * The cached value of the '{@link #getS11() <em>S11</em>}' reference.
+   * The cached value of the '{@link #getConditional() <em>Conditional</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getS11()
+   * @see #getConditional()
    * @generated
    * @ordered
    */
-  protected BasicShape s11;
+  protected Conditional_Shape conditional;
 
   /**
-   * The cached value of the '{@link #getS2() <em>S2</em>}' containment reference list.
+   * The cached value of the '{@link #getShapeRef() <em>Shape Ref</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getS2()
+   * @see #getShapeRef()
    * @generated
    * @ordered
    */
-  protected EList<Shape> s2;
+  protected BasicShape shapeRef;
 
   /**
-   * The cached value of the '{@link #getS22() <em>S22</em>}' reference list.
+   * The cached value of the '{@link #getMoreShapes() <em>More Shapes</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getS22()
+   * @see #getMoreShapes()
    * @generated
    * @ordered
    */
-  protected EList<BasicShape> s22;
+  protected EList<Shape> moreShapes;
 
   /**
-   * The cached value of the '{@link #getSg() <em>Sg</em>}' reference list.
+   * The cached value of the '{@link #getMoreConditional() <em>More Conditional</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getSg()
+   * @see #getMoreConditional()
    * @generated
    * @ordered
    */
-  protected EList<ShapeGroup> sg;
+  protected EList<Conditional_Shape> moreConditional;
+
+  /**
+   * The cached value of the '{@link #getMoreShapeRef() <em>More Shape Ref</em>}' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getMoreShapeRef()
+   * @generated
+   * @ordered
+   */
+  protected EList<BasicShape> moreShapeRef;
+
+  /**
+   * The cached value of the '{@link #getExternal() <em>External</em>}' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getExternal()
+   * @generated
+   * @ordered
+   */
+  protected EList<ShapeList> external;
 
   /**
    * <!-- begin-user-doc -->
@@ -168,9 +191,9 @@ public class MainShapeImpl extends MinimalEObjectImpl.Container implements MainS
    * @generated
    */
   @Override
-  public Shape getS1()
+  public Shape getShape()
   {
-    return s1;
+    return shape;
   }
 
   /**
@@ -178,13 +201,13 @@ public class MainShapeImpl extends MinimalEObjectImpl.Container implements MainS
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetS1(Shape newS1, NotificationChain msgs)
+  public NotificationChain basicSetShape(Shape newShape, NotificationChain msgs)
   {
-    Shape oldS1 = s1;
-    s1 = newS1;
+    Shape oldShape = shape;
+    shape = newShape;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OnlineElmPackage.MAIN_SHAPE__S1, oldS1, newS1);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OnlineElmPackage.MAIN_SHAPE__SHAPE, oldShape, newShape);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -196,20 +219,20 @@ public class MainShapeImpl extends MinimalEObjectImpl.Container implements MainS
    * @generated
    */
   @Override
-  public void setS1(Shape newS1)
+  public void setShape(Shape newShape)
   {
-    if (newS1 != s1)
+    if (newShape != shape)
     {
       NotificationChain msgs = null;
-      if (s1 != null)
-        msgs = ((InternalEObject)s1).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OnlineElmPackage.MAIN_SHAPE__S1, null, msgs);
-      if (newS1 != null)
-        msgs = ((InternalEObject)newS1).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OnlineElmPackage.MAIN_SHAPE__S1, null, msgs);
-      msgs = basicSetS1(newS1, msgs);
+      if (shape != null)
+        msgs = ((InternalEObject)shape).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OnlineElmPackage.MAIN_SHAPE__SHAPE, null, msgs);
+      if (newShape != null)
+        msgs = ((InternalEObject)newShape).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OnlineElmPackage.MAIN_SHAPE__SHAPE, null, msgs);
+      msgs = basicSetShape(newShape, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OnlineElmPackage.MAIN_SHAPE__S1, newS1, newS1));
+      eNotify(new ENotificationImpl(this, Notification.SET, OnlineElmPackage.MAIN_SHAPE__SHAPE, newShape, newShape));
   }
 
   /**
@@ -218,19 +241,69 @@ public class MainShapeImpl extends MinimalEObjectImpl.Container implements MainS
    * @generated
    */
   @Override
-  public BasicShape getS11()
+  public Conditional_Shape getConditional()
   {
-    if (s11 != null && s11.eIsProxy())
+    return conditional;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetConditional(Conditional_Shape newConditional, NotificationChain msgs)
+  {
+    Conditional_Shape oldConditional = conditional;
+    conditional = newConditional;
+    if (eNotificationRequired())
     {
-      InternalEObject oldS11 = (InternalEObject)s11;
-      s11 = (BasicShape)eResolveProxy(oldS11);
-      if (s11 != oldS11)
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OnlineElmPackage.MAIN_SHAPE__CONDITIONAL, oldConditional, newConditional);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setConditional(Conditional_Shape newConditional)
+  {
+    if (newConditional != conditional)
+    {
+      NotificationChain msgs = null;
+      if (conditional != null)
+        msgs = ((InternalEObject)conditional).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OnlineElmPackage.MAIN_SHAPE__CONDITIONAL, null, msgs);
+      if (newConditional != null)
+        msgs = ((InternalEObject)newConditional).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OnlineElmPackage.MAIN_SHAPE__CONDITIONAL, null, msgs);
+      msgs = basicSetConditional(newConditional, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, OnlineElmPackage.MAIN_SHAPE__CONDITIONAL, newConditional, newConditional));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public BasicShape getShapeRef()
+  {
+    if (shapeRef != null && shapeRef.eIsProxy())
+    {
+      InternalEObject oldShapeRef = (InternalEObject)shapeRef;
+      shapeRef = (BasicShape)eResolveProxy(oldShapeRef);
+      if (shapeRef != oldShapeRef)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, OnlineElmPackage.MAIN_SHAPE__S11, oldS11, s11));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, OnlineElmPackage.MAIN_SHAPE__SHAPE_REF, oldShapeRef, shapeRef));
       }
     }
-    return s11;
+    return shapeRef;
   }
 
   /**
@@ -238,9 +311,9 @@ public class MainShapeImpl extends MinimalEObjectImpl.Container implements MainS
    * <!-- end-user-doc -->
    * @generated
    */
-  public BasicShape basicGetS11()
+  public BasicShape basicGetShapeRef()
   {
-    return s11;
+    return shapeRef;
   }
 
   /**
@@ -249,12 +322,12 @@ public class MainShapeImpl extends MinimalEObjectImpl.Container implements MainS
    * @generated
    */
   @Override
-  public void setS11(BasicShape newS11)
+  public void setShapeRef(BasicShape newShapeRef)
   {
-    BasicShape oldS11 = s11;
-    s11 = newS11;
+    BasicShape oldShapeRef = shapeRef;
+    shapeRef = newShapeRef;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OnlineElmPackage.MAIN_SHAPE__S11, oldS11, s11));
+      eNotify(new ENotificationImpl(this, Notification.SET, OnlineElmPackage.MAIN_SHAPE__SHAPE_REF, oldShapeRef, shapeRef));
   }
 
   /**
@@ -263,13 +336,13 @@ public class MainShapeImpl extends MinimalEObjectImpl.Container implements MainS
    * @generated
    */
   @Override
-  public EList<Shape> getS2()
+  public EList<Shape> getMoreShapes()
   {
-    if (s2 == null)
+    if (moreShapes == null)
     {
-      s2 = new EObjectContainmentEList<Shape>(Shape.class, this, OnlineElmPackage.MAIN_SHAPE__S2);
+      moreShapes = new EObjectContainmentEList<Shape>(Shape.class, this, OnlineElmPackage.MAIN_SHAPE__MORE_SHAPES);
     }
-    return s2;
+    return moreShapes;
   }
 
   /**
@@ -278,13 +351,13 @@ public class MainShapeImpl extends MinimalEObjectImpl.Container implements MainS
    * @generated
    */
   @Override
-  public EList<BasicShape> getS22()
+  public EList<Conditional_Shape> getMoreConditional()
   {
-    if (s22 == null)
+    if (moreConditional == null)
     {
-      s22 = new EObjectResolvingEList<BasicShape>(BasicShape.class, this, OnlineElmPackage.MAIN_SHAPE__S22);
+      moreConditional = new EObjectContainmentEList<Conditional_Shape>(Conditional_Shape.class, this, OnlineElmPackage.MAIN_SHAPE__MORE_CONDITIONAL);
     }
-    return s22;
+    return moreConditional;
   }
 
   /**
@@ -293,13 +366,28 @@ public class MainShapeImpl extends MinimalEObjectImpl.Container implements MainS
    * @generated
    */
   @Override
-  public EList<ShapeGroup> getSg()
+  public EList<BasicShape> getMoreShapeRef()
   {
-    if (sg == null)
+    if (moreShapeRef == null)
     {
-      sg = new EObjectResolvingEList<ShapeGroup>(ShapeGroup.class, this, OnlineElmPackage.MAIN_SHAPE__SG);
+      moreShapeRef = new EObjectResolvingEList<BasicShape>(BasicShape.class, this, OnlineElmPackage.MAIN_SHAPE__MORE_SHAPE_REF);
     }
-    return sg;
+    return moreShapeRef;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EList<ShapeList> getExternal()
+  {
+    if (external == null)
+    {
+      external = new EObjectResolvingEList<ShapeList>(ShapeList.class, this, OnlineElmPackage.MAIN_SHAPE__EXTERNAL);
+    }
+    return external;
   }
 
   /**
@@ -312,10 +400,14 @@ public class MainShapeImpl extends MinimalEObjectImpl.Container implements MainS
   {
     switch (featureID)
     {
-      case OnlineElmPackage.MAIN_SHAPE__S1:
-        return basicSetS1(null, msgs);
-      case OnlineElmPackage.MAIN_SHAPE__S2:
-        return ((InternalEList<?>)getS2()).basicRemove(otherEnd, msgs);
+      case OnlineElmPackage.MAIN_SHAPE__SHAPE:
+        return basicSetShape(null, msgs);
+      case OnlineElmPackage.MAIN_SHAPE__CONDITIONAL:
+        return basicSetConditional(null, msgs);
+      case OnlineElmPackage.MAIN_SHAPE__MORE_SHAPES:
+        return ((InternalEList<?>)getMoreShapes()).basicRemove(otherEnd, msgs);
+      case OnlineElmPackage.MAIN_SHAPE__MORE_CONDITIONAL:
+        return ((InternalEList<?>)getMoreConditional()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -332,17 +424,21 @@ public class MainShapeImpl extends MinimalEObjectImpl.Container implements MainS
     {
       case OnlineElmPackage.MAIN_SHAPE__NAME:
         return getName();
-      case OnlineElmPackage.MAIN_SHAPE__S1:
-        return getS1();
-      case OnlineElmPackage.MAIN_SHAPE__S11:
-        if (resolve) return getS11();
-        return basicGetS11();
-      case OnlineElmPackage.MAIN_SHAPE__S2:
-        return getS2();
-      case OnlineElmPackage.MAIN_SHAPE__S22:
-        return getS22();
-      case OnlineElmPackage.MAIN_SHAPE__SG:
-        return getSg();
+      case OnlineElmPackage.MAIN_SHAPE__SHAPE:
+        return getShape();
+      case OnlineElmPackage.MAIN_SHAPE__CONDITIONAL:
+        return getConditional();
+      case OnlineElmPackage.MAIN_SHAPE__SHAPE_REF:
+        if (resolve) return getShapeRef();
+        return basicGetShapeRef();
+      case OnlineElmPackage.MAIN_SHAPE__MORE_SHAPES:
+        return getMoreShapes();
+      case OnlineElmPackage.MAIN_SHAPE__MORE_CONDITIONAL:
+        return getMoreConditional();
+      case OnlineElmPackage.MAIN_SHAPE__MORE_SHAPE_REF:
+        return getMoreShapeRef();
+      case OnlineElmPackage.MAIN_SHAPE__EXTERNAL:
+        return getExternal();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -361,23 +457,30 @@ public class MainShapeImpl extends MinimalEObjectImpl.Container implements MainS
       case OnlineElmPackage.MAIN_SHAPE__NAME:
         setName((String)newValue);
         return;
-      case OnlineElmPackage.MAIN_SHAPE__S1:
-        setS1((Shape)newValue);
+      case OnlineElmPackage.MAIN_SHAPE__SHAPE:
+        setShape((Shape)newValue);
         return;
-      case OnlineElmPackage.MAIN_SHAPE__S11:
-        setS11((BasicShape)newValue);
+      case OnlineElmPackage.MAIN_SHAPE__CONDITIONAL:
+        setConditional((Conditional_Shape)newValue);
         return;
-      case OnlineElmPackage.MAIN_SHAPE__S2:
-        getS2().clear();
-        getS2().addAll((Collection<? extends Shape>)newValue);
+      case OnlineElmPackage.MAIN_SHAPE__SHAPE_REF:
+        setShapeRef((BasicShape)newValue);
         return;
-      case OnlineElmPackage.MAIN_SHAPE__S22:
-        getS22().clear();
-        getS22().addAll((Collection<? extends BasicShape>)newValue);
+      case OnlineElmPackage.MAIN_SHAPE__MORE_SHAPES:
+        getMoreShapes().clear();
+        getMoreShapes().addAll((Collection<? extends Shape>)newValue);
         return;
-      case OnlineElmPackage.MAIN_SHAPE__SG:
-        getSg().clear();
-        getSg().addAll((Collection<? extends ShapeGroup>)newValue);
+      case OnlineElmPackage.MAIN_SHAPE__MORE_CONDITIONAL:
+        getMoreConditional().clear();
+        getMoreConditional().addAll((Collection<? extends Conditional_Shape>)newValue);
+        return;
+      case OnlineElmPackage.MAIN_SHAPE__MORE_SHAPE_REF:
+        getMoreShapeRef().clear();
+        getMoreShapeRef().addAll((Collection<? extends BasicShape>)newValue);
+        return;
+      case OnlineElmPackage.MAIN_SHAPE__EXTERNAL:
+        getExternal().clear();
+        getExternal().addAll((Collection<? extends ShapeList>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -396,20 +499,26 @@ public class MainShapeImpl extends MinimalEObjectImpl.Container implements MainS
       case OnlineElmPackage.MAIN_SHAPE__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case OnlineElmPackage.MAIN_SHAPE__S1:
-        setS1((Shape)null);
+      case OnlineElmPackage.MAIN_SHAPE__SHAPE:
+        setShape((Shape)null);
         return;
-      case OnlineElmPackage.MAIN_SHAPE__S11:
-        setS11((BasicShape)null);
+      case OnlineElmPackage.MAIN_SHAPE__CONDITIONAL:
+        setConditional((Conditional_Shape)null);
         return;
-      case OnlineElmPackage.MAIN_SHAPE__S2:
-        getS2().clear();
+      case OnlineElmPackage.MAIN_SHAPE__SHAPE_REF:
+        setShapeRef((BasicShape)null);
         return;
-      case OnlineElmPackage.MAIN_SHAPE__S22:
-        getS22().clear();
+      case OnlineElmPackage.MAIN_SHAPE__MORE_SHAPES:
+        getMoreShapes().clear();
         return;
-      case OnlineElmPackage.MAIN_SHAPE__SG:
-        getSg().clear();
+      case OnlineElmPackage.MAIN_SHAPE__MORE_CONDITIONAL:
+        getMoreConditional().clear();
+        return;
+      case OnlineElmPackage.MAIN_SHAPE__MORE_SHAPE_REF:
+        getMoreShapeRef().clear();
+        return;
+      case OnlineElmPackage.MAIN_SHAPE__EXTERNAL:
+        getExternal().clear();
         return;
     }
     super.eUnset(featureID);
@@ -427,16 +536,20 @@ public class MainShapeImpl extends MinimalEObjectImpl.Container implements MainS
     {
       case OnlineElmPackage.MAIN_SHAPE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case OnlineElmPackage.MAIN_SHAPE__S1:
-        return s1 != null;
-      case OnlineElmPackage.MAIN_SHAPE__S11:
-        return s11 != null;
-      case OnlineElmPackage.MAIN_SHAPE__S2:
-        return s2 != null && !s2.isEmpty();
-      case OnlineElmPackage.MAIN_SHAPE__S22:
-        return s22 != null && !s22.isEmpty();
-      case OnlineElmPackage.MAIN_SHAPE__SG:
-        return sg != null && !sg.isEmpty();
+      case OnlineElmPackage.MAIN_SHAPE__SHAPE:
+        return shape != null;
+      case OnlineElmPackage.MAIN_SHAPE__CONDITIONAL:
+        return conditional != null;
+      case OnlineElmPackage.MAIN_SHAPE__SHAPE_REF:
+        return shapeRef != null;
+      case OnlineElmPackage.MAIN_SHAPE__MORE_SHAPES:
+        return moreShapes != null && !moreShapes.isEmpty();
+      case OnlineElmPackage.MAIN_SHAPE__MORE_CONDITIONAL:
+        return moreConditional != null && !moreConditional.isEmpty();
+      case OnlineElmPackage.MAIN_SHAPE__MORE_SHAPE_REF:
+        return moreShapeRef != null && !moreShapeRef.isEmpty();
+      case OnlineElmPackage.MAIN_SHAPE__EXTERNAL:
+        return external != null && !external.isEmpty();
     }
     return super.eIsSet(featureID);
   }

@@ -94,11 +94,18 @@ public class OnlineElmSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case OnlineElmPackage.SHAPE_GROUP:
+      case OnlineElmPackage.LOCAL_VAR:
       {
-        ShapeGroup shapeGroup = (ShapeGroup)theEObject;
-        T result = caseShapeGroup(shapeGroup);
-        if (result == null) result = caseShapeDef(shapeGroup);
+        Local_var local_var = (Local_var)theEObject;
+        T result = caseLocal_var(local_var);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case OnlineElmPackage.SHAPE_LIST:
+      {
+        ShapeList shapeList = (ShapeList)theEObject;
+        T result = caseShapeList(shapeList);
+        if (result == null) result = caseShapeDef(shapeList);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -117,27 +124,102 @@ public class OnlineElmSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case OnlineElmPackage.CONDITIONAL:
+      case OnlineElmPackage.CONDITIONAL_SHAPE:
       {
-        Conditional conditional = (Conditional)theEObject;
-        T result = caseConditional(conditional);
-        if (result == null) result = caseShape(conditional);
+        Conditional_Shape conditional_Shape = (Conditional_Shape)theEObject;
+        T result = caseConditional_Shape(conditional_Shape);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case OnlineElmPackage.BOOL_EXP:
+      case OnlineElmPackage.CONDITIONAL_COLOR:
       {
-        Bool_exp bool_exp = (Bool_exp)theEObject;
-        T result = caseBool_exp(bool_exp);
-        if (result == null) result = caseConditional(bool_exp);
-        if (result == null) result = caseShape(bool_exp);
+        Conditional_Color conditional_Color = (Conditional_Color)theEObject;
+        T result = caseConditional_Color(conditional_Color);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case OnlineElmPackage.TERMINAL_BOOL_EXP:
+      case OnlineElmPackage.CONDITIONAL_NUM:
       {
-        Terminal_Bool_exp terminal_Bool_exp = (Terminal_Bool_exp)theEObject;
-        T result = caseTerminal_Bool_exp(terminal_Bool_exp);
+        Conditional_Num conditional_Num = (Conditional_Num)theEObject;
+        T result = caseConditional_Num(conditional_Num);
+        if (result == null) result = caseNum_value(conditional_Num);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case OnlineElmPackage.CONDITIONAL_STR:
+      {
+        Conditional_Str conditional_Str = (Conditional_Str)theEObject;
+        T result = caseConditional_Str(conditional_Str);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case OnlineElmPackage.BOOL_EXPR:
+      {
+        Bool_expr bool_expr = (Bool_expr)theEObject;
+        T result = caseBool_expr(bool_expr);
+        if (result == null) result = caseConditional_Shape(bool_expr);
+        if (result == null) result = caseConditional_Color(bool_expr);
+        if (result == null) result = caseConditional_Num(bool_expr);
+        if (result == null) result = caseConditional_Str(bool_expr);
+        if (result == null) result = caseNum_value(bool_expr);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case OnlineElmPackage.OR_EXPR:
+      {
+        Or_expr or_expr = (Or_expr)theEObject;
+        T result = caseOr_expr(or_expr);
+        if (result == null) result = caseBool_expr(or_expr);
+        if (result == null) result = caseConditional_Shape(or_expr);
+        if (result == null) result = caseConditional_Color(or_expr);
+        if (result == null) result = caseConditional_Num(or_expr);
+        if (result == null) result = caseConditional_Str(or_expr);
+        if (result == null) result = caseNum_value(or_expr);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case OnlineElmPackage.AND_EXPR:
+      {
+        And_expr and_expr = (And_expr)theEObject;
+        T result = caseAnd_expr(and_expr);
+        if (result == null) result = caseOr_expr(and_expr);
+        if (result == null) result = caseBool_expr(and_expr);
+        if (result == null) result = caseConditional_Shape(and_expr);
+        if (result == null) result = caseConditional_Color(and_expr);
+        if (result == null) result = caseConditional_Num(and_expr);
+        if (result == null) result = caseConditional_Str(and_expr);
+        if (result == null) result = caseNum_value(and_expr);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case OnlineElmPackage.NOT_EXPR:
+      {
+        Not_expr not_expr = (Not_expr)theEObject;
+        T result = caseNot_expr(not_expr);
+        if (result == null) result = caseAnd_expr(not_expr);
+        if (result == null) result = caseOr_expr(not_expr);
+        if (result == null) result = caseBool_expr(not_expr);
+        if (result == null) result = caseConditional_Shape(not_expr);
+        if (result == null) result = caseConditional_Color(not_expr);
+        if (result == null) result = caseConditional_Num(not_expr);
+        if (result == null) result = caseConditional_Str(not_expr);
+        if (result == null) result = caseNum_value(not_expr);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case OnlineElmPackage.COMPARE_EXPR:
+      {
+        Compare_expr compare_expr = (Compare_expr)theEObject;
+        T result = caseCompare_expr(compare_expr);
+        if (result == null) result = caseNot_expr(compare_expr);
+        if (result == null) result = caseAnd_expr(compare_expr);
+        if (result == null) result = caseOr_expr(compare_expr);
+        if (result == null) result = caseBool_expr(compare_expr);
+        if (result == null) result = caseConditional_Shape(compare_expr);
+        if (result == null) result = caseConditional_Color(compare_expr);
+        if (result == null) result = caseConditional_Num(compare_expr);
+        if (result == null) result = caseConditional_Str(compare_expr);
+        if (result == null) result = caseNum_value(compare_expr);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -179,6 +261,61 @@ public class OnlineElmSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case OnlineElmPackage.SQUARE:
+      {
+        Square square = (Square)theEObject;
+        T result = caseSquare(square);
+        if (result == null) result = caseStencil(square);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case OnlineElmPackage.ROUNDED_RECT:
+      {
+        RoundedRect roundedRect = (RoundedRect)theEObject;
+        T result = caseRoundedRect(roundedRect);
+        if (result == null) result = caseStencil(roundedRect);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case OnlineElmPackage.OVAL:
+      {
+        Oval oval = (Oval)theEObject;
+        T result = caseOval(oval);
+        if (result == null) result = caseStencil(oval);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case OnlineElmPackage.NGON:
+      {
+        Ngon ngon = (Ngon)theEObject;
+        T result = caseNgon(ngon);
+        if (result == null) result = caseStencil(ngon);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case OnlineElmPackage.WEDGE:
+      {
+        Wedge wedge = (Wedge)theEObject;
+        T result = caseWedge(wedge);
+        if (result == null) result = caseStencil(wedge);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case OnlineElmPackage.POLYGON:
+      {
+        Polygon polygon = (Polygon)theEObject;
+        T result = casePolygon(polygon);
+        if (result == null) result = caseStencil(polygon);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case OnlineElmPackage.POINT:
+      {
+        Point point = (Point)theEObject;
+        T result = casePoint(point);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case OnlineElmPackage.TEXT:
       {
         Text text = (Text)theEObject;
@@ -194,10 +331,24 @@ public class OnlineElmSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case OnlineElmPackage.FILL:
+      case OnlineElmPackage.FILLED:
       {
-        Fill fill = (Fill)theEObject;
-        T result = caseFill(fill);
+        Filled filled = (Filled)theEObject;
+        T result = caseFilled(filled);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case OnlineElmPackage.OUTLINED:
+      {
+        Outlined outlined = (Outlined)theEObject;
+        T result = caseOutlined(outlined);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case OnlineElmPackage.TRANFORM:
+      {
+        Tranform tranform = (Tranform)theEObject;
+        T result = caseTranform(tranform);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -205,6 +356,57 @@ public class OnlineElmSwitch<T> extends Switch<T>
       {
         Move move = (Move)theEObject;
         T result = caseMove(move);
+        if (result == null) result = caseTranform(move);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case OnlineElmPackage.ROTATE:
+      {
+        Rotate rotate = (Rotate)theEObject;
+        T result = caseRotate(rotate);
+        if (result == null) result = caseTranform(rotate);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case OnlineElmPackage.SCALE:
+      {
+        Scale scale = (Scale)theEObject;
+        T result = caseScale(scale);
+        if (result == null) result = caseTranform(scale);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case OnlineElmPackage.SCALE_X:
+      {
+        ScaleX scaleX = (ScaleX)theEObject;
+        T result = caseScaleX(scaleX);
+        if (result == null) result = caseTranform(scaleX);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case OnlineElmPackage.SCALE_Y:
+      {
+        ScaleY scaleY = (ScaleY)theEObject;
+        T result = caseScaleY(scaleY);
+        if (result == null) result = caseTranform(scaleY);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case OnlineElmPackage.OPERATION:
+      {
+        Operation operation = (Operation)theEObject;
+        T result = caseOperation(operation);
+        if (result == null) result = caseMath_exp(operation);
+        if (result == null) result = caseNum_value(operation);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case OnlineElmPackage.FLOAT_LITERAL:
+      {
+        FloatLiteral floatLiteral = (FloatLiteral)theEObject;
+        T result = caseFloatLiteral(floatLiteral);
+        if (result == null) result = caseMath_exp(floatLiteral);
+        if (result == null) result = caseNum_value(floatLiteral);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -261,17 +463,33 @@ public class OnlineElmSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Shape Group</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Local var</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Shape Group</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Local var</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseShapeGroup(ShapeGroup object)
+  public T caseLocal_var(Local_var object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Shape List</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Shape List</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseShapeList(ShapeList object)
   {
     return null;
   }
@@ -309,49 +527,145 @@ public class OnlineElmSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Conditional</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Conditional Shape</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Conditional</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Conditional Shape</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseConditional(Conditional object)
+  public T caseConditional_Shape(Conditional_Shape object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Bool exp</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Conditional Color</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Bool exp</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Conditional Color</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseBool_exp(Bool_exp object)
+  public T caseConditional_Color(Conditional_Color object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Terminal Bool exp</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Conditional Num</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Terminal Bool exp</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Conditional Num</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseTerminal_Bool_exp(Terminal_Bool_exp object)
+  public T caseConditional_Num(Conditional_Num object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Conditional Str</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Conditional Str</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseConditional_Str(Conditional_Str object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Bool expr</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Bool expr</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseBool_expr(Bool_expr object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Or expr</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Or expr</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseOr_expr(Or_expr object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>And expr</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>And expr</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAnd_expr(And_expr object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Not expr</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Not expr</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseNot_expr(Not_expr object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Compare expr</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Compare expr</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCompare_expr(Compare_expr object)
   {
     return null;
   }
@@ -437,6 +751,118 @@ public class OnlineElmSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Square</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Square</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSquare(Square object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Rounded Rect</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Rounded Rect</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRoundedRect(RoundedRect object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Oval</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Oval</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseOval(Oval object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Ngon</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Ngon</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseNgon(Ngon object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Wedge</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Wedge</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseWedge(Wedge object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Polygon</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Polygon</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePolygon(Polygon object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Point</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Point</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePoint(Point object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Text</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -469,17 +895,49 @@ public class OnlineElmSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Fill</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Filled</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Fill</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Filled</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseFill(Fill object)
+  public T caseFilled(Filled object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Outlined</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Outlined</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseOutlined(Outlined object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Tranform</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Tranform</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTranform(Tranform object)
   {
     return null;
   }
@@ -496,6 +954,102 @@ public class OnlineElmSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseMove(Move object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Rotate</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Rotate</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRotate(Rotate object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Scale</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Scale</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseScale(Scale object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Scale X</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Scale X</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseScaleX(ScaleX object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Scale Y</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Scale Y</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseScaleY(ScaleY object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Operation</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Operation</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseOperation(Operation object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Float Literal</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Float Literal</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseFloatLiteral(FloatLiteral object)
   {
     return null;
   }

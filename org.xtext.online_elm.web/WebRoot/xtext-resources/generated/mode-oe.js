@@ -1,5 +1,5 @@
 define(["codemirror", "codemirror/addon/mode/simple"], function(CodeMirror, SimpleMode) {
-	var keywords = "black|blue|circle|else|filled|if|move|myShapes|not|rect|red|text|then";
+	var keywords = "addOutline|black|blank|blue|brown|charcoal|circle|darkBlue|darkBrown|darkGray|darkGreen|darkGrey|darkOrange|darkPurple|darkRed|darkYellow|dashed|degrees|dotdash|dotted|else|filled|gray|green|grey|hotPink|if|lightBlue|lightBrown|lightCharcoal|lightGray|lightGreen|lightGrey|lightOrange|lightPurple|lightRed|lightYellow|longdash|move|myShapes|ngon|not|orange|outlined|oval|pink|polygon|purple|rect|red|rotate|roundedRect|scale|scaleX|scaleY|solid|square|text|then|time|wedge|white|yellow";
 	CodeMirror.defineSimpleMode("xtext/oe", {
 		start: [
 			{token: "comment", regex: "\\/\\/.*$"},

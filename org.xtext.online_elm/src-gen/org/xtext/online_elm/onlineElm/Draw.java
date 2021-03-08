@@ -3,6 +3,8 @@
  */
 package org.xtext.online_elm.onlineElm;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -14,8 +16,9 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.online_elm.onlineElm.Draw#getFilledColor <em>Filled Color</em>}</li>
- *   <li>{@link org.xtext.online_elm.onlineElm.Draw#getPosition <em>Position</em>}</li>
+ *   <li>{@link org.xtext.online_elm.onlineElm.Draw#getFilled <em>Filled</em>}</li>
+ *   <li>{@link org.xtext.online_elm.onlineElm.Draw#getOutlined <em>Outlined</em>}</li>
+ *   <li>{@link org.xtext.online_elm.onlineElm.Draw#getTransform <em>Transform</em>}</li>
  * </ul>
  *
  * @see org.xtext.online_elm.onlineElm.OnlineElmPackage#getDraw()
@@ -25,47 +28,59 @@ import org.eclipse.emf.ecore.EObject;
 public interface Draw extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Filled Color</b></em>' containment reference.
+   * Returns the value of the '<em><b>Filled</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Filled Color</em>' containment reference.
-   * @see #setFilledColor(Fill)
-   * @see org.xtext.online_elm.onlineElm.OnlineElmPackage#getDraw_FilledColor()
+   * @return the value of the '<em>Filled</em>' containment reference.
+   * @see #setFilled(Filled)
+   * @see org.xtext.online_elm.onlineElm.OnlineElmPackage#getDraw_Filled()
    * @model containment="true"
    * @generated
    */
-  Fill getFilledColor();
+  Filled getFilled();
 
   /**
-   * Sets the value of the '{@link org.xtext.online_elm.onlineElm.Draw#getFilledColor <em>Filled Color</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.online_elm.onlineElm.Draw#getFilled <em>Filled</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Filled Color</em>' containment reference.
-   * @see #getFilledColor()
+   * @param value the new value of the '<em>Filled</em>' containment reference.
+   * @see #getFilled()
    * @generated
    */
-  void setFilledColor(Fill value);
+  void setFilled(Filled value);
 
   /**
-   * Returns the value of the '<em><b>Position</b></em>' containment reference.
+   * Returns the value of the '<em><b>Outlined</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Position</em>' containment reference.
-   * @see #setPosition(Move)
-   * @see org.xtext.online_elm.onlineElm.OnlineElmPackage#getDraw_Position()
+   * @return the value of the '<em>Outlined</em>' containment reference.
+   * @see #setOutlined(Outlined)
+   * @see org.xtext.online_elm.onlineElm.OnlineElmPackage#getDraw_Outlined()
    * @model containment="true"
    * @generated
    */
-  Move getPosition();
+  Outlined getOutlined();
 
   /**
-   * Sets the value of the '{@link org.xtext.online_elm.onlineElm.Draw#getPosition <em>Position</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.online_elm.onlineElm.Draw#getOutlined <em>Outlined</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Position</em>' containment reference.
-   * @see #getPosition()
+   * @param value the new value of the '<em>Outlined</em>' containment reference.
+   * @see #getOutlined()
    * @generated
    */
-  void setPosition(Move value);
+  void setOutlined(Outlined value);
+
+  /**
+   * Returns the value of the '<em><b>Transform</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.online_elm.onlineElm.Tranform}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Transform</em>' containment reference list.
+   * @see org.xtext.online_elm.onlineElm.OnlineElmPackage#getDraw_Transform()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Tranform> getTransform();
 
 } // Draw

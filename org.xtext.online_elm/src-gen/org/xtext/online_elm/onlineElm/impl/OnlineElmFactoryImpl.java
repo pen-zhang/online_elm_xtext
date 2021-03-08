@@ -69,21 +69,43 @@ public class OnlineElmFactoryImpl extends EFactoryImpl implements OnlineElmFacto
       case OnlineElmPackage.ONLINE_ELM: return createOnlineElm();
       case OnlineElmPackage.MAIN_SHAPE: return createMainShape();
       case OnlineElmPackage.SHAPE_DEF: return createShapeDef();
-      case OnlineElmPackage.SHAPE_GROUP: return createShapeGroup();
+      case OnlineElmPackage.LOCAL_VAR: return createLocal_var();
+      case OnlineElmPackage.SHAPE_LIST: return createShapeList();
       case OnlineElmPackage.BASIC_SHAPE: return createBasicShape();
       case OnlineElmPackage.SHAPE: return createShape();
-      case OnlineElmPackage.CONDITIONAL: return createConditional();
-      case OnlineElmPackage.BOOL_EXP: return createBool_exp();
-      case OnlineElmPackage.TERMINAL_BOOL_EXP: return createTerminal_Bool_exp();
+      case OnlineElmPackage.CONDITIONAL_SHAPE: return createConditional_Shape();
+      case OnlineElmPackage.CONDITIONAL_COLOR: return createConditional_Color();
+      case OnlineElmPackage.CONDITIONAL_NUM: return createConditional_Num();
+      case OnlineElmPackage.CONDITIONAL_STR: return createConditional_Str();
+      case OnlineElmPackage.BOOL_EXPR: return createBool_expr();
+      case OnlineElmPackage.OR_EXPR: return createOr_expr();
+      case OnlineElmPackage.AND_EXPR: return createAnd_expr();
+      case OnlineElmPackage.NOT_EXPR: return createNot_expr();
+      case OnlineElmPackage.COMPARE_EXPR: return createCompare_expr();
       case OnlineElmPackage.NUM_VALUE: return createNum_value();
       case OnlineElmPackage.MATH_EXP: return createMath_exp();
       case OnlineElmPackage.STENCIL: return createStencil();
       case OnlineElmPackage.CIRCLE: return createCircle();
       case OnlineElmPackage.RECT: return createRect();
+      case OnlineElmPackage.SQUARE: return createSquare();
+      case OnlineElmPackage.ROUNDED_RECT: return createRoundedRect();
+      case OnlineElmPackage.OVAL: return createOval();
+      case OnlineElmPackage.NGON: return createNgon();
+      case OnlineElmPackage.WEDGE: return createWedge();
+      case OnlineElmPackage.POLYGON: return createPolygon();
+      case OnlineElmPackage.POINT: return createPoint();
       case OnlineElmPackage.TEXT: return createText();
       case OnlineElmPackage.DRAW: return createDraw();
-      case OnlineElmPackage.FILL: return createFill();
+      case OnlineElmPackage.FILLED: return createFilled();
+      case OnlineElmPackage.OUTLINED: return createOutlined();
+      case OnlineElmPackage.TRANFORM: return createTranform();
       case OnlineElmPackage.MOVE: return createMove();
+      case OnlineElmPackage.ROTATE: return createRotate();
+      case OnlineElmPackage.SCALE: return createScale();
+      case OnlineElmPackage.SCALE_X: return createScaleX();
+      case OnlineElmPackage.SCALE_Y: return createScaleY();
+      case OnlineElmPackage.OPERATION: return createOperation();
+      case OnlineElmPackage.FLOAT_LITERAL: return createFloatLiteral();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -99,12 +121,10 @@ public class OnlineElmFactoryImpl extends EFactoryImpl implements OnlineElmFacto
   {
     switch (eDataType.getClassifierID())
     {
-      case OnlineElmPackage.BOOL_OP:
-        return createBOOL_OPFromString(eDataType, initialValue);
       case OnlineElmPackage.MATH_OP:
         return createMATH_OPFromString(eDataType, initialValue);
-      case OnlineElmPackage.COMPARISON:
-        return createCOMPARISONFromString(eDataType, initialValue);
+      case OnlineElmPackage.LINE_TYPE:
+        return createLineTypeFromString(eDataType, initialValue);
       case OnlineElmPackage.COLOR:
         return createColorFromString(eDataType, initialValue);
       default:
@@ -122,12 +142,10 @@ public class OnlineElmFactoryImpl extends EFactoryImpl implements OnlineElmFacto
   {
     switch (eDataType.getClassifierID())
     {
-      case OnlineElmPackage.BOOL_OP:
-        return convertBOOL_OPToString(eDataType, instanceValue);
       case OnlineElmPackage.MATH_OP:
         return convertMATH_OPToString(eDataType, instanceValue);
-      case OnlineElmPackage.COMPARISON:
-        return convertCOMPARISONToString(eDataType, instanceValue);
+      case OnlineElmPackage.LINE_TYPE:
+        return convertLineTypeToString(eDataType, instanceValue);
       case OnlineElmPackage.COLOR:
         return convertColorToString(eDataType, instanceValue);
       default:
@@ -177,10 +195,22 @@ public class OnlineElmFactoryImpl extends EFactoryImpl implements OnlineElmFacto
    * @generated
    */
   @Override
-  public ShapeGroup createShapeGroup()
+  public Local_var createLocal_var()
   {
-    ShapeGroupImpl shapeGroup = new ShapeGroupImpl();
-    return shapeGroup;
+    Local_varImpl local_var = new Local_varImpl();
+    return local_var;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ShapeList createShapeList()
+  {
+    ShapeListImpl shapeList = new ShapeListImpl();
+    return shapeList;
   }
 
   /**
@@ -213,10 +243,10 @@ public class OnlineElmFactoryImpl extends EFactoryImpl implements OnlineElmFacto
    * @generated
    */
   @Override
-  public Conditional createConditional()
+  public Conditional_Shape createConditional_Shape()
   {
-    ConditionalImpl conditional = new ConditionalImpl();
-    return conditional;
+    Conditional_ShapeImpl conditional_Shape = new Conditional_ShapeImpl();
+    return conditional_Shape;
   }
 
   /**
@@ -225,10 +255,10 @@ public class OnlineElmFactoryImpl extends EFactoryImpl implements OnlineElmFacto
    * @generated
    */
   @Override
-  public Bool_exp createBool_exp()
+  public Conditional_Color createConditional_Color()
   {
-    Bool_expImpl bool_exp = new Bool_expImpl();
-    return bool_exp;
+    Conditional_ColorImpl conditional_Color = new Conditional_ColorImpl();
+    return conditional_Color;
   }
 
   /**
@@ -237,10 +267,82 @@ public class OnlineElmFactoryImpl extends EFactoryImpl implements OnlineElmFacto
    * @generated
    */
   @Override
-  public Terminal_Bool_exp createTerminal_Bool_exp()
+  public Conditional_Num createConditional_Num()
   {
-    Terminal_Bool_expImpl terminal_Bool_exp = new Terminal_Bool_expImpl();
-    return terminal_Bool_exp;
+    Conditional_NumImpl conditional_Num = new Conditional_NumImpl();
+    return conditional_Num;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Conditional_Str createConditional_Str()
+  {
+    Conditional_StrImpl conditional_Str = new Conditional_StrImpl();
+    return conditional_Str;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Bool_expr createBool_expr()
+  {
+    Bool_exprImpl bool_expr = new Bool_exprImpl();
+    return bool_expr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Or_expr createOr_expr()
+  {
+    Or_exprImpl or_expr = new Or_exprImpl();
+    return or_expr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public And_expr createAnd_expr()
+  {
+    And_exprImpl and_expr = new And_exprImpl();
+    return and_expr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Not_expr createNot_expr()
+  {
+    Not_exprImpl not_expr = new Not_exprImpl();
+    return not_expr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Compare_expr createCompare_expr()
+  {
+    Compare_exprImpl compare_expr = new Compare_exprImpl();
+    return compare_expr;
   }
 
   /**
@@ -309,6 +411,90 @@ public class OnlineElmFactoryImpl extends EFactoryImpl implements OnlineElmFacto
    * @generated
    */
   @Override
+  public Square createSquare()
+  {
+    SquareImpl square = new SquareImpl();
+    return square;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public RoundedRect createRoundedRect()
+  {
+    RoundedRectImpl roundedRect = new RoundedRectImpl();
+    return roundedRect;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Oval createOval()
+  {
+    OvalImpl oval = new OvalImpl();
+    return oval;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Ngon createNgon()
+  {
+    NgonImpl ngon = new NgonImpl();
+    return ngon;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Wedge createWedge()
+  {
+    WedgeImpl wedge = new WedgeImpl();
+    return wedge;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Polygon createPolygon()
+  {
+    PolygonImpl polygon = new PolygonImpl();
+    return polygon;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Point createPoint()
+  {
+    PointImpl point = new PointImpl();
+    return point;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Text createText()
   {
     TextImpl text = new TextImpl();
@@ -333,10 +519,34 @@ public class OnlineElmFactoryImpl extends EFactoryImpl implements OnlineElmFacto
    * @generated
    */
   @Override
-  public Fill createFill()
+  public Filled createFilled()
   {
-    FillImpl fill = new FillImpl();
-    return fill;
+    FilledImpl filled = new FilledImpl();
+    return filled;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Outlined createOutlined()
+  {
+    OutlinedImpl outlined = new OutlinedImpl();
+    return outlined;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Tranform createTranform()
+  {
+    TranformImpl tranform = new TranformImpl();
+    return tranform;
   }
 
   /**
@@ -356,11 +566,11 @@ public class OnlineElmFactoryImpl extends EFactoryImpl implements OnlineElmFacto
    * <!-- end-user-doc -->
    * @generated
    */
-  public BOOL_OP createBOOL_OPFromString(EDataType eDataType, String initialValue)
+  @Override
+  public Rotate createRotate()
   {
-    BOOL_OP result = BOOL_OP.get(initialValue);
-    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-    return result;
+    RotateImpl rotate = new RotateImpl();
+    return rotate;
   }
 
   /**
@@ -368,9 +578,59 @@ public class OnlineElmFactoryImpl extends EFactoryImpl implements OnlineElmFacto
    * <!-- end-user-doc -->
    * @generated
    */
-  public String convertBOOL_OPToString(EDataType eDataType, Object instanceValue)
+  @Override
+  public Scale createScale()
   {
-    return instanceValue == null ? null : instanceValue.toString();
+    ScaleImpl scale = new ScaleImpl();
+    return scale;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ScaleX createScaleX()
+  {
+    ScaleXImpl scaleX = new ScaleXImpl();
+    return scaleX;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ScaleY createScaleY()
+  {
+    ScaleYImpl scaleY = new ScaleYImpl();
+    return scaleY;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Operation createOperation()
+  {
+    OperationImpl operation = new OperationImpl();
+    return operation;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public FloatLiteral createFloatLiteral()
+  {
+    FloatLiteralImpl floatLiteral = new FloatLiteralImpl();
+    return floatLiteral;
   }
 
   /**
@@ -400,9 +660,9 @@ public class OnlineElmFactoryImpl extends EFactoryImpl implements OnlineElmFacto
    * <!-- end-user-doc -->
    * @generated
    */
-  public COMPARISON createCOMPARISONFromString(EDataType eDataType, String initialValue)
+  public LineType createLineTypeFromString(EDataType eDataType, String initialValue)
   {
-    COMPARISON result = COMPARISON.get(initialValue);
+    LineType result = LineType.get(initialValue);
     if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
     return result;
   }
@@ -412,7 +672,7 @@ public class OnlineElmFactoryImpl extends EFactoryImpl implements OnlineElmFacto
    * <!-- end-user-doc -->
    * @generated
    */
-  public String convertCOMPARISONToString(EDataType eDataType, Object instanceValue)
+  public String convertLineTypeToString(EDataType eDataType, Object instanceValue)
   {
     return instanceValue == null ? null : instanceValue.toString();
   }

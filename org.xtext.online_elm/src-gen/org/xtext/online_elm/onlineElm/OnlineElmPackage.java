@@ -87,13 +87,22 @@ public interface OnlineElmPackage extends EPackage
   int ONLINE_ELM__SHAPES = 1;
 
   /**
+   * The feature id for the '<em><b>Var</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ONLINE_ELM__VAR = 2;
+
+  /**
    * The number of structural features of the '<em>Online Elm</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ONLINE_ELM_FEATURE_COUNT = 2;
+  int ONLINE_ELM_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link org.xtext.online_elm.onlineElm.impl.MainShapeImpl <em>Main Shape</em>}' class.
@@ -115,49 +124,67 @@ public interface OnlineElmPackage extends EPackage
   int MAIN_SHAPE__NAME = 0;
 
   /**
-   * The feature id for the '<em><b>S1</b></em>' containment reference.
+   * The feature id for the '<em><b>Shape</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MAIN_SHAPE__S1 = 1;
+  int MAIN_SHAPE__SHAPE = 1;
 
   /**
-   * The feature id for the '<em><b>S11</b></em>' reference.
+   * The feature id for the '<em><b>Conditional</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MAIN_SHAPE__S11 = 2;
+  int MAIN_SHAPE__CONDITIONAL = 2;
 
   /**
-   * The feature id for the '<em><b>S2</b></em>' containment reference list.
+   * The feature id for the '<em><b>Shape Ref</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MAIN_SHAPE__S2 = 3;
+  int MAIN_SHAPE__SHAPE_REF = 3;
 
   /**
-   * The feature id for the '<em><b>S22</b></em>' reference list.
+   * The feature id for the '<em><b>More Shapes</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MAIN_SHAPE__S22 = 4;
+  int MAIN_SHAPE__MORE_SHAPES = 4;
 
   /**
-   * The feature id for the '<em><b>Sg</b></em>' reference list.
+   * The feature id for the '<em><b>More Conditional</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MAIN_SHAPE__SG = 5;
+  int MAIN_SHAPE__MORE_CONDITIONAL = 5;
+
+  /**
+   * The feature id for the '<em><b>More Shape Ref</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAIN_SHAPE__MORE_SHAPE_REF = 6;
+
+  /**
+   * The feature id for the '<em><b>External</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAIN_SHAPE__EXTERNAL = 7;
 
   /**
    * The number of structural features of the '<em>Main Shape</em>' class.
@@ -166,7 +193,7 @@ public interface OnlineElmPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MAIN_SHAPE_FEATURE_COUNT = 6;
+  int MAIN_SHAPE_FEATURE_COUNT = 8;
 
   /**
    * The meta object id for the '{@link org.xtext.online_elm.onlineElm.impl.ShapeDefImpl <em>Shape Def</em>}' class.
@@ -188,23 +215,41 @@ public interface OnlineElmPackage extends EPackage
   int SHAPE_DEF__NAME = 0;
 
   /**
+   * The feature id for the '<em><b>Shape</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SHAPE_DEF__SHAPE = 1;
+
+  /**
+   * The feature id for the '<em><b>Conditional</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SHAPE_DEF__CONDITIONAL = 2;
+
+  /**
    * The number of structural features of the '<em>Shape Def</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SHAPE_DEF_FEATURE_COUNT = 1;
+  int SHAPE_DEF_FEATURE_COUNT = 3;
 
   /**
-   * The meta object id for the '{@link org.xtext.online_elm.onlineElm.impl.ShapeGroupImpl <em>Shape Group</em>}' class.
+   * The meta object id for the '{@link org.xtext.online_elm.onlineElm.impl.Local_varImpl <em>Local var</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.online_elm.onlineElm.impl.ShapeGroupImpl
-   * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getShapeGroup()
+   * @see org.xtext.online_elm.onlineElm.impl.Local_varImpl
+   * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getLocal_var()
    * @generated
    */
-  int SHAPE_GROUP = 3;
+  int LOCAL_VAR = 3;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -213,61 +258,116 @@ public interface OnlineElmPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SHAPE_GROUP__NAME = SHAPE_DEF__NAME;
+  int LOCAL_VAR__NAME = 0;
 
   /**
-   * The feature id for the '<em><b>S1</b></em>' containment reference.
+   * The feature id for the '<em><b>Var</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SHAPE_GROUP__S1 = SHAPE_DEF_FEATURE_COUNT + 0;
+  int LOCAL_VAR__VAR = 1;
 
   /**
-   * The feature id for the '<em><b>S11</b></em>' reference.
+   * The number of structural features of the '<em>Local var</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SHAPE_GROUP__S11 = SHAPE_DEF_FEATURE_COUNT + 1;
+  int LOCAL_VAR_FEATURE_COUNT = 2;
 
   /**
-   * The feature id for the '<em><b>S2</b></em>' containment reference list.
+   * The meta object id for the '{@link org.xtext.online_elm.onlineElm.impl.ShapeListImpl <em>Shape List</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.online_elm.onlineElm.impl.ShapeListImpl
+   * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getShapeList()
+   * @generated
+   */
+  int SHAPE_LIST = 4;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SHAPE_GROUP__S2 = SHAPE_DEF_FEATURE_COUNT + 2;
+  int SHAPE_LIST__NAME = SHAPE_DEF__NAME;
 
   /**
-   * The feature id for the '<em><b>S22</b></em>' reference list.
+   * The feature id for the '<em><b>Shape</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SHAPE_GROUP__S22 = SHAPE_DEF_FEATURE_COUNT + 3;
+  int SHAPE_LIST__SHAPE = SHAPE_DEF__SHAPE;
 
   /**
-   * The feature id for the '<em><b>Sg</b></em>' reference list.
+   * The feature id for the '<em><b>Conditional</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SHAPE_GROUP__SG = SHAPE_DEF_FEATURE_COUNT + 4;
+  int SHAPE_LIST__CONDITIONAL = SHAPE_DEF__CONDITIONAL;
 
   /**
-   * The number of structural features of the '<em>Shape Group</em>' class.
+   * The feature id for the '<em><b>Shape Ref</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SHAPE_GROUP_FEATURE_COUNT = SHAPE_DEF_FEATURE_COUNT + 5;
+  int SHAPE_LIST__SHAPE_REF = SHAPE_DEF_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>More Shapes</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SHAPE_LIST__MORE_SHAPES = SHAPE_DEF_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>More Conditional</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SHAPE_LIST__MORE_CONDITIONAL = SHAPE_DEF_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>More Shape Ref</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SHAPE_LIST__MORE_SHAPE_REF = SHAPE_DEF_FEATURE_COUNT + 3;
+
+  /**
+   * The feature id for the '<em><b>External</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SHAPE_LIST__EXTERNAL = SHAPE_DEF_FEATURE_COUNT + 4;
+
+  /**
+   * The number of structural features of the '<em>Shape List</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SHAPE_LIST_FEATURE_COUNT = SHAPE_DEF_FEATURE_COUNT + 5;
 
   /**
    * The meta object id for the '{@link org.xtext.online_elm.onlineElm.impl.BasicShapeImpl <em>Basic Shape</em>}' class.
@@ -277,7 +377,7 @@ public interface OnlineElmPackage extends EPackage
    * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getBasicShape()
    * @generated
    */
-  int BASIC_SHAPE = 4;
+  int BASIC_SHAPE = 5;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -295,7 +395,16 @@ public interface OnlineElmPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BASIC_SHAPE__SHAPE = SHAPE_DEF_FEATURE_COUNT + 0;
+  int BASIC_SHAPE__SHAPE = SHAPE_DEF__SHAPE;
+
+  /**
+   * The feature id for the '<em><b>Conditional</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BASIC_SHAPE__CONDITIONAL = SHAPE_DEF__CONDITIONAL;
 
   /**
    * The number of structural features of the '<em>Basic Shape</em>' class.
@@ -304,7 +413,7 @@ public interface OnlineElmPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BASIC_SHAPE_FEATURE_COUNT = SHAPE_DEF_FEATURE_COUNT + 1;
+  int BASIC_SHAPE_FEATURE_COUNT = SHAPE_DEF_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link org.xtext.online_elm.onlineElm.impl.ShapeImpl <em>Shape</em>}' class.
@@ -314,7 +423,7 @@ public interface OnlineElmPackage extends EPackage
    * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getShape()
    * @generated
    */
-  int SHAPE = 5;
+  int SHAPE = 6;
 
   /**
    * The feature id for the '<em><b>Stencil</b></em>' containment reference.
@@ -344,169 +453,42 @@ public interface OnlineElmPackage extends EPackage
   int SHAPE_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link org.xtext.online_elm.onlineElm.impl.ConditionalImpl <em>Conditional</em>}' class.
+   * The meta object id for the '{@link org.xtext.online_elm.onlineElm.impl.Conditional_ShapeImpl <em>Conditional Shape</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.online_elm.onlineElm.impl.ConditionalImpl
-   * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getConditional()
+   * @see org.xtext.online_elm.onlineElm.impl.Conditional_ShapeImpl
+   * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getConditional_Shape()
    * @generated
    */
-  int CONDITIONAL = 6;
+  int CONDITIONAL_SHAPE = 7;
 
   /**
-   * The feature id for the '<em><b>Stencil</b></em>' containment reference.
+   * The number of structural features of the '<em>Conditional Shape</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONDITIONAL__STENCIL = SHAPE__STENCIL;
+  int CONDITIONAL_SHAPE_FEATURE_COUNT = 0;
 
   /**
-   * The feature id for the '<em><b>Draw</b></em>' containment reference.
+   * The meta object id for the '{@link org.xtext.online_elm.onlineElm.impl.Conditional_ColorImpl <em>Conditional Color</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.online_elm.onlineElm.impl.Conditional_ColorImpl
+   * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getConditional_Color()
+   * @generated
+   */
+  int CONDITIONAL_COLOR = 8;
+
+  /**
+   * The number of structural features of the '<em>Conditional Color</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONDITIONAL__DRAW = SHAPE__DRAW;
-
-  /**
-   * The number of structural features of the '<em>Conditional</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONDITIONAL_FEATURE_COUNT = SHAPE_FEATURE_COUNT + 0;
-
-  /**
-   * The meta object id for the '{@link org.xtext.online_elm.onlineElm.impl.Bool_expImpl <em>Bool exp</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.online_elm.onlineElm.impl.Bool_expImpl
-   * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getBool_exp()
-   * @generated
-   */
-  int BOOL_EXP = 7;
-
-  /**
-   * The feature id for the '<em><b>Stencil</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BOOL_EXP__STENCIL = CONDITIONAL__STENCIL;
-
-  /**
-   * The feature id for the '<em><b>Draw</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BOOL_EXP__DRAW = CONDITIONAL__DRAW;
-
-  /**
-   * The feature id for the '<em><b>Exp1</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BOOL_EXP__EXP1 = CONDITIONAL_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Exp2</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BOOL_EXP__EXP2 = CONDITIONAL_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Left</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BOOL_EXP__LEFT = CONDITIONAL_FEATURE_COUNT + 2;
-
-  /**
-   * The feature id for the '<em><b>Operator</b></em>' attribute list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BOOL_EXP__OPERATOR = CONDITIONAL_FEATURE_COUNT + 3;
-
-  /**
-   * The feature id for the '<em><b>Rights</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BOOL_EXP__RIGHTS = CONDITIONAL_FEATURE_COUNT + 4;
-
-  /**
-   * The number of structural features of the '<em>Bool exp</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BOOL_EXP_FEATURE_COUNT = CONDITIONAL_FEATURE_COUNT + 5;
-
-  /**
-   * The meta object id for the '{@link org.xtext.online_elm.onlineElm.impl.Terminal_Bool_expImpl <em>Terminal Bool exp</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.online_elm.onlineElm.impl.Terminal_Bool_expImpl
-   * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getTerminal_Bool_exp()
-   * @generated
-   */
-  int TERMINAL_BOOL_EXP = 8;
-
-  /**
-   * The feature id for the '<em><b>N1</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TERMINAL_BOOL_EXP__N1 = 0;
-
-  /**
-   * The feature id for the '<em><b>Comp</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TERMINAL_BOOL_EXP__COMP = 1;
-
-  /**
-   * The feature id for the '<em><b>N2</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TERMINAL_BOOL_EXP__N2 = 2;
-
-  /**
-   * The number of structural features of the '<em>Terminal Bool exp</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TERMINAL_BOOL_EXP_FEATURE_COUNT = 3;
+  int CONDITIONAL_COLOR_FEATURE_COUNT = 0;
 
   /**
    * The meta object id for the '{@link org.xtext.online_elm.onlineElm.impl.Num_valueImpl <em>Num value</em>}' class.
@@ -516,16 +498,25 @@ public interface OnlineElmPackage extends EPackage
    * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getNum_value()
    * @generated
    */
-  int NUM_VALUE = 9;
+  int NUM_VALUE = 16;
 
   /**
-   * The feature id for the '<em><b>Num</b></em>' attribute.
+   * The feature id for the '<em><b>Local</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int NUM_VALUE__NUM = 0;
+  int NUM_VALUE__LOCAL = 0;
+
+  /**
+   * The feature id for the '<em><b>Ref</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NUM_VALUE__REF = 1;
 
   /**
    * The number of structural features of the '<em>Num value</em>' class.
@@ -534,7 +525,797 @@ public interface OnlineElmPackage extends EPackage
    * @generated
    * @ordered
    */
-  int NUM_VALUE_FEATURE_COUNT = 1;
+  int NUM_VALUE_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.online_elm.onlineElm.impl.Conditional_NumImpl <em>Conditional Num</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.online_elm.onlineElm.impl.Conditional_NumImpl
+   * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getConditional_Num()
+   * @generated
+   */
+  int CONDITIONAL_NUM = 9;
+
+  /**
+   * The feature id for the '<em><b>Local</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONDITIONAL_NUM__LOCAL = NUM_VALUE__LOCAL;
+
+  /**
+   * The feature id for the '<em><b>Ref</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONDITIONAL_NUM__REF = NUM_VALUE__REF;
+
+  /**
+   * The number of structural features of the '<em>Conditional Num</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONDITIONAL_NUM_FEATURE_COUNT = NUM_VALUE_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link org.xtext.online_elm.onlineElm.impl.Conditional_StrImpl <em>Conditional Str</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.online_elm.onlineElm.impl.Conditional_StrImpl
+   * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getConditional_Str()
+   * @generated
+   */
+  int CONDITIONAL_STR = 10;
+
+  /**
+   * The number of structural features of the '<em>Conditional Str</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONDITIONAL_STR_FEATURE_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link org.xtext.online_elm.onlineElm.impl.Bool_exprImpl <em>Bool expr</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.online_elm.onlineElm.impl.Bool_exprImpl
+   * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getBool_expr()
+   * @generated
+   */
+  int BOOL_EXPR = 11;
+
+  /**
+   * The feature id for the '<em><b>Local</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BOOL_EXPR__LOCAL = CONDITIONAL_SHAPE_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Ref</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BOOL_EXPR__REF = CONDITIONAL_SHAPE_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Shape 1</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BOOL_EXPR__SHAPE_1 = CONDITIONAL_SHAPE_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Nested 1</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BOOL_EXPR__NESTED_1 = CONDITIONAL_SHAPE_FEATURE_COUNT + 3;
+
+  /**
+   * The feature id for the '<em><b>Shape 2</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BOOL_EXPR__SHAPE_2 = CONDITIONAL_SHAPE_FEATURE_COUNT + 4;
+
+  /**
+   * The feature id for the '<em><b>Nested 2</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BOOL_EXPR__NESTED_2 = CONDITIONAL_SHAPE_FEATURE_COUNT + 5;
+
+  /**
+   * The feature id for the '<em><b>Color 1</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BOOL_EXPR__COLOR_1 = CONDITIONAL_SHAPE_FEATURE_COUNT + 6;
+
+  /**
+   * The feature id for the '<em><b>Color 2</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BOOL_EXPR__COLOR_2 = CONDITIONAL_SHAPE_FEATURE_COUNT + 7;
+
+  /**
+   * The feature id for the '<em><b>Num 1</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BOOL_EXPR__NUM_1 = CONDITIONAL_SHAPE_FEATURE_COUNT + 8;
+
+  /**
+   * The feature id for the '<em><b>Num 2</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BOOL_EXPR__NUM_2 = CONDITIONAL_SHAPE_FEATURE_COUNT + 9;
+
+  /**
+   * The feature id for the '<em><b>Str 1</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BOOL_EXPR__STR_1 = CONDITIONAL_SHAPE_FEATURE_COUNT + 10;
+
+  /**
+   * The feature id for the '<em><b>Str 2</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BOOL_EXPR__STR_2 = CONDITIONAL_SHAPE_FEATURE_COUNT + 11;
+
+  /**
+   * The number of structural features of the '<em>Bool expr</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BOOL_EXPR_FEATURE_COUNT = CONDITIONAL_SHAPE_FEATURE_COUNT + 12;
+
+  /**
+   * The meta object id for the '{@link org.xtext.online_elm.onlineElm.impl.Or_exprImpl <em>Or expr</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.online_elm.onlineElm.impl.Or_exprImpl
+   * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getOr_expr()
+   * @generated
+   */
+  int OR_EXPR = 12;
+
+  /**
+   * The feature id for the '<em><b>Local</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OR_EXPR__LOCAL = BOOL_EXPR__LOCAL;
+
+  /**
+   * The feature id for the '<em><b>Ref</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OR_EXPR__REF = BOOL_EXPR__REF;
+
+  /**
+   * The feature id for the '<em><b>Shape 1</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OR_EXPR__SHAPE_1 = BOOL_EXPR__SHAPE_1;
+
+  /**
+   * The feature id for the '<em><b>Nested 1</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OR_EXPR__NESTED_1 = BOOL_EXPR__NESTED_1;
+
+  /**
+   * The feature id for the '<em><b>Shape 2</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OR_EXPR__SHAPE_2 = BOOL_EXPR__SHAPE_2;
+
+  /**
+   * The feature id for the '<em><b>Nested 2</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OR_EXPR__NESTED_2 = BOOL_EXPR__NESTED_2;
+
+  /**
+   * The feature id for the '<em><b>Color 1</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OR_EXPR__COLOR_1 = BOOL_EXPR__COLOR_1;
+
+  /**
+   * The feature id for the '<em><b>Color 2</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OR_EXPR__COLOR_2 = BOOL_EXPR__COLOR_2;
+
+  /**
+   * The feature id for the '<em><b>Num 1</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OR_EXPR__NUM_1 = BOOL_EXPR__NUM_1;
+
+  /**
+   * The feature id for the '<em><b>Num 2</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OR_EXPR__NUM_2 = BOOL_EXPR__NUM_2;
+
+  /**
+   * The feature id for the '<em><b>Str 1</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OR_EXPR__STR_1 = BOOL_EXPR__STR_1;
+
+  /**
+   * The feature id for the '<em><b>Str 2</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OR_EXPR__STR_2 = BOOL_EXPR__STR_2;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OR_EXPR__LEFT = BOOL_EXPR_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OR_EXPR__RIGHT = BOOL_EXPR_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Or expr</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OR_EXPR_FEATURE_COUNT = BOOL_EXPR_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.online_elm.onlineElm.impl.And_exprImpl <em>And expr</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.online_elm.onlineElm.impl.And_exprImpl
+   * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getAnd_expr()
+   * @generated
+   */
+  int AND_EXPR = 13;
+
+  /**
+   * The feature id for the '<em><b>Local</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int AND_EXPR__LOCAL = OR_EXPR__LOCAL;
+
+  /**
+   * The feature id for the '<em><b>Ref</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int AND_EXPR__REF = OR_EXPR__REF;
+
+  /**
+   * The feature id for the '<em><b>Shape 1</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int AND_EXPR__SHAPE_1 = OR_EXPR__SHAPE_1;
+
+  /**
+   * The feature id for the '<em><b>Nested 1</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int AND_EXPR__NESTED_1 = OR_EXPR__NESTED_1;
+
+  /**
+   * The feature id for the '<em><b>Shape 2</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int AND_EXPR__SHAPE_2 = OR_EXPR__SHAPE_2;
+
+  /**
+   * The feature id for the '<em><b>Nested 2</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int AND_EXPR__NESTED_2 = OR_EXPR__NESTED_2;
+
+  /**
+   * The feature id for the '<em><b>Color 1</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int AND_EXPR__COLOR_1 = OR_EXPR__COLOR_1;
+
+  /**
+   * The feature id for the '<em><b>Color 2</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int AND_EXPR__COLOR_2 = OR_EXPR__COLOR_2;
+
+  /**
+   * The feature id for the '<em><b>Num 1</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int AND_EXPR__NUM_1 = OR_EXPR__NUM_1;
+
+  /**
+   * The feature id for the '<em><b>Num 2</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int AND_EXPR__NUM_2 = OR_EXPR__NUM_2;
+
+  /**
+   * The feature id for the '<em><b>Str 1</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int AND_EXPR__STR_1 = OR_EXPR__STR_1;
+
+  /**
+   * The feature id for the '<em><b>Str 2</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int AND_EXPR__STR_2 = OR_EXPR__STR_2;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int AND_EXPR__LEFT = OR_EXPR__LEFT;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int AND_EXPR__RIGHT = OR_EXPR__RIGHT;
+
+  /**
+   * The number of structural features of the '<em>And expr</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int AND_EXPR_FEATURE_COUNT = OR_EXPR_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link org.xtext.online_elm.onlineElm.impl.Not_exprImpl <em>Not expr</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.online_elm.onlineElm.impl.Not_exprImpl
+   * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getNot_expr()
+   * @generated
+   */
+  int NOT_EXPR = 14;
+
+  /**
+   * The feature id for the '<em><b>Local</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NOT_EXPR__LOCAL = AND_EXPR__LOCAL;
+
+  /**
+   * The feature id for the '<em><b>Ref</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NOT_EXPR__REF = AND_EXPR__REF;
+
+  /**
+   * The feature id for the '<em><b>Shape 1</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NOT_EXPR__SHAPE_1 = AND_EXPR__SHAPE_1;
+
+  /**
+   * The feature id for the '<em><b>Nested 1</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NOT_EXPR__NESTED_1 = AND_EXPR__NESTED_1;
+
+  /**
+   * The feature id for the '<em><b>Shape 2</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NOT_EXPR__SHAPE_2 = AND_EXPR__SHAPE_2;
+
+  /**
+   * The feature id for the '<em><b>Nested 2</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NOT_EXPR__NESTED_2 = AND_EXPR__NESTED_2;
+
+  /**
+   * The feature id for the '<em><b>Color 1</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NOT_EXPR__COLOR_1 = AND_EXPR__COLOR_1;
+
+  /**
+   * The feature id for the '<em><b>Color 2</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NOT_EXPR__COLOR_2 = AND_EXPR__COLOR_2;
+
+  /**
+   * The feature id for the '<em><b>Num 1</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NOT_EXPR__NUM_1 = AND_EXPR__NUM_1;
+
+  /**
+   * The feature id for the '<em><b>Num 2</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NOT_EXPR__NUM_2 = AND_EXPR__NUM_2;
+
+  /**
+   * The feature id for the '<em><b>Str 1</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NOT_EXPR__STR_1 = AND_EXPR__STR_1;
+
+  /**
+   * The feature id for the '<em><b>Str 2</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NOT_EXPR__STR_2 = AND_EXPR__STR_2;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NOT_EXPR__LEFT = AND_EXPR__LEFT;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NOT_EXPR__RIGHT = AND_EXPR__RIGHT;
+
+  /**
+   * The feature id for the '<em><b>Operand</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NOT_EXPR__OPERAND = AND_EXPR_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Not expr</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NOT_EXPR_FEATURE_COUNT = AND_EXPR_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.online_elm.onlineElm.impl.Compare_exprImpl <em>Compare expr</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.online_elm.onlineElm.impl.Compare_exprImpl
+   * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getCompare_expr()
+   * @generated
+   */
+  int COMPARE_EXPR = 15;
+
+  /**
+   * The feature id for the '<em><b>Local</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPARE_EXPR__LOCAL = NOT_EXPR__LOCAL;
+
+  /**
+   * The feature id for the '<em><b>Ref</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPARE_EXPR__REF = NOT_EXPR__REF;
+
+  /**
+   * The feature id for the '<em><b>Shape 1</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPARE_EXPR__SHAPE_1 = NOT_EXPR__SHAPE_1;
+
+  /**
+   * The feature id for the '<em><b>Nested 1</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPARE_EXPR__NESTED_1 = NOT_EXPR__NESTED_1;
+
+  /**
+   * The feature id for the '<em><b>Shape 2</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPARE_EXPR__SHAPE_2 = NOT_EXPR__SHAPE_2;
+
+  /**
+   * The feature id for the '<em><b>Nested 2</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPARE_EXPR__NESTED_2 = NOT_EXPR__NESTED_2;
+
+  /**
+   * The feature id for the '<em><b>Color 1</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPARE_EXPR__COLOR_1 = NOT_EXPR__COLOR_1;
+
+  /**
+   * The feature id for the '<em><b>Color 2</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPARE_EXPR__COLOR_2 = NOT_EXPR__COLOR_2;
+
+  /**
+   * The feature id for the '<em><b>Num 1</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPARE_EXPR__NUM_1 = NOT_EXPR__NUM_1;
+
+  /**
+   * The feature id for the '<em><b>Num 2</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPARE_EXPR__NUM_2 = NOT_EXPR__NUM_2;
+
+  /**
+   * The feature id for the '<em><b>Str 1</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPARE_EXPR__STR_1 = NOT_EXPR__STR_1;
+
+  /**
+   * The feature id for the '<em><b>Str 2</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPARE_EXPR__STR_2 = NOT_EXPR__STR_2;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPARE_EXPR__LEFT = NOT_EXPR__LEFT;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPARE_EXPR__RIGHT = NOT_EXPR__RIGHT;
+
+  /**
+   * The feature id for the '<em><b>Operand</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPARE_EXPR__OPERAND = NOT_EXPR__OPERAND;
+
+  /**
+   * The feature id for the '<em><b>Operator</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPARE_EXPR__OPERATOR = NOT_EXPR_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Compare expr</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPARE_EXPR_FEATURE_COUNT = NOT_EXPR_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.xtext.online_elm.onlineElm.impl.Math_expImpl <em>Math exp</em>}' class.
@@ -544,43 +1325,25 @@ public interface OnlineElmPackage extends EPackage
    * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getMath_exp()
    * @generated
    */
-  int MATH_EXP = 10;
+  int MATH_EXP = 17;
 
   /**
-   * The feature id for the '<em><b>Num</b></em>' attribute.
+   * The feature id for the '<em><b>Local</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MATH_EXP__NUM = NUM_VALUE__NUM;
+  int MATH_EXP__LOCAL = NUM_VALUE__LOCAL;
 
   /**
-   * The feature id for the '<em><b>N1</b></em>' attribute.
+   * The feature id for the '<em><b>Ref</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MATH_EXP__N1 = NUM_VALUE_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Op1</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MATH_EXP__OP1 = NUM_VALUE_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>N2</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MATH_EXP__N2 = NUM_VALUE_FEATURE_COUNT + 2;
+  int MATH_EXP__REF = NUM_VALUE__REF;
 
   /**
    * The number of structural features of the '<em>Math exp</em>' class.
@@ -589,7 +1352,7 @@ public interface OnlineElmPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MATH_EXP_FEATURE_COUNT = NUM_VALUE_FEATURE_COUNT + 3;
+  int MATH_EXP_FEATURE_COUNT = NUM_VALUE_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link org.xtext.online_elm.onlineElm.impl.StencilImpl <em>Stencil</em>}' class.
@@ -599,7 +1362,7 @@ public interface OnlineElmPackage extends EPackage
    * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getStencil()
    * @generated
    */
-  int STENCIL = 11;
+  int STENCIL = 18;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -627,7 +1390,7 @@ public interface OnlineElmPackage extends EPackage
    * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getCircle()
    * @generated
    */
-  int CIRCLE = 12;
+  int CIRCLE = 19;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -639,13 +1402,13 @@ public interface OnlineElmPackage extends EPackage
   int CIRCLE__NAME = STENCIL__NAME;
 
   /**
-   * The feature id for the '<em><b>Diameter</b></em>' attribute.
+   * The feature id for the '<em><b>Radius</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CIRCLE__DIAMETER = STENCIL_FEATURE_COUNT + 0;
+  int CIRCLE__RADIUS = STENCIL_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Circle</em>' class.
@@ -664,7 +1427,7 @@ public interface OnlineElmPackage extends EPackage
    * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getRect()
    * @generated
    */
-  int RECT = 13;
+  int RECT = 20;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -676,22 +1439,22 @@ public interface OnlineElmPackage extends EPackage
   int RECT__NAME = STENCIL__NAME;
 
   /**
-   * The feature id for the '<em><b>Edge X</b></em>' attribute.
+   * The feature id for the '<em><b>Width</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int RECT__EDGE_X = STENCIL_FEATURE_COUNT + 0;
+  int RECT__WIDTH = STENCIL_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Edge Y</b></em>' attribute.
+   * The feature id for the '<em><b>Height</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int RECT__EDGE_Y = STENCIL_FEATURE_COUNT + 1;
+  int RECT__HEIGHT = STENCIL_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Rect</em>' class.
@@ -703,6 +1466,319 @@ public interface OnlineElmPackage extends EPackage
   int RECT_FEATURE_COUNT = STENCIL_FEATURE_COUNT + 2;
 
   /**
+   * The meta object id for the '{@link org.xtext.online_elm.onlineElm.impl.SquareImpl <em>Square</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.online_elm.onlineElm.impl.SquareImpl
+   * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getSquare()
+   * @generated
+   */
+  int SQUARE = 21;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SQUARE__NAME = STENCIL__NAME;
+
+  /**
+   * The feature id for the '<em><b>Side</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SQUARE__SIDE = STENCIL_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Square</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SQUARE_FEATURE_COUNT = STENCIL_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.online_elm.onlineElm.impl.RoundedRectImpl <em>Rounded Rect</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.online_elm.onlineElm.impl.RoundedRectImpl
+   * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getRoundedRect()
+   * @generated
+   */
+  int ROUNDED_RECT = 22;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ROUNDED_RECT__NAME = STENCIL__NAME;
+
+  /**
+   * The feature id for the '<em><b>Width</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ROUNDED_RECT__WIDTH = STENCIL_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Height</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ROUNDED_RECT__HEIGHT = STENCIL_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Corner radius</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ROUNDED_RECT__CORNER_RADIUS = STENCIL_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>Rounded Rect</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ROUNDED_RECT_FEATURE_COUNT = STENCIL_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link org.xtext.online_elm.onlineElm.impl.OvalImpl <em>Oval</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.online_elm.onlineElm.impl.OvalImpl
+   * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getOval()
+   * @generated
+   */
+  int OVAL = 23;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OVAL__NAME = STENCIL__NAME;
+
+  /**
+   * The feature id for the '<em><b>Width</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OVAL__WIDTH = STENCIL_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Height</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OVAL__HEIGHT = STENCIL_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Oval</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OVAL_FEATURE_COUNT = STENCIL_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.online_elm.onlineElm.impl.NgonImpl <em>Ngon</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.online_elm.onlineElm.impl.NgonImpl
+   * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getNgon()
+   * @generated
+   */
+  int NGON = 24;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NGON__NAME = STENCIL__NAME;
+
+  /**
+   * The feature id for the '<em><b>Sides num</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NGON__SIDES_NUM = STENCIL_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Radius</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NGON__RADIUS = STENCIL_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Ngon</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NGON_FEATURE_COUNT = STENCIL_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.online_elm.onlineElm.impl.WedgeImpl <em>Wedge</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.online_elm.onlineElm.impl.WedgeImpl
+   * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getWedge()
+   * @generated
+   */
+  int WEDGE = 25;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WEDGE__NAME = STENCIL__NAME;
+
+  /**
+   * The feature id for the '<em><b>Radius</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WEDGE__RADIUS = STENCIL_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Fraction</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WEDGE__FRACTION = STENCIL_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Wedge</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WEDGE_FEATURE_COUNT = STENCIL_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.online_elm.onlineElm.impl.PolygonImpl <em>Polygon</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.online_elm.onlineElm.impl.PolygonImpl
+   * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getPolygon()
+   * @generated
+   */
+  int POLYGON = 26;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int POLYGON__NAME = STENCIL__NAME;
+
+  /**
+   * The feature id for the '<em><b>Point1</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int POLYGON__POINT1 = STENCIL_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Points</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int POLYGON__POINTS = STENCIL_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Polygon</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int POLYGON_FEATURE_COUNT = STENCIL_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.online_elm.onlineElm.impl.PointImpl <em>Point</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.online_elm.onlineElm.impl.PointImpl
+   * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getPoint()
+   * @generated
+   */
+  int POINT = 27;
+
+  /**
+   * The feature id for the '<em><b>X</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int POINT__X = 0;
+
+  /**
+   * The feature id for the '<em><b>Y</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int POINT__Y = 1;
+
+  /**
+   * The number of structural features of the '<em>Point</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int POINT_FEATURE_COUNT = 2;
+
+  /**
    * The meta object id for the '{@link org.xtext.online_elm.onlineElm.impl.TextImpl <em>Text</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -710,7 +1786,7 @@ public interface OnlineElmPackage extends EPackage
    * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getText()
    * @generated
    */
-  int TEXT = 14;
+  int TEXT = 28;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -731,13 +1807,22 @@ public interface OnlineElmPackage extends EPackage
   int TEXT__CONTENT = STENCIL_FEATURE_COUNT + 0;
 
   /**
+   * The feature id for the '<em><b>Conditional Content</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TEXT__CONDITIONAL_CONTENT = STENCIL_FEATURE_COUNT + 1;
+
+  /**
    * The number of structural features of the '<em>Text</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TEXT_FEATURE_COUNT = STENCIL_FEATURE_COUNT + 1;
+  int TEXT_FEATURE_COUNT = STENCIL_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link org.xtext.online_elm.onlineElm.impl.DrawImpl <em>Draw</em>}' class.
@@ -747,25 +1832,34 @@ public interface OnlineElmPackage extends EPackage
    * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getDraw()
    * @generated
    */
-  int DRAW = 15;
+  int DRAW = 29;
 
   /**
-   * The feature id for the '<em><b>Filled Color</b></em>' containment reference.
+   * The feature id for the '<em><b>Filled</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DRAW__FILLED_COLOR = 0;
+  int DRAW__FILLED = 0;
 
   /**
-   * The feature id for the '<em><b>Position</b></em>' containment reference.
+   * The feature id for the '<em><b>Outlined</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DRAW__POSITION = 1;
+  int DRAW__OUTLINED = 1;
+
+  /**
+   * The feature id for the '<em><b>Transform</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DRAW__TRANSFORM = 2;
 
   /**
    * The number of structural features of the '<em>Draw</em>' class.
@@ -774,17 +1868,17 @@ public interface OnlineElmPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DRAW_FEATURE_COUNT = 2;
+  int DRAW_FEATURE_COUNT = 3;
 
   /**
-   * The meta object id for the '{@link org.xtext.online_elm.onlineElm.impl.FillImpl <em>Fill</em>}' class.
+   * The meta object id for the '{@link org.xtext.online_elm.onlineElm.impl.FilledImpl <em>Filled</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.online_elm.onlineElm.impl.FillImpl
-   * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getFill()
+   * @see org.xtext.online_elm.onlineElm.impl.FilledImpl
+   * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getFilled()
    * @generated
    */
-  int FILL = 16;
+  int FILLED = 30;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -793,25 +1887,153 @@ public interface OnlineElmPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FILL__NAME = 0;
+  int FILLED__NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Color</b></em>' attribute.
+   * The feature id for the '<em><b>Filled Color1</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FILL__COLOR = 1;
+  int FILLED__FILLED_COLOR1 = 1;
 
   /**
-   * The number of structural features of the '<em>Fill</em>' class.
+   * The feature id for the '<em><b>Filled Color2</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FILL_FEATURE_COUNT = 2;
+  int FILLED__FILLED_COLOR2 = 2;
+
+  /**
+   * The feature id for the '<em><b>Line Type1</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FILLED__LINE_TYPE1 = 3;
+
+  /**
+   * The feature id for the '<em><b>Width1</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FILLED__WIDTH1 = 4;
+
+  /**
+   * The feature id for the '<em><b>Outline color1</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FILLED__OUTLINE_COLOR1 = 5;
+
+  /**
+   * The number of structural features of the '<em>Filled</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FILLED_FEATURE_COUNT = 6;
+
+  /**
+   * The meta object id for the '{@link org.xtext.online_elm.onlineElm.impl.OutlinedImpl <em>Outlined</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.online_elm.onlineElm.impl.OutlinedImpl
+   * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getOutlined()
+   * @generated
+   */
+  int OUTLINED = 31;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OUTLINED__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Line Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OUTLINED__LINE_TYPE = 1;
+
+  /**
+   * The feature id for the '<em><b>Width</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OUTLINED__WIDTH = 2;
+
+  /**
+   * The feature id for the '<em><b>Outlined Color1</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OUTLINED__OUTLINED_COLOR1 = 3;
+
+  /**
+   * The feature id for the '<em><b>Outlined Color2</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OUTLINED__OUTLINED_COLOR2 = 4;
+
+  /**
+   * The number of structural features of the '<em>Outlined</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OUTLINED_FEATURE_COUNT = 5;
+
+  /**
+   * The meta object id for the '{@link org.xtext.online_elm.onlineElm.impl.TranformImpl <em>Tranform</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.online_elm.onlineElm.impl.TranformImpl
+   * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getTranform()
+   * @generated
+   */
+  int TRANFORM = 32;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRANFORM__NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>Tranform</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRANFORM_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.xtext.online_elm.onlineElm.impl.MoveImpl <em>Move</em>}' class.
@@ -821,7 +2043,7 @@ public interface OnlineElmPackage extends EPackage
    * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getMove()
    * @generated
    */
-  int MOVE = 17;
+  int MOVE = 33;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -830,25 +2052,16 @@ public interface OnlineElmPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MOVE__NAME = 0;
+  int MOVE__NAME = TRANFORM__NAME;
 
   /**
-   * The feature id for the '<em><b>X</b></em>' containment reference.
+   * The feature id for the '<em><b>Point</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MOVE__X = 1;
-
-  /**
-   * The feature id for the '<em><b>Y</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MOVE__Y = 2;
+  int MOVE__POINT = TRANFORM_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Move</em>' class.
@@ -857,17 +2070,265 @@ public interface OnlineElmPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MOVE_FEATURE_COUNT = 3;
+  int MOVE_FEATURE_COUNT = TRANFORM_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link org.xtext.online_elm.onlineElm.BOOL_OP <em>BOOL OP</em>}' enum.
+   * The meta object id for the '{@link org.xtext.online_elm.onlineElm.impl.RotateImpl <em>Rotate</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.online_elm.onlineElm.BOOL_OP
-   * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getBOOL_OP()
+   * @see org.xtext.online_elm.onlineElm.impl.RotateImpl
+   * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getRotate()
    * @generated
    */
-  int BOOL_OP = 18;
+  int ROTATE = 34;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ROTATE__NAME = TRANFORM__NAME;
+
+  /**
+   * The feature id for the '<em><b>Degree</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ROTATE__DEGREE = TRANFORM_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Rotate</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ROTATE_FEATURE_COUNT = TRANFORM_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.online_elm.onlineElm.impl.ScaleImpl <em>Scale</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.online_elm.onlineElm.impl.ScaleImpl
+   * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getScale()
+   * @generated
+   */
+  int SCALE = 35;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCALE__NAME = TRANFORM__NAME;
+
+  /**
+   * The feature id for the '<em><b>Factor</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCALE__FACTOR = TRANFORM_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Scale</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCALE_FEATURE_COUNT = TRANFORM_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.online_elm.onlineElm.impl.ScaleXImpl <em>Scale X</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.online_elm.onlineElm.impl.ScaleXImpl
+   * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getScaleX()
+   * @generated
+   */
+  int SCALE_X = 36;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCALE_X__NAME = TRANFORM__NAME;
+
+  /**
+   * The feature id for the '<em><b>Factor</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCALE_X__FACTOR = TRANFORM_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Scale X</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCALE_X_FEATURE_COUNT = TRANFORM_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.online_elm.onlineElm.impl.ScaleYImpl <em>Scale Y</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.online_elm.onlineElm.impl.ScaleYImpl
+   * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getScaleY()
+   * @generated
+   */
+  int SCALE_Y = 37;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCALE_Y__NAME = TRANFORM__NAME;
+
+  /**
+   * The feature id for the '<em><b>Factor</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCALE_Y__FACTOR = TRANFORM_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Scale Y</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCALE_Y_FEATURE_COUNT = TRANFORM_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.online_elm.onlineElm.impl.OperationImpl <em>Operation</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.online_elm.onlineElm.impl.OperationImpl
+   * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getOperation()
+   * @generated
+   */
+  int OPERATION = 38;
+
+  /**
+   * The feature id for the '<em><b>Local</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPERATION__LOCAL = MATH_EXP__LOCAL;
+
+  /**
+   * The feature id for the '<em><b>Ref</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPERATION__REF = MATH_EXP__REF;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPERATION__LEFT = MATH_EXP_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Op</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPERATION__OP = MATH_EXP_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPERATION__RIGHT = MATH_EXP_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>Operation</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPERATION_FEATURE_COUNT = MATH_EXP_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link org.xtext.online_elm.onlineElm.impl.FloatLiteralImpl <em>Float Literal</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.online_elm.onlineElm.impl.FloatLiteralImpl
+   * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getFloatLiteral()
+   * @generated
+   */
+  int FLOAT_LITERAL = 39;
+
+  /**
+   * The feature id for the '<em><b>Local</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FLOAT_LITERAL__LOCAL = MATH_EXP__LOCAL;
+
+  /**
+   * The feature id for the '<em><b>Ref</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FLOAT_LITERAL__REF = MATH_EXP__REF;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FLOAT_LITERAL__VALUE = MATH_EXP_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Float Literal</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FLOAT_LITERAL_FEATURE_COUNT = MATH_EXP_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.xtext.online_elm.onlineElm.MATH_OP <em>MATH OP</em>}' enum.
@@ -877,17 +2338,17 @@ public interface OnlineElmPackage extends EPackage
    * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getMATH_OP()
    * @generated
    */
-  int MATH_OP = 19;
+  int MATH_OP = 40;
 
   /**
-   * The meta object id for the '{@link org.xtext.online_elm.onlineElm.COMPARISON <em>COMPARISON</em>}' enum.
+   * The meta object id for the '{@link org.xtext.online_elm.onlineElm.LineType <em>Line Type</em>}' enum.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.online_elm.onlineElm.COMPARISON
-   * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getCOMPARISON()
+   * @see org.xtext.online_elm.onlineElm.LineType
+   * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getLineType()
    * @generated
    */
-  int COMPARISON = 20;
+  int LINE_TYPE = 41;
 
   /**
    * The meta object id for the '{@link org.xtext.online_elm.onlineElm.Color <em>Color</em>}' enum.
@@ -897,7 +2358,7 @@ public interface OnlineElmPackage extends EPackage
    * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getColor()
    * @generated
    */
-  int COLOR = 21;
+  int COLOR = 42;
 
 
   /**
@@ -933,6 +2394,17 @@ public interface OnlineElmPackage extends EPackage
   EReference getOnlineElm_Shapes();
 
   /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.online_elm.onlineElm.OnlineElm#getVar <em>Var</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Var</em>'.
+   * @see org.xtext.online_elm.onlineElm.OnlineElm#getVar()
+   * @see #getOnlineElm()
+   * @generated
+   */
+  EReference getOnlineElm_Var();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.online_elm.onlineElm.MainShape <em>Main Shape</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -954,59 +2426,81 @@ public interface OnlineElmPackage extends EPackage
   EAttribute getMainShape_Name();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.online_elm.onlineElm.MainShape#getS1 <em>S1</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.online_elm.onlineElm.MainShape#getShape <em>Shape</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>S1</em>'.
-   * @see org.xtext.online_elm.onlineElm.MainShape#getS1()
+   * @return the meta object for the containment reference '<em>Shape</em>'.
+   * @see org.xtext.online_elm.onlineElm.MainShape#getShape()
    * @see #getMainShape()
    * @generated
    */
-  EReference getMainShape_S1();
+  EReference getMainShape_Shape();
 
   /**
-   * Returns the meta object for the reference '{@link org.xtext.online_elm.onlineElm.MainShape#getS11 <em>S11</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.online_elm.onlineElm.MainShape#getConditional <em>Conditional</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>S11</em>'.
-   * @see org.xtext.online_elm.onlineElm.MainShape#getS11()
+   * @return the meta object for the containment reference '<em>Conditional</em>'.
+   * @see org.xtext.online_elm.onlineElm.MainShape#getConditional()
    * @see #getMainShape()
    * @generated
    */
-  EReference getMainShape_S11();
+  EReference getMainShape_Conditional();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.online_elm.onlineElm.MainShape#getS2 <em>S2</em>}'.
+   * Returns the meta object for the reference '{@link org.xtext.online_elm.onlineElm.MainShape#getShapeRef <em>Shape Ref</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>S2</em>'.
-   * @see org.xtext.online_elm.onlineElm.MainShape#getS2()
+   * @return the meta object for the reference '<em>Shape Ref</em>'.
+   * @see org.xtext.online_elm.onlineElm.MainShape#getShapeRef()
    * @see #getMainShape()
    * @generated
    */
-  EReference getMainShape_S2();
+  EReference getMainShape_ShapeRef();
 
   /**
-   * Returns the meta object for the reference list '{@link org.xtext.online_elm.onlineElm.MainShape#getS22 <em>S22</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.xtext.online_elm.onlineElm.MainShape#getMoreShapes <em>More Shapes</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference list '<em>S22</em>'.
-   * @see org.xtext.online_elm.onlineElm.MainShape#getS22()
+   * @return the meta object for the containment reference list '<em>More Shapes</em>'.
+   * @see org.xtext.online_elm.onlineElm.MainShape#getMoreShapes()
    * @see #getMainShape()
    * @generated
    */
-  EReference getMainShape_S22();
+  EReference getMainShape_MoreShapes();
 
   /**
-   * Returns the meta object for the reference list '{@link org.xtext.online_elm.onlineElm.MainShape#getSg <em>Sg</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.xtext.online_elm.onlineElm.MainShape#getMoreConditional <em>More Conditional</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference list '<em>Sg</em>'.
-   * @see org.xtext.online_elm.onlineElm.MainShape#getSg()
+   * @return the meta object for the containment reference list '<em>More Conditional</em>'.
+   * @see org.xtext.online_elm.onlineElm.MainShape#getMoreConditional()
    * @see #getMainShape()
    * @generated
    */
-  EReference getMainShape_Sg();
+  EReference getMainShape_MoreConditional();
+
+  /**
+   * Returns the meta object for the reference list '{@link org.xtext.online_elm.onlineElm.MainShape#getMoreShapeRef <em>More Shape Ref</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>More Shape Ref</em>'.
+   * @see org.xtext.online_elm.onlineElm.MainShape#getMoreShapeRef()
+   * @see #getMainShape()
+   * @generated
+   */
+  EReference getMainShape_MoreShapeRef();
+
+  /**
+   * Returns the meta object for the reference list '{@link org.xtext.online_elm.onlineElm.MainShape#getExternal <em>External</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>External</em>'.
+   * @see org.xtext.online_elm.onlineElm.MainShape#getExternal()
+   * @see #getMainShape()
+   * @generated
+   */
+  EReference getMainShape_External();
 
   /**
    * Returns the meta object for class '{@link org.xtext.online_elm.onlineElm.ShapeDef <em>Shape Def</em>}'.
@@ -1030,69 +2524,123 @@ public interface OnlineElmPackage extends EPackage
   EAttribute getShapeDef_Name();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.online_elm.onlineElm.ShapeGroup <em>Shape Group</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.online_elm.onlineElm.ShapeDef#getShape <em>Shape</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Shape Group</em>'.
-   * @see org.xtext.online_elm.onlineElm.ShapeGroup
+   * @return the meta object for the containment reference '<em>Shape</em>'.
+   * @see org.xtext.online_elm.onlineElm.ShapeDef#getShape()
+   * @see #getShapeDef()
    * @generated
    */
-  EClass getShapeGroup();
+  EReference getShapeDef_Shape();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.online_elm.onlineElm.ShapeGroup#getS1 <em>S1</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.online_elm.onlineElm.ShapeDef#getConditional <em>Conditional</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>S1</em>'.
-   * @see org.xtext.online_elm.onlineElm.ShapeGroup#getS1()
-   * @see #getShapeGroup()
+   * @return the meta object for the containment reference '<em>Conditional</em>'.
+   * @see org.xtext.online_elm.onlineElm.ShapeDef#getConditional()
+   * @see #getShapeDef()
    * @generated
    */
-  EReference getShapeGroup_S1();
+  EReference getShapeDef_Conditional();
 
   /**
-   * Returns the meta object for the reference '{@link org.xtext.online_elm.onlineElm.ShapeGroup#getS11 <em>S11</em>}'.
+   * Returns the meta object for class '{@link org.xtext.online_elm.onlineElm.Local_var <em>Local var</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>S11</em>'.
-   * @see org.xtext.online_elm.onlineElm.ShapeGroup#getS11()
-   * @see #getShapeGroup()
+   * @return the meta object for class '<em>Local var</em>'.
+   * @see org.xtext.online_elm.onlineElm.Local_var
    * @generated
    */
-  EReference getShapeGroup_S11();
+  EClass getLocal_var();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.online_elm.onlineElm.ShapeGroup#getS2 <em>S2</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.online_elm.onlineElm.Local_var#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>S2</em>'.
-   * @see org.xtext.online_elm.onlineElm.ShapeGroup#getS2()
-   * @see #getShapeGroup()
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.online_elm.onlineElm.Local_var#getName()
+   * @see #getLocal_var()
    * @generated
    */
-  EReference getShapeGroup_S2();
+  EAttribute getLocal_var_Name();
 
   /**
-   * Returns the meta object for the reference list '{@link org.xtext.online_elm.onlineElm.ShapeGroup#getS22 <em>S22</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.online_elm.onlineElm.Local_var#getVar <em>Var</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference list '<em>S22</em>'.
-   * @see org.xtext.online_elm.onlineElm.ShapeGroup#getS22()
-   * @see #getShapeGroup()
+   * @return the meta object for the containment reference '<em>Var</em>'.
+   * @see org.xtext.online_elm.onlineElm.Local_var#getVar()
+   * @see #getLocal_var()
    * @generated
    */
-  EReference getShapeGroup_S22();
+  EReference getLocal_var_Var();
 
   /**
-   * Returns the meta object for the reference list '{@link org.xtext.online_elm.onlineElm.ShapeGroup#getSg <em>Sg</em>}'.
+   * Returns the meta object for class '{@link org.xtext.online_elm.onlineElm.ShapeList <em>Shape List</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference list '<em>Sg</em>'.
-   * @see org.xtext.online_elm.onlineElm.ShapeGroup#getSg()
-   * @see #getShapeGroup()
+   * @return the meta object for class '<em>Shape List</em>'.
+   * @see org.xtext.online_elm.onlineElm.ShapeList
    * @generated
    */
-  EReference getShapeGroup_Sg();
+  EClass getShapeList();
+
+  /**
+   * Returns the meta object for the reference '{@link org.xtext.online_elm.onlineElm.ShapeList#getShapeRef <em>Shape Ref</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Shape Ref</em>'.
+   * @see org.xtext.online_elm.onlineElm.ShapeList#getShapeRef()
+   * @see #getShapeList()
+   * @generated
+   */
+  EReference getShapeList_ShapeRef();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.online_elm.onlineElm.ShapeList#getMoreShapes <em>More Shapes</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>More Shapes</em>'.
+   * @see org.xtext.online_elm.onlineElm.ShapeList#getMoreShapes()
+   * @see #getShapeList()
+   * @generated
+   */
+  EReference getShapeList_MoreShapes();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.online_elm.onlineElm.ShapeList#getMoreConditional <em>More Conditional</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>More Conditional</em>'.
+   * @see org.xtext.online_elm.onlineElm.ShapeList#getMoreConditional()
+   * @see #getShapeList()
+   * @generated
+   */
+  EReference getShapeList_MoreConditional();
+
+  /**
+   * Returns the meta object for the reference list '{@link org.xtext.online_elm.onlineElm.ShapeList#getMoreShapeRef <em>More Shape Ref</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>More Shape Ref</em>'.
+   * @see org.xtext.online_elm.onlineElm.ShapeList#getMoreShapeRef()
+   * @see #getShapeList()
+   * @generated
+   */
+  EReference getShapeList_MoreShapeRef();
+
+  /**
+   * Returns the meta object for the reference list '{@link org.xtext.online_elm.onlineElm.ShapeList#getExternal <em>External</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>External</em>'.
+   * @see org.xtext.online_elm.onlineElm.ShapeList#getExternal()
+   * @see #getShapeList()
+   * @generated
+   */
+  EReference getShapeList_External();
 
   /**
    * Returns the meta object for class '{@link org.xtext.online_elm.onlineElm.BasicShape <em>Basic Shape</em>}'.
@@ -1103,17 +2651,6 @@ public interface OnlineElmPackage extends EPackage
    * @generated
    */
   EClass getBasicShape();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.online_elm.onlineElm.BasicShape#getShape <em>Shape</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Shape</em>'.
-   * @see org.xtext.online_elm.onlineElm.BasicShape#getShape()
-   * @see #getBasicShape()
-   * @generated
-   */
-  EReference getBasicShape_Shape();
 
   /**
    * Returns the meta object for class '{@link org.xtext.online_elm.onlineElm.Shape <em>Shape</em>}'.
@@ -1148,122 +2685,248 @@ public interface OnlineElmPackage extends EPackage
   EReference getShape_Draw();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.online_elm.onlineElm.Conditional <em>Conditional</em>}'.
+   * Returns the meta object for class '{@link org.xtext.online_elm.onlineElm.Conditional_Shape <em>Conditional Shape</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Conditional</em>'.
-   * @see org.xtext.online_elm.onlineElm.Conditional
+   * @return the meta object for class '<em>Conditional Shape</em>'.
+   * @see org.xtext.online_elm.onlineElm.Conditional_Shape
    * @generated
    */
-  EClass getConditional();
+  EClass getConditional_Shape();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.online_elm.onlineElm.Bool_exp <em>Bool exp</em>}'.
+   * Returns the meta object for class '{@link org.xtext.online_elm.onlineElm.Conditional_Color <em>Conditional Color</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Bool exp</em>'.
-   * @see org.xtext.online_elm.onlineElm.Bool_exp
+   * @return the meta object for class '<em>Conditional Color</em>'.
+   * @see org.xtext.online_elm.onlineElm.Conditional_Color
    * @generated
    */
-  EClass getBool_exp();
+  EClass getConditional_Color();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.online_elm.onlineElm.Bool_exp#getExp1 <em>Exp1</em>}'.
+   * Returns the meta object for class '{@link org.xtext.online_elm.onlineElm.Conditional_Num <em>Conditional Num</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Exp1</em>'.
-   * @see org.xtext.online_elm.onlineElm.Bool_exp#getExp1()
-   * @see #getBool_exp()
+   * @return the meta object for class '<em>Conditional Num</em>'.
+   * @see org.xtext.online_elm.onlineElm.Conditional_Num
    * @generated
    */
-  EReference getBool_exp_Exp1();
+  EClass getConditional_Num();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.online_elm.onlineElm.Bool_exp#getExp2 <em>Exp2</em>}'.
+   * Returns the meta object for class '{@link org.xtext.online_elm.onlineElm.Conditional_Str <em>Conditional Str</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Exp2</em>'.
-   * @see org.xtext.online_elm.onlineElm.Bool_exp#getExp2()
-   * @see #getBool_exp()
+   * @return the meta object for class '<em>Conditional Str</em>'.
+   * @see org.xtext.online_elm.onlineElm.Conditional_Str
    * @generated
    */
-  EReference getBool_exp_Exp2();
+  EClass getConditional_Str();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.online_elm.onlineElm.Bool_exp#getLeft <em>Left</em>}'.
+   * Returns the meta object for class '{@link org.xtext.online_elm.onlineElm.Bool_expr <em>Bool expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Bool expr</em>'.
+   * @see org.xtext.online_elm.onlineElm.Bool_expr
+   * @generated
+   */
+  EClass getBool_expr();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.online_elm.onlineElm.Bool_expr#getShape_1 <em>Shape 1</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Shape 1</em>'.
+   * @see org.xtext.online_elm.onlineElm.Bool_expr#getShape_1()
+   * @see #getBool_expr()
+   * @generated
+   */
+  EReference getBool_expr_Shape_1();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.online_elm.onlineElm.Bool_expr#getNested_1 <em>Nested 1</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Nested 1</em>'.
+   * @see org.xtext.online_elm.onlineElm.Bool_expr#getNested_1()
+   * @see #getBool_expr()
+   * @generated
+   */
+  EReference getBool_expr_Nested_1();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.online_elm.onlineElm.Bool_expr#getShape_2 <em>Shape 2</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Shape 2</em>'.
+   * @see org.xtext.online_elm.onlineElm.Bool_expr#getShape_2()
+   * @see #getBool_expr()
+   * @generated
+   */
+  EReference getBool_expr_Shape_2();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.online_elm.onlineElm.Bool_expr#getNested_2 <em>Nested 2</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Nested 2</em>'.
+   * @see org.xtext.online_elm.onlineElm.Bool_expr#getNested_2()
+   * @see #getBool_expr()
+   * @generated
+   */
+  EReference getBool_expr_Nested_2();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.online_elm.onlineElm.Bool_expr#getColor_1 <em>Color 1</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Color 1</em>'.
+   * @see org.xtext.online_elm.onlineElm.Bool_expr#getColor_1()
+   * @see #getBool_expr()
+   * @generated
+   */
+  EAttribute getBool_expr_Color_1();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.online_elm.onlineElm.Bool_expr#getColor_2 <em>Color 2</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Color 2</em>'.
+   * @see org.xtext.online_elm.onlineElm.Bool_expr#getColor_2()
+   * @see #getBool_expr()
+   * @generated
+   */
+  EAttribute getBool_expr_Color_2();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.online_elm.onlineElm.Bool_expr#getNum_1 <em>Num 1</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Num 1</em>'.
+   * @see org.xtext.online_elm.onlineElm.Bool_expr#getNum_1()
+   * @see #getBool_expr()
+   * @generated
+   */
+  EAttribute getBool_expr_Num_1();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.online_elm.onlineElm.Bool_expr#getNum_2 <em>Num 2</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Num 2</em>'.
+   * @see org.xtext.online_elm.onlineElm.Bool_expr#getNum_2()
+   * @see #getBool_expr()
+   * @generated
+   */
+  EAttribute getBool_expr_Num_2();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.online_elm.onlineElm.Bool_expr#getStr_1 <em>Str 1</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Str 1</em>'.
+   * @see org.xtext.online_elm.onlineElm.Bool_expr#getStr_1()
+   * @see #getBool_expr()
+   * @generated
+   */
+  EAttribute getBool_expr_Str_1();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.online_elm.onlineElm.Bool_expr#getStr_2 <em>Str 2</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Str 2</em>'.
+   * @see org.xtext.online_elm.onlineElm.Bool_expr#getStr_2()
+   * @see #getBool_expr()
+   * @generated
+   */
+  EAttribute getBool_expr_Str_2();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.online_elm.onlineElm.Or_expr <em>Or expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Or expr</em>'.
+   * @see org.xtext.online_elm.onlineElm.Or_expr
+   * @generated
+   */
+  EClass getOr_expr();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.online_elm.onlineElm.Or_expr#getLeft <em>Left</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Left</em>'.
-   * @see org.xtext.online_elm.onlineElm.Bool_exp#getLeft()
-   * @see #getBool_exp()
+   * @see org.xtext.online_elm.onlineElm.Or_expr#getLeft()
+   * @see #getOr_expr()
    * @generated
    */
-  EReference getBool_exp_Left();
+  EReference getOr_expr_Left();
 
   /**
-   * Returns the meta object for the attribute list '{@link org.xtext.online_elm.onlineElm.Bool_exp#getOperator <em>Operator</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.online_elm.onlineElm.Or_expr#getRight <em>Right</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Operator</em>'.
-   * @see org.xtext.online_elm.onlineElm.Bool_exp#getOperator()
-   * @see #getBool_exp()
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see org.xtext.online_elm.onlineElm.Or_expr#getRight()
+   * @see #getOr_expr()
    * @generated
    */
-  EAttribute getBool_exp_Operator();
+  EReference getOr_expr_Right();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.online_elm.onlineElm.Bool_exp#getRights <em>Rights</em>}'.
+   * Returns the meta object for class '{@link org.xtext.online_elm.onlineElm.And_expr <em>And expr</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Rights</em>'.
-   * @see org.xtext.online_elm.onlineElm.Bool_exp#getRights()
-   * @see #getBool_exp()
+   * @return the meta object for class '<em>And expr</em>'.
+   * @see org.xtext.online_elm.onlineElm.And_expr
    * @generated
    */
-  EReference getBool_exp_Rights();
+  EClass getAnd_expr();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.online_elm.onlineElm.Terminal_Bool_exp <em>Terminal Bool exp</em>}'.
+   * Returns the meta object for class '{@link org.xtext.online_elm.onlineElm.Not_expr <em>Not expr</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Terminal Bool exp</em>'.
-   * @see org.xtext.online_elm.onlineElm.Terminal_Bool_exp
+   * @return the meta object for class '<em>Not expr</em>'.
+   * @see org.xtext.online_elm.onlineElm.Not_expr
    * @generated
    */
-  EClass getTerminal_Bool_exp();
+  EClass getNot_expr();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.online_elm.onlineElm.Terminal_Bool_exp#getN1 <em>N1</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.online_elm.onlineElm.Not_expr#getOperand <em>Operand</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>N1</em>'.
-   * @see org.xtext.online_elm.onlineElm.Terminal_Bool_exp#getN1()
-   * @see #getTerminal_Bool_exp()
+   * @return the meta object for the containment reference '<em>Operand</em>'.
+   * @see org.xtext.online_elm.onlineElm.Not_expr#getOperand()
+   * @see #getNot_expr()
    * @generated
    */
-  EReference getTerminal_Bool_exp_N1();
+  EReference getNot_expr_Operand();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.online_elm.onlineElm.Terminal_Bool_exp#getComp <em>Comp</em>}'.
+   * Returns the meta object for class '{@link org.xtext.online_elm.onlineElm.Compare_expr <em>Compare expr</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Comp</em>'.
-   * @see org.xtext.online_elm.onlineElm.Terminal_Bool_exp#getComp()
-   * @see #getTerminal_Bool_exp()
+   * @return the meta object for class '<em>Compare expr</em>'.
+   * @see org.xtext.online_elm.onlineElm.Compare_expr
    * @generated
    */
-  EAttribute getTerminal_Bool_exp_Comp();
+  EClass getCompare_expr();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.online_elm.onlineElm.Terminal_Bool_exp#getN2 <em>N2</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.online_elm.onlineElm.Compare_expr#getOperator <em>Operator</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>N2</em>'.
-   * @see org.xtext.online_elm.onlineElm.Terminal_Bool_exp#getN2()
-   * @see #getTerminal_Bool_exp()
+   * @return the meta object for the attribute '<em>Operator</em>'.
+   * @see org.xtext.online_elm.onlineElm.Compare_expr#getOperator()
+   * @see #getCompare_expr()
    * @generated
    */
-  EReference getTerminal_Bool_exp_N2();
+  EAttribute getCompare_expr_Operator();
 
   /**
    * Returns the meta object for class '{@link org.xtext.online_elm.onlineElm.Num_value <em>Num value</em>}'.
@@ -1276,15 +2939,26 @@ public interface OnlineElmPackage extends EPackage
   EClass getNum_value();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.online_elm.onlineElm.Num_value#getNum <em>Num</em>}'.
+   * Returns the meta object for the reference '{@link org.xtext.online_elm.onlineElm.Num_value#getLocal <em>Local</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Num</em>'.
-   * @see org.xtext.online_elm.onlineElm.Num_value#getNum()
+   * @return the meta object for the reference '<em>Local</em>'.
+   * @see org.xtext.online_elm.onlineElm.Num_value#getLocal()
    * @see #getNum_value()
    * @generated
    */
-  EAttribute getNum_value_Num();
+  EReference getNum_value_Local();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.online_elm.onlineElm.Num_value#getRef <em>Ref</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Ref</em>'.
+   * @see org.xtext.online_elm.onlineElm.Num_value#getRef()
+   * @see #getNum_value()
+   * @generated
+   */
+  EAttribute getNum_value_Ref();
 
   /**
    * Returns the meta object for class '{@link org.xtext.online_elm.onlineElm.Math_exp <em>Math exp</em>}'.
@@ -1295,39 +2969,6 @@ public interface OnlineElmPackage extends EPackage
    * @generated
    */
   EClass getMath_exp();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.online_elm.onlineElm.Math_exp#getN1 <em>N1</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>N1</em>'.
-   * @see org.xtext.online_elm.onlineElm.Math_exp#getN1()
-   * @see #getMath_exp()
-   * @generated
-   */
-  EAttribute getMath_exp_N1();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.online_elm.onlineElm.Math_exp#getOp1 <em>Op1</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Op1</em>'.
-   * @see org.xtext.online_elm.onlineElm.Math_exp#getOp1()
-   * @see #getMath_exp()
-   * @generated
-   */
-  EAttribute getMath_exp_Op1();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.online_elm.onlineElm.Math_exp#getN2 <em>N2</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>N2</em>'.
-   * @see org.xtext.online_elm.onlineElm.Math_exp#getN2()
-   * @see #getMath_exp()
-   * @generated
-   */
-  EAttribute getMath_exp_N2();
 
   /**
    * Returns the meta object for class '{@link org.xtext.online_elm.onlineElm.Stencil <em>Stencil</em>}'.
@@ -1361,15 +3002,15 @@ public interface OnlineElmPackage extends EPackage
   EClass getCircle();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.online_elm.onlineElm.Circle#getDiameter <em>Diameter</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.online_elm.onlineElm.Circle#getRadius <em>Radius</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Diameter</em>'.
-   * @see org.xtext.online_elm.onlineElm.Circle#getDiameter()
+   * @return the meta object for the containment reference '<em>Radius</em>'.
+   * @see org.xtext.online_elm.onlineElm.Circle#getRadius()
    * @see #getCircle()
    * @generated
    */
-  EAttribute getCircle_Diameter();
+  EReference getCircle_Radius();
 
   /**
    * Returns the meta object for class '{@link org.xtext.online_elm.onlineElm.Rect <em>Rect</em>}'.
@@ -1382,26 +3023,250 @@ public interface OnlineElmPackage extends EPackage
   EClass getRect();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.online_elm.onlineElm.Rect#getEdgeX <em>Edge X</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.online_elm.onlineElm.Rect#getWidth <em>Width</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Edge X</em>'.
-   * @see org.xtext.online_elm.onlineElm.Rect#getEdgeX()
+   * @return the meta object for the containment reference '<em>Width</em>'.
+   * @see org.xtext.online_elm.onlineElm.Rect#getWidth()
    * @see #getRect()
    * @generated
    */
-  EAttribute getRect_EdgeX();
+  EReference getRect_Width();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.online_elm.onlineElm.Rect#getEdgeY <em>Edge Y</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.online_elm.onlineElm.Rect#getHeight <em>Height</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Edge Y</em>'.
-   * @see org.xtext.online_elm.onlineElm.Rect#getEdgeY()
+   * @return the meta object for the containment reference '<em>Height</em>'.
+   * @see org.xtext.online_elm.onlineElm.Rect#getHeight()
    * @see #getRect()
    * @generated
    */
-  EAttribute getRect_EdgeY();
+  EReference getRect_Height();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.online_elm.onlineElm.Square <em>Square</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Square</em>'.
+   * @see org.xtext.online_elm.onlineElm.Square
+   * @generated
+   */
+  EClass getSquare();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.online_elm.onlineElm.Square#getSide <em>Side</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Side</em>'.
+   * @see org.xtext.online_elm.onlineElm.Square#getSide()
+   * @see #getSquare()
+   * @generated
+   */
+  EReference getSquare_Side();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.online_elm.onlineElm.RoundedRect <em>Rounded Rect</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Rounded Rect</em>'.
+   * @see org.xtext.online_elm.onlineElm.RoundedRect
+   * @generated
+   */
+  EClass getRoundedRect();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.online_elm.onlineElm.RoundedRect#getWidth <em>Width</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Width</em>'.
+   * @see org.xtext.online_elm.onlineElm.RoundedRect#getWidth()
+   * @see #getRoundedRect()
+   * @generated
+   */
+  EReference getRoundedRect_Width();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.online_elm.onlineElm.RoundedRect#getHeight <em>Height</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Height</em>'.
+   * @see org.xtext.online_elm.onlineElm.RoundedRect#getHeight()
+   * @see #getRoundedRect()
+   * @generated
+   */
+  EReference getRoundedRect_Height();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.online_elm.onlineElm.RoundedRect#getCorner_radius <em>Corner radius</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Corner radius</em>'.
+   * @see org.xtext.online_elm.onlineElm.RoundedRect#getCorner_radius()
+   * @see #getRoundedRect()
+   * @generated
+   */
+  EReference getRoundedRect_Corner_radius();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.online_elm.onlineElm.Oval <em>Oval</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Oval</em>'.
+   * @see org.xtext.online_elm.onlineElm.Oval
+   * @generated
+   */
+  EClass getOval();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.online_elm.onlineElm.Oval#getWidth <em>Width</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Width</em>'.
+   * @see org.xtext.online_elm.onlineElm.Oval#getWidth()
+   * @see #getOval()
+   * @generated
+   */
+  EReference getOval_Width();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.online_elm.onlineElm.Oval#getHeight <em>Height</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Height</em>'.
+   * @see org.xtext.online_elm.onlineElm.Oval#getHeight()
+   * @see #getOval()
+   * @generated
+   */
+  EReference getOval_Height();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.online_elm.onlineElm.Ngon <em>Ngon</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Ngon</em>'.
+   * @see org.xtext.online_elm.onlineElm.Ngon
+   * @generated
+   */
+  EClass getNgon();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.online_elm.onlineElm.Ngon#getSides_num <em>Sides num</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Sides num</em>'.
+   * @see org.xtext.online_elm.onlineElm.Ngon#getSides_num()
+   * @see #getNgon()
+   * @generated
+   */
+  EReference getNgon_Sides_num();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.online_elm.onlineElm.Ngon#getRadius <em>Radius</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Radius</em>'.
+   * @see org.xtext.online_elm.onlineElm.Ngon#getRadius()
+   * @see #getNgon()
+   * @generated
+   */
+  EReference getNgon_Radius();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.online_elm.onlineElm.Wedge <em>Wedge</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Wedge</em>'.
+   * @see org.xtext.online_elm.onlineElm.Wedge
+   * @generated
+   */
+  EClass getWedge();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.online_elm.onlineElm.Wedge#getRadius <em>Radius</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Radius</em>'.
+   * @see org.xtext.online_elm.onlineElm.Wedge#getRadius()
+   * @see #getWedge()
+   * @generated
+   */
+  EReference getWedge_Radius();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.online_elm.onlineElm.Wedge#getFraction <em>Fraction</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Fraction</em>'.
+   * @see org.xtext.online_elm.onlineElm.Wedge#getFraction()
+   * @see #getWedge()
+   * @generated
+   */
+  EReference getWedge_Fraction();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.online_elm.onlineElm.Polygon <em>Polygon</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Polygon</em>'.
+   * @see org.xtext.online_elm.onlineElm.Polygon
+   * @generated
+   */
+  EClass getPolygon();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.online_elm.onlineElm.Polygon#getPoint1 <em>Point1</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Point1</em>'.
+   * @see org.xtext.online_elm.onlineElm.Polygon#getPoint1()
+   * @see #getPolygon()
+   * @generated
+   */
+  EReference getPolygon_Point1();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.online_elm.onlineElm.Polygon#getPoints <em>Points</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Points</em>'.
+   * @see org.xtext.online_elm.onlineElm.Polygon#getPoints()
+   * @see #getPolygon()
+   * @generated
+   */
+  EReference getPolygon_Points();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.online_elm.onlineElm.Point <em>Point</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Point</em>'.
+   * @see org.xtext.online_elm.onlineElm.Point
+   * @generated
+   */
+  EClass getPoint();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.online_elm.onlineElm.Point#getX <em>X</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>X</em>'.
+   * @see org.xtext.online_elm.onlineElm.Point#getX()
+   * @see #getPoint()
+   * @generated
+   */
+  EReference getPoint_X();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.online_elm.onlineElm.Point#getY <em>Y</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Y</em>'.
+   * @see org.xtext.online_elm.onlineElm.Point#getY()
+   * @see #getPoint()
+   * @generated
+   */
+  EReference getPoint_Y();
 
   /**
    * Returns the meta object for class '{@link org.xtext.online_elm.onlineElm.Text <em>Text</em>}'.
@@ -1425,6 +3290,17 @@ public interface OnlineElmPackage extends EPackage
   EAttribute getText_Content();
 
   /**
+   * Returns the meta object for the containment reference '{@link org.xtext.online_elm.onlineElm.Text#getConditionalContent <em>Conditional Content</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Conditional Content</em>'.
+   * @see org.xtext.online_elm.onlineElm.Text#getConditionalContent()
+   * @see #getText()
+   * @generated
+   */
+  EReference getText_ConditionalContent();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.online_elm.onlineElm.Draw <em>Draw</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1435,58 +3311,199 @@ public interface OnlineElmPackage extends EPackage
   EClass getDraw();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.online_elm.onlineElm.Draw#getFilledColor <em>Filled Color</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.online_elm.onlineElm.Draw#getFilled <em>Filled</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Filled Color</em>'.
-   * @see org.xtext.online_elm.onlineElm.Draw#getFilledColor()
+   * @return the meta object for the containment reference '<em>Filled</em>'.
+   * @see org.xtext.online_elm.onlineElm.Draw#getFilled()
    * @see #getDraw()
    * @generated
    */
-  EReference getDraw_FilledColor();
+  EReference getDraw_Filled();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.online_elm.onlineElm.Draw#getPosition <em>Position</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.online_elm.onlineElm.Draw#getOutlined <em>Outlined</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Position</em>'.
-   * @see org.xtext.online_elm.onlineElm.Draw#getPosition()
+   * @return the meta object for the containment reference '<em>Outlined</em>'.
+   * @see org.xtext.online_elm.onlineElm.Draw#getOutlined()
    * @see #getDraw()
    * @generated
    */
-  EReference getDraw_Position();
+  EReference getDraw_Outlined();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.online_elm.onlineElm.Fill <em>Fill</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.xtext.online_elm.onlineElm.Draw#getTransform <em>Transform</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Fill</em>'.
-   * @see org.xtext.online_elm.onlineElm.Fill
+   * @return the meta object for the containment reference list '<em>Transform</em>'.
+   * @see org.xtext.online_elm.onlineElm.Draw#getTransform()
+   * @see #getDraw()
    * @generated
    */
-  EClass getFill();
+  EReference getDraw_Transform();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.online_elm.onlineElm.Fill#getName <em>Name</em>}'.
+   * Returns the meta object for class '{@link org.xtext.online_elm.onlineElm.Filled <em>Filled</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Filled</em>'.
+   * @see org.xtext.online_elm.onlineElm.Filled
+   * @generated
+   */
+  EClass getFilled();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.online_elm.onlineElm.Filled#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.xtext.online_elm.onlineElm.Fill#getName()
-   * @see #getFill()
+   * @see org.xtext.online_elm.onlineElm.Filled#getName()
+   * @see #getFilled()
    * @generated
    */
-  EAttribute getFill_Name();
+  EAttribute getFilled_Name();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.online_elm.onlineElm.Fill#getColor <em>Color</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.online_elm.onlineElm.Filled#getFilledColor1 <em>Filled Color1</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Color</em>'.
-   * @see org.xtext.online_elm.onlineElm.Fill#getColor()
-   * @see #getFill()
+   * @return the meta object for the attribute '<em>Filled Color1</em>'.
+   * @see org.xtext.online_elm.onlineElm.Filled#getFilledColor1()
+   * @see #getFilled()
    * @generated
    */
-  EAttribute getFill_Color();
+  EAttribute getFilled_FilledColor1();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.online_elm.onlineElm.Filled#getFilledColor2 <em>Filled Color2</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Filled Color2</em>'.
+   * @see org.xtext.online_elm.onlineElm.Filled#getFilledColor2()
+   * @see #getFilled()
+   * @generated
+   */
+  EReference getFilled_FilledColor2();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.online_elm.onlineElm.Filled#getLineType1 <em>Line Type1</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Line Type1</em>'.
+   * @see org.xtext.online_elm.onlineElm.Filled#getLineType1()
+   * @see #getFilled()
+   * @generated
+   */
+  EAttribute getFilled_LineType1();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.online_elm.onlineElm.Filled#getWidth1 <em>Width1</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Width1</em>'.
+   * @see org.xtext.online_elm.onlineElm.Filled#getWidth1()
+   * @see #getFilled()
+   * @generated
+   */
+  EAttribute getFilled_Width1();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.online_elm.onlineElm.Filled#getOutline_color1 <em>Outline color1</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Outline color1</em>'.
+   * @see org.xtext.online_elm.onlineElm.Filled#getOutline_color1()
+   * @see #getFilled()
+   * @generated
+   */
+  EAttribute getFilled_Outline_color1();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.online_elm.onlineElm.Outlined <em>Outlined</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Outlined</em>'.
+   * @see org.xtext.online_elm.onlineElm.Outlined
+   * @generated
+   */
+  EClass getOutlined();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.online_elm.onlineElm.Outlined#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.online_elm.onlineElm.Outlined#getName()
+   * @see #getOutlined()
+   * @generated
+   */
+  EAttribute getOutlined_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.online_elm.onlineElm.Outlined#getLineType <em>Line Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Line Type</em>'.
+   * @see org.xtext.online_elm.onlineElm.Outlined#getLineType()
+   * @see #getOutlined()
+   * @generated
+   */
+  EAttribute getOutlined_LineType();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.online_elm.onlineElm.Outlined#getWidth <em>Width</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Width</em>'.
+   * @see org.xtext.online_elm.onlineElm.Outlined#getWidth()
+   * @see #getOutlined()
+   * @generated
+   */
+  EAttribute getOutlined_Width();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.online_elm.onlineElm.Outlined#getOutlinedColor1 <em>Outlined Color1</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Outlined Color1</em>'.
+   * @see org.xtext.online_elm.onlineElm.Outlined#getOutlinedColor1()
+   * @see #getOutlined()
+   * @generated
+   */
+  EAttribute getOutlined_OutlinedColor1();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.online_elm.onlineElm.Outlined#getOutlinedColor2 <em>Outlined Color2</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Outlined Color2</em>'.
+   * @see org.xtext.online_elm.onlineElm.Outlined#getOutlinedColor2()
+   * @see #getOutlined()
+   * @generated
+   */
+  EReference getOutlined_OutlinedColor2();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.online_elm.onlineElm.Tranform <em>Tranform</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Tranform</em>'.
+   * @see org.xtext.online_elm.onlineElm.Tranform
+   * @generated
+   */
+  EClass getTranform();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.online_elm.onlineElm.Tranform#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.online_elm.onlineElm.Tranform#getName()
+   * @see #getTranform()
+   * @generated
+   */
+  EAttribute getTranform_Name();
 
   /**
    * Returns the meta object for class '{@link org.xtext.online_elm.onlineElm.Move <em>Move</em>}'.
@@ -1499,47 +3516,163 @@ public interface OnlineElmPackage extends EPackage
   EClass getMove();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.online_elm.onlineElm.Move#getName <em>Name</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.online_elm.onlineElm.Move#getPoint <em>Point</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.xtext.online_elm.onlineElm.Move#getName()
+   * @return the meta object for the containment reference '<em>Point</em>'.
+   * @see org.xtext.online_elm.onlineElm.Move#getPoint()
    * @see #getMove()
    * @generated
    */
-  EAttribute getMove_Name();
+  EReference getMove_Point();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.online_elm.onlineElm.Move#getX <em>X</em>}'.
+   * Returns the meta object for class '{@link org.xtext.online_elm.onlineElm.Rotate <em>Rotate</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>X</em>'.
-   * @see org.xtext.online_elm.onlineElm.Move#getX()
-   * @see #getMove()
+   * @return the meta object for class '<em>Rotate</em>'.
+   * @see org.xtext.online_elm.onlineElm.Rotate
    * @generated
    */
-  EReference getMove_X();
+  EClass getRotate();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.online_elm.onlineElm.Move#getY <em>Y</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.online_elm.onlineElm.Rotate#getDegree <em>Degree</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Y</em>'.
-   * @see org.xtext.online_elm.onlineElm.Move#getY()
-   * @see #getMove()
+   * @return the meta object for the containment reference '<em>Degree</em>'.
+   * @see org.xtext.online_elm.onlineElm.Rotate#getDegree()
+   * @see #getRotate()
    * @generated
    */
-  EReference getMove_Y();
+  EReference getRotate_Degree();
 
   /**
-   * Returns the meta object for enum '{@link org.xtext.online_elm.onlineElm.BOOL_OP <em>BOOL OP</em>}'.
+   * Returns the meta object for class '{@link org.xtext.online_elm.onlineElm.Scale <em>Scale</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for enum '<em>BOOL OP</em>'.
-   * @see org.xtext.online_elm.onlineElm.BOOL_OP
+   * @return the meta object for class '<em>Scale</em>'.
+   * @see org.xtext.online_elm.onlineElm.Scale
    * @generated
    */
-  EEnum getBOOL_OP();
+  EClass getScale();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.online_elm.onlineElm.Scale#getFactor <em>Factor</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Factor</em>'.
+   * @see org.xtext.online_elm.onlineElm.Scale#getFactor()
+   * @see #getScale()
+   * @generated
+   */
+  EReference getScale_Factor();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.online_elm.onlineElm.ScaleX <em>Scale X</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Scale X</em>'.
+   * @see org.xtext.online_elm.onlineElm.ScaleX
+   * @generated
+   */
+  EClass getScaleX();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.online_elm.onlineElm.ScaleX#getFactor <em>Factor</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Factor</em>'.
+   * @see org.xtext.online_elm.onlineElm.ScaleX#getFactor()
+   * @see #getScaleX()
+   * @generated
+   */
+  EReference getScaleX_Factor();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.online_elm.onlineElm.ScaleY <em>Scale Y</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Scale Y</em>'.
+   * @see org.xtext.online_elm.onlineElm.ScaleY
+   * @generated
+   */
+  EClass getScaleY();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.online_elm.onlineElm.ScaleY#getFactor <em>Factor</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Factor</em>'.
+   * @see org.xtext.online_elm.onlineElm.ScaleY#getFactor()
+   * @see #getScaleY()
+   * @generated
+   */
+  EReference getScaleY_Factor();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.online_elm.onlineElm.Operation <em>Operation</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Operation</em>'.
+   * @see org.xtext.online_elm.onlineElm.Operation
+   * @generated
+   */
+  EClass getOperation();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.online_elm.onlineElm.Operation#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see org.xtext.online_elm.onlineElm.Operation#getLeft()
+   * @see #getOperation()
+   * @generated
+   */
+  EReference getOperation_Left();
+
+  /**
+   * Returns the meta object for the attribute list '{@link org.xtext.online_elm.onlineElm.Operation#getOp <em>Op</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Op</em>'.
+   * @see org.xtext.online_elm.onlineElm.Operation#getOp()
+   * @see #getOperation()
+   * @generated
+   */
+  EAttribute getOperation_Op();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.online_elm.onlineElm.Operation#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Right</em>'.
+   * @see org.xtext.online_elm.onlineElm.Operation#getRight()
+   * @see #getOperation()
+   * @generated
+   */
+  EReference getOperation_Right();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.online_elm.onlineElm.FloatLiteral <em>Float Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Float Literal</em>'.
+   * @see org.xtext.online_elm.onlineElm.FloatLiteral
+   * @generated
+   */
+  EClass getFloatLiteral();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.online_elm.onlineElm.FloatLiteral#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see org.xtext.online_elm.onlineElm.FloatLiteral#getValue()
+   * @see #getFloatLiteral()
+   * @generated
+   */
+  EAttribute getFloatLiteral_Value();
 
   /**
    * Returns the meta object for enum '{@link org.xtext.online_elm.onlineElm.MATH_OP <em>MATH OP</em>}'.
@@ -1552,14 +3685,14 @@ public interface OnlineElmPackage extends EPackage
   EEnum getMATH_OP();
 
   /**
-   * Returns the meta object for enum '{@link org.xtext.online_elm.onlineElm.COMPARISON <em>COMPARISON</em>}'.
+   * Returns the meta object for enum '{@link org.xtext.online_elm.onlineElm.LineType <em>Line Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for enum '<em>COMPARISON</em>'.
-   * @see org.xtext.online_elm.onlineElm.COMPARISON
+   * @return the meta object for enum '<em>Line Type</em>'.
+   * @see org.xtext.online_elm.onlineElm.LineType
    * @generated
    */
-  EEnum getCOMPARISON();
+  EEnum getLineType();
 
   /**
    * Returns the meta object for enum '{@link org.xtext.online_elm.onlineElm.Color <em>Color</em>}'.
@@ -1621,6 +3754,14 @@ public interface OnlineElmPackage extends EPackage
     EReference ONLINE_ELM__SHAPES = eINSTANCE.getOnlineElm_Shapes();
 
     /**
+     * The meta object literal for the '<em><b>Var</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ONLINE_ELM__VAR = eINSTANCE.getOnlineElm_Var();
+
+    /**
      * The meta object literal for the '{@link org.xtext.online_elm.onlineElm.impl.MainShapeImpl <em>Main Shape</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1639,44 +3780,60 @@ public interface OnlineElmPackage extends EPackage
     EAttribute MAIN_SHAPE__NAME = eINSTANCE.getMainShape_Name();
 
     /**
-     * The meta object literal for the '<em><b>S1</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Shape</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MAIN_SHAPE__S1 = eINSTANCE.getMainShape_S1();
+    EReference MAIN_SHAPE__SHAPE = eINSTANCE.getMainShape_Shape();
 
     /**
-     * The meta object literal for the '<em><b>S11</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Conditional</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MAIN_SHAPE__S11 = eINSTANCE.getMainShape_S11();
+    EReference MAIN_SHAPE__CONDITIONAL = eINSTANCE.getMainShape_Conditional();
 
     /**
-     * The meta object literal for the '<em><b>S2</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Shape Ref</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MAIN_SHAPE__S2 = eINSTANCE.getMainShape_S2();
+    EReference MAIN_SHAPE__SHAPE_REF = eINSTANCE.getMainShape_ShapeRef();
 
     /**
-     * The meta object literal for the '<em><b>S22</b></em>' reference list feature.
+     * The meta object literal for the '<em><b>More Shapes</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MAIN_SHAPE__S22 = eINSTANCE.getMainShape_S22();
+    EReference MAIN_SHAPE__MORE_SHAPES = eINSTANCE.getMainShape_MoreShapes();
 
     /**
-     * The meta object literal for the '<em><b>Sg</b></em>' reference list feature.
+     * The meta object literal for the '<em><b>More Conditional</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MAIN_SHAPE__SG = eINSTANCE.getMainShape_Sg();
+    EReference MAIN_SHAPE__MORE_CONDITIONAL = eINSTANCE.getMainShape_MoreConditional();
+
+    /**
+     * The meta object literal for the '<em><b>More Shape Ref</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MAIN_SHAPE__MORE_SHAPE_REF = eINSTANCE.getMainShape_MoreShapeRef();
+
+    /**
+     * The meta object literal for the '<em><b>External</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MAIN_SHAPE__EXTERNAL = eINSTANCE.getMainShape_External();
 
     /**
      * The meta object literal for the '{@link org.xtext.online_elm.onlineElm.impl.ShapeDefImpl <em>Shape Def</em>}' class.
@@ -1697,54 +3854,96 @@ public interface OnlineElmPackage extends EPackage
     EAttribute SHAPE_DEF__NAME = eINSTANCE.getShapeDef_Name();
 
     /**
-     * The meta object literal for the '{@link org.xtext.online_elm.onlineElm.impl.ShapeGroupImpl <em>Shape Group</em>}' class.
+     * The meta object literal for the '<em><b>Shape</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.online_elm.onlineElm.impl.ShapeGroupImpl
-     * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getShapeGroup()
      * @generated
      */
-    EClass SHAPE_GROUP = eINSTANCE.getShapeGroup();
+    EReference SHAPE_DEF__SHAPE = eINSTANCE.getShapeDef_Shape();
 
     /**
-     * The meta object literal for the '<em><b>S1</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Conditional</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference SHAPE_GROUP__S1 = eINSTANCE.getShapeGroup_S1();
+    EReference SHAPE_DEF__CONDITIONAL = eINSTANCE.getShapeDef_Conditional();
 
     /**
-     * The meta object literal for the '<em><b>S11</b></em>' reference feature.
+     * The meta object literal for the '{@link org.xtext.online_elm.onlineElm.impl.Local_varImpl <em>Local var</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @see org.xtext.online_elm.onlineElm.impl.Local_varImpl
+     * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getLocal_var()
      * @generated
      */
-    EReference SHAPE_GROUP__S11 = eINSTANCE.getShapeGroup_S11();
+    EClass LOCAL_VAR = eINSTANCE.getLocal_var();
 
     /**
-     * The meta object literal for the '<em><b>S2</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference SHAPE_GROUP__S2 = eINSTANCE.getShapeGroup_S2();
+    EAttribute LOCAL_VAR__NAME = eINSTANCE.getLocal_var_Name();
 
     /**
-     * The meta object literal for the '<em><b>S22</b></em>' reference list feature.
+     * The meta object literal for the '<em><b>Var</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference SHAPE_GROUP__S22 = eINSTANCE.getShapeGroup_S22();
+    EReference LOCAL_VAR__VAR = eINSTANCE.getLocal_var_Var();
 
     /**
-     * The meta object literal for the '<em><b>Sg</b></em>' reference list feature.
+     * The meta object literal for the '{@link org.xtext.online_elm.onlineElm.impl.ShapeListImpl <em>Shape List</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.online_elm.onlineElm.impl.ShapeListImpl
+     * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getShapeList()
+     * @generated
+     */
+    EClass SHAPE_LIST = eINSTANCE.getShapeList();
+
+    /**
+     * The meta object literal for the '<em><b>Shape Ref</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference SHAPE_GROUP__SG = eINSTANCE.getShapeGroup_Sg();
+    EReference SHAPE_LIST__SHAPE_REF = eINSTANCE.getShapeList_ShapeRef();
+
+    /**
+     * The meta object literal for the '<em><b>More Shapes</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SHAPE_LIST__MORE_SHAPES = eINSTANCE.getShapeList_MoreShapes();
+
+    /**
+     * The meta object literal for the '<em><b>More Conditional</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SHAPE_LIST__MORE_CONDITIONAL = eINSTANCE.getShapeList_MoreConditional();
+
+    /**
+     * The meta object literal for the '<em><b>More Shape Ref</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SHAPE_LIST__MORE_SHAPE_REF = eINSTANCE.getShapeList_MoreShapeRef();
+
+    /**
+     * The meta object literal for the '<em><b>External</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SHAPE_LIST__EXTERNAL = eINSTANCE.getShapeList_External();
 
     /**
      * The meta object literal for the '{@link org.xtext.online_elm.onlineElm.impl.BasicShapeImpl <em>Basic Shape</em>}' class.
@@ -1755,14 +3954,6 @@ public interface OnlineElmPackage extends EPackage
      * @generated
      */
     EClass BASIC_SHAPE = eINSTANCE.getBasicShape();
-
-    /**
-     * The meta object literal for the '<em><b>Shape</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference BASIC_SHAPE__SHAPE = eINSTANCE.getBasicShape_Shape();
 
     /**
      * The meta object literal for the '{@link org.xtext.online_elm.onlineElm.impl.ShapeImpl <em>Shape</em>}' class.
@@ -1791,40 +3982,144 @@ public interface OnlineElmPackage extends EPackage
     EReference SHAPE__DRAW = eINSTANCE.getShape_Draw();
 
     /**
-     * The meta object literal for the '{@link org.xtext.online_elm.onlineElm.impl.ConditionalImpl <em>Conditional</em>}' class.
+     * The meta object literal for the '{@link org.xtext.online_elm.onlineElm.impl.Conditional_ShapeImpl <em>Conditional Shape</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.online_elm.onlineElm.impl.ConditionalImpl
-     * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getConditional()
+     * @see org.xtext.online_elm.onlineElm.impl.Conditional_ShapeImpl
+     * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getConditional_Shape()
      * @generated
      */
-    EClass CONDITIONAL = eINSTANCE.getConditional();
+    EClass CONDITIONAL_SHAPE = eINSTANCE.getConditional_Shape();
 
     /**
-     * The meta object literal for the '{@link org.xtext.online_elm.onlineElm.impl.Bool_expImpl <em>Bool exp</em>}' class.
+     * The meta object literal for the '{@link org.xtext.online_elm.onlineElm.impl.Conditional_ColorImpl <em>Conditional Color</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.online_elm.onlineElm.impl.Bool_expImpl
-     * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getBool_exp()
+     * @see org.xtext.online_elm.onlineElm.impl.Conditional_ColorImpl
+     * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getConditional_Color()
      * @generated
      */
-    EClass BOOL_EXP = eINSTANCE.getBool_exp();
+    EClass CONDITIONAL_COLOR = eINSTANCE.getConditional_Color();
 
     /**
-     * The meta object literal for the '<em><b>Exp1</b></em>' containment reference feature.
+     * The meta object literal for the '{@link org.xtext.online_elm.onlineElm.impl.Conditional_NumImpl <em>Conditional Num</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @see org.xtext.online_elm.onlineElm.impl.Conditional_NumImpl
+     * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getConditional_Num()
      * @generated
      */
-    EReference BOOL_EXP__EXP1 = eINSTANCE.getBool_exp_Exp1();
+    EClass CONDITIONAL_NUM = eINSTANCE.getConditional_Num();
 
     /**
-     * The meta object literal for the '<em><b>Exp2</b></em>' containment reference feature.
+     * The meta object literal for the '{@link org.xtext.online_elm.onlineElm.impl.Conditional_StrImpl <em>Conditional Str</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.online_elm.onlineElm.impl.Conditional_StrImpl
+     * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getConditional_Str()
+     * @generated
+     */
+    EClass CONDITIONAL_STR = eINSTANCE.getConditional_Str();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.online_elm.onlineElm.impl.Bool_exprImpl <em>Bool expr</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.online_elm.onlineElm.impl.Bool_exprImpl
+     * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getBool_expr()
+     * @generated
+     */
+    EClass BOOL_EXPR = eINSTANCE.getBool_expr();
+
+    /**
+     * The meta object literal for the '<em><b>Shape 1</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference BOOL_EXP__EXP2 = eINSTANCE.getBool_exp_Exp2();
+    EReference BOOL_EXPR__SHAPE_1 = eINSTANCE.getBool_expr_Shape_1();
+
+    /**
+     * The meta object literal for the '<em><b>Nested 1</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BOOL_EXPR__NESTED_1 = eINSTANCE.getBool_expr_Nested_1();
+
+    /**
+     * The meta object literal for the '<em><b>Shape 2</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BOOL_EXPR__SHAPE_2 = eINSTANCE.getBool_expr_Shape_2();
+
+    /**
+     * The meta object literal for the '<em><b>Nested 2</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BOOL_EXPR__NESTED_2 = eINSTANCE.getBool_expr_Nested_2();
+
+    /**
+     * The meta object literal for the '<em><b>Color 1</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute BOOL_EXPR__COLOR_1 = eINSTANCE.getBool_expr_Color_1();
+
+    /**
+     * The meta object literal for the '<em><b>Color 2</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute BOOL_EXPR__COLOR_2 = eINSTANCE.getBool_expr_Color_2();
+
+    /**
+     * The meta object literal for the '<em><b>Num 1</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute BOOL_EXPR__NUM_1 = eINSTANCE.getBool_expr_Num_1();
+
+    /**
+     * The meta object literal for the '<em><b>Num 2</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute BOOL_EXPR__NUM_2 = eINSTANCE.getBool_expr_Num_2();
+
+    /**
+     * The meta object literal for the '<em><b>Str 1</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute BOOL_EXPR__STR_1 = eINSTANCE.getBool_expr_Str_1();
+
+    /**
+     * The meta object literal for the '<em><b>Str 2</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute BOOL_EXPR__STR_2 = eINSTANCE.getBool_expr_Str_2();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.online_elm.onlineElm.impl.Or_exprImpl <em>Or expr</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.online_elm.onlineElm.impl.Or_exprImpl
+     * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getOr_expr()
+     * @generated
+     */
+    EClass OR_EXPR = eINSTANCE.getOr_expr();
 
     /**
      * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
@@ -1832,57 +4127,61 @@ public interface OnlineElmPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference BOOL_EXP__LEFT = eINSTANCE.getBool_exp_Left();
+    EReference OR_EXPR__LEFT = eINSTANCE.getOr_expr_Left();
 
     /**
-     * The meta object literal for the '<em><b>Operator</b></em>' attribute list feature.
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute BOOL_EXP__OPERATOR = eINSTANCE.getBool_exp_Operator();
+    EReference OR_EXPR__RIGHT = eINSTANCE.getOr_expr_Right();
 
     /**
-     * The meta object literal for the '<em><b>Rights</b></em>' containment reference list feature.
+     * The meta object literal for the '{@link org.xtext.online_elm.onlineElm.impl.And_exprImpl <em>And expr</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.online_elm.onlineElm.impl.And_exprImpl
+     * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getAnd_expr()
+     * @generated
+     */
+    EClass AND_EXPR = eINSTANCE.getAnd_expr();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.online_elm.onlineElm.impl.Not_exprImpl <em>Not expr</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.online_elm.onlineElm.impl.Not_exprImpl
+     * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getNot_expr()
+     * @generated
+     */
+    EClass NOT_EXPR = eINSTANCE.getNot_expr();
+
+    /**
+     * The meta object literal for the '<em><b>Operand</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference BOOL_EXP__RIGHTS = eINSTANCE.getBool_exp_Rights();
+    EReference NOT_EXPR__OPERAND = eINSTANCE.getNot_expr_Operand();
 
     /**
-     * The meta object literal for the '{@link org.xtext.online_elm.onlineElm.impl.Terminal_Bool_expImpl <em>Terminal Bool exp</em>}' class.
+     * The meta object literal for the '{@link org.xtext.online_elm.onlineElm.impl.Compare_exprImpl <em>Compare expr</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.online_elm.onlineElm.impl.Terminal_Bool_expImpl
-     * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getTerminal_Bool_exp()
+     * @see org.xtext.online_elm.onlineElm.impl.Compare_exprImpl
+     * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getCompare_expr()
      * @generated
      */
-    EClass TERMINAL_BOOL_EXP = eINSTANCE.getTerminal_Bool_exp();
+    EClass COMPARE_EXPR = eINSTANCE.getCompare_expr();
 
     /**
-     * The meta object literal for the '<em><b>N1</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference TERMINAL_BOOL_EXP__N1 = eINSTANCE.getTerminal_Bool_exp_N1();
-
-    /**
-     * The meta object literal for the '<em><b>Comp</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Operator</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute TERMINAL_BOOL_EXP__COMP = eINSTANCE.getTerminal_Bool_exp_Comp();
-
-    /**
-     * The meta object literal for the '<em><b>N2</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference TERMINAL_BOOL_EXP__N2 = eINSTANCE.getTerminal_Bool_exp_N2();
+    EAttribute COMPARE_EXPR__OPERATOR = eINSTANCE.getCompare_expr_Operator();
 
     /**
      * The meta object literal for the '{@link org.xtext.online_elm.onlineElm.impl.Num_valueImpl <em>Num value</em>}' class.
@@ -1895,12 +4194,20 @@ public interface OnlineElmPackage extends EPackage
     EClass NUM_VALUE = eINSTANCE.getNum_value();
 
     /**
-     * The meta object literal for the '<em><b>Num</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Local</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute NUM_VALUE__NUM = eINSTANCE.getNum_value_Num();
+    EReference NUM_VALUE__LOCAL = eINSTANCE.getNum_value_Local();
+
+    /**
+     * The meta object literal for the '<em><b>Ref</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute NUM_VALUE__REF = eINSTANCE.getNum_value_Ref();
 
     /**
      * The meta object literal for the '{@link org.xtext.online_elm.onlineElm.impl.Math_expImpl <em>Math exp</em>}' class.
@@ -1911,30 +4218,6 @@ public interface OnlineElmPackage extends EPackage
      * @generated
      */
     EClass MATH_EXP = eINSTANCE.getMath_exp();
-
-    /**
-     * The meta object literal for the '<em><b>N1</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute MATH_EXP__N1 = eINSTANCE.getMath_exp_N1();
-
-    /**
-     * The meta object literal for the '<em><b>Op1</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute MATH_EXP__OP1 = eINSTANCE.getMath_exp_Op1();
-
-    /**
-     * The meta object literal for the '<em><b>N2</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute MATH_EXP__N2 = eINSTANCE.getMath_exp_N2();
 
     /**
      * The meta object literal for the '{@link org.xtext.online_elm.onlineElm.impl.StencilImpl <em>Stencil</em>}' class.
@@ -1965,12 +4248,12 @@ public interface OnlineElmPackage extends EPackage
     EClass CIRCLE = eINSTANCE.getCircle();
 
     /**
-     * The meta object literal for the '<em><b>Diameter</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Radius</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute CIRCLE__DIAMETER = eINSTANCE.getCircle_Diameter();
+    EReference CIRCLE__RADIUS = eINSTANCE.getCircle_Radius();
 
     /**
      * The meta object literal for the '{@link org.xtext.online_elm.onlineElm.impl.RectImpl <em>Rect</em>}' class.
@@ -1983,20 +4266,202 @@ public interface OnlineElmPackage extends EPackage
     EClass RECT = eINSTANCE.getRect();
 
     /**
-     * The meta object literal for the '<em><b>Edge X</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Width</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute RECT__EDGE_X = eINSTANCE.getRect_EdgeX();
+    EReference RECT__WIDTH = eINSTANCE.getRect_Width();
 
     /**
-     * The meta object literal for the '<em><b>Edge Y</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Height</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute RECT__EDGE_Y = eINSTANCE.getRect_EdgeY();
+    EReference RECT__HEIGHT = eINSTANCE.getRect_Height();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.online_elm.onlineElm.impl.SquareImpl <em>Square</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.online_elm.onlineElm.impl.SquareImpl
+     * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getSquare()
+     * @generated
+     */
+    EClass SQUARE = eINSTANCE.getSquare();
+
+    /**
+     * The meta object literal for the '<em><b>Side</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SQUARE__SIDE = eINSTANCE.getSquare_Side();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.online_elm.onlineElm.impl.RoundedRectImpl <em>Rounded Rect</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.online_elm.onlineElm.impl.RoundedRectImpl
+     * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getRoundedRect()
+     * @generated
+     */
+    EClass ROUNDED_RECT = eINSTANCE.getRoundedRect();
+
+    /**
+     * The meta object literal for the '<em><b>Width</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ROUNDED_RECT__WIDTH = eINSTANCE.getRoundedRect_Width();
+
+    /**
+     * The meta object literal for the '<em><b>Height</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ROUNDED_RECT__HEIGHT = eINSTANCE.getRoundedRect_Height();
+
+    /**
+     * The meta object literal for the '<em><b>Corner radius</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ROUNDED_RECT__CORNER_RADIUS = eINSTANCE.getRoundedRect_Corner_radius();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.online_elm.onlineElm.impl.OvalImpl <em>Oval</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.online_elm.onlineElm.impl.OvalImpl
+     * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getOval()
+     * @generated
+     */
+    EClass OVAL = eINSTANCE.getOval();
+
+    /**
+     * The meta object literal for the '<em><b>Width</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference OVAL__WIDTH = eINSTANCE.getOval_Width();
+
+    /**
+     * The meta object literal for the '<em><b>Height</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference OVAL__HEIGHT = eINSTANCE.getOval_Height();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.online_elm.onlineElm.impl.NgonImpl <em>Ngon</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.online_elm.onlineElm.impl.NgonImpl
+     * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getNgon()
+     * @generated
+     */
+    EClass NGON = eINSTANCE.getNgon();
+
+    /**
+     * The meta object literal for the '<em><b>Sides num</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference NGON__SIDES_NUM = eINSTANCE.getNgon_Sides_num();
+
+    /**
+     * The meta object literal for the '<em><b>Radius</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference NGON__RADIUS = eINSTANCE.getNgon_Radius();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.online_elm.onlineElm.impl.WedgeImpl <em>Wedge</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.online_elm.onlineElm.impl.WedgeImpl
+     * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getWedge()
+     * @generated
+     */
+    EClass WEDGE = eINSTANCE.getWedge();
+
+    /**
+     * The meta object literal for the '<em><b>Radius</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference WEDGE__RADIUS = eINSTANCE.getWedge_Radius();
+
+    /**
+     * The meta object literal for the '<em><b>Fraction</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference WEDGE__FRACTION = eINSTANCE.getWedge_Fraction();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.online_elm.onlineElm.impl.PolygonImpl <em>Polygon</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.online_elm.onlineElm.impl.PolygonImpl
+     * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getPolygon()
+     * @generated
+     */
+    EClass POLYGON = eINSTANCE.getPolygon();
+
+    /**
+     * The meta object literal for the '<em><b>Point1</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference POLYGON__POINT1 = eINSTANCE.getPolygon_Point1();
+
+    /**
+     * The meta object literal for the '<em><b>Points</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference POLYGON__POINTS = eINSTANCE.getPolygon_Points();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.online_elm.onlineElm.impl.PointImpl <em>Point</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.online_elm.onlineElm.impl.PointImpl
+     * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getPoint()
+     * @generated
+     */
+    EClass POINT = eINSTANCE.getPoint();
+
+    /**
+     * The meta object literal for the '<em><b>X</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference POINT__X = eINSTANCE.getPoint_X();
+
+    /**
+     * The meta object literal for the '<em><b>Y</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference POINT__Y = eINSTANCE.getPoint_Y();
 
     /**
      * The meta object literal for the '{@link org.xtext.online_elm.onlineElm.impl.TextImpl <em>Text</em>}' class.
@@ -2017,6 +4482,14 @@ public interface OnlineElmPackage extends EPackage
     EAttribute TEXT__CONTENT = eINSTANCE.getText_Content();
 
     /**
+     * The meta object literal for the '<em><b>Conditional Content</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TEXT__CONDITIONAL_CONTENT = eINSTANCE.getText_ConditionalContent();
+
+    /**
      * The meta object literal for the '{@link org.xtext.online_elm.onlineElm.impl.DrawImpl <em>Draw</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2027,30 +4500,38 @@ public interface OnlineElmPackage extends EPackage
     EClass DRAW = eINSTANCE.getDraw();
 
     /**
-     * The meta object literal for the '<em><b>Filled Color</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Filled</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference DRAW__FILLED_COLOR = eINSTANCE.getDraw_FilledColor();
+    EReference DRAW__FILLED = eINSTANCE.getDraw_Filled();
 
     /**
-     * The meta object literal for the '<em><b>Position</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Outlined</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference DRAW__POSITION = eINSTANCE.getDraw_Position();
+    EReference DRAW__OUTLINED = eINSTANCE.getDraw_Outlined();
 
     /**
-     * The meta object literal for the '{@link org.xtext.online_elm.onlineElm.impl.FillImpl <em>Fill</em>}' class.
+     * The meta object literal for the '<em><b>Transform</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.online_elm.onlineElm.impl.FillImpl
-     * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getFill()
      * @generated
      */
-    EClass FILL = eINSTANCE.getFill();
+    EReference DRAW__TRANSFORM = eINSTANCE.getDraw_Transform();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.online_elm.onlineElm.impl.FilledImpl <em>Filled</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.online_elm.onlineElm.impl.FilledImpl
+     * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getFilled()
+     * @generated
+     */
+    EClass FILLED = eINSTANCE.getFilled();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -2058,15 +4539,115 @@ public interface OnlineElmPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute FILL__NAME = eINSTANCE.getFill_Name();
+    EAttribute FILLED__NAME = eINSTANCE.getFilled_Name();
 
     /**
-     * The meta object literal for the '<em><b>Color</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Filled Color1</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute FILL__COLOR = eINSTANCE.getFill_Color();
+    EAttribute FILLED__FILLED_COLOR1 = eINSTANCE.getFilled_FilledColor1();
+
+    /**
+     * The meta object literal for the '<em><b>Filled Color2</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FILLED__FILLED_COLOR2 = eINSTANCE.getFilled_FilledColor2();
+
+    /**
+     * The meta object literal for the '<em><b>Line Type1</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FILLED__LINE_TYPE1 = eINSTANCE.getFilled_LineType1();
+
+    /**
+     * The meta object literal for the '<em><b>Width1</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FILLED__WIDTH1 = eINSTANCE.getFilled_Width1();
+
+    /**
+     * The meta object literal for the '<em><b>Outline color1</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FILLED__OUTLINE_COLOR1 = eINSTANCE.getFilled_Outline_color1();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.online_elm.onlineElm.impl.OutlinedImpl <em>Outlined</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.online_elm.onlineElm.impl.OutlinedImpl
+     * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getOutlined()
+     * @generated
+     */
+    EClass OUTLINED = eINSTANCE.getOutlined();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute OUTLINED__NAME = eINSTANCE.getOutlined_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Line Type</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute OUTLINED__LINE_TYPE = eINSTANCE.getOutlined_LineType();
+
+    /**
+     * The meta object literal for the '<em><b>Width</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute OUTLINED__WIDTH = eINSTANCE.getOutlined_Width();
+
+    /**
+     * The meta object literal for the '<em><b>Outlined Color1</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute OUTLINED__OUTLINED_COLOR1 = eINSTANCE.getOutlined_OutlinedColor1();
+
+    /**
+     * The meta object literal for the '<em><b>Outlined Color2</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference OUTLINED__OUTLINED_COLOR2 = eINSTANCE.getOutlined_OutlinedColor2();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.online_elm.onlineElm.impl.TranformImpl <em>Tranform</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.online_elm.onlineElm.impl.TranformImpl
+     * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getTranform()
+     * @generated
+     */
+    EClass TRANFORM = eINSTANCE.getTranform();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TRANFORM__NAME = eINSTANCE.getTranform_Name();
 
     /**
      * The meta object literal for the '{@link org.xtext.online_elm.onlineElm.impl.MoveImpl <em>Move</em>}' class.
@@ -2079,38 +4660,136 @@ public interface OnlineElmPackage extends EPackage
     EClass MOVE = eINSTANCE.getMove();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Point</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute MOVE__NAME = eINSTANCE.getMove_Name();
+    EReference MOVE__POINT = eINSTANCE.getMove_Point();
 
     /**
-     * The meta object literal for the '<em><b>X</b></em>' containment reference feature.
+     * The meta object literal for the '{@link org.xtext.online_elm.onlineElm.impl.RotateImpl <em>Rotate</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @see org.xtext.online_elm.onlineElm.impl.RotateImpl
+     * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getRotate()
      * @generated
      */
-    EReference MOVE__X = eINSTANCE.getMove_X();
+    EClass ROTATE = eINSTANCE.getRotate();
 
     /**
-     * The meta object literal for the '<em><b>Y</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Degree</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MOVE__Y = eINSTANCE.getMove_Y();
+    EReference ROTATE__DEGREE = eINSTANCE.getRotate_Degree();
 
     /**
-     * The meta object literal for the '{@link org.xtext.online_elm.onlineElm.BOOL_OP <em>BOOL OP</em>}' enum.
+     * The meta object literal for the '{@link org.xtext.online_elm.onlineElm.impl.ScaleImpl <em>Scale</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.online_elm.onlineElm.BOOL_OP
-     * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getBOOL_OP()
+     * @see org.xtext.online_elm.onlineElm.impl.ScaleImpl
+     * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getScale()
      * @generated
      */
-    EEnum BOOL_OP = eINSTANCE.getBOOL_OP();
+    EClass SCALE = eINSTANCE.getScale();
+
+    /**
+     * The meta object literal for the '<em><b>Factor</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SCALE__FACTOR = eINSTANCE.getScale_Factor();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.online_elm.onlineElm.impl.ScaleXImpl <em>Scale X</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.online_elm.onlineElm.impl.ScaleXImpl
+     * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getScaleX()
+     * @generated
+     */
+    EClass SCALE_X = eINSTANCE.getScaleX();
+
+    /**
+     * The meta object literal for the '<em><b>Factor</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SCALE_X__FACTOR = eINSTANCE.getScaleX_Factor();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.online_elm.onlineElm.impl.ScaleYImpl <em>Scale Y</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.online_elm.onlineElm.impl.ScaleYImpl
+     * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getScaleY()
+     * @generated
+     */
+    EClass SCALE_Y = eINSTANCE.getScaleY();
+
+    /**
+     * The meta object literal for the '<em><b>Factor</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SCALE_Y__FACTOR = eINSTANCE.getScaleY_Factor();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.online_elm.onlineElm.impl.OperationImpl <em>Operation</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.online_elm.onlineElm.impl.OperationImpl
+     * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getOperation()
+     * @generated
+     */
+    EClass OPERATION = eINSTANCE.getOperation();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference OPERATION__LEFT = eINSTANCE.getOperation_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Op</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute OPERATION__OP = eINSTANCE.getOperation_Op();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference OPERATION__RIGHT = eINSTANCE.getOperation_Right();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.online_elm.onlineElm.impl.FloatLiteralImpl <em>Float Literal</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.online_elm.onlineElm.impl.FloatLiteralImpl
+     * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getFloatLiteral()
+     * @generated
+     */
+    EClass FLOAT_LITERAL = eINSTANCE.getFloatLiteral();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FLOAT_LITERAL__VALUE = eINSTANCE.getFloatLiteral_Value();
 
     /**
      * The meta object literal for the '{@link org.xtext.online_elm.onlineElm.MATH_OP <em>MATH OP</em>}' enum.
@@ -2123,14 +4802,14 @@ public interface OnlineElmPackage extends EPackage
     EEnum MATH_OP = eINSTANCE.getMATH_OP();
 
     /**
-     * The meta object literal for the '{@link org.xtext.online_elm.onlineElm.COMPARISON <em>COMPARISON</em>}' enum.
+     * The meta object literal for the '{@link org.xtext.online_elm.onlineElm.LineType <em>Line Type</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.online_elm.onlineElm.COMPARISON
-     * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getCOMPARISON()
+     * @see org.xtext.online_elm.onlineElm.LineType
+     * @see org.xtext.online_elm.onlineElm.impl.OnlineElmPackageImpl#getLineType()
      * @generated
      */
-    EEnum COMPARISON = eINSTANCE.getCOMPARISON();
+    EEnum LINE_TYPE = eINSTANCE.getLineType();
 
     /**
      * The meta object literal for the '{@link org.xtext.online_elm.onlineElm.Color <em>Color</em>}' enum.

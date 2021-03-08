@@ -11,8 +11,9 @@ import org.eclipse.xtext.common.types.JvmType;
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider;
 import org.eclipse.xtext.util.Strings;
 import org.xtext.online_elm.onlineElm.BasicShape;
-import org.xtext.online_elm.onlineElm.ShapeGroup;
-import org.xtext.online_elm.onlineElm.MainShape;
+
+import org.xtext.online_elm.onlineElm.ShapeList;
+
 import org.xtext.online_elm.onlineElm.Shape;
 
 /**
@@ -26,7 +27,10 @@ public class OnlineElmLabelProvider extends DefaultEObjectLabelProvider {
 	public OnlineElmLabelProvider(AdapterFactoryLabelProvider delegate) {
 		super(delegate);
 	}
-
+	
+	String shape(ShapeList sl) {
+		return "test";
+	}
 	// Labels and icons can be computed like this:
 	
 //	String text(Greeting ele) {
@@ -36,34 +40,32 @@ public class OnlineElmLabelProvider extends DefaultEObjectLabelProvider {
 //	String image(Greeting ele) {
 //		return "Greeting.gif";
 //	}
-	String text(MainShape ms) {
-		StringBuilder builder = new StringBuilder();
-		builder.append(Strings.notNull(ms.getName()));
-		builder.append(" =\n[\n");
-		builder.append(Shape.class.getName());
-		builder.append("\n]");
-		return builder.toString();
-
-	}
 	
-	String text(ShapeGroup sg) {
-		StringBuilder builder = new StringBuilder();
-		builder.append(Strings.notNull(sg.getClass().getName()));
-		builder.append("=\n[\n");
-		builder.append(Shape.class.getName());
-		builder.append("\n]");
-		return builder.toString();
-	}
+//	String text(MainShape ms) {
+//		StringBuilder builder = new StringBuilder();
+//		builder.append(Strings.notNull(ms.getName()));
+//		builder.append(" =\n[\n");
+//		builder.append(Shape.class.getName());
+//		builder.append("\n]");
+//		return builder.toString();
+//	}
 	
-	String text(BasicShape bs) {
-		StringBuilder builder = new StringBuilder();
-		builder.append(Strings.notNull(bs.getClass().getName()));
-		builder.append("=\n");
-		builder.append(Shape.class.getName());
-		return builder.toString();
-	}
-	
-	
+//	String text(ShapeList sg) {
+//		StringBuilder builder = new StringBuilder();
+//		builder.append(Strings.notNull(sg.getClass().getName()));
+//		builder.append("=\n[\n");
+//		builder.append(Shape.class.getName());
+//		builder.append("\n]");
+//		return builder.toString();
+//	}
+//	
+//	String text(BasicShape bs) {
+//		StringBuilder builder = new StringBuilder();
+//		builder.append(Strings.notNull(bs.getClass().getName()));
+//		builder.append("=\n");
+//		builder.append(Shape.class.getName());
+//		return builder.toString();
+//	}
 	
 //	String text(Conditional con) {
 //		return "if " + "condition" + "then\n" + "shape1" + "\nelse\n" + "shape2";

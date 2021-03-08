@@ -35,20 +35,20 @@ class OnlineElmGenerator extends AbstractGenerator {
 			
 			t = e.stencil.name
 			if( t == 'circle'){
-				t += ' ' + e.stencil.eContainer.eContents.filter(Circle).map[diameter].join() 
+				t += ' ' + e.stencil.eContainer.eContents.filter(Circle).map[radius].join() 
 			}else if( t == 'rect'){
 				var re = e.stencil.eContainer.eContents.filter(Rect)
-				t += ' ' + re.map[edgeX].join() + ' ' + re.map[edgeY].join() 
+				t += ' ' + re.map[width].join() + ' ' + re.map[height].join() 
 			}else if( t == 'text'){
 				t += ' ' + '"' + e.stencil.eContainer.eContents.filter(Text).map[content].join() + '"'
 			}
 			
 			t += '\r\n  |> '
-			t += e.draw.filledColor.name + ' ' + e.draw.filledColor.color.toString()
+			t += e.draw.filled.name + ' ' + e.draw.filled.filledColor1.toString()
 			
-			if(e.draw.position !== null){
-				t += '\r\n  |> ' + e.draw.position.name + ' (' + e.draw.position.x + ',' +e.draw.position.y + ')'
-			}
+//			if(e.draw.transform !== null){
+//				t += '\r\n  |> ' + e.draw.transform. + ' (' + e.draw.transform.x + ',' +e.draw.position.y + ')'
+//			}
 			
 			if(count < n-1 ){
 				t += ' ,\r\n  '

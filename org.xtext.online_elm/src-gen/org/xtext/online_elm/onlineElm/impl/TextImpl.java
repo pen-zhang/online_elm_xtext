@@ -4,11 +4,14 @@
 package org.xtext.online_elm.onlineElm.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.xtext.online_elm.onlineElm.Conditional_Str;
 import org.xtext.online_elm.onlineElm.OnlineElmPackage;
 import org.xtext.online_elm.onlineElm.Text;
 
@@ -21,6 +24,7 @@ import org.xtext.online_elm.onlineElm.Text;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.online_elm.onlineElm.impl.TextImpl#getContent <em>Content</em>}</li>
+ *   <li>{@link org.xtext.online_elm.onlineElm.impl.TextImpl#getConditionalContent <em>Conditional Content</em>}</li>
  * </ul>
  *
  * @generated
@@ -46,6 +50,16 @@ public class TextImpl extends StencilImpl implements Text
    * @ordered
    */
   protected String content = CONTENT_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getConditionalContent() <em>Conditional Content</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getConditionalContent()
+   * @generated
+   * @ordered
+   */
+  protected Conditional_Str conditionalContent;
 
   /**
    * <!-- begin-user-doc -->
@@ -99,12 +113,80 @@ public class TextImpl extends StencilImpl implements Text
    * @generated
    */
   @Override
+  public Conditional_Str getConditionalContent()
+  {
+    return conditionalContent;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetConditionalContent(Conditional_Str newConditionalContent, NotificationChain msgs)
+  {
+    Conditional_Str oldConditionalContent = conditionalContent;
+    conditionalContent = newConditionalContent;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OnlineElmPackage.TEXT__CONDITIONAL_CONTENT, oldConditionalContent, newConditionalContent);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setConditionalContent(Conditional_Str newConditionalContent)
+  {
+    if (newConditionalContent != conditionalContent)
+    {
+      NotificationChain msgs = null;
+      if (conditionalContent != null)
+        msgs = ((InternalEObject)conditionalContent).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OnlineElmPackage.TEXT__CONDITIONAL_CONTENT, null, msgs);
+      if (newConditionalContent != null)
+        msgs = ((InternalEObject)newConditionalContent).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OnlineElmPackage.TEXT__CONDITIONAL_CONTENT, null, msgs);
+      msgs = basicSetConditionalContent(newConditionalContent, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, OnlineElmPackage.TEXT__CONDITIONAL_CONTENT, newConditionalContent, newConditionalContent));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case OnlineElmPackage.TEXT__CONDITIONAL_CONTENT:
+        return basicSetConditionalContent(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
     {
       case OnlineElmPackage.TEXT__CONTENT:
         return getContent();
+      case OnlineElmPackage.TEXT__CONDITIONAL_CONTENT:
+        return getConditionalContent();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -121,6 +203,9 @@ public class TextImpl extends StencilImpl implements Text
     {
       case OnlineElmPackage.TEXT__CONTENT:
         setContent((String)newValue);
+        return;
+      case OnlineElmPackage.TEXT__CONDITIONAL_CONTENT:
+        setConditionalContent((Conditional_Str)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -139,6 +224,9 @@ public class TextImpl extends StencilImpl implements Text
       case OnlineElmPackage.TEXT__CONTENT:
         setContent(CONTENT_EDEFAULT);
         return;
+      case OnlineElmPackage.TEXT__CONDITIONAL_CONTENT:
+        setConditionalContent((Conditional_Str)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -155,6 +243,8 @@ public class TextImpl extends StencilImpl implements Text
     {
       case OnlineElmPackage.TEXT__CONTENT:
         return CONTENT_EDEFAULT == null ? content != null : !CONTENT_EDEFAULT.equals(content);
+      case OnlineElmPackage.TEXT__CONDITIONAL_CONTENT:
+        return conditionalContent != null;
     }
     return super.eIsSet(featureID);
   }

@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.xtext.online_elm.onlineElm.Local_var;
 import org.xtext.online_elm.onlineElm.MainShape;
 import org.xtext.online_elm.onlineElm.OnlineElm;
 import org.xtext.online_elm.onlineElm.OnlineElmPackage;
@@ -34,6 +35,7 @@ import org.xtext.online_elm.onlineElm.ShapeDef;
  * <ul>
  *   <li>{@link org.xtext.online_elm.onlineElm.impl.OnlineElmImpl#getEntry <em>Entry</em>}</li>
  *   <li>{@link org.xtext.online_elm.onlineElm.impl.OnlineElmImpl#getShapes <em>Shapes</em>}</li>
+ *   <li>{@link org.xtext.online_elm.onlineElm.impl.OnlineElmImpl#getVar <em>Var</em>}</li>
  * </ul>
  *
  * @generated
@@ -59,6 +61,16 @@ public class OnlineElmImpl extends MinimalEObjectImpl.Container implements Onlin
    * @ordered
    */
   protected EList<ShapeDef> shapes;
+
+  /**
+   * The cached value of the '{@link #getVar() <em>Var</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getVar()
+   * @generated
+   * @ordered
+   */
+  protected EList<Local_var> var;
 
   /**
    * <!-- begin-user-doc -->
@@ -152,6 +164,21 @@ public class OnlineElmImpl extends MinimalEObjectImpl.Container implements Onlin
    * @generated
    */
   @Override
+  public EList<Local_var> getVar()
+  {
+    if (var == null)
+    {
+      var = new EObjectContainmentEList<Local_var>(Local_var.class, this, OnlineElmPackage.ONLINE_ELM__VAR);
+    }
+    return var;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
@@ -160,6 +187,8 @@ public class OnlineElmImpl extends MinimalEObjectImpl.Container implements Onlin
         return basicSetEntry(null, msgs);
       case OnlineElmPackage.ONLINE_ELM__SHAPES:
         return ((InternalEList<?>)getShapes()).basicRemove(otherEnd, msgs);
+      case OnlineElmPackage.ONLINE_ELM__VAR:
+        return ((InternalEList<?>)getVar()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -178,6 +207,8 @@ public class OnlineElmImpl extends MinimalEObjectImpl.Container implements Onlin
         return getEntry();
       case OnlineElmPackage.ONLINE_ELM__SHAPES:
         return getShapes();
+      case OnlineElmPackage.ONLINE_ELM__VAR:
+        return getVar();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -200,6 +231,10 @@ public class OnlineElmImpl extends MinimalEObjectImpl.Container implements Onlin
         getShapes().clear();
         getShapes().addAll((Collection<? extends ShapeDef>)newValue);
         return;
+      case OnlineElmPackage.ONLINE_ELM__VAR:
+        getVar().clear();
+        getVar().addAll((Collection<? extends Local_var>)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -220,6 +255,9 @@ public class OnlineElmImpl extends MinimalEObjectImpl.Container implements Onlin
       case OnlineElmPackage.ONLINE_ELM__SHAPES:
         getShapes().clear();
         return;
+      case OnlineElmPackage.ONLINE_ELM__VAR:
+        getVar().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -238,6 +276,8 @@ public class OnlineElmImpl extends MinimalEObjectImpl.Container implements Onlin
         return entry != null;
       case OnlineElmPackage.ONLINE_ELM__SHAPES:
         return shapes != null && !shapes.isEmpty();
+      case OnlineElmPackage.ONLINE_ELM__VAR:
+        return var != null && !var.isEmpty();
     }
     return super.eIsSet(featureID);
   }

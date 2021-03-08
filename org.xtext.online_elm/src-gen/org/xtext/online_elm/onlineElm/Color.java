@@ -21,67 +21,718 @@ import org.eclipse.emf.common.util.Enumerator;
 public enum Color implements Enumerator
 {
   /**
-   * The '<em><b>BLACK</b></em>' literal object.
+   * The '<em><b>Black</b></em>' literal object.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #BLACK_VALUE
    * @generated
    * @ordered
    */
-  BLACK(0, "BLACK", "black"),
+  BLACK(0, "black", "black"),
 
   /**
-   * The '<em><b>RED</b></em>' literal object.
+   * The '<em><b>Blank</b></em>' literal object.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #RED_VALUE
+   * @see #BLANK_VALUE
    * @generated
    * @ordered
    */
-  RED(1, "RED", "red"),
+  BLANK(1, "blank", "blank"),
 
   /**
-   * The '<em><b>BLUE</b></em>' literal object.
+   * The '<em><b>Blue</b></em>' literal object.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #BLUE_VALUE
    * @generated
    * @ordered
    */
-  BLUE(2, "BLUE", "blue");
+  BLUE(2, "blue", "blue"),
 
   /**
-   * The '<em><b>BLACK</b></em>' literal value.
+   * The '<em><b>Brown</b></em>' literal object.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #BROWN_VALUE
+   * @generated
+   * @ordered
+   */
+  BROWN(3, "brown", "brown"),
+
+  /**
+   * The '<em><b>Charcoal</b></em>' literal object.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #CHARCOAL_VALUE
+   * @generated
+   * @ordered
+   */
+  CHARCOAL(4, "charcoal", "charcoal"),
+
+  /**
+   * The '<em><b>Dark Blue</b></em>' literal object.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #DARK_BLUE_VALUE
+   * @generated
+   * @ordered
+   */
+  DARK_BLUE(5, "darkBlue", "darkBlue"),
+
+  /**
+   * The '<em><b>Dark Brown</b></em>' literal object.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #DARK_BROWN_VALUE
+   * @generated
+   * @ordered
+   */
+  DARK_BROWN(6, "darkBrown", "darkBrown"),
+
+  /**
+   * The '<em><b>Dark Gray</b></em>' literal object.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #DARK_GRAY_VALUE
+   * @generated
+   * @ordered
+   */
+  DARK_GRAY(7, "darkGray", "darkGray"),
+
+  /**
+   * The '<em><b>Dark Green</b></em>' literal object.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #DARK_GREEN_VALUE
+   * @generated
+   * @ordered
+   */
+  DARK_GREEN(8, "darkGreen", "darkGreen"),
+
+  /**
+   * The '<em><b>Dark Grey</b></em>' literal object.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #DARK_GREY_VALUE
+   * @generated
+   * @ordered
+   */
+  DARK_GREY(9, "darkGrey", "darkGrey"),
+
+  /**
+   * The '<em><b>Dark Orange</b></em>' literal object.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #DARK_ORANGE_VALUE
+   * @generated
+   * @ordered
+   */
+  DARK_ORANGE(10, "darkOrange", "darkOrange"),
+
+  /**
+   * The '<em><b>Dark Purple</b></em>' literal object.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #DARK_PURPLE_VALUE
+   * @generated
+   * @ordered
+   */
+  DARK_PURPLE(11, "darkPurple", "darkPurple"),
+
+  /**
+   * The '<em><b>Dark Red</b></em>' literal object.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #DARK_RED_VALUE
+   * @generated
+   * @ordered
+   */
+  DARK_RED(12, "darkRed", "darkRed"),
+
+  /**
+   * The '<em><b>Dark Yellow</b></em>' literal object.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #DARK_YELLOW_VALUE
+   * @generated
+   * @ordered
+   */
+  DARK_YELLOW(13, "darkYellow", "darkYellow"),
+
+  /**
+   * The '<em><b>Gray</b></em>' literal object.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #GRAY_VALUE
+   * @generated
+   * @ordered
+   */
+  GRAY(14, "gray", "gray"),
+
+  /**
+   * The '<em><b>Green</b></em>' literal object.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #GREEN_VALUE
+   * @generated
+   * @ordered
+   */
+  GREEN(15, "green", "green"),
+
+  /**
+   * The '<em><b>Grey</b></em>' literal object.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #GREY_VALUE
+   * @generated
+   * @ordered
+   */
+  GREY(16, "grey", "grey"),
+
+  /**
+   * The '<em><b>Hot Pink</b></em>' literal object.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #HOT_PINK_VALUE
+   * @generated
+   * @ordered
+   */
+  HOT_PINK(17, "hotPink", "hotPink"),
+
+  /**
+   * The '<em><b>Light Blue</b></em>' literal object.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #LIGHT_BLUE_VALUE
+   * @generated
+   * @ordered
+   */
+  LIGHT_BLUE(18, "lightBlue", "lightBlue"),
+
+  /**
+   * The '<em><b>Light Brown</b></em>' literal object.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #LIGHT_BROWN_VALUE
+   * @generated
+   * @ordered
+   */
+  LIGHT_BROWN(19, "lightBrown", "lightBrown"),
+
+  /**
+   * The '<em><b>Light Charcoal</b></em>' literal object.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #LIGHT_CHARCOAL_VALUE
+   * @generated
+   * @ordered
+   */
+  LIGHT_CHARCOAL(20, "lightCharcoal", "lightCharcoal"),
+
+  /**
+   * The '<em><b>Light Gray</b></em>' literal object.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #LIGHT_GRAY_VALUE
+   * @generated
+   * @ordered
+   */
+  LIGHT_GRAY(21, "lightGray", "lightGray"),
+
+  /**
+   * The '<em><b>Light Green</b></em>' literal object.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #LIGHT_GREEN_VALUE
+   * @generated
+   * @ordered
+   */
+  LIGHT_GREEN(22, "lightGreen", "lightGreen"),
+
+  /**
+   * The '<em><b>Light Grey</b></em>' literal object.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #LIGHT_GREY_VALUE
+   * @generated
+   * @ordered
+   */
+  LIGHT_GREY(23, "lightGrey", "lightGrey"),
+
+  /**
+   * The '<em><b>Light Orange</b></em>' literal object.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #LIGHT_ORANGE_VALUE
+   * @generated
+   * @ordered
+   */
+  LIGHT_ORANGE(24, "lightOrange", "lightOrange"),
+
+  /**
+   * The '<em><b>Light Purple</b></em>' literal object.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #LIGHT_PURPLE_VALUE
+   * @generated
+   * @ordered
+   */
+  LIGHT_PURPLE(25, "lightPurple", "lightPurple"),
+
+  /**
+   * The '<em><b>Light Red</b></em>' literal object.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #LIGHT_RED_VALUE
+   * @generated
+   * @ordered
+   */
+  LIGHT_RED(26, "lightRed", "lightRed"),
+
+  /**
+   * The '<em><b>Light Yellow</b></em>' literal object.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #LIGHT_YELLOW_VALUE
+   * @generated
+   * @ordered
+   */
+  LIGHT_YELLOW(27, "lightYellow", "lightYellow"),
+
+  /**
+   * The '<em><b>Orange</b></em>' literal object.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #ORANGE_VALUE
+   * @generated
+   * @ordered
+   */
+  ORANGE(28, "orange", "orange"),
+
+  /**
+   * The '<em><b>Pink</b></em>' literal object.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #PINK_VALUE
+   * @generated
+   * @ordered
+   */
+  PINK(29, "pink", "pink"),
+
+  /**
+   * The '<em><b>Purple</b></em>' literal object.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #PURPLE_VALUE
+   * @generated
+   * @ordered
+   */
+  PURPLE(30, "purple", "purple"),
+
+  /**
+   * The '<em><b>Red</b></em>' literal object.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #RED_VALUE
+   * @generated
+   * @ordered
+   */
+  RED(31, "red", "red"),
+
+  /**
+   * The '<em><b>White</b></em>' literal object.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #WHITE_VALUE
+   * @generated
+   * @ordered
+   */
+  WHITE(32, "white", "white"),
+
+  /**
+   * The '<em><b>Yellow</b></em>' literal object.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #YELLOW_VALUE
+   * @generated
+   * @ordered
+   */
+  YELLOW(33, "yellow", "yellow");
+
+  /**
+   * The '<em><b>Black</b></em>' literal value.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #BLACK
-   * @model literal="black"
+   * @model name="black"
    * @generated
    * @ordered
    */
   public static final int BLACK_VALUE = 0;
 
   /**
-   * The '<em><b>RED</b></em>' literal value.
+   * The '<em><b>Blank</b></em>' literal value.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #RED
-   * @model literal="red"
+   * @see #BLANK
+   * @model name="blank"
    * @generated
    * @ordered
    */
-  public static final int RED_VALUE = 1;
+  public static final int BLANK_VALUE = 1;
 
   /**
-   * The '<em><b>BLUE</b></em>' literal value.
+   * The '<em><b>Blue</b></em>' literal value.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #BLUE
-   * @model literal="blue"
+   * @model name="blue"
    * @generated
    * @ordered
    */
   public static final int BLUE_VALUE = 2;
+
+  /**
+   * The '<em><b>Brown</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #BROWN
+   * @model name="brown"
+   * @generated
+   * @ordered
+   */
+  public static final int BROWN_VALUE = 3;
+
+  /**
+   * The '<em><b>Charcoal</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #CHARCOAL
+   * @model name="charcoal"
+   * @generated
+   * @ordered
+   */
+  public static final int CHARCOAL_VALUE = 4;
+
+  /**
+   * The '<em><b>Dark Blue</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #DARK_BLUE
+   * @model name="darkBlue"
+   * @generated
+   * @ordered
+   */
+  public static final int DARK_BLUE_VALUE = 5;
+
+  /**
+   * The '<em><b>Dark Brown</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #DARK_BROWN
+   * @model name="darkBrown"
+   * @generated
+   * @ordered
+   */
+  public static final int DARK_BROWN_VALUE = 6;
+
+  /**
+   * The '<em><b>Dark Gray</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #DARK_GRAY
+   * @model name="darkGray"
+   * @generated
+   * @ordered
+   */
+  public static final int DARK_GRAY_VALUE = 7;
+
+  /**
+   * The '<em><b>Dark Green</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #DARK_GREEN
+   * @model name="darkGreen"
+   * @generated
+   * @ordered
+   */
+  public static final int DARK_GREEN_VALUE = 8;
+
+  /**
+   * The '<em><b>Dark Grey</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #DARK_GREY
+   * @model name="darkGrey"
+   * @generated
+   * @ordered
+   */
+  public static final int DARK_GREY_VALUE = 9;
+
+  /**
+   * The '<em><b>Dark Orange</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #DARK_ORANGE
+   * @model name="darkOrange"
+   * @generated
+   * @ordered
+   */
+  public static final int DARK_ORANGE_VALUE = 10;
+
+  /**
+   * The '<em><b>Dark Purple</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #DARK_PURPLE
+   * @model name="darkPurple"
+   * @generated
+   * @ordered
+   */
+  public static final int DARK_PURPLE_VALUE = 11;
+
+  /**
+   * The '<em><b>Dark Red</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #DARK_RED
+   * @model name="darkRed"
+   * @generated
+   * @ordered
+   */
+  public static final int DARK_RED_VALUE = 12;
+
+  /**
+   * The '<em><b>Dark Yellow</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #DARK_YELLOW
+   * @model name="darkYellow"
+   * @generated
+   * @ordered
+   */
+  public static final int DARK_YELLOW_VALUE = 13;
+
+  /**
+   * The '<em><b>Gray</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #GRAY
+   * @model name="gray"
+   * @generated
+   * @ordered
+   */
+  public static final int GRAY_VALUE = 14;
+
+  /**
+   * The '<em><b>Green</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #GREEN
+   * @model name="green"
+   * @generated
+   * @ordered
+   */
+  public static final int GREEN_VALUE = 15;
+
+  /**
+   * The '<em><b>Grey</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #GREY
+   * @model name="grey"
+   * @generated
+   * @ordered
+   */
+  public static final int GREY_VALUE = 16;
+
+  /**
+   * The '<em><b>Hot Pink</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #HOT_PINK
+   * @model name="hotPink"
+   * @generated
+   * @ordered
+   */
+  public static final int HOT_PINK_VALUE = 17;
+
+  /**
+   * The '<em><b>Light Blue</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #LIGHT_BLUE
+   * @model name="lightBlue"
+   * @generated
+   * @ordered
+   */
+  public static final int LIGHT_BLUE_VALUE = 18;
+
+  /**
+   * The '<em><b>Light Brown</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #LIGHT_BROWN
+   * @model name="lightBrown"
+   * @generated
+   * @ordered
+   */
+  public static final int LIGHT_BROWN_VALUE = 19;
+
+  /**
+   * The '<em><b>Light Charcoal</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #LIGHT_CHARCOAL
+   * @model name="lightCharcoal"
+   * @generated
+   * @ordered
+   */
+  public static final int LIGHT_CHARCOAL_VALUE = 20;
+
+  /**
+   * The '<em><b>Light Gray</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #LIGHT_GRAY
+   * @model name="lightGray"
+   * @generated
+   * @ordered
+   */
+  public static final int LIGHT_GRAY_VALUE = 21;
+
+  /**
+   * The '<em><b>Light Green</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #LIGHT_GREEN
+   * @model name="lightGreen"
+   * @generated
+   * @ordered
+   */
+  public static final int LIGHT_GREEN_VALUE = 22;
+
+  /**
+   * The '<em><b>Light Grey</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #LIGHT_GREY
+   * @model name="lightGrey"
+   * @generated
+   * @ordered
+   */
+  public static final int LIGHT_GREY_VALUE = 23;
+
+  /**
+   * The '<em><b>Light Orange</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #LIGHT_ORANGE
+   * @model name="lightOrange"
+   * @generated
+   * @ordered
+   */
+  public static final int LIGHT_ORANGE_VALUE = 24;
+
+  /**
+   * The '<em><b>Light Purple</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #LIGHT_PURPLE
+   * @model name="lightPurple"
+   * @generated
+   * @ordered
+   */
+  public static final int LIGHT_PURPLE_VALUE = 25;
+
+  /**
+   * The '<em><b>Light Red</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #LIGHT_RED
+   * @model name="lightRed"
+   * @generated
+   * @ordered
+   */
+  public static final int LIGHT_RED_VALUE = 26;
+
+  /**
+   * The '<em><b>Light Yellow</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #LIGHT_YELLOW
+   * @model name="lightYellow"
+   * @generated
+   * @ordered
+   */
+  public static final int LIGHT_YELLOW_VALUE = 27;
+
+  /**
+   * The '<em><b>Orange</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #ORANGE
+   * @model name="orange"
+   * @generated
+   * @ordered
+   */
+  public static final int ORANGE_VALUE = 28;
+
+  /**
+   * The '<em><b>Pink</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #PINK
+   * @model name="pink"
+   * @generated
+   * @ordered
+   */
+  public static final int PINK_VALUE = 29;
+
+  /**
+   * The '<em><b>Purple</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #PURPLE
+   * @model name="purple"
+   * @generated
+   * @ordered
+   */
+  public static final int PURPLE_VALUE = 30;
+
+  /**
+   * The '<em><b>Red</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #RED
+   * @model name="red"
+   * @generated
+   * @ordered
+   */
+  public static final int RED_VALUE = 31;
+
+  /**
+   * The '<em><b>White</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #WHITE
+   * @model name="white"
+   * @generated
+   * @ordered
+   */
+  public static final int WHITE_VALUE = 32;
+
+  /**
+   * The '<em><b>Yellow</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #YELLOW
+   * @model name="yellow"
+   * @generated
+   * @ordered
+   */
+  public static final int YELLOW_VALUE = 33;
 
   /**
    * An array of all the '<em><b>Color</b></em>' enumerators.
@@ -93,8 +744,39 @@ public enum Color implements Enumerator
     new Color[]
     {
       BLACK,
-      RED,
+      BLANK,
       BLUE,
+      BROWN,
+      CHARCOAL,
+      DARK_BLUE,
+      DARK_BROWN,
+      DARK_GRAY,
+      DARK_GREEN,
+      DARK_GREY,
+      DARK_ORANGE,
+      DARK_PURPLE,
+      DARK_RED,
+      DARK_YELLOW,
+      GRAY,
+      GREEN,
+      GREY,
+      HOT_PINK,
+      LIGHT_BLUE,
+      LIGHT_BROWN,
+      LIGHT_CHARCOAL,
+      LIGHT_GRAY,
+      LIGHT_GREEN,
+      LIGHT_GREY,
+      LIGHT_ORANGE,
+      LIGHT_PURPLE,
+      LIGHT_RED,
+      LIGHT_YELLOW,
+      ORANGE,
+      PINK,
+      PURPLE,
+      RED,
+      WHITE,
+      YELLOW,
     };
 
   /**
@@ -160,8 +842,39 @@ public enum Color implements Enumerator
     switch (value)
     {
       case BLACK_VALUE: return BLACK;
-      case RED_VALUE: return RED;
+      case BLANK_VALUE: return BLANK;
       case BLUE_VALUE: return BLUE;
+      case BROWN_VALUE: return BROWN;
+      case CHARCOAL_VALUE: return CHARCOAL;
+      case DARK_BLUE_VALUE: return DARK_BLUE;
+      case DARK_BROWN_VALUE: return DARK_BROWN;
+      case DARK_GRAY_VALUE: return DARK_GRAY;
+      case DARK_GREEN_VALUE: return DARK_GREEN;
+      case DARK_GREY_VALUE: return DARK_GREY;
+      case DARK_ORANGE_VALUE: return DARK_ORANGE;
+      case DARK_PURPLE_VALUE: return DARK_PURPLE;
+      case DARK_RED_VALUE: return DARK_RED;
+      case DARK_YELLOW_VALUE: return DARK_YELLOW;
+      case GRAY_VALUE: return GRAY;
+      case GREEN_VALUE: return GREEN;
+      case GREY_VALUE: return GREY;
+      case HOT_PINK_VALUE: return HOT_PINK;
+      case LIGHT_BLUE_VALUE: return LIGHT_BLUE;
+      case LIGHT_BROWN_VALUE: return LIGHT_BROWN;
+      case LIGHT_CHARCOAL_VALUE: return LIGHT_CHARCOAL;
+      case LIGHT_GRAY_VALUE: return LIGHT_GRAY;
+      case LIGHT_GREEN_VALUE: return LIGHT_GREEN;
+      case LIGHT_GREY_VALUE: return LIGHT_GREY;
+      case LIGHT_ORANGE_VALUE: return LIGHT_ORANGE;
+      case LIGHT_PURPLE_VALUE: return LIGHT_PURPLE;
+      case LIGHT_RED_VALUE: return LIGHT_RED;
+      case LIGHT_YELLOW_VALUE: return LIGHT_YELLOW;
+      case ORANGE_VALUE: return ORANGE;
+      case PINK_VALUE: return PINK;
+      case PURPLE_VALUE: return PURPLE;
+      case RED_VALUE: return RED;
+      case WHITE_VALUE: return WHITE;
+      case YELLOW_VALUE: return YELLOW;
     }
     return null;
   }

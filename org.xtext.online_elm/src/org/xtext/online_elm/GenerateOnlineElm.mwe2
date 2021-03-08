@@ -52,9 +52,9 @@ Workflow {
 			junitSupport = {
 				junitVersion = "5"
 			}
-			generator = {
-				generateJavaMain = true
-			}
+//			generator = {
+//				generateJavaMain = true
+//			}
 			webSupport = {
 				generateHtmlExample = true
 				framework = "CodeMirror"

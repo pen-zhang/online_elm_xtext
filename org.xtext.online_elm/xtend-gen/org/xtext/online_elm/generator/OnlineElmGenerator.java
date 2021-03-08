@@ -15,7 +15,6 @@ import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
 import org.xtext.online_elm.onlineElm.Circle;
-import org.xtext.online_elm.onlineElm.Move;
 import org.xtext.online_elm.onlineElm.Num_value;
 import org.xtext.online_elm.onlineElm.Rect;
 import org.xtext.online_elm.onlineElm.Shape;
@@ -42,10 +41,10 @@ public class OnlineElmGenerator extends AbstractGenerator {
         boolean _equals = Objects.equal(t, "circle");
         if (_equals) {
           String _t = t;
-          final Function1<Circle, Float> _function = (Circle it) -> {
-            return Float.valueOf(it.getDiameter());
+          final Function1<Circle, Num_value> _function = (Circle it) -> {
+            return it.getRadius();
           };
-          String _join = IterableExtensions.join(IterableExtensions.<Circle, Float>map(Iterables.<Circle>filter(e.getStencil().eContainer().eContents(), Circle.class), _function));
+          String _join = IterableExtensions.join(IterableExtensions.<Circle, Num_value>map(Iterables.<Circle>filter(e.getStencil().eContainer().eContents(), Circle.class), _function));
           String _plus = (" " + _join);
           t = (_t + _plus);
         } else {
@@ -53,16 +52,16 @@ public class OnlineElmGenerator extends AbstractGenerator {
           if (_equals_1) {
             Iterable<Rect> re = Iterables.<Rect>filter(e.getStencil().eContainer().eContents(), Rect.class);
             String _t_1 = t;
-            final Function1<Rect, Float> _function_1 = (Rect it) -> {
-              return Float.valueOf(it.getEdgeX());
+            final Function1<Rect, Num_value> _function_1 = (Rect it) -> {
+              return it.getWidth();
             };
-            String _join_1 = IterableExtensions.join(IterableExtensions.<Rect, Float>map(re, _function_1));
+            String _join_1 = IterableExtensions.join(IterableExtensions.<Rect, Num_value>map(re, _function_1));
             String _plus_1 = (" " + _join_1);
             String _plus_2 = (_plus_1 + " ");
-            final Function1<Rect, Float> _function_2 = (Rect it) -> {
-              return Float.valueOf(it.getEdgeY());
+            final Function1<Rect, Num_value> _function_2 = (Rect it) -> {
+              return it.getHeight();
             };
-            String _join_2 = IterableExtensions.join(IterableExtensions.<Rect, Float>map(re, _function_2));
+            String _join_2 = IterableExtensions.join(IterableExtensions.<Rect, Num_value>map(re, _function_2));
             String _plus_3 = (_plus_2 + _join_2);
             t = (_t_1 + _plus_3);
           } else {
@@ -82,29 +81,14 @@ public class OnlineElmGenerator extends AbstractGenerator {
         String _t_3 = t;
         t = (_t_3 + "\r\n  |> ");
         String _t_4 = t;
-        String _name = e.getDraw().getFilledColor().getName();
+        String _name = e.getDraw().getFilled().getName();
         String _plus_6 = (_name + " ");
-        String _string = e.getDraw().getFilledColor().getColor().toString();
+        String _string = e.getDraw().getFilled().getFilledColor1().toString();
         String _plus_7 = (_plus_6 + _string);
         t = (_t_4 + _plus_7);
-        Move _position = e.getDraw().getPosition();
-        boolean _tripleNotEquals = (_position != null);
-        if (_tripleNotEquals) {
-          String _t_5 = t;
-          String _name_1 = e.getDraw().getPosition().getName();
-          String _plus_8 = ("\r\n  |> " + _name_1);
-          String _plus_9 = (_plus_8 + " (");
-          Num_value _x = e.getDraw().getPosition().getX();
-          String _plus_10 = (_plus_9 + _x);
-          String _plus_11 = (_plus_10 + ",");
-          Num_value _y = e.getDraw().getPosition().getY();
-          String _plus_12 = (_plus_11 + _y);
-          String _plus_13 = (_plus_12 + ")");
-          t = (_t_5 + _plus_13);
-        }
         if ((count < (n - 1))) {
-          String _t_6 = t;
-          t = (_t_6 + " ,\r\n  ");
+          String _t_5 = t;
+          t = (_t_5 + " ,\r\n  ");
           count++;
         }
         String _output = output;

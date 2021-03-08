@@ -6,10 +6,12 @@ package org.xtext.online_elm.onlineElm.impl;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.xtext.online_elm.onlineElm.Local_var;
 import org.xtext.online_elm.onlineElm.Num_value;
 import org.xtext.online_elm.onlineElm.OnlineElmPackage;
 
@@ -21,7 +23,8 @@ import org.xtext.online_elm.onlineElm.OnlineElmPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.online_elm.onlineElm.impl.Num_valueImpl#getNum <em>Num</em>}</li>
+ *   <li>{@link org.xtext.online_elm.onlineElm.impl.Num_valueImpl#getLocal <em>Local</em>}</li>
+ *   <li>{@link org.xtext.online_elm.onlineElm.impl.Num_valueImpl#getRef <em>Ref</em>}</li>
  * </ul>
  *
  * @generated
@@ -29,24 +32,34 @@ import org.xtext.online_elm.onlineElm.OnlineElmPackage;
 public class Num_valueImpl extends MinimalEObjectImpl.Container implements Num_value
 {
   /**
-   * The default value of the '{@link #getNum() <em>Num</em>}' attribute.
+   * The cached value of the '{@link #getLocal() <em>Local</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getNum()
+   * @see #getLocal()
    * @generated
    * @ordered
    */
-  protected static final float NUM_EDEFAULT = 0.0F;
+  protected Local_var local;
 
   /**
-   * The cached value of the '{@link #getNum() <em>Num</em>}' attribute.
+   * The default value of the '{@link #getRef() <em>Ref</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getNum()
+   * @see #getRef()
    * @generated
    * @ordered
    */
-  protected float num = NUM_EDEFAULT;
+  protected static final String REF_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getRef() <em>Ref</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getRef()
+   * @generated
+   * @ordered
+   */
+  protected String ref = REF_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -75,9 +88,29 @@ public class Num_valueImpl extends MinimalEObjectImpl.Container implements Num_v
    * @generated
    */
   @Override
-  public float getNum()
+  public Local_var getLocal()
   {
-    return num;
+    if (local != null && local.eIsProxy())
+    {
+      InternalEObject oldLocal = (InternalEObject)local;
+      local = (Local_var)eResolveProxy(oldLocal);
+      if (local != oldLocal)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, OnlineElmPackage.NUM_VALUE__LOCAL, oldLocal, local));
+      }
+    }
+    return local;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Local_var basicGetLocal()
+  {
+    return local;
   }
 
   /**
@@ -86,12 +119,37 @@ public class Num_valueImpl extends MinimalEObjectImpl.Container implements Num_v
    * @generated
    */
   @Override
-  public void setNum(float newNum)
+  public void setLocal(Local_var newLocal)
   {
-    float oldNum = num;
-    num = newNum;
+    Local_var oldLocal = local;
+    local = newLocal;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OnlineElmPackage.NUM_VALUE__NUM, oldNum, num));
+      eNotify(new ENotificationImpl(this, Notification.SET, OnlineElmPackage.NUM_VALUE__LOCAL, oldLocal, local));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String getRef()
+  {
+    return ref;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setRef(String newRef)
+  {
+    String oldRef = ref;
+    ref = newRef;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, OnlineElmPackage.NUM_VALUE__REF, oldRef, ref));
   }
 
   /**
@@ -104,8 +162,11 @@ public class Num_valueImpl extends MinimalEObjectImpl.Container implements Num_v
   {
     switch (featureID)
     {
-      case OnlineElmPackage.NUM_VALUE__NUM:
-        return getNum();
+      case OnlineElmPackage.NUM_VALUE__LOCAL:
+        if (resolve) return getLocal();
+        return basicGetLocal();
+      case OnlineElmPackage.NUM_VALUE__REF:
+        return getRef();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -120,8 +181,11 @@ public class Num_valueImpl extends MinimalEObjectImpl.Container implements Num_v
   {
     switch (featureID)
     {
-      case OnlineElmPackage.NUM_VALUE__NUM:
-        setNum((Float)newValue);
+      case OnlineElmPackage.NUM_VALUE__LOCAL:
+        setLocal((Local_var)newValue);
+        return;
+      case OnlineElmPackage.NUM_VALUE__REF:
+        setRef((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -137,8 +201,11 @@ public class Num_valueImpl extends MinimalEObjectImpl.Container implements Num_v
   {
     switch (featureID)
     {
-      case OnlineElmPackage.NUM_VALUE__NUM:
-        setNum(NUM_EDEFAULT);
+      case OnlineElmPackage.NUM_VALUE__LOCAL:
+        setLocal((Local_var)null);
+        return;
+      case OnlineElmPackage.NUM_VALUE__REF:
+        setRef(REF_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -154,8 +221,10 @@ public class Num_valueImpl extends MinimalEObjectImpl.Container implements Num_v
   {
     switch (featureID)
     {
-      case OnlineElmPackage.NUM_VALUE__NUM:
-        return num != NUM_EDEFAULT;
+      case OnlineElmPackage.NUM_VALUE__LOCAL:
+        return local != null;
+      case OnlineElmPackage.NUM_VALUE__REF:
+        return REF_EDEFAULT == null ? ref != null : !REF_EDEFAULT.equals(ref);
     }
     return super.eIsSet(featureID);
   }
@@ -171,8 +240,8 @@ public class Num_valueImpl extends MinimalEObjectImpl.Container implements Num_v
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (num: ");
-    result.append(num);
+    result.append(" (ref: ");
+    result.append(ref);
     result.append(')');
     return result.toString();
   }

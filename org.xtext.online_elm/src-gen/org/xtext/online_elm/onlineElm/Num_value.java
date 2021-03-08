@@ -14,7 +14,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.online_elm.onlineElm.Num_value#getNum <em>Num</em>}</li>
+ *   <li>{@link org.xtext.online_elm.onlineElm.Num_value#getLocal <em>Local</em>}</li>
+ *   <li>{@link org.xtext.online_elm.onlineElm.Num_value#getRef <em>Ref</em>}</li>
  * </ul>
  *
  * @see org.xtext.online_elm.onlineElm.OnlineElmPackage#getNum_value()
@@ -24,25 +25,47 @@ import org.eclipse.emf.ecore.EObject;
 public interface Num_value extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Num</b></em>' attribute.
+   * Returns the value of the '<em><b>Local</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Num</em>' attribute.
-   * @see #setNum(float)
-   * @see org.xtext.online_elm.onlineElm.OnlineElmPackage#getNum_value_Num()
+   * @return the value of the '<em>Local</em>' reference.
+   * @see #setLocal(Local_var)
+   * @see org.xtext.online_elm.onlineElm.OnlineElmPackage#getNum_value_Local()
    * @model
    * @generated
    */
-  float getNum();
+  Local_var getLocal();
 
   /**
-   * Sets the value of the '{@link org.xtext.online_elm.onlineElm.Num_value#getNum <em>Num</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.online_elm.onlineElm.Num_value#getLocal <em>Local</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Num</em>' attribute.
-   * @see #getNum()
+   * @param value the new value of the '<em>Local</em>' reference.
+   * @see #getLocal()
    * @generated
    */
-  void setNum(float value);
+  void setLocal(Local_var value);
+
+  /**
+   * Returns the value of the '<em><b>Ref</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Ref</em>' attribute.
+   * @see #setRef(String)
+   * @see org.xtext.online_elm.onlineElm.OnlineElmPackage#getNum_value_Ref()
+   * @model
+   * @generated
+   */
+  String getRef();
+
+  /**
+   * Sets the value of the '{@link org.xtext.online_elm.onlineElm.Num_value#getRef <em>Ref</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Ref</em>' attribute.
+   * @see #getRef()
+   * @generated
+   */
+  void setRef(String value);
 
 } // Num_value

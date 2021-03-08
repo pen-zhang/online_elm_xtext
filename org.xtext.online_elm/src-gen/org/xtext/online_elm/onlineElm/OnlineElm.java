@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link org.xtext.online_elm.onlineElm.OnlineElm#getEntry <em>Entry</em>}</li>
  *   <li>{@link org.xtext.online_elm.onlineElm.OnlineElm#getShapes <em>Shapes</em>}</li>
+ *   <li>{@link org.xtext.online_elm.onlineElm.OnlineElm#getVar <em>Var</em>}</li>
  * </ul>
  *
  * @see org.xtext.online_elm.onlineElm.OnlineElmPackage#getOnlineElm()
@@ -59,5 +60,17 @@ public interface OnlineElm extends EObject
    * @generated
    */
   EList<ShapeDef> getShapes();
+
+  /**
+   * Returns the value of the '<em><b>Var</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.online_elm.onlineElm.Local_var}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Var</em>' containment reference list.
+   * @see org.xtext.online_elm.onlineElm.OnlineElmPackage#getOnlineElm_Var()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Local_var> getVar();
 
 } // OnlineElm

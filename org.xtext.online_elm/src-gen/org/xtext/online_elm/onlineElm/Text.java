@@ -14,6 +14,7 @@ package org.xtext.online_elm.onlineElm;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.online_elm.onlineElm.Text#getContent <em>Content</em>}</li>
+ *   <li>{@link org.xtext.online_elm.onlineElm.Text#getConditionalContent <em>Conditional Content</em>}</li>
  * </ul>
  *
  * @see org.xtext.online_elm.onlineElm.OnlineElmPackage#getText()
@@ -43,5 +44,27 @@ public interface Text extends Stencil
    * @generated
    */
   void setContent(String value);
+
+  /**
+   * Returns the value of the '<em><b>Conditional Content</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Conditional Content</em>' containment reference.
+   * @see #setConditionalContent(Conditional_Str)
+   * @see org.xtext.online_elm.onlineElm.OnlineElmPackage#getText_ConditionalContent()
+   * @model containment="true"
+   * @generated
+   */
+  Conditional_Str getConditionalContent();
+
+  /**
+   * Sets the value of the '{@link org.xtext.online_elm.onlineElm.Text#getConditionalContent <em>Conditional Content</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Conditional Content</em>' containment reference.
+   * @see #getConditionalContent()
+   * @generated
+   */
+  void setConditionalContent(Conditional_Str value);
 
 } // Text

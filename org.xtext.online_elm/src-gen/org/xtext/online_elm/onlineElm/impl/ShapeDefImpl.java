@@ -4,13 +4,17 @@
 package org.xtext.online_elm.onlineElm.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.xtext.online_elm.onlineElm.Conditional_Shape;
 import org.xtext.online_elm.onlineElm.OnlineElmPackage;
+import org.xtext.online_elm.onlineElm.Shape;
 import org.xtext.online_elm.onlineElm.ShapeDef;
 
 /**
@@ -22,6 +26,8 @@ import org.xtext.online_elm.onlineElm.ShapeDef;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.online_elm.onlineElm.impl.ShapeDefImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.online_elm.onlineElm.impl.ShapeDefImpl#getShape <em>Shape</em>}</li>
+ *   <li>{@link org.xtext.online_elm.onlineElm.impl.ShapeDefImpl#getConditional <em>Conditional</em>}</li>
  * </ul>
  *
  * @generated
@@ -47,6 +53,26 @@ public class ShapeDefImpl extends MinimalEObjectImpl.Container implements ShapeD
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getShape() <em>Shape</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getShape()
+   * @generated
+   * @ordered
+   */
+  protected Shape shape;
+
+  /**
+   * The cached value of the '{@link #getConditional() <em>Conditional</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getConditional()
+   * @generated
+   * @ordered
+   */
+  protected Conditional_Shape conditional;
 
   /**
    * <!-- begin-user-doc -->
@@ -100,12 +126,134 @@ public class ShapeDefImpl extends MinimalEObjectImpl.Container implements ShapeD
    * @generated
    */
   @Override
+  public Shape getShape()
+  {
+    return shape;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetShape(Shape newShape, NotificationChain msgs)
+  {
+    Shape oldShape = shape;
+    shape = newShape;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OnlineElmPackage.SHAPE_DEF__SHAPE, oldShape, newShape);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setShape(Shape newShape)
+  {
+    if (newShape != shape)
+    {
+      NotificationChain msgs = null;
+      if (shape != null)
+        msgs = ((InternalEObject)shape).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OnlineElmPackage.SHAPE_DEF__SHAPE, null, msgs);
+      if (newShape != null)
+        msgs = ((InternalEObject)newShape).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OnlineElmPackage.SHAPE_DEF__SHAPE, null, msgs);
+      msgs = basicSetShape(newShape, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, OnlineElmPackage.SHAPE_DEF__SHAPE, newShape, newShape));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Conditional_Shape getConditional()
+  {
+    return conditional;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetConditional(Conditional_Shape newConditional, NotificationChain msgs)
+  {
+    Conditional_Shape oldConditional = conditional;
+    conditional = newConditional;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OnlineElmPackage.SHAPE_DEF__CONDITIONAL, oldConditional, newConditional);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setConditional(Conditional_Shape newConditional)
+  {
+    if (newConditional != conditional)
+    {
+      NotificationChain msgs = null;
+      if (conditional != null)
+        msgs = ((InternalEObject)conditional).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OnlineElmPackage.SHAPE_DEF__CONDITIONAL, null, msgs);
+      if (newConditional != null)
+        msgs = ((InternalEObject)newConditional).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OnlineElmPackage.SHAPE_DEF__CONDITIONAL, null, msgs);
+      msgs = basicSetConditional(newConditional, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, OnlineElmPackage.SHAPE_DEF__CONDITIONAL, newConditional, newConditional));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case OnlineElmPackage.SHAPE_DEF__SHAPE:
+        return basicSetShape(null, msgs);
+      case OnlineElmPackage.SHAPE_DEF__CONDITIONAL:
+        return basicSetConditional(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
     {
       case OnlineElmPackage.SHAPE_DEF__NAME:
         return getName();
+      case OnlineElmPackage.SHAPE_DEF__SHAPE:
+        return getShape();
+      case OnlineElmPackage.SHAPE_DEF__CONDITIONAL:
+        return getConditional();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -122,6 +270,12 @@ public class ShapeDefImpl extends MinimalEObjectImpl.Container implements ShapeD
     {
       case OnlineElmPackage.SHAPE_DEF__NAME:
         setName((String)newValue);
+        return;
+      case OnlineElmPackage.SHAPE_DEF__SHAPE:
+        setShape((Shape)newValue);
+        return;
+      case OnlineElmPackage.SHAPE_DEF__CONDITIONAL:
+        setConditional((Conditional_Shape)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -140,6 +294,12 @@ public class ShapeDefImpl extends MinimalEObjectImpl.Container implements ShapeD
       case OnlineElmPackage.SHAPE_DEF__NAME:
         setName(NAME_EDEFAULT);
         return;
+      case OnlineElmPackage.SHAPE_DEF__SHAPE:
+        setShape((Shape)null);
+        return;
+      case OnlineElmPackage.SHAPE_DEF__CONDITIONAL:
+        setConditional((Conditional_Shape)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -156,6 +316,10 @@ public class ShapeDefImpl extends MinimalEObjectImpl.Container implements ShapeD
     {
       case OnlineElmPackage.SHAPE_DEF__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case OnlineElmPackage.SHAPE_DEF__SHAPE:
+        return shape != null;
+      case OnlineElmPackage.SHAPE_DEF__CONDITIONAL:
+        return conditional != null;
     }
     return super.eIsSet(featureID);
   }

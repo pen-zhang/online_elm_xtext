@@ -3,10 +3,19 @@
  */
 package org.xtext.online_elm.ui.contentassist;
 
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.jface.text.BadLocationException;
+import org.eclipse.jface.text.Document;
+import org.eclipse.jface.text.IDocument;
 import org.eclipse.xtext.Assignment;
+import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext;
 import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor;
 import org.xtext.online_elm.onlineElm.Circle;
+import org.xtext.online_elm.onlineElm.Stencil;
+import org.eclipse.xtext.ui.editor.contentassist.CompletionProposalComputer;
+import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext;
+import org.eclipse.jface.text.contentassist.CompletionProposal;
 
 /**
  * See https://www.eclipse.org/Xtext/documentation/310_eclipse_support.html#content-assist
@@ -14,13 +23,14 @@ import org.xtext.online_elm.onlineElm.Circle;
  */
 public class OnlineElmProposalProvider extends AbstractOnlineElmProposalProvider {
 	
-	public void completeCircle_Name(Circle circle, Assignment assignment, 
+	@Override
+	public void completeCircle_Name(EObject model, Assignment assignment, 
 			  ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		  // call implementation of superclass
-		  super.completeCircle_Name(circle, assignment, context, acceptor);
+		  super.completeCircle_Name(model, assignment, context, acceptor);
 		 
 		  // compute the plain proposal
-		  String proposal = circle.getName() + " diameter";
+		  String proposal = ((Circle) model).getName() + " radius";
 		 
 		  // Create and register the completion proposal:
 		  // The proposal may be null as the createCompletionProposal(..) 
@@ -28,4 +38,13 @@ public class OnlineElmProposalProvider extends AbstractOnlineElmProposalProvider
 		  // The acceptor handles null-values gracefully.
 		  acceptor.accept(createCompletionProposal(proposal, context));
 		}
+	
+	@Override
+	public void completeMainShape_Shape(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		super.completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
+		acceptor.accept(createCompletionProposal("test",context));
+		
+		
+	}
+	
 }

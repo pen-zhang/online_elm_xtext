@@ -5,7 +5,6 @@ package org.xtext.online_elm.formatting2;
 
 import com.google.inject.Inject;
 import java.util.Arrays;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.formatting2.AbstractFormatter2;
 import org.eclipse.xtext.formatting2.IFormattableDocument;
@@ -16,8 +15,6 @@ import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.xtext.online_elm.onlineElm.Circle;
 import org.xtext.online_elm.onlineElm.MainShape;
-import org.xtext.online_elm.onlineElm.OnlineElm;
-import org.xtext.online_elm.onlineElm.ShapeDef;
 import org.xtext.online_elm.services.OnlineElmGrammarAccess;
 
 @SuppressWarnings("all")
@@ -26,33 +23,34 @@ public class OnlineElmFormatter extends AbstractFormatter2 {
   @Extension
   private OnlineElmGrammarAccess _onlineElmGrammarAccess;
   
-  protected void _format(final OnlineElm onlineElm, @Extension final IFormattableDocument document) {
-    document.<MainShape>format(onlineElm.getEntry());
-    EList<ShapeDef> _shapes = onlineElm.getShapes();
-    for (final ShapeDef shapeDef : _shapes) {
-      document.<ShapeDef>format(shapeDef);
-    }
-  }
-  
   protected void _format(final MainShape mainShape, @Extension final IFormattableDocument document) {
+    final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
+      it.noIndentation();
+      it.noSpace();
+      it.noAutowrap();
+    };
+    final Procedure1<IHiddenRegionFormatter> _function_1 = (IHiddenRegionFormatter it) -> {
+      it.setNewLines(0, 1, 1);
+    };
+    document.<MainShape>append(document.<MainShape>prepend(mainShape, _function), _function_1);
     final ISemanticRegion open = this.textRegionExtensions.regionFor(mainShape).keyword("[");
     final ISemanticRegion close = this.textRegionExtensions.regionFor(mainShape).keyword("]");
-    final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
+    final Procedure1<IHiddenRegionFormatter> _function_2 = (IHiddenRegionFormatter it) -> {
       it.oneSpace();
     };
-    document.append(this.textRegionExtensions.regionFor(mainShape).keyword("mainShape ="), _function);
-    final Procedure1<IHiddenRegionFormatter> _function_1 = (IHiddenRegionFormatter it) -> {
-      it.newLine();
-    };
-    document.append(open, _function_1);
-    final Procedure1<IHiddenRegionFormatter> _function_2 = (IHiddenRegionFormatter it) -> {
-      it.newLine();
-    };
-    document.surround(close, _function_2);
+    document.append(this.textRegionExtensions.regionFor(mainShape).keyword("myShapes ="), _function_2);
     final Procedure1<IHiddenRegionFormatter> _function_3 = (IHiddenRegionFormatter it) -> {
+      it.newLine();
+    };
+    document.append(open, _function_3);
+    final Procedure1<IHiddenRegionFormatter> _function_4 = (IHiddenRegionFormatter it) -> {
+      it.newLine();
+    };
+    document.surround(close, _function_4);
+    final Procedure1<IHiddenRegionFormatter> _function_5 = (IHiddenRegionFormatter it) -> {
       it.indent();
     };
-    document.<ISemanticRegion, ISemanticRegion>interior(open, close, _function_3);
+    document.<ISemanticRegion, ISemanticRegion>interior(open, close, _function_5);
   }
   
   protected void _format(final Circle circle, @Extension final IFormattableDocument document) {
@@ -60,7 +58,6 @@ public class OnlineElmFormatter extends AbstractFormatter2 {
       it.oneSpace();
     };
     document.append(this.textRegionExtensions.regionFor(circle).keyword("Circle"), _function);
-    document.<Float>format(Float.valueOf(circle.getDiameter()));
   }
   
   public void format(final Object circle, final IFormattableDocument document) {
@@ -72,9 +69,6 @@ public class OnlineElmFormatter extends AbstractFormatter2 {
       return;
     } else if (circle instanceof MainShape) {
       _format((MainShape)circle, document);
-      return;
-    } else if (circle instanceof OnlineElm) {
-      _format((OnlineElm)circle, document);
       return;
     } else if (circle instanceof EObject) {
       _format((EObject)circle, document);

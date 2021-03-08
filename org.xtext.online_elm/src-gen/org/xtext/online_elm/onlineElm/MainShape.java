@@ -17,11 +17,13 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.online_elm.onlineElm.MainShape#getName <em>Name</em>}</li>
- *   <li>{@link org.xtext.online_elm.onlineElm.MainShape#getS1 <em>S1</em>}</li>
- *   <li>{@link org.xtext.online_elm.onlineElm.MainShape#getS11 <em>S11</em>}</li>
- *   <li>{@link org.xtext.online_elm.onlineElm.MainShape#getS2 <em>S2</em>}</li>
- *   <li>{@link org.xtext.online_elm.onlineElm.MainShape#getS22 <em>S22</em>}</li>
- *   <li>{@link org.xtext.online_elm.onlineElm.MainShape#getSg <em>Sg</em>}</li>
+ *   <li>{@link org.xtext.online_elm.onlineElm.MainShape#getShape <em>Shape</em>}</li>
+ *   <li>{@link org.xtext.online_elm.onlineElm.MainShape#getConditional <em>Conditional</em>}</li>
+ *   <li>{@link org.xtext.online_elm.onlineElm.MainShape#getShapeRef <em>Shape Ref</em>}</li>
+ *   <li>{@link org.xtext.online_elm.onlineElm.MainShape#getMoreShapes <em>More Shapes</em>}</li>
+ *   <li>{@link org.xtext.online_elm.onlineElm.MainShape#getMoreConditional <em>More Conditional</em>}</li>
+ *   <li>{@link org.xtext.online_elm.onlineElm.MainShape#getMoreShapeRef <em>More Shape Ref</em>}</li>
+ *   <li>{@link org.xtext.online_elm.onlineElm.MainShape#getExternal <em>External</em>}</li>
  * </ul>
  *
  * @see org.xtext.online_elm.onlineElm.OnlineElmPackage#getMainShape()
@@ -53,83 +55,117 @@ public interface MainShape extends EObject
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>S1</b></em>' containment reference.
+   * Returns the value of the '<em><b>Shape</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>S1</em>' containment reference.
-   * @see #setS1(Shape)
-   * @see org.xtext.online_elm.onlineElm.OnlineElmPackage#getMainShape_S1()
+   * @return the value of the '<em>Shape</em>' containment reference.
+   * @see #setShape(Shape)
+   * @see org.xtext.online_elm.onlineElm.OnlineElmPackage#getMainShape_Shape()
    * @model containment="true"
    * @generated
    */
-  Shape getS1();
+  Shape getShape();
 
   /**
-   * Sets the value of the '{@link org.xtext.online_elm.onlineElm.MainShape#getS1 <em>S1</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.online_elm.onlineElm.MainShape#getShape <em>Shape</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>S1</em>' containment reference.
-   * @see #getS1()
+   * @param value the new value of the '<em>Shape</em>' containment reference.
+   * @see #getShape()
    * @generated
    */
-  void setS1(Shape value);
+  void setShape(Shape value);
 
   /**
-   * Returns the value of the '<em><b>S11</b></em>' reference.
+   * Returns the value of the '<em><b>Conditional</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>S11</em>' reference.
-   * @see #setS11(BasicShape)
-   * @see org.xtext.online_elm.onlineElm.OnlineElmPackage#getMainShape_S11()
+   * @return the value of the '<em>Conditional</em>' containment reference.
+   * @see #setConditional(Conditional_Shape)
+   * @see org.xtext.online_elm.onlineElm.OnlineElmPackage#getMainShape_Conditional()
+   * @model containment="true"
+   * @generated
+   */
+  Conditional_Shape getConditional();
+
+  /**
+   * Sets the value of the '{@link org.xtext.online_elm.onlineElm.MainShape#getConditional <em>Conditional</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Conditional</em>' containment reference.
+   * @see #getConditional()
+   * @generated
+   */
+  void setConditional(Conditional_Shape value);
+
+  /**
+   * Returns the value of the '<em><b>Shape Ref</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Shape Ref</em>' reference.
+   * @see #setShapeRef(BasicShape)
+   * @see org.xtext.online_elm.onlineElm.OnlineElmPackage#getMainShape_ShapeRef()
    * @model
    * @generated
    */
-  BasicShape getS11();
+  BasicShape getShapeRef();
 
   /**
-   * Sets the value of the '{@link org.xtext.online_elm.onlineElm.MainShape#getS11 <em>S11</em>}' reference.
+   * Sets the value of the '{@link org.xtext.online_elm.onlineElm.MainShape#getShapeRef <em>Shape Ref</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>S11</em>' reference.
-   * @see #getS11()
+   * @param value the new value of the '<em>Shape Ref</em>' reference.
+   * @see #getShapeRef()
    * @generated
    */
-  void setS11(BasicShape value);
+  void setShapeRef(BasicShape value);
 
   /**
-   * Returns the value of the '<em><b>S2</b></em>' containment reference list.
+   * Returns the value of the '<em><b>More Shapes</b></em>' containment reference list.
    * The list contents are of type {@link org.xtext.online_elm.onlineElm.Shape}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>S2</em>' containment reference list.
-   * @see org.xtext.online_elm.onlineElm.OnlineElmPackage#getMainShape_S2()
+   * @return the value of the '<em>More Shapes</em>' containment reference list.
+   * @see org.xtext.online_elm.onlineElm.OnlineElmPackage#getMainShape_MoreShapes()
    * @model containment="true"
    * @generated
    */
-  EList<Shape> getS2();
+  EList<Shape> getMoreShapes();
 
   /**
-   * Returns the value of the '<em><b>S22</b></em>' reference list.
+   * Returns the value of the '<em><b>More Conditional</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.online_elm.onlineElm.Conditional_Shape}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>More Conditional</em>' containment reference list.
+   * @see org.xtext.online_elm.onlineElm.OnlineElmPackage#getMainShape_MoreConditional()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Conditional_Shape> getMoreConditional();
+
+  /**
+   * Returns the value of the '<em><b>More Shape Ref</b></em>' reference list.
    * The list contents are of type {@link org.xtext.online_elm.onlineElm.BasicShape}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>S22</em>' reference list.
-   * @see org.xtext.online_elm.onlineElm.OnlineElmPackage#getMainShape_S22()
+   * @return the value of the '<em>More Shape Ref</em>' reference list.
+   * @see org.xtext.online_elm.onlineElm.OnlineElmPackage#getMainShape_MoreShapeRef()
    * @model
    * @generated
    */
-  EList<BasicShape> getS22();
+  EList<BasicShape> getMoreShapeRef();
 
   /**
-   * Returns the value of the '<em><b>Sg</b></em>' reference list.
-   * The list contents are of type {@link org.xtext.online_elm.onlineElm.ShapeGroup}.
+   * Returns the value of the '<em><b>External</b></em>' reference list.
+   * The list contents are of type {@link org.xtext.online_elm.onlineElm.ShapeList}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Sg</em>' reference list.
-   * @see org.xtext.online_elm.onlineElm.OnlineElmPackage#getMainShape_Sg()
+   * @return the value of the '<em>External</em>' reference list.
+   * @see org.xtext.online_elm.onlineElm.OnlineElmPackage#getMainShape_External()
    * @model
    * @generated
    */
-  EList<ShapeGroup> getSg();
+  EList<ShapeList> getExternal();
 
 } // MainShape

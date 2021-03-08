@@ -10,11 +10,10 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.online_elm.onlineElm.Move;
-import org.xtext.online_elm.onlineElm.Num_value;
 import org.xtext.online_elm.onlineElm.OnlineElmPackage;
+import org.xtext.online_elm.onlineElm.Point;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,54 +23,22 @@ import org.xtext.online_elm.onlineElm.OnlineElmPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.online_elm.onlineElm.impl.MoveImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.xtext.online_elm.onlineElm.impl.MoveImpl#getX <em>X</em>}</li>
- *   <li>{@link org.xtext.online_elm.onlineElm.impl.MoveImpl#getY <em>Y</em>}</li>
+ *   <li>{@link org.xtext.online_elm.onlineElm.impl.MoveImpl#getPoint <em>Point</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class MoveImpl extends MinimalEObjectImpl.Container implements Move
+public class MoveImpl extends TranformImpl implements Move
 {
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getPoint() <em>Point</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getPoint()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getX() <em>X</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getX()
-   * @generated
-   * @ordered
-   */
-  protected Num_value x;
-
-  /**
-   * The cached value of the '{@link #getY() <em>Y</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getY()
-   * @generated
-   * @ordered
-   */
-  protected Num_value y;
+  protected Point point;
 
   /**
    * <!-- begin-user-doc -->
@@ -100,9 +67,9 @@ public class MoveImpl extends MinimalEObjectImpl.Container implements Move
    * @generated
    */
   @Override
-  public String getName()
+  public Point getPoint()
   {
-    return name;
+    return point;
   }
 
   /**
@@ -110,38 +77,13 @@ public class MoveImpl extends MinimalEObjectImpl.Container implements Move
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public void setName(String newName)
+  public NotificationChain basicSetPoint(Point newPoint, NotificationChain msgs)
   {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OnlineElmPackage.MOVE__NAME, oldName, name));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Num_value getX()
-  {
-    return x;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetX(Num_value newX, NotificationChain msgs)
-  {
-    Num_value oldX = x;
-    x = newX;
+    Point oldPoint = point;
+    point = newPoint;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OnlineElmPackage.MOVE__X, oldX, newX);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OnlineElmPackage.MOVE__POINT, oldPoint, newPoint);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -153,70 +95,20 @@ public class MoveImpl extends MinimalEObjectImpl.Container implements Move
    * @generated
    */
   @Override
-  public void setX(Num_value newX)
+  public void setPoint(Point newPoint)
   {
-    if (newX != x)
+    if (newPoint != point)
     {
       NotificationChain msgs = null;
-      if (x != null)
-        msgs = ((InternalEObject)x).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OnlineElmPackage.MOVE__X, null, msgs);
-      if (newX != null)
-        msgs = ((InternalEObject)newX).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OnlineElmPackage.MOVE__X, null, msgs);
-      msgs = basicSetX(newX, msgs);
+      if (point != null)
+        msgs = ((InternalEObject)point).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OnlineElmPackage.MOVE__POINT, null, msgs);
+      if (newPoint != null)
+        msgs = ((InternalEObject)newPoint).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OnlineElmPackage.MOVE__POINT, null, msgs);
+      msgs = basicSetPoint(newPoint, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OnlineElmPackage.MOVE__X, newX, newX));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Num_value getY()
-  {
-    return y;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetY(Num_value newY, NotificationChain msgs)
-  {
-    Num_value oldY = y;
-    y = newY;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OnlineElmPackage.MOVE__Y, oldY, newY);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setY(Num_value newY)
-  {
-    if (newY != y)
-    {
-      NotificationChain msgs = null;
-      if (y != null)
-        msgs = ((InternalEObject)y).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OnlineElmPackage.MOVE__Y, null, msgs);
-      if (newY != null)
-        msgs = ((InternalEObject)newY).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OnlineElmPackage.MOVE__Y, null, msgs);
-      msgs = basicSetY(newY, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OnlineElmPackage.MOVE__Y, newY, newY));
+      eNotify(new ENotificationImpl(this, Notification.SET, OnlineElmPackage.MOVE__POINT, newPoint, newPoint));
   }
 
   /**
@@ -229,10 +121,8 @@ public class MoveImpl extends MinimalEObjectImpl.Container implements Move
   {
     switch (featureID)
     {
-      case OnlineElmPackage.MOVE__X:
-        return basicSetX(null, msgs);
-      case OnlineElmPackage.MOVE__Y:
-        return basicSetY(null, msgs);
+      case OnlineElmPackage.MOVE__POINT:
+        return basicSetPoint(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -247,12 +137,8 @@ public class MoveImpl extends MinimalEObjectImpl.Container implements Move
   {
     switch (featureID)
     {
-      case OnlineElmPackage.MOVE__NAME:
-        return getName();
-      case OnlineElmPackage.MOVE__X:
-        return getX();
-      case OnlineElmPackage.MOVE__Y:
-        return getY();
+      case OnlineElmPackage.MOVE__POINT:
+        return getPoint();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -267,14 +153,8 @@ public class MoveImpl extends MinimalEObjectImpl.Container implements Move
   {
     switch (featureID)
     {
-      case OnlineElmPackage.MOVE__NAME:
-        setName((String)newValue);
-        return;
-      case OnlineElmPackage.MOVE__X:
-        setX((Num_value)newValue);
-        return;
-      case OnlineElmPackage.MOVE__Y:
-        setY((Num_value)newValue);
+      case OnlineElmPackage.MOVE__POINT:
+        setPoint((Point)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -290,14 +170,8 @@ public class MoveImpl extends MinimalEObjectImpl.Container implements Move
   {
     switch (featureID)
     {
-      case OnlineElmPackage.MOVE__NAME:
-        setName(NAME_EDEFAULT);
-        return;
-      case OnlineElmPackage.MOVE__X:
-        setX((Num_value)null);
-        return;
-      case OnlineElmPackage.MOVE__Y:
-        setY((Num_value)null);
+      case OnlineElmPackage.MOVE__POINT:
+        setPoint((Point)null);
         return;
     }
     super.eUnset(featureID);
@@ -313,31 +187,10 @@ public class MoveImpl extends MinimalEObjectImpl.Container implements Move
   {
     switch (featureID)
     {
-      case OnlineElmPackage.MOVE__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case OnlineElmPackage.MOVE__X:
-        return x != null;
-      case OnlineElmPackage.MOVE__Y:
-        return y != null;
+      case OnlineElmPackage.MOVE__POINT:
+        return point != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(')');
-    return result.toString();
   }
 
 } //MoveImpl

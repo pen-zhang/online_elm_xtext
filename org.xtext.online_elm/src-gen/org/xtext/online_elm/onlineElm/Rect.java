@@ -13,8 +13,8 @@ package org.xtext.online_elm.onlineElm;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.online_elm.onlineElm.Rect#getEdgeX <em>Edge X</em>}</li>
- *   <li>{@link org.xtext.online_elm.onlineElm.Rect#getEdgeY <em>Edge Y</em>}</li>
+ *   <li>{@link org.xtext.online_elm.onlineElm.Rect#getWidth <em>Width</em>}</li>
+ *   <li>{@link org.xtext.online_elm.onlineElm.Rect#getHeight <em>Height</em>}</li>
  * </ul>
  *
  * @see org.xtext.online_elm.onlineElm.OnlineElmPackage#getRect()
@@ -24,47 +24,47 @@ package org.xtext.online_elm.onlineElm;
 public interface Rect extends Stencil
 {
   /**
-   * Returns the value of the '<em><b>Edge X</b></em>' attribute.
+   * Returns the value of the '<em><b>Width</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Edge X</em>' attribute.
-   * @see #setEdgeX(float)
-   * @see org.xtext.online_elm.onlineElm.OnlineElmPackage#getRect_EdgeX()
-   * @model
+   * @return the value of the '<em>Width</em>' containment reference.
+   * @see #setWidth(Num_value)
+   * @see org.xtext.online_elm.onlineElm.OnlineElmPackage#getRect_Width()
+   * @model containment="true"
    * @generated
    */
-  float getEdgeX();
+  Num_value getWidth();
 
   /**
-   * Sets the value of the '{@link org.xtext.online_elm.onlineElm.Rect#getEdgeX <em>Edge X</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.online_elm.onlineElm.Rect#getWidth <em>Width</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Edge X</em>' attribute.
-   * @see #getEdgeX()
+   * @param value the new value of the '<em>Width</em>' containment reference.
+   * @see #getWidth()
    * @generated
    */
-  void setEdgeX(float value);
+  void setWidth(Num_value value);
 
   /**
-   * Returns the value of the '<em><b>Edge Y</b></em>' attribute.
+   * Returns the value of the '<em><b>Height</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Edge Y</em>' attribute.
-   * @see #setEdgeY(float)
-   * @see org.xtext.online_elm.onlineElm.OnlineElmPackage#getRect_EdgeY()
-   * @model
+   * @return the value of the '<em>Height</em>' containment reference.
+   * @see #setHeight(Num_value)
+   * @see org.xtext.online_elm.onlineElm.OnlineElmPackage#getRect_Height()
+   * @model containment="true"
    * @generated
    */
-  float getEdgeY();
+  Num_value getHeight();
 
   /**
-   * Sets the value of the '{@link org.xtext.online_elm.onlineElm.Rect#getEdgeY <em>Edge Y</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.online_elm.onlineElm.Rect#getHeight <em>Height</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Edge Y</em>' attribute.
-   * @see #getEdgeY()
+   * @param value the new value of the '<em>Height</em>' containment reference.
+   * @see #getHeight()
    * @generated
    */
-  void setEdgeY(float value);
+  void setHeight(Num_value value);
 
 } // Rect

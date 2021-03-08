@@ -51,13 +51,22 @@ public interface OnlineElmFactory extends EFactory
   ShapeDef createShapeDef();
 
   /**
-   * Returns a new object of class '<em>Shape Group</em>'.
+   * Returns a new object of class '<em>Local var</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Shape Group</em>'.
+   * @return a new object of class '<em>Local var</em>'.
    * @generated
    */
-  ShapeGroup createShapeGroup();
+  Local_var createLocal_var();
+
+  /**
+   * Returns a new object of class '<em>Shape List</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Shape List</em>'.
+   * @generated
+   */
+  ShapeList createShapeList();
 
   /**
    * Returns a new object of class '<em>Basic Shape</em>'.
@@ -78,31 +87,85 @@ public interface OnlineElmFactory extends EFactory
   Shape createShape();
 
   /**
-   * Returns a new object of class '<em>Conditional</em>'.
+   * Returns a new object of class '<em>Conditional Shape</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Conditional</em>'.
+   * @return a new object of class '<em>Conditional Shape</em>'.
    * @generated
    */
-  Conditional createConditional();
+  Conditional_Shape createConditional_Shape();
 
   /**
-   * Returns a new object of class '<em>Bool exp</em>'.
+   * Returns a new object of class '<em>Conditional Color</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Bool exp</em>'.
+   * @return a new object of class '<em>Conditional Color</em>'.
    * @generated
    */
-  Bool_exp createBool_exp();
+  Conditional_Color createConditional_Color();
 
   /**
-   * Returns a new object of class '<em>Terminal Bool exp</em>'.
+   * Returns a new object of class '<em>Conditional Num</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Terminal Bool exp</em>'.
+   * @return a new object of class '<em>Conditional Num</em>'.
    * @generated
    */
-  Terminal_Bool_exp createTerminal_Bool_exp();
+  Conditional_Num createConditional_Num();
+
+  /**
+   * Returns a new object of class '<em>Conditional Str</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Conditional Str</em>'.
+   * @generated
+   */
+  Conditional_Str createConditional_Str();
+
+  /**
+   * Returns a new object of class '<em>Bool expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Bool expr</em>'.
+   * @generated
+   */
+  Bool_expr createBool_expr();
+
+  /**
+   * Returns a new object of class '<em>Or expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Or expr</em>'.
+   * @generated
+   */
+  Or_expr createOr_expr();
+
+  /**
+   * Returns a new object of class '<em>And expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>And expr</em>'.
+   * @generated
+   */
+  And_expr createAnd_expr();
+
+  /**
+   * Returns a new object of class '<em>Not expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Not expr</em>'.
+   * @generated
+   */
+  Not_expr createNot_expr();
+
+  /**
+   * Returns a new object of class '<em>Compare expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Compare expr</em>'.
+   * @generated
+   */
+  Compare_expr createCompare_expr();
 
   /**
    * Returns a new object of class '<em>Num value</em>'.
@@ -150,6 +213,69 @@ public interface OnlineElmFactory extends EFactory
   Rect createRect();
 
   /**
+   * Returns a new object of class '<em>Square</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Square</em>'.
+   * @generated
+   */
+  Square createSquare();
+
+  /**
+   * Returns a new object of class '<em>Rounded Rect</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Rounded Rect</em>'.
+   * @generated
+   */
+  RoundedRect createRoundedRect();
+
+  /**
+   * Returns a new object of class '<em>Oval</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Oval</em>'.
+   * @generated
+   */
+  Oval createOval();
+
+  /**
+   * Returns a new object of class '<em>Ngon</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Ngon</em>'.
+   * @generated
+   */
+  Ngon createNgon();
+
+  /**
+   * Returns a new object of class '<em>Wedge</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Wedge</em>'.
+   * @generated
+   */
+  Wedge createWedge();
+
+  /**
+   * Returns a new object of class '<em>Polygon</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Polygon</em>'.
+   * @generated
+   */
+  Polygon createPolygon();
+
+  /**
+   * Returns a new object of class '<em>Point</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Point</em>'.
+   * @generated
+   */
+  Point createPoint();
+
+  /**
    * Returns a new object of class '<em>Text</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -168,13 +294,31 @@ public interface OnlineElmFactory extends EFactory
   Draw createDraw();
 
   /**
-   * Returns a new object of class '<em>Fill</em>'.
+   * Returns a new object of class '<em>Filled</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Fill</em>'.
+   * @return a new object of class '<em>Filled</em>'.
    * @generated
    */
-  Fill createFill();
+  Filled createFilled();
+
+  /**
+   * Returns a new object of class '<em>Outlined</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Outlined</em>'.
+   * @generated
+   */
+  Outlined createOutlined();
+
+  /**
+   * Returns a new object of class '<em>Tranform</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Tranform</em>'.
+   * @generated
+   */
+  Tranform createTranform();
 
   /**
    * Returns a new object of class '<em>Move</em>'.
@@ -184,6 +328,60 @@ public interface OnlineElmFactory extends EFactory
    * @generated
    */
   Move createMove();
+
+  /**
+   * Returns a new object of class '<em>Rotate</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Rotate</em>'.
+   * @generated
+   */
+  Rotate createRotate();
+
+  /**
+   * Returns a new object of class '<em>Scale</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Scale</em>'.
+   * @generated
+   */
+  Scale createScale();
+
+  /**
+   * Returns a new object of class '<em>Scale X</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Scale X</em>'.
+   * @generated
+   */
+  ScaleX createScaleX();
+
+  /**
+   * Returns a new object of class '<em>Scale Y</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Scale Y</em>'.
+   * @generated
+   */
+  ScaleY createScaleY();
+
+  /**
+   * Returns a new object of class '<em>Operation</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Operation</em>'.
+   * @generated
+   */
+  Operation createOperation();
+
+  /**
+   * Returns a new object of class '<em>Float Literal</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Float Literal</em>'.
+   * @generated
+   */
+  FloatLiteral createFloatLiteral();
 
   /**
    * Returns the package supported by this factory.

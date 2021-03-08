@@ -11,27 +11,50 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import org.xtext.online_elm.onlineElm.And_expr;
 import org.xtext.online_elm.onlineElm.BasicShape;
-import org.xtext.online_elm.onlineElm.Bool_exp;
+import org.xtext.online_elm.onlineElm.Bool_expr;
 import org.xtext.online_elm.onlineElm.Circle;
 import org.xtext.online_elm.onlineElm.Color;
-import org.xtext.online_elm.onlineElm.Conditional;
+import org.xtext.online_elm.onlineElm.Compare_expr;
+import org.xtext.online_elm.onlineElm.Conditional_Color;
+import org.xtext.online_elm.onlineElm.Conditional_Num;
+import org.xtext.online_elm.onlineElm.Conditional_Shape;
+import org.xtext.online_elm.onlineElm.Conditional_Str;
 import org.xtext.online_elm.onlineElm.Draw;
-import org.xtext.online_elm.onlineElm.Fill;
+import org.xtext.online_elm.onlineElm.Filled;
+import org.xtext.online_elm.onlineElm.FloatLiteral;
+import org.xtext.online_elm.onlineElm.LineType;
+import org.xtext.online_elm.onlineElm.Local_var;
 import org.xtext.online_elm.onlineElm.MainShape;
 import org.xtext.online_elm.onlineElm.Math_exp;
 import org.xtext.online_elm.onlineElm.Move;
+import org.xtext.online_elm.onlineElm.Ngon;
+import org.xtext.online_elm.onlineElm.Not_expr;
 import org.xtext.online_elm.onlineElm.Num_value;
 import org.xtext.online_elm.onlineElm.OnlineElm;
 import org.xtext.online_elm.onlineElm.OnlineElmFactory;
 import org.xtext.online_elm.onlineElm.OnlineElmPackage;
+import org.xtext.online_elm.onlineElm.Operation;
+import org.xtext.online_elm.onlineElm.Or_expr;
+import org.xtext.online_elm.onlineElm.Outlined;
+import org.xtext.online_elm.onlineElm.Oval;
+import org.xtext.online_elm.onlineElm.Point;
+import org.xtext.online_elm.onlineElm.Polygon;
 import org.xtext.online_elm.onlineElm.Rect;
+import org.xtext.online_elm.onlineElm.Rotate;
+import org.xtext.online_elm.onlineElm.RoundedRect;
+import org.xtext.online_elm.onlineElm.Scale;
+import org.xtext.online_elm.onlineElm.ScaleX;
+import org.xtext.online_elm.onlineElm.ScaleY;
 import org.xtext.online_elm.onlineElm.Shape;
 import org.xtext.online_elm.onlineElm.ShapeDef;
-import org.xtext.online_elm.onlineElm.ShapeGroup;
+import org.xtext.online_elm.onlineElm.ShapeList;
+import org.xtext.online_elm.onlineElm.Square;
 import org.xtext.online_elm.onlineElm.Stencil;
-import org.xtext.online_elm.onlineElm.Terminal_Bool_exp;
 import org.xtext.online_elm.onlineElm.Text;
+import org.xtext.online_elm.onlineElm.Tranform;
+import org.xtext.online_elm.onlineElm.Wedge;
 
 /**
  * <!-- begin-user-doc -->
@@ -67,7 +90,14 @@ public class OnlineElmPackageImpl extends EPackageImpl implements OnlineElmPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass shapeGroupEClass = null;
+  private EClass local_varEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass shapeListEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -88,21 +118,63 @@ public class OnlineElmPackageImpl extends EPackageImpl implements OnlineElmPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass conditionalEClass = null;
+  private EClass conditional_ShapeEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass bool_expEClass = null;
+  private EClass conditional_ColorEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass terminal_Bool_expEClass = null;
+  private EClass conditional_NumEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass conditional_StrEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass bool_exprEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass or_exprEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass and_exprEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass not_exprEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass compare_exprEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -144,6 +216,55 @@ public class OnlineElmPackageImpl extends EPackageImpl implements OnlineElmPacka
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass squareEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass roundedRectEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass ovalEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass ngonEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass wedgeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass polygonEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass pointEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass textEClass = null;
 
   /**
@@ -158,7 +279,21 @@ public class OnlineElmPackageImpl extends EPackageImpl implements OnlineElmPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass fillEClass = null;
+  private EClass filledEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass outlinedEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass tranformEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -172,7 +307,42 @@ public class OnlineElmPackageImpl extends EPackageImpl implements OnlineElmPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  private EEnum booL_OPEEnum = null;
+  private EClass rotateEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass scaleEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass scaleXEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass scaleYEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass operationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass floatLiteralEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -186,7 +356,7 @@ public class OnlineElmPackageImpl extends EPackageImpl implements OnlineElmPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  private EEnum comparisonEEnum = null;
+  private EEnum lineTypeEEnum = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -297,6 +467,17 @@ public class OnlineElmPackageImpl extends EPackageImpl implements OnlineElmPacka
    * @generated
    */
   @Override
+  public EReference getOnlineElm_Var()
+  {
+    return (EReference)onlineElmEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getMainShape()
   {
     return mainShapeEClass;
@@ -319,7 +500,7 @@ public class OnlineElmPackageImpl extends EPackageImpl implements OnlineElmPacka
    * @generated
    */
   @Override
-  public EReference getMainShape_S1()
+  public EReference getMainShape_Shape()
   {
     return (EReference)mainShapeEClass.getEStructuralFeatures().get(1);
   }
@@ -330,7 +511,7 @@ public class OnlineElmPackageImpl extends EPackageImpl implements OnlineElmPacka
    * @generated
    */
   @Override
-  public EReference getMainShape_S11()
+  public EReference getMainShape_Conditional()
   {
     return (EReference)mainShapeEClass.getEStructuralFeatures().get(2);
   }
@@ -341,7 +522,7 @@ public class OnlineElmPackageImpl extends EPackageImpl implements OnlineElmPacka
    * @generated
    */
   @Override
-  public EReference getMainShape_S2()
+  public EReference getMainShape_ShapeRef()
   {
     return (EReference)mainShapeEClass.getEStructuralFeatures().get(3);
   }
@@ -352,7 +533,7 @@ public class OnlineElmPackageImpl extends EPackageImpl implements OnlineElmPacka
    * @generated
    */
   @Override
-  public EReference getMainShape_S22()
+  public EReference getMainShape_MoreShapes()
   {
     return (EReference)mainShapeEClass.getEStructuralFeatures().get(4);
   }
@@ -363,9 +544,31 @@ public class OnlineElmPackageImpl extends EPackageImpl implements OnlineElmPacka
    * @generated
    */
   @Override
-  public EReference getMainShape_Sg()
+  public EReference getMainShape_MoreConditional()
   {
     return (EReference)mainShapeEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getMainShape_MoreShapeRef()
+  {
+    return (EReference)mainShapeEClass.getEStructuralFeatures().get(6);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getMainShape_External()
+  {
+    return (EReference)mainShapeEClass.getEStructuralFeatures().get(7);
   }
 
   /**
@@ -396,9 +599,9 @@ public class OnlineElmPackageImpl extends EPackageImpl implements OnlineElmPacka
    * @generated
    */
   @Override
-  public EClass getShapeGroup()
+  public EReference getShapeDef_Shape()
   {
-    return shapeGroupEClass;
+    return (EReference)shapeDefEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -407,9 +610,9 @@ public class OnlineElmPackageImpl extends EPackageImpl implements OnlineElmPacka
    * @generated
    */
   @Override
-  public EReference getShapeGroup_S1()
+  public EReference getShapeDef_Conditional()
   {
-    return (EReference)shapeGroupEClass.getEStructuralFeatures().get(0);
+    return (EReference)shapeDefEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -418,9 +621,9 @@ public class OnlineElmPackageImpl extends EPackageImpl implements OnlineElmPacka
    * @generated
    */
   @Override
-  public EReference getShapeGroup_S11()
+  public EClass getLocal_var()
   {
-    return (EReference)shapeGroupEClass.getEStructuralFeatures().get(1);
+    return local_varEClass;
   }
 
   /**
@@ -429,9 +632,9 @@ public class OnlineElmPackageImpl extends EPackageImpl implements OnlineElmPacka
    * @generated
    */
   @Override
-  public EReference getShapeGroup_S2()
+  public EAttribute getLocal_var_Name()
   {
-    return (EReference)shapeGroupEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)local_varEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -440,9 +643,9 @@ public class OnlineElmPackageImpl extends EPackageImpl implements OnlineElmPacka
    * @generated
    */
   @Override
-  public EReference getShapeGroup_S22()
+  public EReference getLocal_var_Var()
   {
-    return (EReference)shapeGroupEClass.getEStructuralFeatures().get(3);
+    return (EReference)local_varEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -451,9 +654,64 @@ public class OnlineElmPackageImpl extends EPackageImpl implements OnlineElmPacka
    * @generated
    */
   @Override
-  public EReference getShapeGroup_Sg()
+  public EClass getShapeList()
   {
-    return (EReference)shapeGroupEClass.getEStructuralFeatures().get(4);
+    return shapeListEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getShapeList_ShapeRef()
+  {
+    return (EReference)shapeListEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getShapeList_MoreShapes()
+  {
+    return (EReference)shapeListEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getShapeList_MoreConditional()
+  {
+    return (EReference)shapeListEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getShapeList_MoreShapeRef()
+  {
+    return (EReference)shapeListEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getShapeList_External()
+  {
+    return (EReference)shapeListEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -465,17 +723,6 @@ public class OnlineElmPackageImpl extends EPackageImpl implements OnlineElmPacka
   public EClass getBasicShape()
   {
     return basicShapeEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getBasicShape_Shape()
-  {
-    return (EReference)basicShapeEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -517,9 +764,9 @@ public class OnlineElmPackageImpl extends EPackageImpl implements OnlineElmPacka
    * @generated
    */
   @Override
-  public EClass getConditional()
+  public EClass getConditional_Shape()
   {
-    return conditionalEClass;
+    return conditional_ShapeEClass;
   }
 
   /**
@@ -528,9 +775,9 @@ public class OnlineElmPackageImpl extends EPackageImpl implements OnlineElmPacka
    * @generated
    */
   @Override
-  public EClass getBool_exp()
+  public EClass getConditional_Color()
   {
-    return bool_expEClass;
+    return conditional_ColorEClass;
   }
 
   /**
@@ -539,9 +786,9 @@ public class OnlineElmPackageImpl extends EPackageImpl implements OnlineElmPacka
    * @generated
    */
   @Override
-  public EReference getBool_exp_Exp1()
+  public EClass getConditional_Num()
   {
-    return (EReference)bool_expEClass.getEStructuralFeatures().get(0);
+    return conditional_NumEClass;
   }
 
   /**
@@ -550,9 +797,9 @@ public class OnlineElmPackageImpl extends EPackageImpl implements OnlineElmPacka
    * @generated
    */
   @Override
-  public EReference getBool_exp_Exp2()
+  public EClass getConditional_Str()
   {
-    return (EReference)bool_expEClass.getEStructuralFeatures().get(1);
+    return conditional_StrEClass;
   }
 
   /**
@@ -561,9 +808,9 @@ public class OnlineElmPackageImpl extends EPackageImpl implements OnlineElmPacka
    * @generated
    */
   @Override
-  public EReference getBool_exp_Left()
+  public EClass getBool_expr()
   {
-    return (EReference)bool_expEClass.getEStructuralFeatures().get(2);
+    return bool_exprEClass;
   }
 
   /**
@@ -572,9 +819,9 @@ public class OnlineElmPackageImpl extends EPackageImpl implements OnlineElmPacka
    * @generated
    */
   @Override
-  public EAttribute getBool_exp_Operator()
+  public EReference getBool_expr_Shape_1()
   {
-    return (EAttribute)bool_expEClass.getEStructuralFeatures().get(3);
+    return (EReference)bool_exprEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -583,9 +830,9 @@ public class OnlineElmPackageImpl extends EPackageImpl implements OnlineElmPacka
    * @generated
    */
   @Override
-  public EReference getBool_exp_Rights()
+  public EReference getBool_expr_Nested_1()
   {
-    return (EReference)bool_expEClass.getEStructuralFeatures().get(4);
+    return (EReference)bool_exprEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -594,9 +841,9 @@ public class OnlineElmPackageImpl extends EPackageImpl implements OnlineElmPacka
    * @generated
    */
   @Override
-  public EClass getTerminal_Bool_exp()
+  public EReference getBool_expr_Shape_2()
   {
-    return terminal_Bool_expEClass;
+    return (EReference)bool_exprEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -605,9 +852,9 @@ public class OnlineElmPackageImpl extends EPackageImpl implements OnlineElmPacka
    * @generated
    */
   @Override
-  public EReference getTerminal_Bool_exp_N1()
+  public EReference getBool_expr_Nested_2()
   {
-    return (EReference)terminal_Bool_expEClass.getEStructuralFeatures().get(0);
+    return (EReference)bool_exprEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -616,9 +863,9 @@ public class OnlineElmPackageImpl extends EPackageImpl implements OnlineElmPacka
    * @generated
    */
   @Override
-  public EAttribute getTerminal_Bool_exp_Comp()
+  public EAttribute getBool_expr_Color_1()
   {
-    return (EAttribute)terminal_Bool_expEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)bool_exprEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -627,9 +874,141 @@ public class OnlineElmPackageImpl extends EPackageImpl implements OnlineElmPacka
    * @generated
    */
   @Override
-  public EReference getTerminal_Bool_exp_N2()
+  public EAttribute getBool_expr_Color_2()
   {
-    return (EReference)terminal_Bool_expEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)bool_exprEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getBool_expr_Num_1()
+  {
+    return (EAttribute)bool_exprEClass.getEStructuralFeatures().get(6);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getBool_expr_Num_2()
+  {
+    return (EAttribute)bool_exprEClass.getEStructuralFeatures().get(7);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getBool_expr_Str_1()
+  {
+    return (EAttribute)bool_exprEClass.getEStructuralFeatures().get(8);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getBool_expr_Str_2()
+  {
+    return (EAttribute)bool_exprEClass.getEStructuralFeatures().get(9);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getOr_expr()
+  {
+    return or_exprEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getOr_expr_Left()
+  {
+    return (EReference)or_exprEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getOr_expr_Right()
+  {
+    return (EReference)or_exprEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getAnd_expr()
+  {
+    return and_exprEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getNot_expr()
+  {
+    return not_exprEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getNot_expr_Operand()
+  {
+    return (EReference)not_exprEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getCompare_expr()
+  {
+    return compare_exprEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getCompare_expr_Operator()
+  {
+    return (EAttribute)compare_exprEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -649,9 +1028,20 @@ public class OnlineElmPackageImpl extends EPackageImpl implements OnlineElmPacka
    * @generated
    */
   @Override
-  public EAttribute getNum_value_Num()
+  public EReference getNum_value_Local()
   {
-    return (EAttribute)num_valueEClass.getEStructuralFeatures().get(0);
+    return (EReference)num_valueEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getNum_value_Ref()
+  {
+    return (EAttribute)num_valueEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -663,39 +1053,6 @@ public class OnlineElmPackageImpl extends EPackageImpl implements OnlineElmPacka
   public EClass getMath_exp()
   {
     return math_expEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getMath_exp_N1()
-  {
-    return (EAttribute)math_expEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getMath_exp_Op1()
-  {
-    return (EAttribute)math_expEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getMath_exp_N2()
-  {
-    return (EAttribute)math_expEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -737,9 +1094,9 @@ public class OnlineElmPackageImpl extends EPackageImpl implements OnlineElmPacka
    * @generated
    */
   @Override
-  public EAttribute getCircle_Diameter()
+  public EReference getCircle_Radius()
   {
-    return (EAttribute)circleEClass.getEStructuralFeatures().get(0);
+    return (EReference)circleEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -759,9 +1116,9 @@ public class OnlineElmPackageImpl extends EPackageImpl implements OnlineElmPacka
    * @generated
    */
   @Override
-  public EAttribute getRect_EdgeX()
+  public EReference getRect_Width()
   {
-    return (EAttribute)rectEClass.getEStructuralFeatures().get(0);
+    return (EReference)rectEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -770,9 +1127,240 @@ public class OnlineElmPackageImpl extends EPackageImpl implements OnlineElmPacka
    * @generated
    */
   @Override
-  public EAttribute getRect_EdgeY()
+  public EReference getRect_Height()
   {
-    return (EAttribute)rectEClass.getEStructuralFeatures().get(1);
+    return (EReference)rectEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getSquare()
+  {
+    return squareEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSquare_Side()
+  {
+    return (EReference)squareEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getRoundedRect()
+  {
+    return roundedRectEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getRoundedRect_Width()
+  {
+    return (EReference)roundedRectEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getRoundedRect_Height()
+  {
+    return (EReference)roundedRectEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getRoundedRect_Corner_radius()
+  {
+    return (EReference)roundedRectEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getOval()
+  {
+    return ovalEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getOval_Width()
+  {
+    return (EReference)ovalEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getOval_Height()
+  {
+    return (EReference)ovalEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getNgon()
+  {
+    return ngonEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getNgon_Sides_num()
+  {
+    return (EReference)ngonEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getNgon_Radius()
+  {
+    return (EReference)ngonEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getWedge()
+  {
+    return wedgeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getWedge_Radius()
+  {
+    return (EReference)wedgeEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getWedge_Fraction()
+  {
+    return (EReference)wedgeEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getPolygon()
+  {
+    return polygonEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getPolygon_Point1()
+  {
+    return (EReference)polygonEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getPolygon_Points()
+  {
+    return (EReference)polygonEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getPoint()
+  {
+    return pointEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getPoint_X()
+  {
+    return (EReference)pointEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getPoint_Y()
+  {
+    return (EReference)pointEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -803,6 +1391,17 @@ public class OnlineElmPackageImpl extends EPackageImpl implements OnlineElmPacka
    * @generated
    */
   @Override
+  public EReference getText_ConditionalContent()
+  {
+    return (EReference)textEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getDraw()
   {
     return drawEClass;
@@ -814,7 +1413,7 @@ public class OnlineElmPackageImpl extends EPackageImpl implements OnlineElmPacka
    * @generated
    */
   @Override
-  public EReference getDraw_FilledColor()
+  public EReference getDraw_Filled()
   {
     return (EReference)drawEClass.getEStructuralFeatures().get(0);
   }
@@ -825,7 +1424,7 @@ public class OnlineElmPackageImpl extends EPackageImpl implements OnlineElmPacka
    * @generated
    */
   @Override
-  public EReference getDraw_Position()
+  public EReference getDraw_Outlined()
   {
     return (EReference)drawEClass.getEStructuralFeatures().get(1);
   }
@@ -836,9 +1435,9 @@ public class OnlineElmPackageImpl extends EPackageImpl implements OnlineElmPacka
    * @generated
    */
   @Override
-  public EClass getFill()
+  public EReference getDraw_Transform()
   {
-    return fillEClass;
+    return (EReference)drawEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -847,9 +1446,9 @@ public class OnlineElmPackageImpl extends EPackageImpl implements OnlineElmPacka
    * @generated
    */
   @Override
-  public EAttribute getFill_Name()
+  public EClass getFilled()
   {
-    return (EAttribute)fillEClass.getEStructuralFeatures().get(0);
+    return filledEClass;
   }
 
   /**
@@ -858,9 +1457,152 @@ public class OnlineElmPackageImpl extends EPackageImpl implements OnlineElmPacka
    * @generated
    */
   @Override
-  public EAttribute getFill_Color()
+  public EAttribute getFilled_Name()
   {
-    return (EAttribute)fillEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)filledEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getFilled_FilledColor1()
+  {
+    return (EAttribute)filledEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getFilled_FilledColor2()
+  {
+    return (EReference)filledEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getFilled_LineType1()
+  {
+    return (EAttribute)filledEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getFilled_Width1()
+  {
+    return (EAttribute)filledEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getFilled_Outline_color1()
+  {
+    return (EAttribute)filledEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getOutlined()
+  {
+    return outlinedEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getOutlined_Name()
+  {
+    return (EAttribute)outlinedEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getOutlined_LineType()
+  {
+    return (EAttribute)outlinedEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getOutlined_Width()
+  {
+    return (EAttribute)outlinedEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getOutlined_OutlinedColor1()
+  {
+    return (EAttribute)outlinedEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getOutlined_OutlinedColor2()
+  {
+    return (EReference)outlinedEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getTranform()
+  {
+    return tranformEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getTranform_Name()
+  {
+    return (EAttribute)tranformEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -880,9 +1622,9 @@ public class OnlineElmPackageImpl extends EPackageImpl implements OnlineElmPacka
    * @generated
    */
   @Override
-  public EAttribute getMove_Name()
+  public EReference getMove_Point()
   {
-    return (EAttribute)moveEClass.getEStructuralFeatures().get(0);
+    return (EReference)moveEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -891,9 +1633,9 @@ public class OnlineElmPackageImpl extends EPackageImpl implements OnlineElmPacka
    * @generated
    */
   @Override
-  public EReference getMove_X()
+  public EClass getRotate()
   {
-    return (EReference)moveEClass.getEStructuralFeatures().get(1);
+    return rotateEClass;
   }
 
   /**
@@ -902,9 +1644,9 @@ public class OnlineElmPackageImpl extends EPackageImpl implements OnlineElmPacka
    * @generated
    */
   @Override
-  public EReference getMove_Y()
+  public EReference getRotate_Degree()
   {
-    return (EReference)moveEClass.getEStructuralFeatures().get(2);
+    return (EReference)rotateEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -913,9 +1655,130 @@ public class OnlineElmPackageImpl extends EPackageImpl implements OnlineElmPacka
    * @generated
    */
   @Override
-  public EEnum getBOOL_OP()
+  public EClass getScale()
   {
-    return booL_OPEEnum;
+    return scaleEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getScale_Factor()
+  {
+    return (EReference)scaleEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getScaleX()
+  {
+    return scaleXEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getScaleX_Factor()
+  {
+    return (EReference)scaleXEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getScaleY()
+  {
+    return scaleYEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getScaleY_Factor()
+  {
+    return (EReference)scaleYEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getOperation()
+  {
+    return operationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getOperation_Left()
+  {
+    return (EReference)operationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getOperation_Op()
+  {
+    return (EAttribute)operationEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getOperation_Right()
+  {
+    return (EReference)operationEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getFloatLiteral()
+  {
+    return floatLiteralEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getFloatLiteral_Value()
+  {
+    return (EAttribute)floatLiteralEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -935,9 +1798,9 @@ public class OnlineElmPackageImpl extends EPackageImpl implements OnlineElmPacka
    * @generated
    */
   @Override
-  public EEnum getCOMPARISON()
+  public EEnum getLineType()
   {
-    return comparisonEEnum;
+    return lineTypeEEnum;
   }
 
   /**
@@ -985,84 +1848,169 @@ public class OnlineElmPackageImpl extends EPackageImpl implements OnlineElmPacka
     onlineElmEClass = createEClass(ONLINE_ELM);
     createEReference(onlineElmEClass, ONLINE_ELM__ENTRY);
     createEReference(onlineElmEClass, ONLINE_ELM__SHAPES);
+    createEReference(onlineElmEClass, ONLINE_ELM__VAR);
 
     mainShapeEClass = createEClass(MAIN_SHAPE);
     createEAttribute(mainShapeEClass, MAIN_SHAPE__NAME);
-    createEReference(mainShapeEClass, MAIN_SHAPE__S1);
-    createEReference(mainShapeEClass, MAIN_SHAPE__S11);
-    createEReference(mainShapeEClass, MAIN_SHAPE__S2);
-    createEReference(mainShapeEClass, MAIN_SHAPE__S22);
-    createEReference(mainShapeEClass, MAIN_SHAPE__SG);
+    createEReference(mainShapeEClass, MAIN_SHAPE__SHAPE);
+    createEReference(mainShapeEClass, MAIN_SHAPE__CONDITIONAL);
+    createEReference(mainShapeEClass, MAIN_SHAPE__SHAPE_REF);
+    createEReference(mainShapeEClass, MAIN_SHAPE__MORE_SHAPES);
+    createEReference(mainShapeEClass, MAIN_SHAPE__MORE_CONDITIONAL);
+    createEReference(mainShapeEClass, MAIN_SHAPE__MORE_SHAPE_REF);
+    createEReference(mainShapeEClass, MAIN_SHAPE__EXTERNAL);
 
     shapeDefEClass = createEClass(SHAPE_DEF);
     createEAttribute(shapeDefEClass, SHAPE_DEF__NAME);
+    createEReference(shapeDefEClass, SHAPE_DEF__SHAPE);
+    createEReference(shapeDefEClass, SHAPE_DEF__CONDITIONAL);
 
-    shapeGroupEClass = createEClass(SHAPE_GROUP);
-    createEReference(shapeGroupEClass, SHAPE_GROUP__S1);
-    createEReference(shapeGroupEClass, SHAPE_GROUP__S11);
-    createEReference(shapeGroupEClass, SHAPE_GROUP__S2);
-    createEReference(shapeGroupEClass, SHAPE_GROUP__S22);
-    createEReference(shapeGroupEClass, SHAPE_GROUP__SG);
+    local_varEClass = createEClass(LOCAL_VAR);
+    createEAttribute(local_varEClass, LOCAL_VAR__NAME);
+    createEReference(local_varEClass, LOCAL_VAR__VAR);
+
+    shapeListEClass = createEClass(SHAPE_LIST);
+    createEReference(shapeListEClass, SHAPE_LIST__SHAPE_REF);
+    createEReference(shapeListEClass, SHAPE_LIST__MORE_SHAPES);
+    createEReference(shapeListEClass, SHAPE_LIST__MORE_CONDITIONAL);
+    createEReference(shapeListEClass, SHAPE_LIST__MORE_SHAPE_REF);
+    createEReference(shapeListEClass, SHAPE_LIST__EXTERNAL);
 
     basicShapeEClass = createEClass(BASIC_SHAPE);
-    createEReference(basicShapeEClass, BASIC_SHAPE__SHAPE);
 
     shapeEClass = createEClass(SHAPE);
     createEReference(shapeEClass, SHAPE__STENCIL);
     createEReference(shapeEClass, SHAPE__DRAW);
 
-    conditionalEClass = createEClass(CONDITIONAL);
+    conditional_ShapeEClass = createEClass(CONDITIONAL_SHAPE);
 
-    bool_expEClass = createEClass(BOOL_EXP);
-    createEReference(bool_expEClass, BOOL_EXP__EXP1);
-    createEReference(bool_expEClass, BOOL_EXP__EXP2);
-    createEReference(bool_expEClass, BOOL_EXP__LEFT);
-    createEAttribute(bool_expEClass, BOOL_EXP__OPERATOR);
-    createEReference(bool_expEClass, BOOL_EXP__RIGHTS);
+    conditional_ColorEClass = createEClass(CONDITIONAL_COLOR);
 
-    terminal_Bool_expEClass = createEClass(TERMINAL_BOOL_EXP);
-    createEReference(terminal_Bool_expEClass, TERMINAL_BOOL_EXP__N1);
-    createEAttribute(terminal_Bool_expEClass, TERMINAL_BOOL_EXP__COMP);
-    createEReference(terminal_Bool_expEClass, TERMINAL_BOOL_EXP__N2);
+    conditional_NumEClass = createEClass(CONDITIONAL_NUM);
+
+    conditional_StrEClass = createEClass(CONDITIONAL_STR);
+
+    bool_exprEClass = createEClass(BOOL_EXPR);
+    createEReference(bool_exprEClass, BOOL_EXPR__SHAPE_1);
+    createEReference(bool_exprEClass, BOOL_EXPR__NESTED_1);
+    createEReference(bool_exprEClass, BOOL_EXPR__SHAPE_2);
+    createEReference(bool_exprEClass, BOOL_EXPR__NESTED_2);
+    createEAttribute(bool_exprEClass, BOOL_EXPR__COLOR_1);
+    createEAttribute(bool_exprEClass, BOOL_EXPR__COLOR_2);
+    createEAttribute(bool_exprEClass, BOOL_EXPR__NUM_1);
+    createEAttribute(bool_exprEClass, BOOL_EXPR__NUM_2);
+    createEAttribute(bool_exprEClass, BOOL_EXPR__STR_1);
+    createEAttribute(bool_exprEClass, BOOL_EXPR__STR_2);
+
+    or_exprEClass = createEClass(OR_EXPR);
+    createEReference(or_exprEClass, OR_EXPR__LEFT);
+    createEReference(or_exprEClass, OR_EXPR__RIGHT);
+
+    and_exprEClass = createEClass(AND_EXPR);
+
+    not_exprEClass = createEClass(NOT_EXPR);
+    createEReference(not_exprEClass, NOT_EXPR__OPERAND);
+
+    compare_exprEClass = createEClass(COMPARE_EXPR);
+    createEAttribute(compare_exprEClass, COMPARE_EXPR__OPERATOR);
 
     num_valueEClass = createEClass(NUM_VALUE);
-    createEAttribute(num_valueEClass, NUM_VALUE__NUM);
+    createEReference(num_valueEClass, NUM_VALUE__LOCAL);
+    createEAttribute(num_valueEClass, NUM_VALUE__REF);
 
     math_expEClass = createEClass(MATH_EXP);
-    createEAttribute(math_expEClass, MATH_EXP__N1);
-    createEAttribute(math_expEClass, MATH_EXP__OP1);
-    createEAttribute(math_expEClass, MATH_EXP__N2);
 
     stencilEClass = createEClass(STENCIL);
     createEAttribute(stencilEClass, STENCIL__NAME);
 
     circleEClass = createEClass(CIRCLE);
-    createEAttribute(circleEClass, CIRCLE__DIAMETER);
+    createEReference(circleEClass, CIRCLE__RADIUS);
 
     rectEClass = createEClass(RECT);
-    createEAttribute(rectEClass, RECT__EDGE_X);
-    createEAttribute(rectEClass, RECT__EDGE_Y);
+    createEReference(rectEClass, RECT__WIDTH);
+    createEReference(rectEClass, RECT__HEIGHT);
+
+    squareEClass = createEClass(SQUARE);
+    createEReference(squareEClass, SQUARE__SIDE);
+
+    roundedRectEClass = createEClass(ROUNDED_RECT);
+    createEReference(roundedRectEClass, ROUNDED_RECT__WIDTH);
+    createEReference(roundedRectEClass, ROUNDED_RECT__HEIGHT);
+    createEReference(roundedRectEClass, ROUNDED_RECT__CORNER_RADIUS);
+
+    ovalEClass = createEClass(OVAL);
+    createEReference(ovalEClass, OVAL__WIDTH);
+    createEReference(ovalEClass, OVAL__HEIGHT);
+
+    ngonEClass = createEClass(NGON);
+    createEReference(ngonEClass, NGON__SIDES_NUM);
+    createEReference(ngonEClass, NGON__RADIUS);
+
+    wedgeEClass = createEClass(WEDGE);
+    createEReference(wedgeEClass, WEDGE__RADIUS);
+    createEReference(wedgeEClass, WEDGE__FRACTION);
+
+    polygonEClass = createEClass(POLYGON);
+    createEReference(polygonEClass, POLYGON__POINT1);
+    createEReference(polygonEClass, POLYGON__POINTS);
+
+    pointEClass = createEClass(POINT);
+    createEReference(pointEClass, POINT__X);
+    createEReference(pointEClass, POINT__Y);
 
     textEClass = createEClass(TEXT);
     createEAttribute(textEClass, TEXT__CONTENT);
+    createEReference(textEClass, TEXT__CONDITIONAL_CONTENT);
 
     drawEClass = createEClass(DRAW);
-    createEReference(drawEClass, DRAW__FILLED_COLOR);
-    createEReference(drawEClass, DRAW__POSITION);
+    createEReference(drawEClass, DRAW__FILLED);
+    createEReference(drawEClass, DRAW__OUTLINED);
+    createEReference(drawEClass, DRAW__TRANSFORM);
 
-    fillEClass = createEClass(FILL);
-    createEAttribute(fillEClass, FILL__NAME);
-    createEAttribute(fillEClass, FILL__COLOR);
+    filledEClass = createEClass(FILLED);
+    createEAttribute(filledEClass, FILLED__NAME);
+    createEAttribute(filledEClass, FILLED__FILLED_COLOR1);
+    createEReference(filledEClass, FILLED__FILLED_COLOR2);
+    createEAttribute(filledEClass, FILLED__LINE_TYPE1);
+    createEAttribute(filledEClass, FILLED__WIDTH1);
+    createEAttribute(filledEClass, FILLED__OUTLINE_COLOR1);
+
+    outlinedEClass = createEClass(OUTLINED);
+    createEAttribute(outlinedEClass, OUTLINED__NAME);
+    createEAttribute(outlinedEClass, OUTLINED__LINE_TYPE);
+    createEAttribute(outlinedEClass, OUTLINED__WIDTH);
+    createEAttribute(outlinedEClass, OUTLINED__OUTLINED_COLOR1);
+    createEReference(outlinedEClass, OUTLINED__OUTLINED_COLOR2);
+
+    tranformEClass = createEClass(TRANFORM);
+    createEAttribute(tranformEClass, TRANFORM__NAME);
 
     moveEClass = createEClass(MOVE);
-    createEAttribute(moveEClass, MOVE__NAME);
-    createEReference(moveEClass, MOVE__X);
-    createEReference(moveEClass, MOVE__Y);
+    createEReference(moveEClass, MOVE__POINT);
+
+    rotateEClass = createEClass(ROTATE);
+    createEReference(rotateEClass, ROTATE__DEGREE);
+
+    scaleEClass = createEClass(SCALE);
+    createEReference(scaleEClass, SCALE__FACTOR);
+
+    scaleXEClass = createEClass(SCALE_X);
+    createEReference(scaleXEClass, SCALE_X__FACTOR);
+
+    scaleYEClass = createEClass(SCALE_Y);
+    createEReference(scaleYEClass, SCALE_Y__FACTOR);
+
+    operationEClass = createEClass(OPERATION);
+    createEReference(operationEClass, OPERATION__LEFT);
+    createEAttribute(operationEClass, OPERATION__OP);
+    createEReference(operationEClass, OPERATION__RIGHT);
+
+    floatLiteralEClass = createEClass(FLOAT_LITERAL);
+    createEAttribute(floatLiteralEClass, FLOAT_LITERAL__VALUE);
 
     // Create enums
-    booL_OPEEnum = createEEnum(BOOL_OP);
     matH_OPEEnum = createEEnum(MATH_OP);
-    comparisonEEnum = createEEnum(COMPARISON);
+    lineTypeEEnum = createEEnum(LINE_TYPE);
     colorEEnum = createEEnum(COLOR);
   }
 
@@ -1095,115 +2043,248 @@ public class OnlineElmPackageImpl extends EPackageImpl implements OnlineElmPacka
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    shapeGroupEClass.getESuperTypes().add(this.getShapeDef());
+    shapeListEClass.getESuperTypes().add(this.getShapeDef());
     basicShapeEClass.getESuperTypes().add(this.getShapeDef());
-    conditionalEClass.getESuperTypes().add(this.getShape());
-    bool_expEClass.getESuperTypes().add(this.getConditional());
+    conditional_NumEClass.getESuperTypes().add(this.getNum_value());
+    bool_exprEClass.getESuperTypes().add(this.getConditional_Shape());
+    bool_exprEClass.getESuperTypes().add(this.getConditional_Color());
+    bool_exprEClass.getESuperTypes().add(this.getConditional_Num());
+    bool_exprEClass.getESuperTypes().add(this.getConditional_Str());
+    or_exprEClass.getESuperTypes().add(this.getBool_expr());
+    and_exprEClass.getESuperTypes().add(this.getOr_expr());
+    not_exprEClass.getESuperTypes().add(this.getAnd_expr());
+    compare_exprEClass.getESuperTypes().add(this.getNot_expr());
     math_expEClass.getESuperTypes().add(this.getNum_value());
     circleEClass.getESuperTypes().add(this.getStencil());
     rectEClass.getESuperTypes().add(this.getStencil());
+    squareEClass.getESuperTypes().add(this.getStencil());
+    roundedRectEClass.getESuperTypes().add(this.getStencil());
+    ovalEClass.getESuperTypes().add(this.getStencil());
+    ngonEClass.getESuperTypes().add(this.getStencil());
+    wedgeEClass.getESuperTypes().add(this.getStencil());
+    polygonEClass.getESuperTypes().add(this.getStencil());
     textEClass.getESuperTypes().add(this.getStencil());
+    moveEClass.getESuperTypes().add(this.getTranform());
+    rotateEClass.getESuperTypes().add(this.getTranform());
+    scaleEClass.getESuperTypes().add(this.getTranform());
+    scaleXEClass.getESuperTypes().add(this.getTranform());
+    scaleYEClass.getESuperTypes().add(this.getTranform());
+    operationEClass.getESuperTypes().add(this.getMath_exp());
+    floatLiteralEClass.getESuperTypes().add(this.getMath_exp());
 
     // Initialize classes and features; add operations and parameters
     initEClass(onlineElmEClass, OnlineElm.class, "OnlineElm", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getOnlineElm_Entry(), this.getMainShape(), null, "entry", null, 0, 1, OnlineElm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getOnlineElm_Shapes(), this.getShapeDef(), null, "shapes", null, 0, -1, OnlineElm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getOnlineElm_Var(), this.getLocal_var(), null, "var", null, 0, -1, OnlineElm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(mainShapeEClass, MainShape.class, "MainShape", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getMainShape_Name(), ecorePackage.getEString(), "name", null, 0, 1, MainShape.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getMainShape_S1(), this.getShape(), null, "s1", null, 0, 1, MainShape.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getMainShape_S11(), this.getBasicShape(), null, "s11", null, 0, 1, MainShape.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getMainShape_S2(), this.getShape(), null, "s2", null, 0, -1, MainShape.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getMainShape_S22(), this.getBasicShape(), null, "s22", null, 0, -1, MainShape.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getMainShape_Sg(), this.getShapeGroup(), null, "sg", null, 0, -1, MainShape.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMainShape_Shape(), this.getShape(), null, "shape", null, 0, 1, MainShape.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMainShape_Conditional(), this.getConditional_Shape(), null, "conditional", null, 0, 1, MainShape.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMainShape_ShapeRef(), this.getBasicShape(), null, "shapeRef", null, 0, 1, MainShape.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMainShape_MoreShapes(), this.getShape(), null, "moreShapes", null, 0, -1, MainShape.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMainShape_MoreConditional(), this.getConditional_Shape(), null, "moreConditional", null, 0, -1, MainShape.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMainShape_MoreShapeRef(), this.getBasicShape(), null, "moreShapeRef", null, 0, -1, MainShape.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMainShape_External(), this.getShapeList(), null, "external", null, 0, -1, MainShape.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(shapeDefEClass, ShapeDef.class, "ShapeDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getShapeDef_Name(), ecorePackage.getEString(), "name", null, 0, 1, ShapeDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getShapeDef_Shape(), this.getShape(), null, "shape", null, 0, 1, ShapeDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getShapeDef_Conditional(), this.getConditional_Shape(), null, "conditional", null, 0, 1, ShapeDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(shapeGroupEClass, ShapeGroup.class, "ShapeGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getShapeGroup_S1(), this.getShape(), null, "s1", null, 0, 1, ShapeGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getShapeGroup_S11(), this.getBasicShape(), null, "s11", null, 0, 1, ShapeGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getShapeGroup_S2(), this.getShape(), null, "s2", null, 0, -1, ShapeGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getShapeGroup_S22(), this.getBasicShape(), null, "s22", null, 0, -1, ShapeGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getShapeGroup_Sg(), this.getShapeGroup(), null, "sg", null, 0, -1, ShapeGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(local_varEClass, Local_var.class, "Local_var", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getLocal_var_Name(), ecorePackage.getEString(), "name", null, 0, 1, Local_var.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLocal_var_Var(), this.getNum_value(), null, "var", null, 0, 1, Local_var.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(shapeListEClass, ShapeList.class, "ShapeList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getShapeList_ShapeRef(), this.getBasicShape(), null, "shapeRef", null, 0, 1, ShapeList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getShapeList_MoreShapes(), this.getShape(), null, "moreShapes", null, 0, -1, ShapeList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getShapeList_MoreConditional(), this.getConditional_Shape(), null, "moreConditional", null, 0, -1, ShapeList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getShapeList_MoreShapeRef(), this.getBasicShape(), null, "moreShapeRef", null, 0, -1, ShapeList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getShapeList_External(), this.getShapeList(), null, "external", null, 0, -1, ShapeList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(basicShapeEClass, BasicShape.class, "BasicShape", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getBasicShape_Shape(), this.getShape(), null, "shape", null, 0, 1, BasicShape.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(shapeEClass, Shape.class, "Shape", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getShape_Stencil(), this.getStencil(), null, "stencil", null, 0, 1, Shape.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getShape_Draw(), this.getDraw(), null, "draw", null, 0, 1, Shape.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(conditionalEClass, Conditional.class, "Conditional", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEClass(conditional_ShapeEClass, Conditional_Shape.class, "Conditional_Shape", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-    initEClass(bool_expEClass, Bool_exp.class, "Bool_exp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getBool_exp_Exp1(), this.getShape(), null, "exp1", null, 0, 1, Bool_exp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getBool_exp_Exp2(), this.getShape(), null, "exp2", null, 0, 1, Bool_exp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getBool_exp_Left(), this.getTerminal_Bool_exp(), null, "left", null, 0, 1, Bool_exp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getBool_exp_Operator(), this.getBOOL_OP(), "operator", null, 0, -1, Bool_exp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getBool_exp_Rights(), this.getTerminal_Bool_exp(), null, "rights", null, 0, -1, Bool_exp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(conditional_ColorEClass, Conditional_Color.class, "Conditional_Color", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-    initEClass(terminal_Bool_expEClass, Terminal_Bool_exp.class, "Terminal_Bool_exp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getTerminal_Bool_exp_N1(), this.getNum_value(), null, "n1", null, 0, 1, Terminal_Bool_exp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getTerminal_Bool_exp_Comp(), this.getCOMPARISON(), "comp", null, 0, 1, Terminal_Bool_exp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getTerminal_Bool_exp_N2(), this.getNum_value(), null, "n2", null, 0, 1, Terminal_Bool_exp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(conditional_NumEClass, Conditional_Num.class, "Conditional_Num", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(conditional_StrEClass, Conditional_Str.class, "Conditional_Str", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(bool_exprEClass, Bool_expr.class, "Bool_expr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getBool_expr_Shape_1(), this.getShape(), null, "shape_1", null, 0, 1, Bool_expr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBool_expr_Nested_1(), ecorePackage.getEObject(), null, "nested_1", null, 0, 1, Bool_expr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBool_expr_Shape_2(), this.getShape(), null, "shape_2", null, 0, 1, Bool_expr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBool_expr_Nested_2(), ecorePackage.getEObject(), null, "nested_2", null, 0, 1, Bool_expr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getBool_expr_Color_1(), this.getColor(), "color_1", null, 0, 1, Bool_expr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getBool_expr_Color_2(), this.getColor(), "color_2", null, 0, 1, Bool_expr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getBool_expr_Num_1(), ecorePackage.getEString(), "num_1", null, 0, 1, Bool_expr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getBool_expr_Num_2(), ecorePackage.getEString(), "num_2", null, 0, 1, Bool_expr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getBool_expr_Str_1(), ecorePackage.getEString(), "str_1", null, 0, 1, Bool_expr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getBool_expr_Str_2(), ecorePackage.getEString(), "str_2", null, 0, 1, Bool_expr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(or_exprEClass, Or_expr.class, "Or_expr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getOr_expr_Left(), this.getNum_value(), null, "left", null, 0, 1, Or_expr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getOr_expr_Right(), this.getNum_value(), null, "right", null, 0, 1, Or_expr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(and_exprEClass, And_expr.class, "And_expr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(not_exprEClass, Not_expr.class, "Not_expr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getNot_expr_Operand(), this.getNot_expr(), null, "operand", null, 0, 1, Not_expr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(compare_exprEClass, Compare_expr.class, "Compare_expr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getCompare_expr_Operator(), ecorePackage.getEString(), "operator", null, 0, 1, Compare_expr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(num_valueEClass, Num_value.class, "Num_value", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getNum_value_Num(), ecorePackage.getEFloat(), "num", null, 0, 1, Num_value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getNum_value_Local(), this.getLocal_var(), null, "local", null, 0, 1, Num_value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getNum_value_Ref(), ecorePackage.getEString(), "ref", null, 0, 1, Num_value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(math_expEClass, Math_exp.class, "Math_exp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getMath_exp_N1(), ecorePackage.getEFloat(), "n1", null, 0, 1, Math_exp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getMath_exp_Op1(), this.getMATH_OP(), "op1", null, 0, 1, Math_exp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getMath_exp_N2(), ecorePackage.getEFloat(), "n2", null, 0, 1, Math_exp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(stencilEClass, Stencil.class, "Stencil", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getStencil_Name(), ecorePackage.getEString(), "name", null, 0, 1, Stencil.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(circleEClass, Circle.class, "Circle", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getCircle_Diameter(), ecorePackage.getEFloat(), "diameter", null, 0, 1, Circle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCircle_Radius(), this.getNum_value(), null, "radius", null, 0, 1, Circle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(rectEClass, Rect.class, "Rect", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getRect_EdgeX(), ecorePackage.getEFloat(), "edgeX", null, 0, 1, Rect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getRect_EdgeY(), ecorePackage.getEFloat(), "edgeY", null, 0, 1, Rect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRect_Width(), this.getNum_value(), null, "width", null, 0, 1, Rect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRect_Height(), this.getNum_value(), null, "height", null, 0, 1, Rect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(squareEClass, Square.class, "Square", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSquare_Side(), this.getNum_value(), null, "side", null, 0, 1, Square.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(roundedRectEClass, RoundedRect.class, "RoundedRect", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getRoundedRect_Width(), this.getNum_value(), null, "width", null, 0, 1, RoundedRect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRoundedRect_Height(), this.getNum_value(), null, "height", null, 0, 1, RoundedRect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRoundedRect_Corner_radius(), this.getNum_value(), null, "corner_radius", null, 0, 1, RoundedRect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(ovalEClass, Oval.class, "Oval", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getOval_Width(), this.getNum_value(), null, "width", null, 0, 1, Oval.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getOval_Height(), this.getNum_value(), null, "height", null, 0, 1, Oval.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(ngonEClass, Ngon.class, "Ngon", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getNgon_Sides_num(), this.getNum_value(), null, "sides_num", null, 0, 1, Ngon.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getNgon_Radius(), this.getNum_value(), null, "radius", null, 0, 1, Ngon.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(wedgeEClass, Wedge.class, "Wedge", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getWedge_Radius(), this.getNum_value(), null, "radius", null, 0, 1, Wedge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getWedge_Fraction(), this.getNum_value(), null, "fraction", null, 0, 1, Wedge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(polygonEClass, Polygon.class, "Polygon", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getPolygon_Point1(), this.getPoint(), null, "point1", null, 0, 1, Polygon.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPolygon_Points(), this.getPoint(), null, "points", null, 0, -1, Polygon.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(pointEClass, Point.class, "Point", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getPoint_X(), this.getNum_value(), null, "x", null, 0, 1, Point.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPoint_Y(), this.getNum_value(), null, "y", null, 0, 1, Point.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(textEClass, Text.class, "Text", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getText_Content(), ecorePackage.getEString(), "content", null, 0, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getText_ConditionalContent(), this.getConditional_Str(), null, "conditionalContent", null, 0, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(drawEClass, Draw.class, "Draw", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDraw_FilledColor(), this.getFill(), null, "filledColor", null, 0, 1, Draw.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDraw_Position(), this.getMove(), null, "position", null, 0, 1, Draw.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDraw_Filled(), this.getFilled(), null, "filled", null, 0, 1, Draw.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDraw_Outlined(), this.getOutlined(), null, "outlined", null, 0, 1, Draw.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDraw_Transform(), this.getTranform(), null, "transform", null, 0, -1, Draw.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(fillEClass, Fill.class, "Fill", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getFill_Name(), ecorePackage.getEString(), "name", null, 0, 1, Fill.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getFill_Color(), this.getColor(), "color", null, 0, 1, Fill.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(filledEClass, Filled.class, "Filled", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getFilled_Name(), ecorePackage.getEString(), "name", null, 0, 1, Filled.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFilled_FilledColor1(), this.getColor(), "filledColor1", null, 0, 1, Filled.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFilled_FilledColor2(), this.getConditional_Color(), null, "filledColor2", null, 0, 1, Filled.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFilled_LineType1(), this.getLineType(), "lineType1", null, 0, 1, Filled.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFilled_Width1(), ecorePackage.getEString(), "width1", null, 0, 1, Filled.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFilled_Outline_color1(), this.getColor(), "outline_color1", null, 0, 1, Filled.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(outlinedEClass, Outlined.class, "Outlined", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getOutlined_Name(), ecorePackage.getEString(), "name", null, 0, 1, Outlined.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getOutlined_LineType(), this.getLineType(), "lineType", null, 0, 1, Outlined.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getOutlined_Width(), ecorePackage.getEString(), "width", null, 0, 1, Outlined.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getOutlined_OutlinedColor1(), this.getColor(), "outlinedColor1", null, 0, 1, Outlined.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getOutlined_OutlinedColor2(), this.getConditional_Color(), null, "outlinedColor2", null, 0, 1, Outlined.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(tranformEClass, Tranform.class, "Tranform", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getTranform_Name(), ecorePackage.getEString(), "name", null, 0, 1, Tranform.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(moveEClass, Move.class, "Move", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getMove_Name(), ecorePackage.getEString(), "name", null, 0, 1, Move.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getMove_X(), this.getNum_value(), null, "x", null, 0, 1, Move.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getMove_Y(), this.getNum_value(), null, "y", null, 0, 1, Move.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMove_Point(), this.getPoint(), null, "point", null, 0, 1, Move.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(rotateEClass, Rotate.class, "Rotate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getRotate_Degree(), this.getNum_value(), null, "degree", null, 0, 1, Rotate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(scaleEClass, Scale.class, "Scale", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getScale_Factor(), this.getNum_value(), null, "factor", null, 0, 1, Scale.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(scaleXEClass, ScaleX.class, "ScaleX", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getScaleX_Factor(), this.getNum_value(), null, "factor", null, 0, 1, ScaleX.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(scaleYEClass, ScaleY.class, "ScaleY", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getScaleY_Factor(), this.getNum_value(), null, "factor", null, 0, 1, ScaleY.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(operationEClass, Operation.class, "Operation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getOperation_Left(), this.getMath_exp(), null, "left", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getOperation_Op(), this.getMATH_OP(), "op", null, 0, -1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getOperation_Right(), this.getMath_exp(), null, "right", null, 0, -1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(floatLiteralEClass, FloatLiteral.class, "FloatLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getFloatLiteral_Value(), ecorePackage.getEString(), "value", null, 0, 1, FloatLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Initialize enums and add enum literals
-    initEEnum(booL_OPEEnum, org.xtext.online_elm.onlineElm.BOOL_OP.class, "BOOL_OP");
-    addEEnumLiteral(booL_OPEEnum, org.xtext.online_elm.onlineElm.BOOL_OP.AND);
-    addEEnumLiteral(booL_OPEEnum, org.xtext.online_elm.onlineElm.BOOL_OP.OR);
-
     initEEnum(matH_OPEEnum, org.xtext.online_elm.onlineElm.MATH_OP.class, "MATH_OP");
     addEEnumLiteral(matH_OPEEnum, org.xtext.online_elm.onlineElm.MATH_OP.PLUS);
     addEEnumLiteral(matH_OPEEnum, org.xtext.online_elm.onlineElm.MATH_OP.MINUS);
     addEEnumLiteral(matH_OPEEnum, org.xtext.online_elm.onlineElm.MATH_OP.TIMES);
     addEEnumLiteral(matH_OPEEnum, org.xtext.online_elm.onlineElm.MATH_OP.DIVIDE);
 
-    initEEnum(comparisonEEnum, org.xtext.online_elm.onlineElm.COMPARISON.class, "COMPARISON");
-    addEEnumLiteral(comparisonEEnum, org.xtext.online_elm.onlineElm.COMPARISON.BIGGER);
-    addEEnumLiteral(comparisonEEnum, org.xtext.online_elm.onlineElm.COMPARISON.NO_LESS_THAN);
-    addEEnumLiteral(comparisonEEnum, org.xtext.online_elm.onlineElm.COMPARISON.SMALLER);
-    addEEnumLiteral(comparisonEEnum, org.xtext.online_elm.onlineElm.COMPARISON.NO_BIGGER_THAN);
-    addEEnumLiteral(comparisonEEnum, org.xtext.online_elm.onlineElm.COMPARISON.EQUAL);
+    initEEnum(lineTypeEEnum, LineType.class, "LineType");
+    addEEnumLiteral(lineTypeEEnum, LineType.SOLID);
+    addEEnumLiteral(lineTypeEEnum, LineType.DOTTED);
+    addEEnumLiteral(lineTypeEEnum, LineType.DASHED);
+    addEEnumLiteral(lineTypeEEnum, LineType.DOTDASH);
+    addEEnumLiteral(lineTypeEEnum, LineType.LONGDASH);
 
     initEEnum(colorEEnum, Color.class, "Color");
     addEEnumLiteral(colorEEnum, Color.BLACK);
-    addEEnumLiteral(colorEEnum, Color.RED);
+    addEEnumLiteral(colorEEnum, Color.BLANK);
     addEEnumLiteral(colorEEnum, Color.BLUE);
+    addEEnumLiteral(colorEEnum, Color.BROWN);
+    addEEnumLiteral(colorEEnum, Color.CHARCOAL);
+    addEEnumLiteral(colorEEnum, Color.DARK_BLUE);
+    addEEnumLiteral(colorEEnum, Color.DARK_BROWN);
+    addEEnumLiteral(colorEEnum, Color.DARK_GRAY);
+    addEEnumLiteral(colorEEnum, Color.DARK_GREEN);
+    addEEnumLiteral(colorEEnum, Color.DARK_GREY);
+    addEEnumLiteral(colorEEnum, Color.DARK_ORANGE);
+    addEEnumLiteral(colorEEnum, Color.DARK_PURPLE);
+    addEEnumLiteral(colorEEnum, Color.DARK_RED);
+    addEEnumLiteral(colorEEnum, Color.DARK_YELLOW);
+    addEEnumLiteral(colorEEnum, Color.GRAY);
+    addEEnumLiteral(colorEEnum, Color.GREEN);
+    addEEnumLiteral(colorEEnum, Color.GREY);
+    addEEnumLiteral(colorEEnum, Color.HOT_PINK);
+    addEEnumLiteral(colorEEnum, Color.LIGHT_BLUE);
+    addEEnumLiteral(colorEEnum, Color.LIGHT_BROWN);
+    addEEnumLiteral(colorEEnum, Color.LIGHT_CHARCOAL);
+    addEEnumLiteral(colorEEnum, Color.LIGHT_GRAY);
+    addEEnumLiteral(colorEEnum, Color.LIGHT_GREEN);
+    addEEnumLiteral(colorEEnum, Color.LIGHT_GREY);
+    addEEnumLiteral(colorEEnum, Color.LIGHT_ORANGE);
+    addEEnumLiteral(colorEEnum, Color.LIGHT_PURPLE);
+    addEEnumLiteral(colorEEnum, Color.LIGHT_RED);
+    addEEnumLiteral(colorEEnum, Color.LIGHT_YELLOW);
+    addEEnumLiteral(colorEEnum, Color.ORANGE);
+    addEEnumLiteral(colorEEnum, Color.PINK);
+    addEEnumLiteral(colorEEnum, Color.PURPLE);
+    addEEnumLiteral(colorEEnum, Color.RED);
+    addEEnumLiteral(colorEEnum, Color.WHITE);
+    addEEnumLiteral(colorEEnum, Color.YELLOW);
 
     // Create resource
     createResource(eNS_URI);

@@ -14,22 +14,38 @@ import org.eclipse.xtext.serializer.ISerializationContext;
 import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
+import org.xtext.online_elm.onlineElm.And_expr;
 import org.xtext.online_elm.onlineElm.BasicShape;
-import org.xtext.online_elm.onlineElm.Bool_exp;
 import org.xtext.online_elm.onlineElm.Circle;
+import org.xtext.online_elm.onlineElm.Compare_expr;
 import org.xtext.online_elm.onlineElm.Draw;
-import org.xtext.online_elm.onlineElm.Fill;
+import org.xtext.online_elm.onlineElm.Filled;
+import org.xtext.online_elm.onlineElm.FloatLiteral;
+import org.xtext.online_elm.onlineElm.Local_var;
 import org.xtext.online_elm.onlineElm.MainShape;
-import org.xtext.online_elm.onlineElm.Math_exp;
 import org.xtext.online_elm.onlineElm.Move;
+import org.xtext.online_elm.onlineElm.Ngon;
+import org.xtext.online_elm.onlineElm.Not_expr;
 import org.xtext.online_elm.onlineElm.Num_value;
 import org.xtext.online_elm.onlineElm.OnlineElm;
 import org.xtext.online_elm.onlineElm.OnlineElmPackage;
+import org.xtext.online_elm.onlineElm.Operation;
+import org.xtext.online_elm.onlineElm.Or_expr;
+import org.xtext.online_elm.onlineElm.Outlined;
+import org.xtext.online_elm.onlineElm.Oval;
+import org.xtext.online_elm.onlineElm.Point;
+import org.xtext.online_elm.onlineElm.Polygon;
 import org.xtext.online_elm.onlineElm.Rect;
+import org.xtext.online_elm.onlineElm.Rotate;
+import org.xtext.online_elm.onlineElm.RoundedRect;
+import org.xtext.online_elm.onlineElm.Scale;
+import org.xtext.online_elm.onlineElm.ScaleX;
+import org.xtext.online_elm.onlineElm.ScaleY;
 import org.xtext.online_elm.onlineElm.Shape;
-import org.xtext.online_elm.onlineElm.ShapeGroup;
-import org.xtext.online_elm.onlineElm.Terminal_Bool_exp;
+import org.xtext.online_elm.onlineElm.ShapeList;
+import org.xtext.online_elm.onlineElm.Square;
 import org.xtext.online_elm.onlineElm.Text;
+import org.xtext.online_elm.onlineElm.Wedge;
 import org.xtext.online_elm.services.OnlineElmGrammarAccess;
 
 @SuppressWarnings("all")
@@ -46,58 +62,196 @@ public abstract class AbstractOnlineElmSemanticSequencer extends AbstractDelegat
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == OnlineElmPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
-			case OnlineElmPackage.BASIC_SHAPE:
-				sequence_BasicShape(context, (BasicShape) semanticObject); 
-				return; 
-			case OnlineElmPackage.BOOL_EXP:
-				if (rule == grammarAccess.getBool_expRule()) {
-					sequence_Bool_exp(context, (Bool_exp) semanticObject); 
+			case OnlineElmPackage.AND_EXPR:
+				if (rule == grammarAccess.getBool_exprRule()
+						|| rule == grammarAccess.getOr_exprRule()
+						|| action == grammarAccess.getOr_exprAccess().getOr_exprLeftAction_1_0()
+						|| rule == grammarAccess.getAnd_exprRule()
+						|| action == grammarAccess.getAnd_exprAccess().getAnd_exprLeftAction_1_0()) {
+					sequence_And_expr(context, (And_expr) semanticObject); 
 					return; 
 				}
-				else if (rule == grammarAccess.getShapeRule()
-						|| rule == grammarAccess.getConditionalRule()) {
-					sequence_Bool_exp_Conditional(context, (Bool_exp) semanticObject); 
+				else if (rule == grammarAccess.getConditional_ColorRule()) {
+					sequence_And_expr_Conditional_Color(context, (And_expr) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getConditional_NumRule()
+						|| rule == grammarAccess.getNum_valueRule()) {
+					sequence_And_expr_Conditional_Num(context, (And_expr) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getConditional_ShapeRule()) {
+					sequence_And_expr_Conditional_Shape(context, (And_expr) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getConditional_StrRule()) {
+					sequence_And_expr_Conditional_Str(context, (And_expr) semanticObject); 
 					return; 
 				}
 				else break;
+			case OnlineElmPackage.BASIC_SHAPE:
+				sequence_BasicShape(context, (BasicShape) semanticObject); 
+				return; 
 			case OnlineElmPackage.CIRCLE:
 				sequence_Circle(context, (Circle) semanticObject); 
 				return; 
+			case OnlineElmPackage.COMPARE_EXPR:
+				if (rule == grammarAccess.getBool_exprRule()
+						|| rule == grammarAccess.getOr_exprRule()
+						|| action == grammarAccess.getOr_exprAccess().getOr_exprLeftAction_1_0()
+						|| rule == grammarAccess.getAnd_exprRule()
+						|| action == grammarAccess.getAnd_exprAccess().getAnd_exprLeftAction_1_0()
+						|| rule == grammarAccess.getNot_exprRule()
+						|| rule == grammarAccess.getCompare_exprRule()
+						|| action == grammarAccess.getCompare_exprAccess().getCompare_exprLeftAction_1_0()) {
+					sequence_Compare_expr(context, (Compare_expr) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getConditional_ColorRule()) {
+					sequence_Compare_expr_Conditional_Color(context, (Compare_expr) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getConditional_NumRule()
+						|| rule == grammarAccess.getNum_valueRule()) {
+					sequence_Compare_expr_Conditional_Num(context, (Compare_expr) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getConditional_ShapeRule()) {
+					sequence_Compare_expr_Conditional_Shape(context, (Compare_expr) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getConditional_StrRule()) {
+					sequence_Compare_expr_Conditional_Str(context, (Compare_expr) semanticObject); 
+					return; 
+				}
+				else break;
 			case OnlineElmPackage.DRAW:
 				sequence_Draw(context, (Draw) semanticObject); 
 				return; 
-			case OnlineElmPackage.FILL:
-				sequence_Fill(context, (Fill) semanticObject); 
+			case OnlineElmPackage.FILLED:
+				sequence_Filled(context, (Filled) semanticObject); 
+				return; 
+			case OnlineElmPackage.FLOAT_LITERAL:
+				sequence_Terminal_math_exp(context, (FloatLiteral) semanticObject); 
+				return; 
+			case OnlineElmPackage.LOCAL_VAR:
+				sequence_Local_var(context, (Local_var) semanticObject); 
 				return; 
 			case OnlineElmPackage.MAIN_SHAPE:
 				sequence_MainShape(context, (MainShape) semanticObject); 
 				return; 
-			case OnlineElmPackage.MATH_EXP:
-				sequence_Math_exp(context, (Math_exp) semanticObject); 
-				return; 
 			case OnlineElmPackage.MOVE:
 				sequence_Move(context, (Move) semanticObject); 
 				return; 
+			case OnlineElmPackage.NGON:
+				sequence_Ngon(context, (Ngon) semanticObject); 
+				return; 
+			case OnlineElmPackage.NOT_EXPR:
+				if (rule == grammarAccess.getConditional_ColorRule()) {
+					sequence_Conditional_Color_Not_expr(context, (Not_expr) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getConditional_NumRule()
+						|| rule == grammarAccess.getNum_valueRule()) {
+					sequence_Conditional_Num_Not_expr(context, (Not_expr) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getConditional_ShapeRule()) {
+					sequence_Conditional_Shape_Not_expr(context, (Not_expr) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getConditional_StrRule()) {
+					sequence_Conditional_Str_Not_expr(context, (Not_expr) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getBool_exprRule()
+						|| rule == grammarAccess.getOr_exprRule()
+						|| action == grammarAccess.getOr_exprAccess().getOr_exprLeftAction_1_0()
+						|| rule == grammarAccess.getAnd_exprRule()
+						|| action == grammarAccess.getAnd_exprAccess().getAnd_exprLeftAction_1_0()
+						|| rule == grammarAccess.getNot_exprRule()) {
+					sequence_Not_expr(context, (Not_expr) semanticObject); 
+					return; 
+				}
+				else break;
 			case OnlineElmPackage.NUM_VALUE:
 				sequence_Num_value(context, (Num_value) semanticObject); 
 				return; 
 			case OnlineElmPackage.ONLINE_ELM:
 				sequence_OnlineElm(context, (OnlineElm) semanticObject); 
 				return; 
+			case OnlineElmPackage.OPERATION:
+				sequence_Math_exp(context, (Operation) semanticObject); 
+				return; 
+			case OnlineElmPackage.OR_EXPR:
+				if (rule == grammarAccess.getConditional_ColorRule()) {
+					sequence_Conditional_Color_Or_expr(context, (Or_expr) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getConditional_NumRule()
+						|| rule == grammarAccess.getNum_valueRule()) {
+					sequence_Conditional_Num_Or_expr(context, (Or_expr) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getConditional_ShapeRule()) {
+					sequence_Conditional_Shape_Or_expr(context, (Or_expr) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getConditional_StrRule()) {
+					sequence_Conditional_Str_Or_expr(context, (Or_expr) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getBool_exprRule()
+						|| rule == grammarAccess.getOr_exprRule()
+						|| action == grammarAccess.getOr_exprAccess().getOr_exprLeftAction_1_0()) {
+					sequence_Or_expr(context, (Or_expr) semanticObject); 
+					return; 
+				}
+				else break;
+			case OnlineElmPackage.OUTLINED:
+				sequence_Outlined(context, (Outlined) semanticObject); 
+				return; 
+			case OnlineElmPackage.OVAL:
+				sequence_Oval(context, (Oval) semanticObject); 
+				return; 
+			case OnlineElmPackage.POINT:
+				sequence_Point(context, (Point) semanticObject); 
+				return; 
+			case OnlineElmPackage.POLYGON:
+				sequence_Polygon(context, (Polygon) semanticObject); 
+				return; 
 			case OnlineElmPackage.RECT:
 				sequence_Rect(context, (Rect) semanticObject); 
+				return; 
+			case OnlineElmPackage.ROTATE:
+				sequence_Rotate(context, (Rotate) semanticObject); 
+				return; 
+			case OnlineElmPackage.ROUNDED_RECT:
+				sequence_RoundedRect(context, (RoundedRect) semanticObject); 
+				return; 
+			case OnlineElmPackage.SCALE:
+				sequence_Scale(context, (Scale) semanticObject); 
+				return; 
+			case OnlineElmPackage.SCALE_X:
+				sequence_ScaleX(context, (ScaleX) semanticObject); 
+				return; 
+			case OnlineElmPackage.SCALE_Y:
+				sequence_ScaleY(context, (ScaleY) semanticObject); 
 				return; 
 			case OnlineElmPackage.SHAPE:
 				sequence_Shape(context, (Shape) semanticObject); 
 				return; 
-			case OnlineElmPackage.SHAPE_GROUP:
-				sequence_ShapeGroup(context, (ShapeGroup) semanticObject); 
+			case OnlineElmPackage.SHAPE_LIST:
+				sequence_ShapeList(context, (ShapeList) semanticObject); 
 				return; 
-			case OnlineElmPackage.TERMINAL_BOOL_EXP:
-				sequence_Terminal_Bool_exp(context, (Terminal_Bool_exp) semanticObject); 
+			case OnlineElmPackage.SQUARE:
+				sequence_Square(context, (Square) semanticObject); 
 				return; 
 			case OnlineElmPackage.TEXT:
 				sequence_Text(context, (Text) semanticObject); 
+				return; 
+			case OnlineElmPackage.WEDGE:
+				sequence_Wedge(context, (Wedge) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -106,47 +260,87 @@ public abstract class AbstractOnlineElmSemanticSequencer extends AbstractDelegat
 	
 	/**
 	 * Contexts:
-	 *     ShapeDef returns BasicShape
-	 *     BasicShape returns BasicShape
+	 *     Bool_expr returns And_expr
+	 *     Or_expr returns And_expr
+	 *     Or_expr.Or_expr_1_0 returns And_expr
+	 *     And_expr returns And_expr
+	 *     And_expr.And_expr_1_0 returns And_expr
 	 *
 	 * Constraint:
-	 *     (name=ID shape=Shape)
+	 *     (left=And_expr_And_expr_1_0 right=Not_expr)
 	 */
-	protected void sequence_BasicShape(ISerializationContext context, BasicShape semanticObject) {
+	protected void sequence_And_expr(ISerializationContext context, And_expr semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OnlineElmPackage.Literals.SHAPE_DEF__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OnlineElmPackage.Literals.SHAPE_DEF__NAME));
-			if (transientValues.isValueTransient(semanticObject, OnlineElmPackage.Literals.BASIC_SHAPE__SHAPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OnlineElmPackage.Literals.BASIC_SHAPE__SHAPE));
+			if (transientValues.isValueTransient(semanticObject, OnlineElmPackage.Literals.OR_EXPR__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OnlineElmPackage.Literals.OR_EXPR__LEFT));
+			if (transientValues.isValueTransient(semanticObject, OnlineElmPackage.Literals.OR_EXPR__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OnlineElmPackage.Literals.OR_EXPR__RIGHT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getBasicShapeAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getBasicShapeAccess().getShapeShapeParserRuleCall_2_0(), semanticObject.getShape());
+		feeder.accept(grammarAccess.getAnd_exprAccess().getAnd_exprLeftAction_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getAnd_exprAccess().getRightNot_exprParserRuleCall_1_2_0(), semanticObject.getRight());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Bool_exp returns Bool_exp
+	 *     Conditional_Color returns And_expr
 	 *
 	 * Constraint:
-	 *     (left=Terminal_Bool_exp (operator+=BOOL_OP rights+=Terminal_Bool_exp)*)
+	 *     (left=And_expr_And_expr_1_0 right=Not_expr (color_1=Color | nested_1=Conditional_Color) (color_2=Color | nested_2=Conditional_Color))
 	 */
-	protected void sequence_Bool_exp(ISerializationContext context, Bool_exp semanticObject) {
+	protected void sequence_And_expr_Conditional_Color(ISerializationContext context, And_expr semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Shape returns Bool_exp
-	 *     Conditional returns Bool_exp
+	 *     Conditional_Num returns And_expr
+	 *     Num_value returns And_expr
 	 *
 	 * Constraint:
-	 *     (left=Terminal_Bool_exp (operator+=BOOL_OP rights+=Terminal_Bool_exp)* exp1=Shape exp2=Shape)
+	 *     (left=And_expr_And_expr_1_0 right=Not_expr (num_1=FLOAT | nested_1=Conditional_Num) (num_2=FLOAT | nested_2=Conditional_Num))
 	 */
-	protected void sequence_Bool_exp_Conditional(ISerializationContext context, Bool_exp semanticObject) {
+	protected void sequence_And_expr_Conditional_Num(ISerializationContext context, And_expr semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Conditional_Shape returns And_expr
+	 *
+	 * Constraint:
+	 *     (left=And_expr_And_expr_1_0 right=Not_expr (shape_1=Shape | nested_1=Conditional_Shape) (shape_2=Shape | nested_2=Conditional_Shape))
+	 */
+	protected void sequence_And_expr_Conditional_Shape(ISerializationContext context, And_expr semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Conditional_Str returns And_expr
+	 *
+	 * Constraint:
+	 *     (left=And_expr_And_expr_1_0 right=Not_expr (str_1=STRING | nested_1=Conditional_Str) (str_2=STRING | nested_2=Conditional_Str))
+	 */
+	protected void sequence_And_expr_Conditional_Str(ISerializationContext context, And_expr semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ShapeDef returns BasicShape
+	 *     BasicShape returns BasicShape
+	 *
+	 * Constraint:
+	 *     (name=FQN (shape=Shape | conditional=Conditional_Shape))
+	 */
+	protected void sequence_BasicShape(ISerializationContext context, BasicShape semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -157,19 +351,271 @@ public abstract class AbstractOnlineElmSemanticSequencer extends AbstractDelegat
 	 *     Circle returns Circle
 	 *
 	 * Constraint:
-	 *     (name='circle' diameter=FLOAT)
+	 *     (name='circle' radius=Num_value)
 	 */
 	protected void sequence_Circle(ISerializationContext context, Circle semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, OnlineElmPackage.Literals.STENCIL__NAME) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OnlineElmPackage.Literals.STENCIL__NAME));
-			if (transientValues.isValueTransient(semanticObject, OnlineElmPackage.Literals.CIRCLE__DIAMETER) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OnlineElmPackage.Literals.CIRCLE__DIAMETER));
+			if (transientValues.isValueTransient(semanticObject, OnlineElmPackage.Literals.CIRCLE__RADIUS) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OnlineElmPackage.Literals.CIRCLE__RADIUS));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getCircleAccess().getNameCircleKeyword_0_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getCircleAccess().getDiameterFLOATTerminalRuleCall_1_0(), semanticObject.getDiameter());
+		feeder.accept(grammarAccess.getCircleAccess().getRadiusNum_valueParserRuleCall_1_0(), semanticObject.getRadius());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Bool_expr returns Compare_expr
+	 *     Or_expr returns Compare_expr
+	 *     Or_expr.Or_expr_1_0 returns Compare_expr
+	 *     And_expr returns Compare_expr
+	 *     And_expr.And_expr_1_0 returns Compare_expr
+	 *     Not_expr returns Compare_expr
+	 *     Compare_expr returns Compare_expr
+	 *     Compare_expr.Compare_expr_1_0 returns Compare_expr
+	 *
+	 * Constraint:
+	 *     (
+	 *         left=Num_value | 
+	 *         (
+	 *             left=Compare_expr_Compare_expr_1_0 
+	 *             (
+	 *                 operator='>=' | 
+	 *                 operator='<=' | 
+	 *                 operator='==' | 
+	 *                 operator='!=' | 
+	 *                 operator='>' | 
+	 *                 operator='<'
+	 *             ) 
+	 *             right=Num_value
+	 *         )
+	 *     )
+	 */
+	protected void sequence_Compare_expr(ISerializationContext context, Compare_expr semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Conditional_Color returns Compare_expr
+	 *
+	 * Constraint:
+	 *     (
+	 *         (
+	 *             left=Num_value | 
+	 *             (
+	 *                 left=Compare_expr_Compare_expr_1_0 
+	 *                 (
+	 *                     operator='>=' | 
+	 *                     operator='<=' | 
+	 *                     operator='==' | 
+	 *                     operator='!=' | 
+	 *                     operator='>' | 
+	 *                     operator='<'
+	 *                 ) 
+	 *                 right=Num_value
+	 *             )
+	 *         ) 
+	 *         (color_1=Color | nested_1=Conditional_Color) 
+	 *         (color_2=Color | nested_2=Conditional_Color)
+	 *     )
+	 */
+	protected void sequence_Compare_expr_Conditional_Color(ISerializationContext context, Compare_expr semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Conditional_Num returns Compare_expr
+	 *     Num_value returns Compare_expr
+	 *
+	 * Constraint:
+	 *     (
+	 *         (
+	 *             left=Num_value | 
+	 *             (
+	 *                 left=Compare_expr_Compare_expr_1_0 
+	 *                 (
+	 *                     operator='>=' | 
+	 *                     operator='<=' | 
+	 *                     operator='==' | 
+	 *                     operator='!=' | 
+	 *                     operator='>' | 
+	 *                     operator='<'
+	 *                 ) 
+	 *                 right=Num_value
+	 *             )
+	 *         ) 
+	 *         (num_1=FLOAT | nested_1=Conditional_Num) 
+	 *         (num_2=FLOAT | nested_2=Conditional_Num)
+	 *     )
+	 */
+	protected void sequence_Compare_expr_Conditional_Num(ISerializationContext context, Compare_expr semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Conditional_Shape returns Compare_expr
+	 *
+	 * Constraint:
+	 *     (
+	 *         (
+	 *             left=Num_value | 
+	 *             (
+	 *                 left=Compare_expr_Compare_expr_1_0 
+	 *                 (
+	 *                     operator='>=' | 
+	 *                     operator='<=' | 
+	 *                     operator='==' | 
+	 *                     operator='!=' | 
+	 *                     operator='>' | 
+	 *                     operator='<'
+	 *                 ) 
+	 *                 right=Num_value
+	 *             )
+	 *         ) 
+	 *         (shape_1=Shape | nested_1=Conditional_Shape) 
+	 *         (shape_2=Shape | nested_2=Conditional_Shape)
+	 *     )
+	 */
+	protected void sequence_Compare_expr_Conditional_Shape(ISerializationContext context, Compare_expr semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Conditional_Str returns Compare_expr
+	 *
+	 * Constraint:
+	 *     (
+	 *         (
+	 *             left=Num_value | 
+	 *             (
+	 *                 left=Compare_expr_Compare_expr_1_0 
+	 *                 (
+	 *                     operator='>=' | 
+	 *                     operator='<=' | 
+	 *                     operator='==' | 
+	 *                     operator='!=' | 
+	 *                     operator='>' | 
+	 *                     operator='<'
+	 *                 ) 
+	 *                 right=Num_value
+	 *             )
+	 *         ) 
+	 *         (str_1=STRING | nested_1=Conditional_Str) 
+	 *         (str_2=STRING | nested_2=Conditional_Str)
+	 *     )
+	 */
+	protected void sequence_Compare_expr_Conditional_Str(ISerializationContext context, Compare_expr semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Conditional_Color returns Not_expr
+	 *
+	 * Constraint:
+	 *     (operand=Not_expr (color_1=Color | nested_1=Conditional_Color) (color_2=Color | nested_2=Conditional_Color))
+	 */
+	protected void sequence_Conditional_Color_Not_expr(ISerializationContext context, Not_expr semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Conditional_Color returns Or_expr
+	 *
+	 * Constraint:
+	 *     (left=Or_expr_Or_expr_1_0 right=And_expr (color_1=Color | nested_1=Conditional_Color) (color_2=Color | nested_2=Conditional_Color))
+	 */
+	protected void sequence_Conditional_Color_Or_expr(ISerializationContext context, Or_expr semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Conditional_Num returns Not_expr
+	 *     Num_value returns Not_expr
+	 *
+	 * Constraint:
+	 *     (operand=Not_expr (num_1=FLOAT | nested_1=Conditional_Num) (num_2=FLOAT | nested_2=Conditional_Num))
+	 */
+	protected void sequence_Conditional_Num_Not_expr(ISerializationContext context, Not_expr semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Conditional_Num returns Or_expr
+	 *     Num_value returns Or_expr
+	 *
+	 * Constraint:
+	 *     (left=Or_expr_Or_expr_1_0 right=And_expr (num_1=FLOAT | nested_1=Conditional_Num) (num_2=FLOAT | nested_2=Conditional_Num))
+	 */
+	protected void sequence_Conditional_Num_Or_expr(ISerializationContext context, Or_expr semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Conditional_Shape returns Not_expr
+	 *
+	 * Constraint:
+	 *     (operand=Not_expr (shape_1=Shape | nested_1=Conditional_Shape) (shape_2=Shape | nested_2=Conditional_Shape))
+	 */
+	protected void sequence_Conditional_Shape_Not_expr(ISerializationContext context, Not_expr semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Conditional_Shape returns Or_expr
+	 *
+	 * Constraint:
+	 *     (left=Or_expr_Or_expr_1_0 right=And_expr (shape_1=Shape | nested_1=Conditional_Shape) (shape_2=Shape | nested_2=Conditional_Shape))
+	 */
+	protected void sequence_Conditional_Shape_Or_expr(ISerializationContext context, Or_expr semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Conditional_Str returns Not_expr
+	 *
+	 * Constraint:
+	 *     (operand=Not_expr (str_1=STRING | nested_1=Conditional_Str) (str_2=STRING | nested_2=Conditional_Str))
+	 */
+	protected void sequence_Conditional_Str_Not_expr(ISerializationContext context, Not_expr semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Conditional_Str returns Or_expr
+	 *
+	 * Constraint:
+	 *     (left=Or_expr_Or_expr_1_0 right=And_expr (str_1=STRING | nested_1=Conditional_Str) (str_2=STRING | nested_2=Conditional_Str))
+	 */
+	protected void sequence_Conditional_Str_Or_expr(ISerializationContext context, Or_expr semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -178,7 +624,7 @@ public abstract class AbstractOnlineElmSemanticSequencer extends AbstractDelegat
 	 *     Draw returns Draw
 	 *
 	 * Constraint:
-	 *     (filledColor=Fill position=Move?)
+	 *     ((filled=Filled | outlined=Outlined) transform+=Tranform*)
 	 */
 	protected void sequence_Draw(ISerializationContext context, Draw semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -187,21 +633,33 @@ public abstract class AbstractOnlineElmSemanticSequencer extends AbstractDelegat
 	
 	/**
 	 * Contexts:
-	 *     Fill returns Fill
+	 *     Filled returns Filled
 	 *
 	 * Constraint:
-	 *     (name='filled' color=Color)
+	 *     (name='filled' (filledColor1=Color | filledColor2=Conditional_Color) (lineType1=LineType width1=FLOAT outline_color1=Color)?)
 	 */
-	protected void sequence_Fill(ISerializationContext context, Fill semanticObject) {
+	protected void sequence_Filled(ISerializationContext context, Filled semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Local_var returns Local_var
+	 *
+	 * Constraint:
+	 *     (name=FQN var=Num_value)
+	 */
+	protected void sequence_Local_var(ISerializationContext context, Local_var semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OnlineElmPackage.Literals.FILL__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OnlineElmPackage.Literals.FILL__NAME));
-			if (transientValues.isValueTransient(semanticObject, OnlineElmPackage.Literals.FILL__COLOR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OnlineElmPackage.Literals.FILL__COLOR));
+			if (transientValues.isValueTransient(semanticObject, OnlineElmPackage.Literals.LOCAL_VAR__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OnlineElmPackage.Literals.LOCAL_VAR__NAME));
+			if (transientValues.isValueTransient(semanticObject, OnlineElmPackage.Literals.LOCAL_VAR__VAR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OnlineElmPackage.Literals.LOCAL_VAR__VAR));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getFillAccess().getNameFilledKeyword_0_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getFillAccess().getColorColorEnumRuleCall_1_0(), semanticObject.getColor());
+		feeder.accept(grammarAccess.getLocal_varAccess().getNameFQNTerminalRuleCall_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getLocal_varAccess().getVarNum_valueParserRuleCall_2_0(), semanticObject.getVar());
 		feeder.finish();
 	}
 	
@@ -211,7 +669,13 @@ public abstract class AbstractOnlineElmSemanticSequencer extends AbstractDelegat
 	 *     MainShape returns MainShape
 	 *
 	 * Constraint:
-	 *     (name='myShapes' (s1=Shape | s11=[BasicShape|ID]) s2+=Shape? (s22+=[BasicShape|ID]? s2+=Shape?)* sg+=[ShapeGroup|ID]*)
+	 *     (
+	 *         name='myShapes' 
+	 *         (shape=Shape | conditional=Conditional_Shape | shapeRef=[BasicShape|FQN]) 
+	 *         moreShapes+=Shape? 
+	 *         ((moreConditional+=Conditional_Shape | moreShapeRef+=[BasicShape|FQN])? moreShapes+=Shape?)* 
+	 *         external+=[ShapeList|FQN]*
+	 *     )
 	 */
 	protected void sequence_MainShape(ISerializationContext context, MainShape semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -220,49 +684,85 @@ public abstract class AbstractOnlineElmSemanticSequencer extends AbstractDelegat
 	
 	/**
 	 * Contexts:
-	 *     Num_value returns Math_exp
-	 *     Math_exp returns Math_exp
+	 *     Num_value returns Operation
+	 *     Math_exp returns Operation
+	 *     Math_exp.Operation_1_0 returns Operation
+	 *     Terminal_math_exp returns Operation
 	 *
 	 * Constraint:
-	 *     (n1=FLOAT op1=MATH_OP n2=FLOAT)
+	 *     (left=Math_exp_Operation_1_0 op+=MATH_OP right+=Terminal_math_exp)
 	 */
-	protected void sequence_Math_exp(ISerializationContext context, Math_exp semanticObject) {
+	protected void sequence_Math_exp(ISerializationContext context, Operation semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Tranform returns Move
+	 *     Move returns Move
+	 *
+	 * Constraint:
+	 *     (name='move' point=Point)
+	 */
+	protected void sequence_Move(ISerializationContext context, Move semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OnlineElmPackage.Literals.MATH_EXP__N1) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OnlineElmPackage.Literals.MATH_EXP__N1));
-			if (transientValues.isValueTransient(semanticObject, OnlineElmPackage.Literals.MATH_EXP__OP1) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OnlineElmPackage.Literals.MATH_EXP__OP1));
-			if (transientValues.isValueTransient(semanticObject, OnlineElmPackage.Literals.MATH_EXP__N2) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OnlineElmPackage.Literals.MATH_EXP__N2));
+			if (transientValues.isValueTransient(semanticObject, OnlineElmPackage.Literals.TRANFORM__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OnlineElmPackage.Literals.TRANFORM__NAME));
+			if (transientValues.isValueTransient(semanticObject, OnlineElmPackage.Literals.MOVE__POINT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OnlineElmPackage.Literals.MOVE__POINT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getMath_expAccess().getN1FLOATTerminalRuleCall_1_0(), semanticObject.getN1());
-		feeder.accept(grammarAccess.getMath_expAccess().getOp1MATH_OPEnumRuleCall_2_0(), semanticObject.getOp1());
-		feeder.accept(grammarAccess.getMath_expAccess().getN2FLOATTerminalRuleCall_3_0(), semanticObject.getN2());
+		feeder.accept(grammarAccess.getMoveAccess().getNameMoveKeyword_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getMoveAccess().getPointPointParserRuleCall_1_0(), semanticObject.getPoint());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Move returns Move
+	 *     Stencil returns Ngon
+	 *     Ngon returns Ngon
 	 *
 	 * Constraint:
-	 *     (name='move' x=Num_value y=Num_value)
+	 *     (name='ngon' sides_num=Num_value radius=Num_value)
 	 */
-	protected void sequence_Move(ISerializationContext context, Move semanticObject) {
+	protected void sequence_Ngon(ISerializationContext context, Ngon semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OnlineElmPackage.Literals.MOVE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OnlineElmPackage.Literals.MOVE__NAME));
-			if (transientValues.isValueTransient(semanticObject, OnlineElmPackage.Literals.MOVE__X) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OnlineElmPackage.Literals.MOVE__X));
-			if (transientValues.isValueTransient(semanticObject, OnlineElmPackage.Literals.MOVE__Y) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OnlineElmPackage.Literals.MOVE__Y));
+			if (transientValues.isValueTransient(semanticObject, OnlineElmPackage.Literals.STENCIL__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OnlineElmPackage.Literals.STENCIL__NAME));
+			if (transientValues.isValueTransient(semanticObject, OnlineElmPackage.Literals.NGON__SIDES_NUM) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OnlineElmPackage.Literals.NGON__SIDES_NUM));
+			if (transientValues.isValueTransient(semanticObject, OnlineElmPackage.Literals.NGON__RADIUS) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OnlineElmPackage.Literals.NGON__RADIUS));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getMoveAccess().getNameMoveKeyword_0_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getMoveAccess().getXNum_valueParserRuleCall_2_0(), semanticObject.getX());
-		feeder.accept(grammarAccess.getMoveAccess().getYNum_valueParserRuleCall_4_0(), semanticObject.getY());
+		feeder.accept(grammarAccess.getNgonAccess().getNameNgonKeyword_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getNgonAccess().getSides_numNum_valueParserRuleCall_1_0(), semanticObject.getSides_num());
+		feeder.accept(grammarAccess.getNgonAccess().getRadiusNum_valueParserRuleCall_2_0(), semanticObject.getRadius());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Bool_expr returns Not_expr
+	 *     Or_expr returns Not_expr
+	 *     Or_expr.Or_expr_1_0 returns Not_expr
+	 *     And_expr returns Not_expr
+	 *     And_expr.And_expr_1_0 returns Not_expr
+	 *     Not_expr returns Not_expr
+	 *
+	 * Constraint:
+	 *     operand=Not_expr
+	 */
+	protected void sequence_Not_expr(ISerializationContext context, Not_expr semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, OnlineElmPackage.Literals.NOT_EXPR__OPERAND) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OnlineElmPackage.Literals.NOT_EXPR__OPERAND));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getNot_exprAccess().getOperandNot_exprParserRuleCall_0_2_0(), semanticObject.getOperand());
 		feeder.finish();
 	}
 	
@@ -272,16 +772,10 @@ public abstract class AbstractOnlineElmSemanticSequencer extends AbstractDelegat
 	 *     Num_value returns Num_value
 	 *
 	 * Constraint:
-	 *     num=FLOAT
+	 *     (local=[Local_var|ID] | ref=Ref_var)
 	 */
 	protected void sequence_Num_value(ISerializationContext context, Num_value semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OnlineElmPackage.Literals.NUM_VALUE__NUM) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OnlineElmPackage.Literals.NUM_VALUE__NUM));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getNum_valueAccess().getNumFLOATTerminalRuleCall_0_0(), semanticObject.getNum());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -290,9 +784,103 @@ public abstract class AbstractOnlineElmSemanticSequencer extends AbstractDelegat
 	 *     OnlineElm returns OnlineElm
 	 *
 	 * Constraint:
-	 *     (entry=MainShape | shapes+=ShapeDef)+
+	 *     (entry=MainShape shapes+=ShapeDef* var+=Local_var*)
 	 */
 	protected void sequence_OnlineElm(ISerializationContext context, OnlineElm semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Bool_expr returns Or_expr
+	 *     Or_expr returns Or_expr
+	 *     Or_expr.Or_expr_1_0 returns Or_expr
+	 *
+	 * Constraint:
+	 *     (left=Or_expr_Or_expr_1_0 right=And_expr)
+	 */
+	protected void sequence_Or_expr(ISerializationContext context, Or_expr semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, OnlineElmPackage.Literals.OR_EXPR__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OnlineElmPackage.Literals.OR_EXPR__LEFT));
+			if (transientValues.isValueTransient(semanticObject, OnlineElmPackage.Literals.OR_EXPR__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OnlineElmPackage.Literals.OR_EXPR__RIGHT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getOr_exprAccess().getOr_exprLeftAction_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getOr_exprAccess().getRightAnd_exprParserRuleCall_1_2_0(), semanticObject.getRight());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Outlined returns Outlined
+	 *
+	 * Constraint:
+	 *     (name='outlined' lineType=LineType width=FLOAT (outlinedColor1=Color | outlinedColor2=Conditional_Color))
+	 */
+	protected void sequence_Outlined(ISerializationContext context, Outlined semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Stencil returns Oval
+	 *     Oval returns Oval
+	 *
+	 * Constraint:
+	 *     (name='oval' width=Num_value height=Num_value)
+	 */
+	protected void sequence_Oval(ISerializationContext context, Oval semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, OnlineElmPackage.Literals.STENCIL__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OnlineElmPackage.Literals.STENCIL__NAME));
+			if (transientValues.isValueTransient(semanticObject, OnlineElmPackage.Literals.OVAL__WIDTH) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OnlineElmPackage.Literals.OVAL__WIDTH));
+			if (transientValues.isValueTransient(semanticObject, OnlineElmPackage.Literals.OVAL__HEIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OnlineElmPackage.Literals.OVAL__HEIGHT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getOvalAccess().getNameOvalKeyword_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getOvalAccess().getWidthNum_valueParserRuleCall_1_0(), semanticObject.getWidth());
+		feeder.accept(grammarAccess.getOvalAccess().getHeightNum_valueParserRuleCall_2_0(), semanticObject.getHeight());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Point returns Point
+	 *
+	 * Constraint:
+	 *     (x=Num_value y=Num_value)
+	 */
+	protected void sequence_Point(ISerializationContext context, Point semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, OnlineElmPackage.Literals.POINT__X) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OnlineElmPackage.Literals.POINT__X));
+			if (transientValues.isValueTransient(semanticObject, OnlineElmPackage.Literals.POINT__Y) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OnlineElmPackage.Literals.POINT__Y));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getPointAccess().getXNum_valueParserRuleCall_1_0(), semanticObject.getX());
+		feeder.accept(grammarAccess.getPointAccess().getYNum_valueParserRuleCall_3_0(), semanticObject.getY());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Stencil returns Polygon
+	 *     Polygon returns Polygon
+	 *
+	 * Constraint:
+	 *     (name='polygon' point1=Point points+=Point*)
+	 */
+	protected void sequence_Polygon(ISerializationContext context, Polygon semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -303,34 +891,156 @@ public abstract class AbstractOnlineElmSemanticSequencer extends AbstractDelegat
 	 *     Rect returns Rect
 	 *
 	 * Constraint:
-	 *     (name='rect' edgeX=FLOAT edgeY=FLOAT)
+	 *     (name='rect' width=Num_value height=Num_value)
 	 */
 	protected void sequence_Rect(ISerializationContext context, Rect semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, OnlineElmPackage.Literals.STENCIL__NAME) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OnlineElmPackage.Literals.STENCIL__NAME));
-			if (transientValues.isValueTransient(semanticObject, OnlineElmPackage.Literals.RECT__EDGE_X) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OnlineElmPackage.Literals.RECT__EDGE_X));
-			if (transientValues.isValueTransient(semanticObject, OnlineElmPackage.Literals.RECT__EDGE_Y) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OnlineElmPackage.Literals.RECT__EDGE_Y));
+			if (transientValues.isValueTransient(semanticObject, OnlineElmPackage.Literals.RECT__WIDTH) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OnlineElmPackage.Literals.RECT__WIDTH));
+			if (transientValues.isValueTransient(semanticObject, OnlineElmPackage.Literals.RECT__HEIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OnlineElmPackage.Literals.RECT__HEIGHT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getRectAccess().getNameRectKeyword_0_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getRectAccess().getEdgeXFLOATTerminalRuleCall_1_0(), semanticObject.getEdgeX());
-		feeder.accept(grammarAccess.getRectAccess().getEdgeYFLOATTerminalRuleCall_2_0(), semanticObject.getEdgeY());
+		feeder.accept(grammarAccess.getRectAccess().getWidthNum_valueParserRuleCall_1_0(), semanticObject.getWidth());
+		feeder.accept(grammarAccess.getRectAccess().getHeightNum_valueParserRuleCall_2_0(), semanticObject.getHeight());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     ShapeDef returns ShapeGroup
-	 *     ShapeGroup returns ShapeGroup
+	 *     Tranform returns Rotate
+	 *     Rotate returns Rotate
 	 *
 	 * Constraint:
-	 *     (name=ID (s1=Shape | s11=[BasicShape|ID]) s22+=[BasicShape|ID]? (s2+=Shape? s22+=[BasicShape|ID]?)* sg+=[ShapeGroup|ID]*)
+	 *     (name='rotate' degree=Num_value)
 	 */
-	protected void sequence_ShapeGroup(ISerializationContext context, ShapeGroup semanticObject) {
+	protected void sequence_Rotate(ISerializationContext context, Rotate semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, OnlineElmPackage.Literals.TRANFORM__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OnlineElmPackage.Literals.TRANFORM__NAME));
+			if (transientValues.isValueTransient(semanticObject, OnlineElmPackage.Literals.ROTATE__DEGREE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OnlineElmPackage.Literals.ROTATE__DEGREE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getRotateAccess().getNameRotateKeyword_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getRotateAccess().getDegreeNum_valueParserRuleCall_3_0(), semanticObject.getDegree());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Stencil returns RoundedRect
+	 *     RoundedRect returns RoundedRect
+	 *
+	 * Constraint:
+	 *     (name='roundedRect' width=Num_value height=Num_value corner_radius=Num_value)
+	 */
+	protected void sequence_RoundedRect(ISerializationContext context, RoundedRect semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, OnlineElmPackage.Literals.STENCIL__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OnlineElmPackage.Literals.STENCIL__NAME));
+			if (transientValues.isValueTransient(semanticObject, OnlineElmPackage.Literals.ROUNDED_RECT__WIDTH) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OnlineElmPackage.Literals.ROUNDED_RECT__WIDTH));
+			if (transientValues.isValueTransient(semanticObject, OnlineElmPackage.Literals.ROUNDED_RECT__HEIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OnlineElmPackage.Literals.ROUNDED_RECT__HEIGHT));
+			if (transientValues.isValueTransient(semanticObject, OnlineElmPackage.Literals.ROUNDED_RECT__CORNER_RADIUS) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OnlineElmPackage.Literals.ROUNDED_RECT__CORNER_RADIUS));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getRoundedRectAccess().getNameRoundedRectKeyword_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getRoundedRectAccess().getWidthNum_valueParserRuleCall_1_0(), semanticObject.getWidth());
+		feeder.accept(grammarAccess.getRoundedRectAccess().getHeightNum_valueParserRuleCall_2_0(), semanticObject.getHeight());
+		feeder.accept(grammarAccess.getRoundedRectAccess().getCorner_radiusNum_valueParserRuleCall_3_0(), semanticObject.getCorner_radius());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Tranform returns ScaleX
+	 *     ScaleX returns ScaleX
+	 *
+	 * Constraint:
+	 *     (name='scaleX' factor=Num_value)
+	 */
+	protected void sequence_ScaleX(ISerializationContext context, ScaleX semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, OnlineElmPackage.Literals.TRANFORM__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OnlineElmPackage.Literals.TRANFORM__NAME));
+			if (transientValues.isValueTransient(semanticObject, OnlineElmPackage.Literals.SCALE_X__FACTOR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OnlineElmPackage.Literals.SCALE_X__FACTOR));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getScaleXAccess().getNameScaleXKeyword_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getScaleXAccess().getFactorNum_valueParserRuleCall_1_0(), semanticObject.getFactor());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Tranform returns ScaleY
+	 *     ScaleY returns ScaleY
+	 *
+	 * Constraint:
+	 *     (name='scaleY' factor=Num_value)
+	 */
+	protected void sequence_ScaleY(ISerializationContext context, ScaleY semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, OnlineElmPackage.Literals.TRANFORM__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OnlineElmPackage.Literals.TRANFORM__NAME));
+			if (transientValues.isValueTransient(semanticObject, OnlineElmPackage.Literals.SCALE_Y__FACTOR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OnlineElmPackage.Literals.SCALE_Y__FACTOR));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getScaleYAccess().getNameScaleYKeyword_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getScaleYAccess().getFactorNum_valueParserRuleCall_1_0(), semanticObject.getFactor());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Tranform returns Scale
+	 *     Scale returns Scale
+	 *
+	 * Constraint:
+	 *     (name='scale' factor=Num_value)
+	 */
+	protected void sequence_Scale(ISerializationContext context, Scale semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, OnlineElmPackage.Literals.TRANFORM__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OnlineElmPackage.Literals.TRANFORM__NAME));
+			if (transientValues.isValueTransient(semanticObject, OnlineElmPackage.Literals.SCALE__FACTOR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OnlineElmPackage.Literals.SCALE__FACTOR));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getScaleAccess().getNameScaleKeyword_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getScaleAccess().getFactorNum_valueParserRuleCall_1_0(), semanticObject.getFactor());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ShapeDef returns ShapeList
+	 *     ShapeList returns ShapeList
+	 *
+	 * Constraint:
+	 *     (
+	 *         name=FQN 
+	 *         (shape=Shape | conditional=Conditional_Shape | shapeRef=[BasicShape|FQN]) 
+	 *         moreConditional+=Conditional_Shape? 
+	 *         ((moreShapes+=Shape | moreShapeRef+=[BasicShape|FQN])? moreConditional+=Conditional_Shape?)* 
+	 *         external+=[ShapeList|FQN]*
+	 *     )
+	 */
+	protected void sequence_ShapeList(ISerializationContext context, ShapeList semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -350,32 +1060,51 @@ public abstract class AbstractOnlineElmSemanticSequencer extends AbstractDelegat
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OnlineElmPackage.Literals.SHAPE__DRAW));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getShapeAccess().getStencilStencilParserRuleCall_0_0_0(), semanticObject.getStencil());
-		feeder.accept(grammarAccess.getShapeAccess().getDrawDrawParserRuleCall_0_2_0(), semanticObject.getDraw());
+		feeder.accept(grammarAccess.getShapeAccess().getStencilStencilParserRuleCall_0_0(), semanticObject.getStencil());
+		feeder.accept(grammarAccess.getShapeAccess().getDrawDrawParserRuleCall_2_0(), semanticObject.getDraw());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Terminal_Bool_exp returns Terminal_Bool_exp
+	 *     Stencil returns Square
+	 *     Square returns Square
 	 *
 	 * Constraint:
-	 *     (n1=Num_value comp=COMPARISON n2=Num_value)
+	 *     (name='square' side=Num_value)
 	 */
-	protected void sequence_Terminal_Bool_exp(ISerializationContext context, Terminal_Bool_exp semanticObject) {
+	protected void sequence_Square(ISerializationContext context, Square semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OnlineElmPackage.Literals.TERMINAL_BOOL_EXP__N1) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OnlineElmPackage.Literals.TERMINAL_BOOL_EXP__N1));
-			if (transientValues.isValueTransient(semanticObject, OnlineElmPackage.Literals.TERMINAL_BOOL_EXP__COMP) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OnlineElmPackage.Literals.TERMINAL_BOOL_EXP__COMP));
-			if (transientValues.isValueTransient(semanticObject, OnlineElmPackage.Literals.TERMINAL_BOOL_EXP__N2) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OnlineElmPackage.Literals.TERMINAL_BOOL_EXP__N2));
+			if (transientValues.isValueTransient(semanticObject, OnlineElmPackage.Literals.STENCIL__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OnlineElmPackage.Literals.STENCIL__NAME));
+			if (transientValues.isValueTransient(semanticObject, OnlineElmPackage.Literals.SQUARE__SIDE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OnlineElmPackage.Literals.SQUARE__SIDE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getTerminal_Bool_expAccess().getN1Num_valueParserRuleCall_0_0(), semanticObject.getN1());
-		feeder.accept(grammarAccess.getTerminal_Bool_expAccess().getCompCOMPARISONEnumRuleCall_1_0(), semanticObject.getComp());
-		feeder.accept(grammarAccess.getTerminal_Bool_expAccess().getN2Num_valueParserRuleCall_2_0(), semanticObject.getN2());
+		feeder.accept(grammarAccess.getSquareAccess().getNameSquareKeyword_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getSquareAccess().getSideNum_valueParserRuleCall_1_0(), semanticObject.getSide());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Num_value returns FloatLiteral
+	 *     Math_exp returns FloatLiteral
+	 *     Math_exp.Operation_1_0 returns FloatLiteral
+	 *     Terminal_math_exp returns FloatLiteral
+	 *
+	 * Constraint:
+	 *     value=FLOAT
+	 */
+	protected void sequence_Terminal_math_exp(ISerializationContext context, FloatLiteral semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, OnlineElmPackage.Literals.FLOAT_LITERAL__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OnlineElmPackage.Literals.FLOAT_LITERAL__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getTerminal_math_expAccess().getValueFLOATTerminalRuleCall_1_1_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
@@ -386,18 +1115,34 @@ public abstract class AbstractOnlineElmSemanticSequencer extends AbstractDelegat
 	 *     Text returns Text
 	 *
 	 * Constraint:
-	 *     (name='text' content=STRING)
+	 *     (name='text' (content=STRING | conditionalContent=Conditional_Str))
 	 */
 	protected void sequence_Text(ISerializationContext context, Text semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Stencil returns Wedge
+	 *     Wedge returns Wedge
+	 *
+	 * Constraint:
+	 *     (name='wedge' radius=Num_value fraction=Num_value)
+	 */
+	protected void sequence_Wedge(ISerializationContext context, Wedge semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, OnlineElmPackage.Literals.STENCIL__NAME) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OnlineElmPackage.Literals.STENCIL__NAME));
-			if (transientValues.isValueTransient(semanticObject, OnlineElmPackage.Literals.TEXT__CONTENT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OnlineElmPackage.Literals.TEXT__CONTENT));
+			if (transientValues.isValueTransient(semanticObject, OnlineElmPackage.Literals.WEDGE__RADIUS) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OnlineElmPackage.Literals.WEDGE__RADIUS));
+			if (transientValues.isValueTransient(semanticObject, OnlineElmPackage.Literals.WEDGE__FRACTION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OnlineElmPackage.Literals.WEDGE__FRACTION));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getTextAccess().getNameTextKeyword_0_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getTextAccess().getContentSTRINGTerminalRuleCall_1_0(), semanticObject.getContent());
+		feeder.accept(grammarAccess.getWedgeAccess().getNameWedgeKeyword_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getWedgeAccess().getRadiusNum_valueParserRuleCall_1_0(), semanticObject.getRadius());
+		feeder.accept(grammarAccess.getWedgeAccess().getFractionNum_valueParserRuleCall_2_0(), semanticObject.getFraction());
 		feeder.finish();
 	}
 	

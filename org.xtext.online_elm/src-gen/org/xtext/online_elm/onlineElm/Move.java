@@ -3,7 +3,6 @@
  */
 package org.xtext.online_elm.onlineElm;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,81 +13,35 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.online_elm.onlineElm.Move#getName <em>Name</em>}</li>
- *   <li>{@link org.xtext.online_elm.onlineElm.Move#getX <em>X</em>}</li>
- *   <li>{@link org.xtext.online_elm.onlineElm.Move#getY <em>Y</em>}</li>
+ *   <li>{@link org.xtext.online_elm.onlineElm.Move#getPoint <em>Point</em>}</li>
  * </ul>
  *
  * @see org.xtext.online_elm.onlineElm.OnlineElmPackage#getMove()
  * @model
  * @generated
  */
-public interface Move extends EObject
+public interface Move extends Tranform
 {
   /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * Returns the value of the '<em><b>Point</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
-   * @see org.xtext.online_elm.onlineElm.OnlineElmPackage#getMove_Name()
-   * @model
-   * @generated
-   */
-  String getName();
-
-  /**
-   * Sets the value of the '{@link org.xtext.online_elm.onlineElm.Move#getName <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
-   * @see #getName()
-   * @generated
-   */
-  void setName(String value);
-
-  /**
-   * Returns the value of the '<em><b>X</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>X</em>' containment reference.
-   * @see #setX(Num_value)
-   * @see org.xtext.online_elm.onlineElm.OnlineElmPackage#getMove_X()
+   * @return the value of the '<em>Point</em>' containment reference.
+   * @see #setPoint(Point)
+   * @see org.xtext.online_elm.onlineElm.OnlineElmPackage#getMove_Point()
    * @model containment="true"
    * @generated
    */
-  Num_value getX();
+  Point getPoint();
 
   /**
-   * Sets the value of the '{@link org.xtext.online_elm.onlineElm.Move#getX <em>X</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.online_elm.onlineElm.Move#getPoint <em>Point</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>X</em>' containment reference.
-   * @see #getX()
+   * @param value the new value of the '<em>Point</em>' containment reference.
+   * @see #getPoint()
    * @generated
    */
-  void setX(Num_value value);
-
-  /**
-   * Returns the value of the '<em><b>Y</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Y</em>' containment reference.
-   * @see #setY(Num_value)
-   * @see org.xtext.online_elm.onlineElm.OnlineElmPackage#getMove_Y()
-   * @model containment="true"
-   * @generated
-   */
-  Num_value getY();
-
-  /**
-   * Sets the value of the '{@link org.xtext.online_elm.onlineElm.Move#getY <em>Y</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Y</em>' containment reference.
-   * @see #getY()
-   * @generated
-   */
-  void setY(Num_value value);
+  void setPoint(Point value);
 
 } // Move

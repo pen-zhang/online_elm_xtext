@@ -1,134 +1,266 @@
-grammar org.xtext.online_elm.OnlineElm with org.eclipse.xtext.common.Terminals
+grammar org.xtext.online_elm.OnlineElm with org.eclipse.xtext.common.Terminals hidden (WS)
 
 generate onlineElm "http://www.xtext.org/online_elm/OnlineElm"
 
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
-OnlineElm hidden(WS):
+OnlineElm:
 	entry=MainShape
-	& (shapes+=ShapeDef)*
+	(shapes+=ShapeDef)*
+	(var+=Local_var)*
 ;
 
-MainShape:
-	name='myShapes' '='
+
+MainShape hidden (WS,NL):
+	name='myShapes' 'time' '='
 	'[' 
-		((s1 = Shape)|(s11=[BasicShape]))
-	 (',' (s2+=Shape)|(s22+=[BasicShape]))* 
-	']'
-	('++' sg+=[ShapeGroup])* 
+	  (shape = Shape | conditional = Conditional_Shape | shapeRef = [BasicShape|FQN])
+	 (NL? ',' (moreShapes+=Shape | moreConditional += Conditional_Shape | moreShapeRef += [BasicShape|FQN]))*
+	 NL? ']'
+	(NL | ('++' external+=[ShapeList|FQN]))*
 ;
 
 ShapeDef:
-	ShapeGroup | BasicShape
+	ShapeList | BasicShape
 ;
 
-ShapeGroup:
-	name=ID '='
+Local_var:
+	name=FQN "=" var=Num_value NL?
+;
+
+Ref_var:
+	FQN('.'FQN)? | 'time'
+;
+
+ShapeList hidden (WS,NL):
+	name=FQN '='
 	'['
-	 ((s1 = Shape)|(s11=[BasicShape]))
-	 (',' (s2+=Shape)|(s22+=[BasicShape]))* 
-	']'
-	('++' sg+=[ShapeGroup])*
+	 (shape = Shape | conditional = Conditional_Shape | shapeRef = [BasicShape|FQN])
+	 (NL? ',' (moreShapes+=Shape | moreConditional += Conditional_Shape | moreShapeRef += [BasicShape|FQN]))* 
+	 NL? ']'
+	(NL | ('++' external+=[ShapeList|FQN]))*
 ;
 
 BasicShape:
-	name=ID '='  shape = Shape
+	name=FQN '=' NL? (shape = Shape | conditional = Conditional_Shape) NL?
 ;
-
 
 Shape:
-	(stencil = Stencil 
-	'|>' draw = Draw) | Conditional
+	stencil = Stencil '|>' draw = Draw
 ;
 
-
-Conditional:
-	"if" Bool_exp "then"
-		exp1 = Shape
-	"else"
-		exp2 = Shape
+Conditional_Shape:
+	'if' Bool_expr 'then'
+	NL	( shape_1 = Shape | nested_1=Conditional_Shape )
+	NL 'else'
+	NL	( shape_2 = Shape | nested_2=Conditional_Shape )
 ;
 
-/*
-Value:
-	basic_shape=[BasicShape] | Num
-;
-*/
-
-Bool_exp:	
-	'not'? left=Terminal_Bool_exp (operator+=BOOL_OP rights+=Terminal_Bool_exp)*
+Conditional_Color:
+	'(' 'if' Bool_expr 'then'
+	NL	( color_1 = Color | nested_1=Conditional_Color )
+	NL 'else'
+	NL	( color_2 = Color | nested_2=Conditional_Color ) 
+	')'
 ;
 
-enum BOOL_OP:
-	and='&&' | or='||'
+Conditional_Num:
+	'(' 'if' Bool_expr 'then'
+	NL	( num_1 = FLOAT | nested_1=Conditional_Num )
+	NL 'else'
+	NL	( num_2 = FLOAT | nested_2=Conditional_Num )
+	')'
 ;
 
-Terminal_Bool_exp:
-	(n1=Num_value comp=COMPARISON n2=Num_value)
+Conditional_Str:
+	'(' 'if' Bool_expr 'then'
+	NL ( str_1 = STRING | nested_1=Conditional_Str )
+	'else'
+	NL ( str_2 = STRING | nested_2=Conditional_Str ) 
+	')'
 ;
+
+Bool_expr:
+	Or_expr
+;
+
+Or_expr:
+	And_expr ({Or_expr.left=current} '||' right=And_expr)*;
+
+And_expr:
+	Not_expr ({And_expr.left=current} '&&' right=Not_expr)*;
+
+Not_expr:
+	{Not_expr} 'not' operand=Not_expr | Compare_expr;
+
+Compare_expr:
+	left=Num_value ({Compare_expr.left=current} operator=('>=' | '<=' | '==' | '!=' | '>' | '<') right=Num_value)*;
 
 
 Num_value:
-	num=FLOAT | Math_exp
+	Math_exp | Conditional_Num | local=[Local_var] | ref=Ref_var
 ;
 
 Math_exp:
-	'(' n1=FLOAT op1=MATH_OP n2=FLOAT ')'
+	Terminal_math_exp ({Operation.left=current} op+=MATH_OP right+=Terminal_math_exp)*
 ;
 
+Terminal_math_exp returns Math_exp:
+	'(' Math_exp ')' |
+	{FloatLiteral} value = FLOAT
+;
 
 enum MATH_OP:
-	plus='+' | minus='-' | times='*' | divide='/'
-;
-
-enum COMPARISON:
-	bigger='>' |
-	noLessThan='>=' |
-	smaller='<' |
-	noBiggerThan='<=' |
-	equal='==' 
+	plus='+' 
+	| minus='-' 
+	| times='*' 
+	| divide='/'
 ;
 
 Stencil:
 	Circle | 
 	Rect | 
-	Text
+	Square |
+	RoundedRect |
+	Oval |
+	Ngon |
+	Wedge |
+	Polygon |
+	Text 
 ;
 	
 Circle:
-	name = 'circle' diameter=FLOAT;
+	name='circle' radius=Num_value
+;
 	
 Rect:
-	name = 'rect' edgeX=FLOAT edgeY=FLOAT
+	name='rect' width=Num_value height=Num_value
 ;
 
+Square:
+	name='square' side = Num_value
+;
+
+RoundedRect:
+	name='roundedRect' width=Num_value height=Num_value corner_radius=Num_value
+;
+
+Oval:
+	name='oval' width=Num_value height=Num_value
+;
+
+Ngon:
+	name='ngon' sides_num=Num_value radius=Num_value
+;
+
+Wedge:
+	name='wedge' radius=Num_value fraction=Num_value
+;
+
+Polygon:
+	name='polygon' '[' point1=Point (',' points += Point)* ']'
+;
+
+Point:
+	'(' x=Num_value ',' y=Num_value ')'
+;
 
 Text:
-	name = 'text' content=STRING
-;
-
-
-terminal FLOAT returns ecore::EFloat:
-//	'-'?('0'..'9')+('.'('0'..'9')+)?
-	'-'?INT('.'INT)?
+	name='text' ( content=STRING | conditionalContent=Conditional_Str)
 ;
 
 
 Draw:
-	filledColor=Fill 
-	('|>' position=Move)?
+	(filled = Filled | outlined = Outlined)  
+	('|>' transform += Tranform)*
 ;
 
-Fill:
-	name ='filled' color=Color
+Filled:
+	name='filled' ( filledColor1=Color | filledColor2=Conditional_Color) ('|>' 'addOutline' '(' lineType1=LineType width1=FLOAT ')' outline_color1=Color)?
+;
+
+Outlined:
+	name='outlined' '(' lineType=LineType width=FLOAT ')' (outlinedColor1 = Color | outlinedColor2=Conditional_Color)
+;
+
+enum LineType:
+	solid = 'solid' |
+	dotted = 'dotted' |
+	dashed = 'dashed' |
+	dotdash = 'dotdash' |
+	longdash = 'longdash'
+;
+
+Tranform:
+	Move | Rotate | Scale | ScaleX | ScaleY
 ;
 
 Move:
-	name ='move' '(' x=Num_value ',' y=Num_value ')'
+	name ='move' point=Point
 ;
 
+Rotate:
+	name = 'rotate' '(' 'degrees' degree=Num_value ')'
+;
+
+Scale:
+	name = 'scale' factor = Num_value
+;
+
+ScaleX:
+	name = 'scaleX' factor = Num_value
+;
+
+ScaleY:
+	name = 'scaleY' factor = Num_value
+;
+
+
 enum Color:
-	BLACK = 'black' |
-	RED = 'red' |
-	BLUE = 'blue'
+	black = 'black' |
+	blank = 'blank' |
+	blue = 'blue' |
+	brown = 'brown' |
+	charcoal = 'charcoal' |
+	darkBlue = 'darkBlue' |
+	darkBrown = 'darkBrown' |
+	darkGray = 'darkGray' |
+	darkGreen = 'darkGreen' |
+	darkGrey = 'darkGrey' |
+	darkOrange = 'darkOrange' |
+	darkPurple = 'darkPurple' |
+	darkRed = 'darkRed' |
+	darkYellow = 'darkYellow' |
+	gray = 'gray' |
+	green = 'green' |
+	grey = 'grey' |
+	hotPink = 'hotPink' |
+	lightBlue = 'lightBlue' |
+	lightBrown = 'lightBrown' |
+	lightCharcoal = 'lightCharcoal' |
+	lightGray = 'lightGray' |
+	lightGreen = 'lightGreen' |
+	lightGrey = 'lightGrey' |
+	lightOrange = 'lightOrange' |
+	lightPurple = 'lightPurple' |
+	lightRed = 'lightRed' |
+	lightYellow = 'lightYellow' |
+	orange = 'orange' |
+	pink = 'pink' |
+	purple = 'purple' |
+	red = 'red'|
+	white = 'white' |
+	yellow = 'yellow'
+;
+
+terminal FLOAT:
+	INT('.'INT)? | '(' '-'INT('.'INT)?')'
+;
+
+terminal FQN returns ecore::EString:
+	('a'..'z')('a'..'z'|'A'..'Z'|'_'|'0'..'9')*
+;
+
+terminal NL:
+	('\r'?'\n'(' ')*)+ 
 ;

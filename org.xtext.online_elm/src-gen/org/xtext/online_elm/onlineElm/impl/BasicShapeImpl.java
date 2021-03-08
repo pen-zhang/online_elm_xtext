@@ -3,43 +3,20 @@
  */
 package org.xtext.online_elm.onlineElm.impl;
 
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.xtext.online_elm.onlineElm.BasicShape;
 import org.xtext.online_elm.onlineElm.OnlineElmPackage;
-import org.xtext.online_elm.onlineElm.Shape;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Basic Shape</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * The following features are implemented:
- * </p>
- * <ul>
- *   <li>{@link org.xtext.online_elm.onlineElm.impl.BasicShapeImpl#getShape <em>Shape</em>}</li>
- * </ul>
  *
  * @generated
  */
 public class BasicShapeImpl extends ShapeDefImpl implements BasicShape
 {
-  /**
-   * The cached value of the '{@link #getShape() <em>Shape</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getShape()
-   * @generated
-   * @ordered
-   */
-  protected Shape shape;
-
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -59,138 +36,6 @@ public class BasicShapeImpl extends ShapeDefImpl implements BasicShape
   protected EClass eStaticClass()
   {
     return OnlineElmPackage.Literals.BASIC_SHAPE;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Shape getShape()
-  {
-    return shape;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetShape(Shape newShape, NotificationChain msgs)
-  {
-    Shape oldShape = shape;
-    shape = newShape;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OnlineElmPackage.BASIC_SHAPE__SHAPE, oldShape, newShape);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setShape(Shape newShape)
-  {
-    if (newShape != shape)
-    {
-      NotificationChain msgs = null;
-      if (shape != null)
-        msgs = ((InternalEObject)shape).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OnlineElmPackage.BASIC_SHAPE__SHAPE, null, msgs);
-      if (newShape != null)
-        msgs = ((InternalEObject)newShape).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OnlineElmPackage.BASIC_SHAPE__SHAPE, null, msgs);
-      msgs = basicSetShape(newShape, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OnlineElmPackage.BASIC_SHAPE__SHAPE, newShape, newShape));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case OnlineElmPackage.BASIC_SHAPE__SHAPE:
-        return basicSetShape(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
-    switch (featureID)
-    {
-      case OnlineElmPackage.BASIC_SHAPE__SHAPE:
-        return getShape();
-    }
-    return super.eGet(featureID, resolve, coreType);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
-    switch (featureID)
-    {
-      case OnlineElmPackage.BASIC_SHAPE__SHAPE:
-        setShape((Shape)newValue);
-        return;
-    }
-    super.eSet(featureID, newValue);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void eUnset(int featureID)
-  {
-    switch (featureID)
-    {
-      case OnlineElmPackage.BASIC_SHAPE__SHAPE:
-        setShape((Shape)null);
-        return;
-    }
-    super.eUnset(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
-    switch (featureID)
-    {
-      case OnlineElmPackage.BASIC_SHAPE__SHAPE:
-        return shape != null;
-    }
-    return super.eIsSet(featureID);
   }
 
 } //BasicShapeImpl

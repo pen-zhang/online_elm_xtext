@@ -6,103 +6,210 @@
     complianceLevel="8.0" copyrightFields="false" runtimeVersion="2.20">
   <genPackages prefix="OnlineElm" basePackage="org.xtext.online_elm" disposableProviderFactory="true"
       fileExtensions="oe" ecorePackage="OnlineElm.ecore#/">
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="OnlineElm.ecore#//BOOL_OP">
-      <genEnumLiterals ecoreEnumLiteral="OnlineElm.ecore#//BOOL_OP/and"/>
-      <genEnumLiterals ecoreEnumLiteral="OnlineElm.ecore#//BOOL_OP/or"/>
-    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="OnlineElm.ecore#//MATH_OP">
       <genEnumLiterals ecoreEnumLiteral="OnlineElm.ecore#//MATH_OP/plus"/>
       <genEnumLiterals ecoreEnumLiteral="OnlineElm.ecore#//MATH_OP/minus"/>
       <genEnumLiterals ecoreEnumLiteral="OnlineElm.ecore#//MATH_OP/times"/>
       <genEnumLiterals ecoreEnumLiteral="OnlineElm.ecore#//MATH_OP/divide"/>
     </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="OnlineElm.ecore#//COMPARISON">
-      <genEnumLiterals ecoreEnumLiteral="OnlineElm.ecore#//COMPARISON/bigger"/>
-      <genEnumLiterals ecoreEnumLiteral="OnlineElm.ecore#//COMPARISON/noLessThan"/>
-      <genEnumLiterals ecoreEnumLiteral="OnlineElm.ecore#//COMPARISON/smaller"/>
-      <genEnumLiterals ecoreEnumLiteral="OnlineElm.ecore#//COMPARISON/noBiggerThan"/>
-      <genEnumLiterals ecoreEnumLiteral="OnlineElm.ecore#//COMPARISON/equal"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="OnlineElm.ecore#//LineType">
+      <genEnumLiterals ecoreEnumLiteral="OnlineElm.ecore#//LineType/solid"/>
+      <genEnumLiterals ecoreEnumLiteral="OnlineElm.ecore#//LineType/dotted"/>
+      <genEnumLiterals ecoreEnumLiteral="OnlineElm.ecore#//LineType/dashed"/>
+      <genEnumLiterals ecoreEnumLiteral="OnlineElm.ecore#//LineType/dotdash"/>
+      <genEnumLiterals ecoreEnumLiteral="OnlineElm.ecore#//LineType/longdash"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="OnlineElm.ecore#//Color">
-      <genEnumLiterals ecoreEnumLiteral="OnlineElm.ecore#//Color/BLACK"/>
-      <genEnumLiterals ecoreEnumLiteral="OnlineElm.ecore#//Color/RED"/>
-      <genEnumLiterals ecoreEnumLiteral="OnlineElm.ecore#//Color/BLUE"/>
+      <genEnumLiterals ecoreEnumLiteral="OnlineElm.ecore#//Color/black"/>
+      <genEnumLiterals ecoreEnumLiteral="OnlineElm.ecore#//Color/blank"/>
+      <genEnumLiterals ecoreEnumLiteral="OnlineElm.ecore#//Color/blue"/>
+      <genEnumLiterals ecoreEnumLiteral="OnlineElm.ecore#//Color/brown"/>
+      <genEnumLiterals ecoreEnumLiteral="OnlineElm.ecore#//Color/charcoal"/>
+      <genEnumLiterals ecoreEnumLiteral="OnlineElm.ecore#//Color/darkBlue"/>
+      <genEnumLiterals ecoreEnumLiteral="OnlineElm.ecore#//Color/darkBrown"/>
+      <genEnumLiterals ecoreEnumLiteral="OnlineElm.ecore#//Color/darkGray"/>
+      <genEnumLiterals ecoreEnumLiteral="OnlineElm.ecore#//Color/darkGreen"/>
+      <genEnumLiterals ecoreEnumLiteral="OnlineElm.ecore#//Color/darkGrey"/>
+      <genEnumLiterals ecoreEnumLiteral="OnlineElm.ecore#//Color/darkOrange"/>
+      <genEnumLiterals ecoreEnumLiteral="OnlineElm.ecore#//Color/darkPurple"/>
+      <genEnumLiterals ecoreEnumLiteral="OnlineElm.ecore#//Color/darkRed"/>
+      <genEnumLiterals ecoreEnumLiteral="OnlineElm.ecore#//Color/darkYellow"/>
+      <genEnumLiterals ecoreEnumLiteral="OnlineElm.ecore#//Color/gray"/>
+      <genEnumLiterals ecoreEnumLiteral="OnlineElm.ecore#//Color/green"/>
+      <genEnumLiterals ecoreEnumLiteral="OnlineElm.ecore#//Color/grey"/>
+      <genEnumLiterals ecoreEnumLiteral="OnlineElm.ecore#//Color/hotPink"/>
+      <genEnumLiterals ecoreEnumLiteral="OnlineElm.ecore#//Color/lightBlue"/>
+      <genEnumLiterals ecoreEnumLiteral="OnlineElm.ecore#//Color/lightBrown"/>
+      <genEnumLiterals ecoreEnumLiteral="OnlineElm.ecore#//Color/lightCharcoal"/>
+      <genEnumLiterals ecoreEnumLiteral="OnlineElm.ecore#//Color/lightGray"/>
+      <genEnumLiterals ecoreEnumLiteral="OnlineElm.ecore#//Color/lightGreen"/>
+      <genEnumLiterals ecoreEnumLiteral="OnlineElm.ecore#//Color/lightGrey"/>
+      <genEnumLiterals ecoreEnumLiteral="OnlineElm.ecore#//Color/lightOrange"/>
+      <genEnumLiterals ecoreEnumLiteral="OnlineElm.ecore#//Color/lightPurple"/>
+      <genEnumLiterals ecoreEnumLiteral="OnlineElm.ecore#//Color/lightRed"/>
+      <genEnumLiterals ecoreEnumLiteral="OnlineElm.ecore#//Color/lightYellow"/>
+      <genEnumLiterals ecoreEnumLiteral="OnlineElm.ecore#//Color/orange"/>
+      <genEnumLiterals ecoreEnumLiteral="OnlineElm.ecore#//Color/pink"/>
+      <genEnumLiterals ecoreEnumLiteral="OnlineElm.ecore#//Color/purple"/>
+      <genEnumLiterals ecoreEnumLiteral="OnlineElm.ecore#//Color/red"/>
+      <genEnumLiterals ecoreEnumLiteral="OnlineElm.ecore#//Color/white"/>
+      <genEnumLiterals ecoreEnumLiteral="OnlineElm.ecore#//Color/yellow"/>
     </genEnums>
     <genClasses ecoreClass="OnlineElm.ecore#//OnlineElm">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//OnlineElm/entry"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//OnlineElm/shapes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//OnlineElm/var"/>
     </genClasses>
     <genClasses ecoreClass="OnlineElm.ecore#//MainShape">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OnlineElm.ecore#//MainShape/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//MainShape/s1"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//MainShape/s11"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//MainShape/s2"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//MainShape/s22"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//MainShape/sg"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//MainShape/shape"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//MainShape/conditional"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//MainShape/shapeRef"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//MainShape/moreShapes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//MainShape/moreConditional"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//MainShape/moreShapeRef"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//MainShape/external"/>
     </genClasses>
     <genClasses ecoreClass="OnlineElm.ecore#//ShapeDef">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OnlineElm.ecore#//ShapeDef/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//ShapeDef/shape"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//ShapeDef/conditional"/>
     </genClasses>
-    <genClasses ecoreClass="OnlineElm.ecore#//ShapeGroup">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//ShapeGroup/s1"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//ShapeGroup/s11"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//ShapeGroup/s2"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//ShapeGroup/s22"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//ShapeGroup/sg"/>
+    <genClasses ecoreClass="OnlineElm.ecore#//Local_var">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OnlineElm.ecore#//Local_var/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//Local_var/var"/>
     </genClasses>
-    <genClasses ecoreClass="OnlineElm.ecore#//BasicShape">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//BasicShape/shape"/>
+    <genClasses ecoreClass="OnlineElm.ecore#//ShapeList">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//ShapeList/shapeRef"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//ShapeList/moreShapes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//ShapeList/moreConditional"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//ShapeList/moreShapeRef"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//ShapeList/external"/>
     </genClasses>
+    <genClasses ecoreClass="OnlineElm.ecore#//BasicShape"/>
     <genClasses ecoreClass="OnlineElm.ecore#//Shape">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//Shape/stencil"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//Shape/draw"/>
     </genClasses>
-    <genClasses ecoreClass="OnlineElm.ecore#//Conditional"/>
-    <genClasses ecoreClass="OnlineElm.ecore#//Bool_exp">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//Bool_exp/exp1"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//Bool_exp/exp2"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//Bool_exp/left"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OnlineElm.ecore#//Bool_exp/operator"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//Bool_exp/rights"/>
+    <genClasses ecoreClass="OnlineElm.ecore#//Conditional_Shape"/>
+    <genClasses ecoreClass="OnlineElm.ecore#//Conditional_Color"/>
+    <genClasses ecoreClass="OnlineElm.ecore#//Conditional_Num"/>
+    <genClasses ecoreClass="OnlineElm.ecore#//Conditional_Str"/>
+    <genClasses ecoreClass="OnlineElm.ecore#//Bool_expr">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//Bool_expr/shape_1"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//Bool_expr/nested_1"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//Bool_expr/shape_2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//Bool_expr/nested_2"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OnlineElm.ecore#//Bool_expr/color_1"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OnlineElm.ecore#//Bool_expr/color_2"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OnlineElm.ecore#//Bool_expr/num_1"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OnlineElm.ecore#//Bool_expr/num_2"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OnlineElm.ecore#//Bool_expr/str_1"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OnlineElm.ecore#//Bool_expr/str_2"/>
     </genClasses>
-    <genClasses ecoreClass="OnlineElm.ecore#//Terminal_Bool_exp">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//Terminal_Bool_exp/n1"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OnlineElm.ecore#//Terminal_Bool_exp/comp"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//Terminal_Bool_exp/n2"/>
+    <genClasses ecoreClass="OnlineElm.ecore#//Or_expr">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//Or_expr/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//Or_expr/right"/>
+    </genClasses>
+    <genClasses ecoreClass="OnlineElm.ecore#//And_expr"/>
+    <genClasses ecoreClass="OnlineElm.ecore#//Not_expr">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//Not_expr/operand"/>
+    </genClasses>
+    <genClasses ecoreClass="OnlineElm.ecore#//Compare_expr">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OnlineElm.ecore#//Compare_expr/operator"/>
     </genClasses>
     <genClasses ecoreClass="OnlineElm.ecore#//Num_value">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OnlineElm.ecore#//Num_value/num"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//Num_value/local"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OnlineElm.ecore#//Num_value/ref"/>
     </genClasses>
-    <genClasses ecoreClass="OnlineElm.ecore#//Math_exp">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OnlineElm.ecore#//Math_exp/n1"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OnlineElm.ecore#//Math_exp/op1"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OnlineElm.ecore#//Math_exp/n2"/>
-    </genClasses>
+    <genClasses ecoreClass="OnlineElm.ecore#//Math_exp"/>
     <genClasses ecoreClass="OnlineElm.ecore#//Stencil">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OnlineElm.ecore#//Stencil/name"/>
     </genClasses>
     <genClasses ecoreClass="OnlineElm.ecore#//Circle">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OnlineElm.ecore#//Circle/diameter"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//Circle/radius"/>
     </genClasses>
     <genClasses ecoreClass="OnlineElm.ecore#//Rect">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OnlineElm.ecore#//Rect/edgeX"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OnlineElm.ecore#//Rect/edgeY"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//Rect/width"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//Rect/height"/>
+    </genClasses>
+    <genClasses ecoreClass="OnlineElm.ecore#//Square">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//Square/side"/>
+    </genClasses>
+    <genClasses ecoreClass="OnlineElm.ecore#//RoundedRect">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//RoundedRect/width"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//RoundedRect/height"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//RoundedRect/corner_radius"/>
+    </genClasses>
+    <genClasses ecoreClass="OnlineElm.ecore#//Oval">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//Oval/width"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//Oval/height"/>
+    </genClasses>
+    <genClasses ecoreClass="OnlineElm.ecore#//Ngon">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//Ngon/sides_num"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//Ngon/radius"/>
+    </genClasses>
+    <genClasses ecoreClass="OnlineElm.ecore#//Wedge">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//Wedge/radius"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//Wedge/fraction"/>
+    </genClasses>
+    <genClasses ecoreClass="OnlineElm.ecore#//Polygon">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//Polygon/point1"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//Polygon/points"/>
+    </genClasses>
+    <genClasses ecoreClass="OnlineElm.ecore#//Point">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//Point/x"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//Point/y"/>
     </genClasses>
     <genClasses ecoreClass="OnlineElm.ecore#//Text">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OnlineElm.ecore#//Text/content"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//Text/conditionalContent"/>
     </genClasses>
     <genClasses ecoreClass="OnlineElm.ecore#//Draw">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//Draw/filledColor"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//Draw/position"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//Draw/filled"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//Draw/outlined"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//Draw/transform"/>
     </genClasses>
-    <genClasses ecoreClass="OnlineElm.ecore#//Fill">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OnlineElm.ecore#//Fill/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OnlineElm.ecore#//Fill/color"/>
+    <genClasses ecoreClass="OnlineElm.ecore#//Filled">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OnlineElm.ecore#//Filled/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OnlineElm.ecore#//Filled/filledColor1"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//Filled/filledColor2"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OnlineElm.ecore#//Filled/lineType1"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OnlineElm.ecore#//Filled/width1"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OnlineElm.ecore#//Filled/outline_color1"/>
+    </genClasses>
+    <genClasses ecoreClass="OnlineElm.ecore#//Outlined">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OnlineElm.ecore#//Outlined/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OnlineElm.ecore#//Outlined/lineType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OnlineElm.ecore#//Outlined/width"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OnlineElm.ecore#//Outlined/outlinedColor1"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//Outlined/outlinedColor2"/>
+    </genClasses>
+    <genClasses ecoreClass="OnlineElm.ecore#//Tranform">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OnlineElm.ecore#//Tranform/name"/>
     </genClasses>
     <genClasses ecoreClass="OnlineElm.ecore#//Move">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OnlineElm.ecore#//Move/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//Move/x"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//Move/y"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//Move/point"/>
+    </genClasses>
+    <genClasses ecoreClass="OnlineElm.ecore#//Rotate">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//Rotate/degree"/>
+    </genClasses>
+    <genClasses ecoreClass="OnlineElm.ecore#//Scale">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//Scale/factor"/>
+    </genClasses>
+    <genClasses ecoreClass="OnlineElm.ecore#//ScaleX">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//ScaleX/factor"/>
+    </genClasses>
+    <genClasses ecoreClass="OnlineElm.ecore#//ScaleY">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//ScaleY/factor"/>
+    </genClasses>
+    <genClasses ecoreClass="OnlineElm.ecore#//Operation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//Operation/left"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OnlineElm.ecore#//Operation/op"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OnlineElm.ecore#//Operation/right"/>
+    </genClasses>
+    <genClasses ecoreClass="OnlineElm.ecore#//FloatLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OnlineElm.ecore#//FloatLiteral/value"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

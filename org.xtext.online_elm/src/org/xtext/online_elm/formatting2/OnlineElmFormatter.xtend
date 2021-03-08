@@ -9,20 +9,21 @@ import org.eclipse.xtext.formatting2.IFormattableDocument
 import org.xtext.online_elm.onlineElm.MainShape
 import org.xtext.online_elm.onlineElm.OnlineElm
 import org.xtext.online_elm.services.OnlineElmGrammarAccess
-import org.xtext.online_elm.onlineElm.ShapeGroup
+import org.xtext.online_elm.onlineElm.ShapeList
 import org.xtext.online_elm.onlineElm.Circle
+import org.eclipse.xtext.formatting2.FormatterRequest
 
 class OnlineElmFormatter extends AbstractFormatter2 {
-	
+
 	@Inject extension OnlineElmGrammarAccess
 
-	def dispatch void format(OnlineElm onlineElm, extension IFormattableDocument document) {
-		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
-		onlineElm.entry.format
-		for (shapeDef : onlineElm.shapes) {
-			shapeDef.format
-		}
-	}
+//	def dispatch void format(OnlineElm onlineElm, extension IFormattableDocument document) {
+//		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
+//		onlineElm.entry.prepend[noIndentation; noSpace; noAutowrap].append[setNewLines(0, 1, 1)]
+//		for (shapeDef : onlineElm.shapes) {
+//			shapeDef.prepend[noIndentation; noSpace; noAutowrap].append[setNewLines(0, 1, 1)]
+//		}
+//	}
 
 	def dispatch void format(MainShape mainShape, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
@@ -30,21 +31,21 @@ class OnlineElmFormatter extends AbstractFormatter2 {
 //		for (shape : mainShape.s2) {
 //			shape.format
 //		}
+		mainShape.prepend[noIndentation; noSpace; noAutowrap].append[setNewLines(0, 1, 1)]
 		val open = mainShape.regionFor.keyword("[")
 		val close = mainShape.regionFor.keyword("]")
-		mainShape.regionFor.keyword("mainShape =").append[oneSpace]
+		mainShape.regionFor.keyword("myShapes =").append[oneSpace]
 		open.append[newLine]
 		close.surround[newLine]
 		interior(open, close)[indent]
-			
+
 	}
-	
+
 	// TODO: implement for ShapeGroup, BasicShape, Shape, Bool_exp, Terminal_Bool_exp, Draw, Move
-	
-	def dispatch void format(Circle circle, extension IFormattableDocument document){
-		
+	def dispatch void format(Circle circle, extension IFormattableDocument document) {
 		circle.regionFor.keyword("Circle").append[oneSpace]
-		circle.diameter.format
-		
+
+
 	}
+
 }

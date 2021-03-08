@@ -20,19 +20,51 @@ import org.xtext.online_elm.services.OnlineElmGrammarAccess;
 public abstract class AbstractOnlineElmSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected OnlineElmGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_Bool_exp_NotKeyword_0_q;
+	protected AbstractElementAlias match_BasicShape_NLTerminalRuleCall_2_q;
+	protected AbstractElementAlias match_BasicShape_NLTerminalRuleCall_4_q;
+	protected AbstractElementAlias match_Local_var_NLTerminalRuleCall_3_q;
+	protected AbstractElementAlias match_MainShape_NLTerminalRuleCall_5_0_q;
+	protected AbstractElementAlias match_MainShape_NLTerminalRuleCall_6_q;
+	protected AbstractElementAlias match_MainShape_NLTerminalRuleCall_8_0_a;
+	protected AbstractElementAlias match_ShapeList_NLTerminalRuleCall_4_0_q;
+	protected AbstractElementAlias match_ShapeList_NLTerminalRuleCall_5_q;
+	protected AbstractElementAlias match_ShapeList_NLTerminalRuleCall_7_0_a;
+	protected AbstractElementAlias match_Terminal_math_exp_LeftParenthesisKeyword_0_0_a;
+	protected AbstractElementAlias match_Terminal_math_exp_LeftParenthesisKeyword_0_0_p;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (OnlineElmGrammarAccess) access;
-		match_Bool_exp_NotKeyword_0_q = new TokenAlias(false, true, grammarAccess.getBool_expAccess().getNotKeyword_0());
+		match_BasicShape_NLTerminalRuleCall_2_q = new TokenAlias(false, true, grammarAccess.getBasicShapeAccess().getNLTerminalRuleCall_2());
+		match_BasicShape_NLTerminalRuleCall_4_q = new TokenAlias(false, true, grammarAccess.getBasicShapeAccess().getNLTerminalRuleCall_4());
+		match_Local_var_NLTerminalRuleCall_3_q = new TokenAlias(false, true, grammarAccess.getLocal_varAccess().getNLTerminalRuleCall_3());
+		match_MainShape_NLTerminalRuleCall_5_0_q = new TokenAlias(false, true, grammarAccess.getMainShapeAccess().getNLTerminalRuleCall_5_0());
+		match_MainShape_NLTerminalRuleCall_6_q = new TokenAlias(false, true, grammarAccess.getMainShapeAccess().getNLTerminalRuleCall_6());
+		match_MainShape_NLTerminalRuleCall_8_0_a = new TokenAlias(true, true, grammarAccess.getMainShapeAccess().getNLTerminalRuleCall_8_0());
+		match_ShapeList_NLTerminalRuleCall_4_0_q = new TokenAlias(false, true, grammarAccess.getShapeListAccess().getNLTerminalRuleCall_4_0());
+		match_ShapeList_NLTerminalRuleCall_5_q = new TokenAlias(false, true, grammarAccess.getShapeListAccess().getNLTerminalRuleCall_5());
+		match_ShapeList_NLTerminalRuleCall_7_0_a = new TokenAlias(true, true, grammarAccess.getShapeListAccess().getNLTerminalRuleCall_7_0());
+		match_Terminal_math_exp_LeftParenthesisKeyword_0_0_a = new TokenAlias(true, true, grammarAccess.getTerminal_math_expAccess().getLeftParenthesisKeyword_0_0());
+		match_Terminal_math_exp_LeftParenthesisKeyword_0_0_p = new TokenAlias(true, false, grammarAccess.getTerminal_math_expAccess().getLeftParenthesisKeyword_0_0());
 	}
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (ruleCall.getRule() == grammarAccess.getNLRule())
+			return getNLToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
+	/**
+	 * terminal NL:
+	 * 	('\r'?'\n'(' ')*)+ 
+	 * ;
+	 */
+	protected String getNLToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "\n";
+	}
 	
 	@Override
 	protected void emitUnassignedTokens(EObject semanticObject, ISynTransition transition, INode fromNode, INode toNode) {
@@ -40,21 +72,235 @@ public abstract class AbstractOnlineElmSyntacticSequencer extends AbstractSyntac
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_Bool_exp_NotKeyword_0_q.equals(syntax))
-				emit_Bool_exp_NotKeyword_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			if (match_BasicShape_NLTerminalRuleCall_2_q.equals(syntax))
+				emit_BasicShape_NLTerminalRuleCall_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_BasicShape_NLTerminalRuleCall_4_q.equals(syntax))
+				emit_BasicShape_NLTerminalRuleCall_4_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Local_var_NLTerminalRuleCall_3_q.equals(syntax))
+				emit_Local_var_NLTerminalRuleCall_3_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_MainShape_NLTerminalRuleCall_5_0_q.equals(syntax))
+				emit_MainShape_NLTerminalRuleCall_5_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_MainShape_NLTerminalRuleCall_6_q.equals(syntax))
+				emit_MainShape_NLTerminalRuleCall_6_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_MainShape_NLTerminalRuleCall_8_0_a.equals(syntax))
+				emit_MainShape_NLTerminalRuleCall_8_0_a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_ShapeList_NLTerminalRuleCall_4_0_q.equals(syntax))
+				emit_ShapeList_NLTerminalRuleCall_4_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_ShapeList_NLTerminalRuleCall_5_q.equals(syntax))
+				emit_ShapeList_NLTerminalRuleCall_5_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_ShapeList_NLTerminalRuleCall_7_0_a.equals(syntax))
+				emit_ShapeList_NLTerminalRuleCall_7_0_a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Terminal_math_exp_LeftParenthesisKeyword_0_0_a.equals(syntax))
+				emit_Terminal_math_exp_LeftParenthesisKeyword_0_0_a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Terminal_math_exp_LeftParenthesisKeyword_0_0_p.equals(syntax))
+				emit_Terminal_math_exp_LeftParenthesisKeyword_0_0_p(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
 	/**
 	 * Ambiguous syntax:
-	 *     'not'?
+	 *     NL?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) 'if' (ambiguity) left=Terminal_Bool_exp
-	 *     (rule start) (ambiguity) left=Terminal_Bool_exp
+	 *     name=FQN '=' (ambiguity) conditional=Conditional_Shape
+	 *     name=FQN '=' (ambiguity) shape=Shape
 	 */
-	protected void emit_Bool_exp_NotKeyword_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_BasicShape_NLTerminalRuleCall_2_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     NL?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     conditional=Conditional_Shape (ambiguity) (rule end)
+	 *     shape=Shape (ambiguity) (rule end)
+	 */
+	protected void emit_BasicShape_NLTerminalRuleCall_4_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     NL?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     var=Num_value (ambiguity) (rule end)
+	 */
+	protected void emit_Local_var_NLTerminalRuleCall_3_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     NL?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     conditional=Conditional_Shape (ambiguity) ',' moreConditional+=Conditional_Shape
+	 *     conditional=Conditional_Shape (ambiguity) ',' moreShapeRef+=[BasicShape|FQN]
+	 *     conditional=Conditional_Shape (ambiguity) ',' moreShapes+=Shape
+	 *     moreConditional+=Conditional_Shape (ambiguity) ',' moreConditional+=Conditional_Shape
+	 *     moreConditional+=Conditional_Shape (ambiguity) ',' moreShapeRef+=[BasicShape|FQN]
+	 *     moreConditional+=Conditional_Shape (ambiguity) ',' moreShapes+=Shape
+	 *     moreShapeRef+=[BasicShape|FQN] (ambiguity) ',' moreConditional+=Conditional_Shape
+	 *     moreShapeRef+=[BasicShape|FQN] (ambiguity) ',' moreShapeRef+=[BasicShape|FQN]
+	 *     moreShapeRef+=[BasicShape|FQN] (ambiguity) ',' moreShapes+=Shape
+	 *     moreShapes+=Shape (ambiguity) ',' moreConditional+=Conditional_Shape
+	 *     moreShapes+=Shape (ambiguity) ',' moreShapeRef+=[BasicShape|FQN]
+	 *     moreShapes+=Shape (ambiguity) ',' moreShapes+=Shape
+	 *     shape=Shape (ambiguity) ',' moreConditional+=Conditional_Shape
+	 *     shape=Shape (ambiguity) ',' moreShapeRef+=[BasicShape|FQN]
+	 *     shape=Shape (ambiguity) ',' moreShapes+=Shape
+	 *     shapeRef=[BasicShape|FQN] (ambiguity) ',' moreConditional+=Conditional_Shape
+	 *     shapeRef=[BasicShape|FQN] (ambiguity) ',' moreShapeRef+=[BasicShape|FQN]
+	 *     shapeRef=[BasicShape|FQN] (ambiguity) ',' moreShapes+=Shape
+	 */
+	protected void emit_MainShape_NLTerminalRuleCall_5_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     NL?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     conditional=Conditional_Shape (ambiguity) ']' NL* '++' external+=[ShapeList|FQN]
+	 *     conditional=Conditional_Shape (ambiguity) ']' NL* (rule end)
+	 *     moreConditional+=Conditional_Shape (ambiguity) ']' NL* '++' external+=[ShapeList|FQN]
+	 *     moreConditional+=Conditional_Shape (ambiguity) ']' NL* (rule end)
+	 *     moreShapeRef+=[BasicShape|FQN] (ambiguity) ']' NL* '++' external+=[ShapeList|FQN]
+	 *     moreShapeRef+=[BasicShape|FQN] (ambiguity) ']' NL* (rule end)
+	 *     moreShapes+=Shape (ambiguity) ']' NL* '++' external+=[ShapeList|FQN]
+	 *     moreShapes+=Shape (ambiguity) ']' NL* (rule end)
+	 *     shape=Shape (ambiguity) ']' NL* '++' external+=[ShapeList|FQN]
+	 *     shape=Shape (ambiguity) ']' NL* (rule end)
+	 *     shapeRef=[BasicShape|FQN] (ambiguity) ']' NL* '++' external+=[ShapeList|FQN]
+	 *     shapeRef=[BasicShape|FQN] (ambiguity) ']' NL* (rule end)
+	 */
+	protected void emit_MainShape_NLTerminalRuleCall_6_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     NL*
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     conditional=Conditional_Shape NL? ']' (ambiguity) '++' external+=[ShapeList|FQN]
+	 *     conditional=Conditional_Shape NL? ']' (ambiguity) (rule end)
+	 *     external+=[ShapeList|FQN] (ambiguity) '++' external+=[ShapeList|FQN]
+	 *     external+=[ShapeList|FQN] (ambiguity) (rule end)
+	 *     moreConditional+=Conditional_Shape NL? ']' (ambiguity) '++' external+=[ShapeList|FQN]
+	 *     moreConditional+=Conditional_Shape NL? ']' (ambiguity) (rule end)
+	 *     moreShapeRef+=[BasicShape|FQN] NL? ']' (ambiguity) '++' external+=[ShapeList|FQN]
+	 *     moreShapeRef+=[BasicShape|FQN] NL? ']' (ambiguity) (rule end)
+	 *     moreShapes+=Shape NL? ']' (ambiguity) '++' external+=[ShapeList|FQN]
+	 *     moreShapes+=Shape NL? ']' (ambiguity) (rule end)
+	 *     shape=Shape NL? ']' (ambiguity) '++' external+=[ShapeList|FQN]
+	 *     shape=Shape NL? ']' (ambiguity) (rule end)
+	 *     shapeRef=[BasicShape|FQN] NL? ']' (ambiguity) '++' external+=[ShapeList|FQN]
+	 *     shapeRef=[BasicShape|FQN] NL? ']' (ambiguity) (rule end)
+	 */
+	protected void emit_MainShape_NLTerminalRuleCall_8_0_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     NL?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     conditional=Conditional_Shape (ambiguity) ',' moreConditional+=Conditional_Shape
+	 *     conditional=Conditional_Shape (ambiguity) ',' moreShapeRef+=[BasicShape|FQN]
+	 *     conditional=Conditional_Shape (ambiguity) ',' moreShapes+=Shape
+	 *     moreConditional+=Conditional_Shape (ambiguity) ',' moreConditional+=Conditional_Shape
+	 *     moreConditional+=Conditional_Shape (ambiguity) ',' moreShapeRef+=[BasicShape|FQN]
+	 *     moreConditional+=Conditional_Shape (ambiguity) ',' moreShapes+=Shape
+	 *     moreShapeRef+=[BasicShape|FQN] (ambiguity) ',' moreConditional+=Conditional_Shape
+	 *     moreShapeRef+=[BasicShape|FQN] (ambiguity) ',' moreShapeRef+=[BasicShape|FQN]
+	 *     moreShapeRef+=[BasicShape|FQN] (ambiguity) ',' moreShapes+=Shape
+	 *     moreShapes+=Shape (ambiguity) ',' moreConditional+=Conditional_Shape
+	 *     moreShapes+=Shape (ambiguity) ',' moreShapeRef+=[BasicShape|FQN]
+	 *     moreShapes+=Shape (ambiguity) ',' moreShapes+=Shape
+	 *     shape=Shape (ambiguity) ',' moreConditional+=Conditional_Shape
+	 *     shape=Shape (ambiguity) ',' moreShapeRef+=[BasicShape|FQN]
+	 *     shape=Shape (ambiguity) ',' moreShapes+=Shape
+	 *     shapeRef=[BasicShape|FQN] (ambiguity) ',' moreConditional+=Conditional_Shape
+	 *     shapeRef=[BasicShape|FQN] (ambiguity) ',' moreShapeRef+=[BasicShape|FQN]
+	 *     shapeRef=[BasicShape|FQN] (ambiguity) ',' moreShapes+=Shape
+	 */
+	protected void emit_ShapeList_NLTerminalRuleCall_4_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     NL?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     conditional=Conditional_Shape (ambiguity) ']' NL* '++' external+=[ShapeList|FQN]
+	 *     conditional=Conditional_Shape (ambiguity) ']' NL* (rule end)
+	 *     moreConditional+=Conditional_Shape (ambiguity) ']' NL* '++' external+=[ShapeList|FQN]
+	 *     moreConditional+=Conditional_Shape (ambiguity) ']' NL* (rule end)
+	 *     moreShapeRef+=[BasicShape|FQN] (ambiguity) ']' NL* '++' external+=[ShapeList|FQN]
+	 *     moreShapeRef+=[BasicShape|FQN] (ambiguity) ']' NL* (rule end)
+	 *     moreShapes+=Shape (ambiguity) ']' NL* '++' external+=[ShapeList|FQN]
+	 *     moreShapes+=Shape (ambiguity) ']' NL* (rule end)
+	 *     shape=Shape (ambiguity) ']' NL* '++' external+=[ShapeList|FQN]
+	 *     shape=Shape (ambiguity) ']' NL* (rule end)
+	 *     shapeRef=[BasicShape|FQN] (ambiguity) ']' NL* '++' external+=[ShapeList|FQN]
+	 *     shapeRef=[BasicShape|FQN] (ambiguity) ']' NL* (rule end)
+	 */
+	protected void emit_ShapeList_NLTerminalRuleCall_5_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     NL*
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     conditional=Conditional_Shape NL? ']' (ambiguity) '++' external+=[ShapeList|FQN]
+	 *     conditional=Conditional_Shape NL? ']' (ambiguity) (rule end)
+	 *     external+=[ShapeList|FQN] (ambiguity) '++' external+=[ShapeList|FQN]
+	 *     external+=[ShapeList|FQN] (ambiguity) (rule end)
+	 *     moreConditional+=Conditional_Shape NL? ']' (ambiguity) '++' external+=[ShapeList|FQN]
+	 *     moreConditional+=Conditional_Shape NL? ']' (ambiguity) (rule end)
+	 *     moreShapeRef+=[BasicShape|FQN] NL? ']' (ambiguity) '++' external+=[ShapeList|FQN]
+	 *     moreShapeRef+=[BasicShape|FQN] NL? ']' (ambiguity) (rule end)
+	 *     moreShapes+=Shape NL? ']' (ambiguity) '++' external+=[ShapeList|FQN]
+	 *     moreShapes+=Shape NL? ']' (ambiguity) (rule end)
+	 *     shape=Shape NL? ']' (ambiguity) '++' external+=[ShapeList|FQN]
+	 *     shape=Shape NL? ']' (ambiguity) (rule end)
+	 *     shapeRef=[BasicShape|FQN] NL? ']' (ambiguity) '++' external+=[ShapeList|FQN]
+	 *     shapeRef=[BasicShape|FQN] NL? ']' (ambiguity) (rule end)
+	 */
+	protected void emit_ShapeList_NLTerminalRuleCall_7_0_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     '('*
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) value=FLOAT
+	 *     (rule start) (ambiguity) {Operation.left=}
+	 */
+	protected void emit_Terminal_math_exp_LeftParenthesisKeyword_0_0_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     '('+
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) {Operation.left=}
+	 */
+	protected void emit_Terminal_math_exp_LeftParenthesisKeyword_0_0_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

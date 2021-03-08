@@ -3,8 +3,12 @@
  */
 package org.xtext.online_elm.onlineElm.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -12,10 +16,14 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
 import org.xtext.online_elm.onlineElm.Draw;
-import org.xtext.online_elm.onlineElm.Fill;
-import org.xtext.online_elm.onlineElm.Move;
+import org.xtext.online_elm.onlineElm.Filled;
 import org.xtext.online_elm.onlineElm.OnlineElmPackage;
+import org.xtext.online_elm.onlineElm.Outlined;
+import org.xtext.online_elm.onlineElm.Tranform;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,8 +33,9 @@ import org.xtext.online_elm.onlineElm.OnlineElmPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.online_elm.onlineElm.impl.DrawImpl#getFilledColor <em>Filled Color</em>}</li>
- *   <li>{@link org.xtext.online_elm.onlineElm.impl.DrawImpl#getPosition <em>Position</em>}</li>
+ *   <li>{@link org.xtext.online_elm.onlineElm.impl.DrawImpl#getFilled <em>Filled</em>}</li>
+ *   <li>{@link org.xtext.online_elm.onlineElm.impl.DrawImpl#getOutlined <em>Outlined</em>}</li>
+ *   <li>{@link org.xtext.online_elm.onlineElm.impl.DrawImpl#getTransform <em>Transform</em>}</li>
  * </ul>
  *
  * @generated
@@ -34,24 +43,34 @@ import org.xtext.online_elm.onlineElm.OnlineElmPackage;
 public class DrawImpl extends MinimalEObjectImpl.Container implements Draw
 {
   /**
-   * The cached value of the '{@link #getFilledColor() <em>Filled Color</em>}' containment reference.
+   * The cached value of the '{@link #getFilled() <em>Filled</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getFilledColor()
+   * @see #getFilled()
    * @generated
    * @ordered
    */
-  protected Fill filledColor;
+  protected Filled filled;
 
   /**
-   * The cached value of the '{@link #getPosition() <em>Position</em>}' containment reference.
+   * The cached value of the '{@link #getOutlined() <em>Outlined</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getPosition()
+   * @see #getOutlined()
    * @generated
    * @ordered
    */
-  protected Move position;
+  protected Outlined outlined;
+
+  /**
+   * The cached value of the '{@link #getTransform() <em>Transform</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTransform()
+   * @generated
+   * @ordered
+   */
+  protected EList<Tranform> transform;
 
   /**
    * <!-- begin-user-doc -->
@@ -80,9 +99,9 @@ public class DrawImpl extends MinimalEObjectImpl.Container implements Draw
    * @generated
    */
   @Override
-  public Fill getFilledColor()
+  public Filled getFilled()
   {
-    return filledColor;
+    return filled;
   }
 
   /**
@@ -90,13 +109,13 @@ public class DrawImpl extends MinimalEObjectImpl.Container implements Draw
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetFilledColor(Fill newFilledColor, NotificationChain msgs)
+  public NotificationChain basicSetFilled(Filled newFilled, NotificationChain msgs)
   {
-    Fill oldFilledColor = filledColor;
-    filledColor = newFilledColor;
+    Filled oldFilled = filled;
+    filled = newFilled;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OnlineElmPackage.DRAW__FILLED_COLOR, oldFilledColor, newFilledColor);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OnlineElmPackage.DRAW__FILLED, oldFilled, newFilled);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -108,20 +127,20 @@ public class DrawImpl extends MinimalEObjectImpl.Container implements Draw
    * @generated
    */
   @Override
-  public void setFilledColor(Fill newFilledColor)
+  public void setFilled(Filled newFilled)
   {
-    if (newFilledColor != filledColor)
+    if (newFilled != filled)
     {
       NotificationChain msgs = null;
-      if (filledColor != null)
-        msgs = ((InternalEObject)filledColor).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OnlineElmPackage.DRAW__FILLED_COLOR, null, msgs);
-      if (newFilledColor != null)
-        msgs = ((InternalEObject)newFilledColor).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OnlineElmPackage.DRAW__FILLED_COLOR, null, msgs);
-      msgs = basicSetFilledColor(newFilledColor, msgs);
+      if (filled != null)
+        msgs = ((InternalEObject)filled).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OnlineElmPackage.DRAW__FILLED, null, msgs);
+      if (newFilled != null)
+        msgs = ((InternalEObject)newFilled).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OnlineElmPackage.DRAW__FILLED, null, msgs);
+      msgs = basicSetFilled(newFilled, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OnlineElmPackage.DRAW__FILLED_COLOR, newFilledColor, newFilledColor));
+      eNotify(new ENotificationImpl(this, Notification.SET, OnlineElmPackage.DRAW__FILLED, newFilled, newFilled));
   }
 
   /**
@@ -130,9 +149,9 @@ public class DrawImpl extends MinimalEObjectImpl.Container implements Draw
    * @generated
    */
   @Override
-  public Move getPosition()
+  public Outlined getOutlined()
   {
-    return position;
+    return outlined;
   }
 
   /**
@@ -140,13 +159,13 @@ public class DrawImpl extends MinimalEObjectImpl.Container implements Draw
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetPosition(Move newPosition, NotificationChain msgs)
+  public NotificationChain basicSetOutlined(Outlined newOutlined, NotificationChain msgs)
   {
-    Move oldPosition = position;
-    position = newPosition;
+    Outlined oldOutlined = outlined;
+    outlined = newOutlined;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OnlineElmPackage.DRAW__POSITION, oldPosition, newPosition);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OnlineElmPackage.DRAW__OUTLINED, oldOutlined, newOutlined);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -158,20 +177,35 @@ public class DrawImpl extends MinimalEObjectImpl.Container implements Draw
    * @generated
    */
   @Override
-  public void setPosition(Move newPosition)
+  public void setOutlined(Outlined newOutlined)
   {
-    if (newPosition != position)
+    if (newOutlined != outlined)
     {
       NotificationChain msgs = null;
-      if (position != null)
-        msgs = ((InternalEObject)position).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OnlineElmPackage.DRAW__POSITION, null, msgs);
-      if (newPosition != null)
-        msgs = ((InternalEObject)newPosition).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OnlineElmPackage.DRAW__POSITION, null, msgs);
-      msgs = basicSetPosition(newPosition, msgs);
+      if (outlined != null)
+        msgs = ((InternalEObject)outlined).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OnlineElmPackage.DRAW__OUTLINED, null, msgs);
+      if (newOutlined != null)
+        msgs = ((InternalEObject)newOutlined).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OnlineElmPackage.DRAW__OUTLINED, null, msgs);
+      msgs = basicSetOutlined(newOutlined, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OnlineElmPackage.DRAW__POSITION, newPosition, newPosition));
+      eNotify(new ENotificationImpl(this, Notification.SET, OnlineElmPackage.DRAW__OUTLINED, newOutlined, newOutlined));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EList<Tranform> getTransform()
+  {
+    if (transform == null)
+    {
+      transform = new EObjectContainmentEList<Tranform>(Tranform.class, this, OnlineElmPackage.DRAW__TRANSFORM);
+    }
+    return transform;
   }
 
   /**
@@ -184,10 +218,12 @@ public class DrawImpl extends MinimalEObjectImpl.Container implements Draw
   {
     switch (featureID)
     {
-      case OnlineElmPackage.DRAW__FILLED_COLOR:
-        return basicSetFilledColor(null, msgs);
-      case OnlineElmPackage.DRAW__POSITION:
-        return basicSetPosition(null, msgs);
+      case OnlineElmPackage.DRAW__FILLED:
+        return basicSetFilled(null, msgs);
+      case OnlineElmPackage.DRAW__OUTLINED:
+        return basicSetOutlined(null, msgs);
+      case OnlineElmPackage.DRAW__TRANSFORM:
+        return ((InternalEList<?>)getTransform()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -202,10 +238,12 @@ public class DrawImpl extends MinimalEObjectImpl.Container implements Draw
   {
     switch (featureID)
     {
-      case OnlineElmPackage.DRAW__FILLED_COLOR:
-        return getFilledColor();
-      case OnlineElmPackage.DRAW__POSITION:
-        return getPosition();
+      case OnlineElmPackage.DRAW__FILLED:
+        return getFilled();
+      case OnlineElmPackage.DRAW__OUTLINED:
+        return getOutlined();
+      case OnlineElmPackage.DRAW__TRANSFORM:
+        return getTransform();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -215,16 +253,21 @@ public class DrawImpl extends MinimalEObjectImpl.Container implements Draw
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case OnlineElmPackage.DRAW__FILLED_COLOR:
-        setFilledColor((Fill)newValue);
+      case OnlineElmPackage.DRAW__FILLED:
+        setFilled((Filled)newValue);
         return;
-      case OnlineElmPackage.DRAW__POSITION:
-        setPosition((Move)newValue);
+      case OnlineElmPackage.DRAW__OUTLINED:
+        setOutlined((Outlined)newValue);
+        return;
+      case OnlineElmPackage.DRAW__TRANSFORM:
+        getTransform().clear();
+        getTransform().addAll((Collection<? extends Tranform>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -240,11 +283,14 @@ public class DrawImpl extends MinimalEObjectImpl.Container implements Draw
   {
     switch (featureID)
     {
-      case OnlineElmPackage.DRAW__FILLED_COLOR:
-        setFilledColor((Fill)null);
+      case OnlineElmPackage.DRAW__FILLED:
+        setFilled((Filled)null);
         return;
-      case OnlineElmPackage.DRAW__POSITION:
-        setPosition((Move)null);
+      case OnlineElmPackage.DRAW__OUTLINED:
+        setOutlined((Outlined)null);
+        return;
+      case OnlineElmPackage.DRAW__TRANSFORM:
+        getTransform().clear();
         return;
     }
     super.eUnset(featureID);
@@ -260,10 +306,12 @@ public class DrawImpl extends MinimalEObjectImpl.Container implements Draw
   {
     switch (featureID)
     {
-      case OnlineElmPackage.DRAW__FILLED_COLOR:
-        return filledColor != null;
-      case OnlineElmPackage.DRAW__POSITION:
-        return position != null;
+      case OnlineElmPackage.DRAW__FILLED:
+        return filled != null;
+      case OnlineElmPackage.DRAW__OUTLINED:
+        return outlined != null;
+      case OnlineElmPackage.DRAW__TRANSFORM:
+        return transform != null && !transform.isEmpty();
     }
     return super.eIsSet(featureID);
   }

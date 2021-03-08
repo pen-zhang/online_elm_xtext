@@ -13,7 +13,7 @@ package org.xtext.online_elm.onlineElm;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.online_elm.onlineElm.Circle#getDiameter <em>Diameter</em>}</li>
+ *   <li>{@link org.xtext.online_elm.onlineElm.Circle#getRadius <em>Radius</em>}</li>
  * </ul>
  *
  * @see org.xtext.online_elm.onlineElm.OnlineElmPackage#getCircle()
@@ -23,25 +23,25 @@ package org.xtext.online_elm.onlineElm;
 public interface Circle extends Stencil
 {
   /**
-   * Returns the value of the '<em><b>Diameter</b></em>' attribute.
+   * Returns the value of the '<em><b>Radius</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Diameter</em>' attribute.
-   * @see #setDiameter(float)
-   * @see org.xtext.online_elm.onlineElm.OnlineElmPackage#getCircle_Diameter()
-   * @model
+   * @return the value of the '<em>Radius</em>' containment reference.
+   * @see #setRadius(Num_value)
+   * @see org.xtext.online_elm.onlineElm.OnlineElmPackage#getCircle_Radius()
+   * @model containment="true"
    * @generated
    */
-  float getDiameter();
+  Num_value getRadius();
 
   /**
-   * Sets the value of the '{@link org.xtext.online_elm.onlineElm.Circle#getDiameter <em>Diameter</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.online_elm.onlineElm.Circle#getRadius <em>Radius</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Diameter</em>' attribute.
-   * @see #getDiameter()
+   * @param value the new value of the '<em>Radius</em>' containment reference.
+   * @see #getRadius()
    * @generated
    */
-  void setDiameter(float value);
+  void setRadius(Num_value value);
 
 } // Circle

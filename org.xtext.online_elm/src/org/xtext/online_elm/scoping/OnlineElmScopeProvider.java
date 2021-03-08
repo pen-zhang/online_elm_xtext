@@ -3,6 +3,20 @@
  */
 package org.xtext.online_elm.scoping;
 
+import java.util.List;
+
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.xtext.EcoreUtil2;
+import org.eclipse.xtext.scoping.IScope;
+import org.eclipse.xtext.scoping.Scopes;
+import org.eclipse.xtext.scoping.impl.FilteringScope;
+import org.xtext.online_elm.onlineElm.MainShape;
+import org.xtext.online_elm.onlineElm.ShapeList;
+
+import com.google.common.base.Objects;
+
+import org.xtext.online_elm.onlineElm.OnlineElmPackage;
 
 /**
  * This class contains custom scoping description.
@@ -11,5 +25,15 @@ package org.xtext.online_elm.scoping;
  * on how and when to use it.
  */
 public class OnlineElmScopeProvider extends AbstractOnlineElmScopeProvider {
-
+	@Override
+	public IScope getScope(EObject context, EReference reference) {
+		if(context instanceof MainShape && reference == OnlineElmPackage.Literals.MAIN_SHAPE__EXTERNAL) {
+			EObject shapeListRef = EcoreUtil2.getRootContainer(context);
+			List<ShapeList> candidates = EcoreUtil2.getAllContentsOfType(shapeListRef, ShapeList.class);
+			IScope existingScope = Scopes.scopeFor(candidates);
+			return new FilteringScope(existingScope, (e) -> !Objects.equal(e.getEObjectOrProxy(), context));
+		}
+		return super.getScope(context, reference);
+	}
+	
 }

@@ -91,9 +91,14 @@ public class OnlineElmAdapterFactory extends AdapterFactoryImpl
         return createShapeDefAdapter();
       }
       @Override
-      public Adapter caseShapeGroup(ShapeGroup object)
+      public Adapter caseLocal_var(Local_var object)
       {
-        return createShapeGroupAdapter();
+        return createLocal_varAdapter();
+      }
+      @Override
+      public Adapter caseShapeList(ShapeList object)
+      {
+        return createShapeListAdapter();
       }
       @Override
       public Adapter caseBasicShape(BasicShape object)
@@ -106,19 +111,49 @@ public class OnlineElmAdapterFactory extends AdapterFactoryImpl
         return createShapeAdapter();
       }
       @Override
-      public Adapter caseConditional(Conditional object)
+      public Adapter caseConditional_Shape(Conditional_Shape object)
       {
-        return createConditionalAdapter();
+        return createConditional_ShapeAdapter();
       }
       @Override
-      public Adapter caseBool_exp(Bool_exp object)
+      public Adapter caseConditional_Color(Conditional_Color object)
       {
-        return createBool_expAdapter();
+        return createConditional_ColorAdapter();
       }
       @Override
-      public Adapter caseTerminal_Bool_exp(Terminal_Bool_exp object)
+      public Adapter caseConditional_Num(Conditional_Num object)
       {
-        return createTerminal_Bool_expAdapter();
+        return createConditional_NumAdapter();
+      }
+      @Override
+      public Adapter caseConditional_Str(Conditional_Str object)
+      {
+        return createConditional_StrAdapter();
+      }
+      @Override
+      public Adapter caseBool_expr(Bool_expr object)
+      {
+        return createBool_exprAdapter();
+      }
+      @Override
+      public Adapter caseOr_expr(Or_expr object)
+      {
+        return createOr_exprAdapter();
+      }
+      @Override
+      public Adapter caseAnd_expr(And_expr object)
+      {
+        return createAnd_exprAdapter();
+      }
+      @Override
+      public Adapter caseNot_expr(Not_expr object)
+      {
+        return createNot_exprAdapter();
+      }
+      @Override
+      public Adapter caseCompare_expr(Compare_expr object)
+      {
+        return createCompare_exprAdapter();
       }
       @Override
       public Adapter caseNum_value(Num_value object)
@@ -146,6 +181,41 @@ public class OnlineElmAdapterFactory extends AdapterFactoryImpl
         return createRectAdapter();
       }
       @Override
+      public Adapter caseSquare(Square object)
+      {
+        return createSquareAdapter();
+      }
+      @Override
+      public Adapter caseRoundedRect(RoundedRect object)
+      {
+        return createRoundedRectAdapter();
+      }
+      @Override
+      public Adapter caseOval(Oval object)
+      {
+        return createOvalAdapter();
+      }
+      @Override
+      public Adapter caseNgon(Ngon object)
+      {
+        return createNgonAdapter();
+      }
+      @Override
+      public Adapter caseWedge(Wedge object)
+      {
+        return createWedgeAdapter();
+      }
+      @Override
+      public Adapter casePolygon(Polygon object)
+      {
+        return createPolygonAdapter();
+      }
+      @Override
+      public Adapter casePoint(Point object)
+      {
+        return createPointAdapter();
+      }
+      @Override
       public Adapter caseText(Text object)
       {
         return createTextAdapter();
@@ -156,14 +226,54 @@ public class OnlineElmAdapterFactory extends AdapterFactoryImpl
         return createDrawAdapter();
       }
       @Override
-      public Adapter caseFill(Fill object)
+      public Adapter caseFilled(Filled object)
       {
-        return createFillAdapter();
+        return createFilledAdapter();
+      }
+      @Override
+      public Adapter caseOutlined(Outlined object)
+      {
+        return createOutlinedAdapter();
+      }
+      @Override
+      public Adapter caseTranform(Tranform object)
+      {
+        return createTranformAdapter();
       }
       @Override
       public Adapter caseMove(Move object)
       {
         return createMoveAdapter();
+      }
+      @Override
+      public Adapter caseRotate(Rotate object)
+      {
+        return createRotateAdapter();
+      }
+      @Override
+      public Adapter caseScale(Scale object)
+      {
+        return createScaleAdapter();
+      }
+      @Override
+      public Adapter caseScaleX(ScaleX object)
+      {
+        return createScaleXAdapter();
+      }
+      @Override
+      public Adapter caseScaleY(ScaleY object)
+      {
+        return createScaleYAdapter();
+      }
+      @Override
+      public Adapter caseOperation(Operation object)
+      {
+        return createOperationAdapter();
+      }
+      @Override
+      public Adapter caseFloatLiteral(FloatLiteral object)
+      {
+        return createFloatLiteralAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -233,16 +343,31 @@ public class OnlineElmAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.online_elm.onlineElm.ShapeGroup <em>Shape Group</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.online_elm.onlineElm.Local_var <em>Local var</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.online_elm.onlineElm.ShapeGroup
+   * @see org.xtext.online_elm.onlineElm.Local_var
    * @generated
    */
-  public Adapter createShapeGroupAdapter()
+  public Adapter createLocal_varAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.online_elm.onlineElm.ShapeList <em>Shape List</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.online_elm.onlineElm.ShapeList
+   * @generated
+   */
+  public Adapter createShapeListAdapter()
   {
     return null;
   }
@@ -278,46 +403,136 @@ public class OnlineElmAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.online_elm.onlineElm.Conditional <em>Conditional</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.online_elm.onlineElm.Conditional_Shape <em>Conditional Shape</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.online_elm.onlineElm.Conditional
+   * @see org.xtext.online_elm.onlineElm.Conditional_Shape
    * @generated
    */
-  public Adapter createConditionalAdapter()
+  public Adapter createConditional_ShapeAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.online_elm.onlineElm.Bool_exp <em>Bool exp</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.online_elm.onlineElm.Conditional_Color <em>Conditional Color</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.online_elm.onlineElm.Bool_exp
+   * @see org.xtext.online_elm.onlineElm.Conditional_Color
    * @generated
    */
-  public Adapter createBool_expAdapter()
+  public Adapter createConditional_ColorAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.online_elm.onlineElm.Terminal_Bool_exp <em>Terminal Bool exp</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.online_elm.onlineElm.Conditional_Num <em>Conditional Num</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.online_elm.onlineElm.Terminal_Bool_exp
+   * @see org.xtext.online_elm.onlineElm.Conditional_Num
    * @generated
    */
-  public Adapter createTerminal_Bool_expAdapter()
+  public Adapter createConditional_NumAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.online_elm.onlineElm.Conditional_Str <em>Conditional Str</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.online_elm.onlineElm.Conditional_Str
+   * @generated
+   */
+  public Adapter createConditional_StrAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.online_elm.onlineElm.Bool_expr <em>Bool expr</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.online_elm.onlineElm.Bool_expr
+   * @generated
+   */
+  public Adapter createBool_exprAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.online_elm.onlineElm.Or_expr <em>Or expr</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.online_elm.onlineElm.Or_expr
+   * @generated
+   */
+  public Adapter createOr_exprAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.online_elm.onlineElm.And_expr <em>And expr</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.online_elm.onlineElm.And_expr
+   * @generated
+   */
+  public Adapter createAnd_exprAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.online_elm.onlineElm.Not_expr <em>Not expr</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.online_elm.onlineElm.Not_expr
+   * @generated
+   */
+  public Adapter createNot_exprAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.online_elm.onlineElm.Compare_expr <em>Compare expr</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.online_elm.onlineElm.Compare_expr
+   * @generated
+   */
+  public Adapter createCompare_exprAdapter()
   {
     return null;
   }
@@ -398,6 +613,111 @@ public class OnlineElmAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.xtext.online_elm.onlineElm.Square <em>Square</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.online_elm.onlineElm.Square
+   * @generated
+   */
+  public Adapter createSquareAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.online_elm.onlineElm.RoundedRect <em>Rounded Rect</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.online_elm.onlineElm.RoundedRect
+   * @generated
+   */
+  public Adapter createRoundedRectAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.online_elm.onlineElm.Oval <em>Oval</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.online_elm.onlineElm.Oval
+   * @generated
+   */
+  public Adapter createOvalAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.online_elm.onlineElm.Ngon <em>Ngon</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.online_elm.onlineElm.Ngon
+   * @generated
+   */
+  public Adapter createNgonAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.online_elm.onlineElm.Wedge <em>Wedge</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.online_elm.onlineElm.Wedge
+   * @generated
+   */
+  public Adapter createWedgeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.online_elm.onlineElm.Polygon <em>Polygon</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.online_elm.onlineElm.Polygon
+   * @generated
+   */
+  public Adapter createPolygonAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.online_elm.onlineElm.Point <em>Point</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.online_elm.onlineElm.Point
+   * @generated
+   */
+  public Adapter createPointAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.xtext.online_elm.onlineElm.Text <em>Text</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -428,16 +748,46 @@ public class OnlineElmAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.online_elm.onlineElm.Fill <em>Fill</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.online_elm.onlineElm.Filled <em>Filled</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.online_elm.onlineElm.Fill
+   * @see org.xtext.online_elm.onlineElm.Filled
    * @generated
    */
-  public Adapter createFillAdapter()
+  public Adapter createFilledAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.online_elm.onlineElm.Outlined <em>Outlined</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.online_elm.onlineElm.Outlined
+   * @generated
+   */
+  public Adapter createOutlinedAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.online_elm.onlineElm.Tranform <em>Tranform</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.online_elm.onlineElm.Tranform
+   * @generated
+   */
+  public Adapter createTranformAdapter()
   {
     return null;
   }
@@ -453,6 +803,96 @@ public class OnlineElmAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createMoveAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.online_elm.onlineElm.Rotate <em>Rotate</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.online_elm.onlineElm.Rotate
+   * @generated
+   */
+  public Adapter createRotateAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.online_elm.onlineElm.Scale <em>Scale</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.online_elm.onlineElm.Scale
+   * @generated
+   */
+  public Adapter createScaleAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.online_elm.onlineElm.ScaleX <em>Scale X</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.online_elm.onlineElm.ScaleX
+   * @generated
+   */
+  public Adapter createScaleXAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.online_elm.onlineElm.ScaleY <em>Scale Y</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.online_elm.onlineElm.ScaleY
+   * @generated
+   */
+  public Adapter createScaleYAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.online_elm.onlineElm.Operation <em>Operation</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.online_elm.onlineElm.Operation
+   * @generated
+   */
+  public Adapter createOperationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.online_elm.onlineElm.FloatLiteral <em>Float Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.online_elm.onlineElm.FloatLiteral
+   * @generated
+   */
+  public Adapter createFloatLiteralAdapter()
   {
     return null;
   }
